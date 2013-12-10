@@ -8,6 +8,7 @@ import '../splitter/dockable_splitter.dart';
 @CustomTag('dockable-container')
 class DockableContainer extends PolymerElement {
   bool get isRoot  => _manager != null;
+  //TODO: can we improve this and avoid circular dependency?
   DockableManager _manager;
   setRoot(DockableManager arg_manager) {
     if(arg_manager != null) {
@@ -34,7 +35,6 @@ class DockableContainer extends PolymerElement {
   List<DockableSplitter> _splitters = new List<DockableSplitter>(); 
   
   DockableContainer.created() : super.created() {
-    print("DEBUG: Dockable container created!");
   }
   
   /*
@@ -61,51 +61,31 @@ class DockableContainer extends PolymerElement {
         
         _direction = DOCKABLE_DIRECTION_HORIZONTAL;
         _outdiv.style.flexFlow = "row";
-        
-        
         if(_nodes.length == 0) {
           _outdiv.children.insert(0, newPanel);
+          _nodes.insert(0, newPanel);
         } else if(index == 0) {
           DockableSplitter splitter = new Element.tag('dockable-splitter');
-          _splitters.add(splitter);
           //TODO: remove stream subscription
-          splitter.onSlide.listen((DockableSplitterSlideEvent e) {
-            print('got event ${newPanel.offsetWidth} ${e.delta}');
-            num weight = (e.clientPos - newPanel.offsetLeft)/_outdiv.offsetWidth;
-            if(weight <= 0.0){
-              weight = 0.001;
-            } else if (weight >= 1.0) {
-              weight = 1.0;
-            }
-            print(weight);
-            newPanel.weight = weight;
-            performLayout();
-          });
+          splitter.onSlide.listen(_slideWeights);
           
           _outdiv.children.insert(0, newPanel);
           _outdiv.children.insert(1, splitter);
+          _nodes.insert(0, newPanel);
+          _splitters.insert(index, splitter);
         } else {
           DockableSplitter splitter = new Element.tag('dockable-splitter');
-          _splitters.add(splitter);
           //TODO: remove stream subscription
-          splitter.onSlide.listen((DockableSplitterSlideEvent e) {
-            print('got event ${newPanel.offsetWidth} ${e.delta}');
-            num weight = (e.clientPos - newPanel.offsetLeft)/_outdiv.offsetWidth;
-            if(weight <= 0.0){
-              weight = 0.01;
-            } else if (weight >= 1.0) {
-              weight = 1.0;
-            }
-            print(weight);
-            newPanel.weight = weight;
-            performLayout();
-          });
+          splitter.onSlide.listen(_slideWeights);
           
           _outdiv.children.insert(index, newPanel);
           _outdiv.children.insert(index + 1, splitter);
+          _nodes.insert(index, newPanel);
+          _splitters.insert(index, splitter);
         }
         
-        _nodes.add(newPanel);
+        
+        _newWeights(newPanel);
         newPanel._parentContainer = this;
         
         this.performLayout();
@@ -243,11 +223,7 @@ class DockableContainer extends PolymerElement {
         if(this.direction == DOCKABLE_DIRECTION_HORIZONTAL) {
           node.style.width = "";
           node.style.height = "${this._outdiv.offsetHeight}px";
-          if(node.weight > 0.0 && node.weight <= 1.0) {
-            node.style.flex = "${node.weight}";
-          } else {
-            node.style.flex = "${_fare_dim}";
-          }
+          node.style.flex = "${node.weight}";
         } else if(this.direction == DOCKABLE_DIRECTION_VERTICAL) {
           //TODO: implement weights
           node.style.width = "${this._outdiv.offsetWidth}px";
@@ -261,60 +237,6 @@ class DockableContainer extends PolymerElement {
       }
     }
   }
-  
-  /*performLayout() {
-    print(ContainerName + " " + this.parent.toString());
-    if(isRoot == true && this.parent != null) {
-      print('performing layout for root');
-      //We are the root node. claim 100% space
-      this.style.width = "${this.parent.offsetWidth}px";
-      this.style.height = "${this.parent.offsetHeight}px";
-    } else if(this.parent != null) {
-      if(this._parentContainer.direction == DOCKABLE_DIRECTION_HORIZONTAL) {
-        this.style.height = "${this.parent.offsetHeight}px";
-        this._outdiv.style.height = "100%";
-      } else if(this._parentContainer.direction == DOCKABLE_DIRECTION_VERTICAL) {
-        this.style.width = "${this.parent.offsetWidth}px";
-        this._outdiv.style.width = "100%";
-      }
-    }
-    if(this.parent != null) {
-      num demanded_weight = _demandWeight();
-      
-      //num fare_weight = (1 - demanded_weight) / fare_children;
-      for(DockableContainer children in _nodes) {
-        if(_direction == DOCKABLE_DIRECTION_HORIZONTAL) {
-          if(children.weight > 0.0) {
-            children.style.width = "${this.parent.offsetWidth * children.weight}px";
-            children.style.flex = "";
-          } else {
-            children.style.width = "";
-            children.style.flex = "1";
-          }
-          children.style.height = "${this.parent.offsetHeight}px";
-        } else if(_direction == DOCKABLE_DIRECTION_VERTICAL) {
-          children.style.width = "${this.parent.offsetWidth}px";
-          if(children.weight > 0.0) {
-            children.style.height = "${this.parent.offsetHeight * children.weight}px";
-            children.style.flex = "";
-          } else {
-            children.style.height = "";
-            children.style.flex = "1";
-          }
-        } else if(_direction == DOCKABLE_DIRECTION_FILL) {
-          //TODO: create tabs, etc to hold multiple children in the contianer
-          //this.style.width = "${this.parent.offsetWidth}px";
-          //this.style.height = "${this.parent.offsetHeight}px";
-        } else {
-          print('Dockable->Container->PerformLayout: Unsupported direction');
-          assert(false);
-        }
-        children.performLayout();
-      }
-    } else {
-      //TODO: doesn't have a parent. what are we supposed to do?
-    }
-  }*/
   
   void enteredView() {
     performLayout();
@@ -367,30 +289,64 @@ class DockableContainer extends PolymerElement {
     }
   }
   
-  //Calculate demanded weight
-  _calculateWeight() {
-    num demanded_weight = 0;
-    int fare_children = 0;
-    for(DockableContainer child in _nodes) {
-      if(child.weight > 0.0 && child.weight <= 1.0) {
-        if(demanded_weight + child.weight > 1.0) {
-          child.weight = 0;
-          ++fare_children;
-        } else {
-          demanded_weight += child.weight;
-        }
-      } else {
-        child.weight = 0.0;
-        ++fare_children;
-      }
-      print('${child.ContainerName} weighs ${child.weight}');
+  _newWeights(DockableContainer _newCont) {
+    //fix weights
+    if(_newCont.weight == 0) {
+      //For a new container, if the weight is 0, give it a fair weight
+      _newCont.weight = 0.5;
     }
-    _fare_dim = 0;
-    if(fare_children != 0) {
-      _fare_dim = (1 - demanded_weight) / fare_children;
+    
+    _calculateWeight();
+  }
+  
+  _slideWeights(DockableSplitterSlideEvent e) {
+    int splitterInd = _splitters.indexOf(e.target);
+    if(splitterInd >= 0 && splitterInd < _nodes.length - 1) {
+      DockableContainer tCont = _nodes[splitterInd];
+      DockableContainer tContNext = _nodes[splitterInd + 1];
+      num myNewWeight = 0;
+      num nextsNewWeight = 0;
+      if(direction == DOCKABLE_DIRECTION_HORIZONTAL) {
+        num deltaPer = (e.offsetPos - (tCont.offsetLeft + tCont.offsetWidth) + _outdiv.offsetLeft)/_outdiv.offsetWidth;
+        print('${tCont.ContainerName} ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth} ${_outdiv.offsetWidth}');
+        myNewWeight = tCont.weight + deltaPer;
+        nextsNewWeight = tContNext.weight - deltaPer;
+      } else if(direction == DOCKABLE_DIRECTION_VERTICAL) {
+        //TODO: replicate what is done for horizontal
+      }
+      
+      /*if(weight <= 0.0){
+        weight = 0.001;
+      } else if (weight >= 1.0) {
+        weight = 1.0;
+      }*/
+      tCont.weight = myNewWeight;
+      tContNext.weight = nextsNewWeight;
+      _calculateWeight();
+      performLayout();
     }
   }
-  num _fare_dim = 0;
+  
+  //Calculate demanded weight
+  _calculateWeight() {
+    num total_weight = 0;
+    int fare_children = 0;
+    //calculate total weights
+    print('before normalizing');
+    for(DockableContainer child in _nodes) {
+      total_weight += child.weight;
+      print('${child.ContainerName} ${child.weight}');
+    }
+    
+    if(total_weight != 1.0) {
+      print('normalizing');
+      //if total weights don't add up to 1, normalize them
+      for(DockableContainer child in _nodes) {
+        child.weight = child.weight/total_weight;
+        print('${child.ContainerName} ${child.weight}');
+      }
+    }
+  }
   
   /******************************Content********************************/
   Element _content;

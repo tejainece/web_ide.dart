@@ -17,14 +17,14 @@ main() {
     dm.id = "dm";
     mc.children.add(dm);
     
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < 2; i++) {
       DockableContainer nDC = new Element.tag('dockable-container');
-      nDC.ContainerName = "${i}";
+      nDC.ContainerName = "${i + 1}";
       if(dm.dockToLeft(nDC)) {
-        print("Wow docked left! ${i}");
+        print("Wow docked left! ${i + 1}");
         conatiners.add(nDC);
       } else {
-        print("Couldn't dock! ${i}");
+        print("Couldn't dock! ${i + 1}");
       }
     }
   });

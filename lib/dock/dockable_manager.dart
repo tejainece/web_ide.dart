@@ -16,6 +16,7 @@ class DockableManager extends PolymerElement {
       assert(false);
     } else {
       _rootContainer.ContainerName = "0";//TODO: remove
+      _rootContainer.style.backgroundColor = "green";//TODO: remove
       _rootContainer.setRoot(this);
     }
   }
@@ -24,8 +25,10 @@ class DockableManager extends PolymerElement {
     bool accepted = true;
     if(_newPanel != null) {
       if(_rootContainer.direction == DockableContainer.DOCKABLE_DIRECTION_HORIZONTAL) {
+        print('hori');
         _rootContainer.dockToLeft(_newPanel);
       } else {
+        print('opps');
         DockableContainer newCont = new Element.tag('dockable-container');
         DockableContainer oldRoot = replaceRoot(newCont);
         newCont.dockToLeft(oldRoot);
@@ -34,7 +37,9 @@ class DockableManager extends PolymerElement {
     } else {
       accepted = false;
     }
-    _rootContainer.performLayout();
+    if(accepted == true) {
+      _rootContainer.performLayout();
+    }
     return accepted;
   }
   
