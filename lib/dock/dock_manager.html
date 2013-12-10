@@ -1,0 +1,27 @@
+<polymer-element name="dockable-manager">
+  <template>
+    <style scope>
+      @host {
+        dockable-manager {
+          width: 100%;
+          height: 100%;
+          background-color: blue;
+          display: block;
+          box-sizing:border-box;
+        }
+      }
+      .dockable-manager-outdiv {
+        width: 100%;
+        height: 100%;
+        background-color: green;
+        box-sizing:border-box;
+      }
+    </style>
+    <div class="dockable-manager-outdiv">
+      <dockable-container></dockable-container>
+    </div>
+  </template>
+  <link rel="import" href="../container/dockable_container.html">
+  <script type="application/dart" src="dockable_manager.dart"></script>
+</polymer-element>
+

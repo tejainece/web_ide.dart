@@ -1,0 +1,18 @@
+body {
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+#main-container {
+  width: 1000px;
+  height: 500px;
+  /*position: absolute;*/
+  border: 1px solid #ccc;
+  background-color: gray;
+}
+
+

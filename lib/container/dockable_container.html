@@ -1,0 +1,30 @@
+<polymer-element name="dockable-container">
+  <template>
+    <style scoped>
+      @host {
+        dockable-container {
+          background-color: maroon;
+          display: flex;
+          box-sizing:border-box;
+        }
+      }
+      
+      .dockable-container-outdiv {
+        display: flex;
+        border: 1px gray solid;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing:border-box;
+      }
+    </style>
+    <div class="dockable-container-outdiv">
+      <!--<content>
+        <span>dfgdfg</span>
+      </content>-->
+    </div>
+  </template>
+  <link rel="import" href="../splitter/dockable_splitter.html">
+  <script type="application/dart" src="dockable_container.dart"></script>
+</polymer-element>
+
