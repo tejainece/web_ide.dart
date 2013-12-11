@@ -7,7 +7,6 @@ import 'dart:html';
 class DockableManager extends PolymerElement {
   DockableContainer _rootContainer;
   DivElement _outdiv;
-  //DockableContainer get root => _rootContainer;
 
   DockableManager.created() : super.created() {
     _rootContainer = this.shadowRoot.querySelector("dockable-container");
@@ -17,61 +16,24 @@ class DockableManager extends PolymerElement {
     } else {
       _rootContainer.ContainerName = "0";//TODO: remove
       _rootContainer.style.backgroundColor = "green";//TODO: remove
-      _rootContainer.setRoot(this);
+      //_rootContainer.setRoot(this);
     }
   }
   
   bool dockToLeft(DockableContainer _newPanel) {
-    bool accepted = true;
-    if(_newPanel != null) {
-      if(_rootContainer.direction == DockableContainer.DOCKABLE_DIRECTION_HORIZONTAL) {
-        print('hori');
-        _rootContainer.dockToLeft(_newPanel);
-      } else {
-        print('opps');
-        DockableContainer newCont = new Element.tag('dockable-container');
-        DockableContainer oldRoot = replaceRoot(newCont);
-        newCont.dockToLeft(oldRoot);
-        newCont.dockToLeft(_newPanel);
-      }
-    } else {
-      accepted = false;
-    }
-    if(accepted == true) {
-      _rootContainer.performLayout();
-    }
-    return accepted;
+    return _rootContainer.dockToLeft(_newPanel);
+  }
+  
+  bool dockToRight(DockableContainer _newPanel) {
+    return _rootContainer.dockToRight(_newPanel);
   }
   
   bool dockToTop(DockableContainer _newPanel) {
-    bool accepted = true;
-    if(_newPanel != null) {
-      if(_rootContainer.direction == DockableContainer.DOCKABLE_DIRECTION_VERTICAL) {
-        _rootContainer.dockToTop(_newPanel);
-      } else {
-        DockableContainer newCont = new Element.tag('dockable-container');
-        DockableContainer oldRoot = replaceRoot(newCont);
-        newCont.dockToTop(oldRoot);
-        newCont.dockToTop(_newPanel);
-      }
-    } else {
-      accepted = false;
-    }
-    _rootContainer.performLayout();
-    return accepted;
+    return _rootContainer.dockToTop(_newPanel);
   }
   
-  DockableContainer replaceRoot(DockableContainer _newPanel) {
-    DockableContainer ret = _rootContainer;
-    _rootContainer.removeRoot();
-    _rootContainer.remove();
-    
-    _outdiv.children.add(_newPanel);
-    _rootContainer = _newPanel;
-    _rootContainer.setRoot(this);
-    
-    _rootContainer.performLayout();
-    return ret;
+  bool dockToBottom(DockableContainer _newPanel) {
+    return _rootContainer.dockToBottom(_newPanel);
   }
   
   void enteredView() {
