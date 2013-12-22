@@ -1,2 +1,4 @@
-packages/
-.buildlog
+.DS_Store
+packages
+.project
+pubspec.lock
