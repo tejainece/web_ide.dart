@@ -3,8 +3,8 @@ library main;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-import '../../lib/dock/dockable_manager.dart';
-import '../../lib/container/dockable_container.dart';
+import 'package:dockable/docker/manager/dockable_manager.dart';
+import 'package:dockable/docker/container/dockable_container.dart';
 
 num count = 0; //TODO: remove
 

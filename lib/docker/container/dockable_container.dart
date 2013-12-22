@@ -8,6 +8,7 @@ import '../splitter/dockable_splitter.dart';
 //TODO: implement animation
 //TODO: test setting custom widths
 //TODO: test insert right and bottom
+//TODO: fix: when the splitter is slided to max or min values, it creates a jerk to next container.
 //TODO: sucks, improve weight calulation performance, splitter sliding performance, performLayout performance
 
 ///Container implementation
@@ -25,13 +26,14 @@ class DockableContainer extends PolymerElement {
   
   /******************************Content********************************/
   Element _content;
-  bool dock(Element arg_content) {
-    if(arg_content != null) {
-      _content = arg_content;
+  bool dock(DockableContainer newContainer) {
+    bool accepted = true;
+    if(newContainer != null) {
+      
     } else {
-      print("Dockable->Container->setContent: Cannot set null content");
-      assert(false);
+      accepted = false;
     }
+    return accepted;
   }
   
   /*

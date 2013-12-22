@@ -1,0 +1,34 @@
+<polymer-element name="page-manager">
+  <template>
+    <style>
+      page-manager {
+          background : gray;
+          
+          width: 100%;
+          height: 100%;
+
+          display: block;
+          box-sizing:border-box;
+      }
+      page-manager.vertical {
+          width: 100%;
+          height: 100%;
+          background-color: blue;
+          display: block;
+          box-sizing:border-box;
+      }
+      /*.holder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-flow: row;
+        box-sizing:border-box;
+      }*/
+    </style>
+    
+    <content></content>
+    
+  </template>
+  <link rel="import" href="page_item.html">
+  <script type="application/dart" src="page_manager.dart"></script>
+</polymer-element>

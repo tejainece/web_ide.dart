@@ -1,7 +1,8 @@
 name: Dockable
 description: A sample Polymer application
 dependencies:
-    polymer: any
+  polymer: any
+  polymer_ui_elements: any
 transformers:
 - polymer:
     entry_points: web/dockable.html
