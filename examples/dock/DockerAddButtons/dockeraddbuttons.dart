@@ -3,17 +3,16 @@ library main;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-import 'package:dockable/docker/manager/dockable_manager.dart';
-import 'package:dockable/docker/container/dockable_container.dart';
+import 'package:dockable/docker/dock_manager.dart';
 
 num count = 0; //TODO: remove
 
-DockableManager dm;
+DockManager dm;
 List<DockableContainer> conatiners = new List<DockableContainer>();
 main() {
   DivElement mc = querySelector('#main-container');
   initPolymer().run(() {
-    dm = new Element.tag('dockable-manager');
+    dm = new Element.tag('dock-manager');
     dm.id = "dm";
     mc.children.add(dm);
   });
@@ -23,7 +22,6 @@ main() {
       
       DockableContainer nDC = new Element.tag('dockable-container');
       //nDC.style.backgroundColor = "green";
-      nDC.ContainerName = "${count++}";
       if(dm.dockToLeft(nDC)) {
         print("Wow docked left!");
         conatiners.add(nDC);
@@ -39,7 +37,6 @@ main() {
       
       DockableContainer nDC = new Element.tag('dockable-container');
       //nDC.style.backgroundColor = "green";
-      nDC.ContainerName = "${count++}";
       if(dm.dockToTop(nDC)) {
         print("Wow docked top!");
         conatiners.add(nDC);

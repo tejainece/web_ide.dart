@@ -3,9 +3,27 @@ library selectable;
 import 'dart:async';
 
 part 'selectable_item.dart';
+part 'multi_selectable.dart';
 
-//TODO: return error code or excetion?
-class Selectable {
+abstract class Selectable {
+  List<SelectableItem> get items;
+  bool addItem(SelectableItem arg_item);
+  bool removeItem(SelectableItem arg_item);
+  
+  //TODO: implement
+  //bool insertAfter(SelectableItem arg_item);
+  //bool insertBefore(SelectableItem arg_item);
+  
+  //num indexOf(SelectableItem arg_item);
+  
+  SelectableItem get selectedItem;
+  bool isSelected(SelectableItem arg_item);
+  
+  bool select(SelectableItem arg_item);
+  bool deselect(SelectableItem arg_item);
+}
+
+class SelectionManager implements Selectable {
   List<SelectableItem> _items = new List<SelectableItem>();
   List<SelectableItem> get items {
     //TODO: can we somehow return unmutable or const list?
@@ -36,81 +54,45 @@ class Selectable {
     return _items.indexOf(arg_item);
   }
   
-  //TODO: implement
-  /*void insertAfter(SelectableItem arg_item) {
-    
-  }
+  SelectableItem _selected;
   
-  void insertBefore(SelectableItem arg_item) {
-    
-  }*/
-  
-  List<SelectableItem> _selected = new List<SelectableItem>();
-  
-  List<SelectableItem> get selected {
-    //TODO: can we somehow return unmutable or const list?
-    return _selected;
-  }
+  SelectableItem get selectedItem => _selected;
   
   bool isSelected(SelectableItem arg_item) {
-    return _selected.contains(arg_item);
+    return _selected == arg_item;
   }
   
-  void select(SelectableItem arg_item) {
-    if(_items.contains(arg_item) && !_selected.contains(arg_item)) {
-      if(_isMultiSelect == false) {
-        switch(_selected.length) {
-          case 1:
-            _selected.removeLast().deselect();
-            break;
-          case 0:
-            break;
-          default:
-            print("Selectable has more than one selection in single selection mode");
-            assert(false);
-        }
-        arg_item.select();
-        _selected.add(arg_item);
-      } else {
-        arg_item.select();
-        _selected.add(arg_item);
+  bool select(SelectableItem arg_item) {
+    bool ret = false;
+    if(_items.contains(arg_item) && _selected != arg_item) {
+      if(_selected != null) {
+        _selected._deselect();
+        _selected = null;
       }
+      arg_item._select();
+      _selected = arg_item;
+      ret = true;
     }
+    return ret;
   }
   
-  void deselect(SelectableItem arg_item) {
-    if(_items.contains(arg_item) && _selected.contains(arg_item)) {
-      arg_item.deselect();
-      _selected.remove(arg_item);
+  bool deselect(SelectableItem arg_item) {
+    bool ret = false;
+    if(_items.contains(arg_item) && _selected == arg_item) {
+      arg_item._deselect();
+      _selected = null;
+      ret = true;
     }
+    return ret;
   }
   
-  void toggle(SelectableItem arg_item) {
+  /*void toggle(SelectableItem arg_item) {
     if(_items.contains(arg_item)) {
-      if(_selected.contains(arg_item)) {
+      if(_selected == arg_item) {
         deselect(arg_item);
       } else {
         select(arg_item);
       }
     }
-  }
-  
-  bool _isMultiSelect = false;
-  set multiSelect(bool arg_multi) {
-    if(_isMultiSelect != arg_multi) {
-      if(_isMultiSelect == false && _selected.length > 1) {
-        //deselect if there are multiple selections and keep the
-        //first selected item
-        SelectableItem firstSel = _selected.removeAt(0);
-        for(SelectableItem selitem in _selected) {
-          selitem.deselect();
-        }
-        _selected.clear();
-        _selected.add(firstSel);
-      }
-      _isMultiSelect = arg_multi;
-    }
-  } 
-  
- bool get multiSelect => _isMultiSelect;
+  }*/
 }

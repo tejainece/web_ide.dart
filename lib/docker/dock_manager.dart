@@ -1,20 +1,26 @@
-library dockable.manager;
+library dockable.dock;
 import 'package:polymer/polymer.dart';
-import '../container/dockable_container.dart';
 import 'dart:html';
+import 'dart:async';
+import '../splitter/dockable_splitter.dart';
+import '../tabs/tab_manager.dart';
+import '../modal/modal.dart';
 
-@CustomTag('dockable-manager')
-class DockableManager extends PolymerElement {
+part 'dockable_container.dart';
+part 'dock_container.dart';
+part 'dockable_panel.dart';
+
+@CustomTag('dock-manager')
+class DockManager extends PolymerElement {
   DockableContainer _rootContainer;
   DivElement _outdiv;
 
-  DockableManager.created() : super.created() {
+  DockManager.created() : super.created() {
     _rootContainer = this.shadowRoot.querySelector("dockable-container");
     if(_rootContainer == null) {
       print("Dockable: No root contianer found!");
       assert(false);
     } else {
-      _rootContainer.ContainerName = "0";//TODO: remove
       _rootContainer.style.backgroundColor = "green";//TODO: remove
       //_rootContainer.setRoot(this);
     }

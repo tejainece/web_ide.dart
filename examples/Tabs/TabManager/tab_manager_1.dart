@@ -16,15 +16,15 @@ main() {
     
     for(int i = 0; i < 3; i++) {
       TabItem ti = new TabItem(null, null);
-      //ti.content = new DivElement();
-      tm.addTab(ti);
+      ti.content = new DivElement();
+      tm.addItem(ti);
       tabs.add(ti);
     }
   });
   
   querySelector("#add_page").onClick.listen((e) {
     TabItem ti = new TabItem(null, null);
-    tm.addTab(ti);
+    tm.addItem(ti);
     tabs.add(ti);
   });
   

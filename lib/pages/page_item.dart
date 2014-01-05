@@ -1,12 +1,19 @@
 part of dockable.pages;
 
-//TODO: implement events - selected, deselcted, etc
-
 @CustomTag('page-item')
-class PageItem extends PolymerElement with SelectableItem {
+class PageItem extends PolymerElement with SelectableItemImpl {
   PageManager _parent = null;
   PageManager get parent => _parent;
 
+  DivElement __holder;
+  DivElement get _holder {
+    if(__holder == null) {
+      __holder = shadowRoot.querySelector('#holder');
+      assert(__holder != null);
+    }
+    return __holder;
+  }
+  
   PageItem.created() : super.created() {
     
   }
@@ -17,23 +24,24 @@ class PageItem extends PolymerElement with SelectableItem {
   
   void setContent(Element arg_content) {
     if(arg_content != null) {
-      shadowRoot.children.clear();
-      shadowRoot.children.add(arg_content);
+      _holder.children.clear();
+      _holder.children.add(arg_content);
     }
   }
   
   bool select() {
-    bool ret = super.select();;
-    if(ret) {
-      this.classes.add('active');
-    }
-    return ret;
+    return _parent.select(this);
   }
   
   bool deselect() {
-    bool ret = super.deselect();
-    if(ret) {
-      this.classes.remove('active');
-    }
+    return false;
+  }
+  
+  void selected() {
+    this.classes.add('active');
+  }
+  
+  void deselected() {
+    this.classes.remove('active');
   }
 }

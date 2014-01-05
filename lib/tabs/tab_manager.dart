@@ -1,6 +1,7 @@
 library dockable.tabs;
 import 'package:polymer/polymer.dart';
 import 'dart:html';
+import 'dart:async';
 
 import '../selectable/selectable.dart';
 import '../pages/page_manager.dart';
@@ -10,61 +11,57 @@ part 'tab_title.dart';
 part 'tab_item.dart';
 
 @CustomTag('tab-manager')
-class TabManager extends PolymerElement {
+class TabManager extends PolymerElement with SelectionManager {
 
-  List<TabItem> _tabItems = new List<TabItem>();
-  TabTitle _tabs;
-  PageManager _pages;
+  //List<TabItem> _tabItems = new List<TabItem>();
+  TabTitle __tabs;
+  TabTitle get _tabs {
+    if(__tabs == null) {
+      __tabs = this.shadowRoot.querySelector("#header");
+      assert(__tabs != null);
+    }
+    return __tabs;
+  }
+  PageManager __pages;
+  PageManager get _pages {
+    if(__pages == null) {
+      __pages = this.shadowRoot.querySelector("#pages");
+      assert(__pages != null);
+    }
+    return __pages;
+  }
   
   TabManager.created() : super.created() {
     
   }
   
   void enteredView() {
-    _tabs = this.shadowRoot.querySelector("#header");
-    if(_tabs == null) {
-      print("TabManager: tabs cannot be null!");
-      assert(false);
-    }
-    
-    _pages = this.shadowRoot.querySelector("#pages");
-    if(_pages == null) {
-      print("TabManager: pages cannot be null!");
-      assert(false);
-    }
     //TODO: add pages already present in dom
   }
   
-  bool addTab(TabItem arg_tab) {
-    //TODO: make sure that we don't add same content twice
-    bool ret = false;
-    if(!_tabItems.contains(arg_tab)) {
-      _tabItems.add(arg_tab);
-      _tabs.addTab(arg_tab._tab);
-      _pages.addPage(arg_tab._page);
+  bool addItem(TabItem arg_tab) {
+    bool ret = super.addItem(arg_tab);
+    if(ret) {
+      _tabs.addItem(arg_tab._tab);
+      _pages.addItem(arg_tab._page);
       arg_tab._manager = this;
-      ret = true;
     }
     return ret;
   }
   
-  bool removeTab(TabItem arg_tab) {
-    bool ret = false;
-    if(_tabItems.contains(arg_tab)) {
-      _tabItems.remove(arg_tab);
-      _tabs.removeTab(arg_tab._tab);
-      _pages.removePage(arg_tab._page);
+  bool removeItem(TabItem arg_tab) {
+    bool ret = super.removeItem(arg_tab);
+    if(ret) {
+      _tabs.removeItem(arg_tab._tab);
+      _pages.removeItem(arg_tab._page);
       arg_tab._manager = null;
-      ret = true;
     }
     return ret;
   }
   
-  void getSelectedTab() {
-    //TODO: implement
+  bool deselect(TabItem arg_tab) {
+    return false;
   }
   
-  void selectedIndex() {
-    //TODO: implement
-  }
+  TabItem get selectedItem => super.selectedItem;
 }

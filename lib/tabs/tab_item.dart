@@ -1,7 +1,6 @@
 part of dockable.tabs;
 
-//TODO: implement selectable_item interface - select, deselect, toggle, onSelect, onDeselect 
-class TabItem {
+class TabItem extends SelectableItemImpl {
   
   TabTitleItem _tab;
   PageItem _page;
@@ -12,10 +11,8 @@ class TabItem {
     _tab = new Element.tag('tab-title-item');
     _page = new Element.tag('page-item');
     
-    _tab.onSelect.listen((TabTitleItem tabItem) {
-      if(_manager != null) {
-        _manager._pages.select(_page);
-      }
+    _tab.onSelect.listen((tabItem) {
+      select();
     });
   }
   
@@ -50,4 +47,28 @@ class TabItem {
   }
   
   //TODO: implement 'should have close button' and 'should have minimize button'
+  
+  bool select() {
+    if(_manager != null) {
+      _manager.select(this);
+    }
+  }
+  
+  bool deselect() {
+    if(_manager != null)
+      _manager.deselect(this);
+  }
+  
+  void selected() {
+    _tab.select();
+    _page.select();
+  }
+  
+  void deselected() {
+    _tab.deselect();
+    _page.deselect();
+  }
+  
+  /*StreamController _closeEventC = new StreamController.broadcast();
+  Stream get onClose => _closeEventC.stream;*/
 }

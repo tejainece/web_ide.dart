@@ -22,9 +22,9 @@ main() {
     
     TabTitleItem tti3 = new Element.tag('tab-title-item');
     
-    tt.addTab(tti1);
-    tt.addTab(tti2);
-    tt.addTab(tti3);
+    tt.addItem(tti1);
+    tt.addItem(tti2);
+    tt.addItem(tti3);
     tti1.setTitle('1');
     tti2.setTitle('2');
     tti3.setTitle('3');

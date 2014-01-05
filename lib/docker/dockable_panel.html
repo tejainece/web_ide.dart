@@ -1,0 +1,25 @@
+<polymer-element name="dockable-panel">
+  <template>
+    <style >
+      dock-panel {
+        background-color: maroon;
+        display: block;
+        box-sizing:border-box;
+      }
+      #holder {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        box-sizing:border-box;
+      }
+      #tabs {
+      }
+    </style>
+    <div id="holder">
+      <tab-manager id="tabs"></tab-manager>
+    </div>
+  </template>
+  <link rel="import" href="../tabs/tab_manager.html">
+  <script type="application/dart" src="dock_manager.dart"></script>
+</polymer-element>
+

@@ -15,20 +15,12 @@ class DockableSplitterSlideEvent {
 
 @CustomTag('dockable-splitter')
 class DockableSplitter extends PolymerElement {
-  @published bool horizontal = false;
+  bool _vertical = false;
+  bool get vertical => _vertical;
+  set vertical(bool _v) {
+    setAttribute('vertical', _v ? 'true' : 'false');
+  }
   @published bool locked = false;
-  
-  /// The target sibling whose size will be changed when the splitter is
-  /// dragged. The other sibling is expected to auto-adjust, e.g. using flexbox.
-  HtmlElement _target;
-  /// Whether [_target] should be the next or the previous sibling of
-  /// the splitter (as determined by [direction], e.g. "left" vs. "right").
-  bool _isTargetNextSibling;
-  /// Cached size of [_target] for the period of dragging.
-  int _targetSize;
-
-  /// A regexp to get the integer part of the target's computed size.
-  static final _sizeRe = new RegExp("([0-9]+)(\.[0-9]+)?px");
 
   /// Temporary subsciptions to event streams, active only during dragging.
   StreamSubscription<MouseEvent> _trackSubscr;
@@ -37,14 +29,15 @@ class DockableSplitter extends PolymerElement {
   /// Constructor.
   DockableSplitter.created() : super.created() {
     onMouseDown.listen(trackStart);
-    horizontalChanged();
+    vertical = false;
   }
 
-  /// Triggered when [horizontal] is externally changed.
-  void horizontalChanged() {
-    //classes.toggle('horizontal', _isHorizontal);
-    if(horizontal) {
-      classes.add('horizontal');
+  /// Triggered when [vertical] is externally changed.
+  void verticalChanged() {
+    if(!vertical) {
+      classes.add('vertical');
+    } else {
+      classes.remove('vertical');
     }
   }
 
@@ -77,10 +70,10 @@ class DockableSplitter extends PolymerElement {
     // Recheck [locked], in case it's been changed externally in mid-flight.
     if (!locked) {
       DockableSplitterSlideEvent event = new DockableSplitterSlideEvent();
-      event.delta = horizontal ? e.movement.y : e.movement.x;
-      event.offsetPos = horizontal ? e.offset.y : e.offset.x;
-      event.clientPos = horizontal ? e.client.y : e.client.x;
-      event.horizontal = horizontal;
+      event.delta = vertical ? e.movement.y : e.movement.x;
+      event.offsetPos = vertical ? e.offset.y : e.offset.x;
+      event.clientPos = vertical ? e.client.y : e.client.x;
+      event.horizontal = vertical;
       event.target = this;
       _slideEventController.add(event);
     }
@@ -103,8 +96,19 @@ class DockableSplitter extends PolymerElement {
   }
   
   void attributeChanged(String name, String oldValue, String newValue) {
+    /* code to set vertical correctly*/
+    if(name == 'vertical') {
+      if(newValue == 'false') {
+        _vertical = false;
+      } else if (newValue == 'true') {
+        _vertical = true;
+      }
+      verticalChanged();
+    }
+    
+    /* */
+    
     super.attributeChanged(name, oldValue, newValue);
-    //loadContent();
   }
   
   //events

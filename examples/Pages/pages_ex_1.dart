@@ -21,7 +21,7 @@ main() {
       PageItem pi = new Element.tag('page-item');
       pi.style.backgroundColor = colors[i];
       pi.text = "fuck you! ${i}";
-      dm.addPage(pi);
+      dm.addItem(pi);
       conatiners.add(pi);
     }
   });

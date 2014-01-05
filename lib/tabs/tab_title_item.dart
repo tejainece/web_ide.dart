@@ -1,7 +1,7 @@
 part of dockable.tabs;
 
 @CustomTag('tab-title-item')
-class TabTitleItem extends PolymerElement with SelectableItem {
+class TabTitleItem extends PolymerElement with SelectableItemImpl {
   @published String icon = "";
   @published String title = "";
   @published bool hasCloseBtn = true;
@@ -53,17 +53,18 @@ class TabTitleItem extends PolymerElement with SelectableItem {
   }
   
   bool select() {
-    bool ret = super.select();;
-    if(ret) {
-      this.classes.add('active');
-    }
-    return ret;
+    return _parent.select(this);
   }
   
   bool deselect() {
-    bool ret = super.deselect();
-    if(ret) {
-      this.classes.remove('active');
-    }
+    return false;
+  }
+  
+  void selected() {
+    this.classes.add('active');
+  }
+  
+  void deselected() {
+    this.classes.remove('active');
   }
 }
