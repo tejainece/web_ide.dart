@@ -34,7 +34,7 @@ class DockableSplitter extends PolymerElement {
 
   /// Triggered when [vertical] is externally changed.
   void verticalChanged() {
-    if(!vertical) {
+    if(_vertical) {
       classes.add('vertical');
     } else {
       classes.remove('vertical');
@@ -105,9 +105,6 @@ class DockableSplitter extends PolymerElement {
       }
       verticalChanged();
     }
-    
-    /* */
-    
     super.attributeChanged(name, oldValue, newValue);
   }
   

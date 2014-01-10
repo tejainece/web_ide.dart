@@ -29,8 +29,8 @@ class DockableContainer extends DockableContainerInterface {
     }
     
     //if _nodes.length < 2 and _direction != arg_direction, change it to arg_direction
-    if (_nodes.length < 2 || __horizontal == arg_horizontal) {
-      _horizontal = arg_horizontal;
+    if (_nodes.length < 2 || __vertical == arg_horizontal) {
+      _vertical = arg_horizontal;
       if(_nodes.length == 0) {
         _holder.children.insert(0, newContainer);
         _nodes.insert(0, newContainer);
@@ -38,7 +38,7 @@ class DockableContainer extends DockableContainerInterface {
           DockableSplitter splitter = new Element.tag('dockable-splitter');
           StreamSubscription splitterSlide = splitter.onSlide.listen(_slideWeights);
           
-          splitter.vertical = arg_horizontal ? true : false;
+          splitter.vertical = !arg_horizontal;
           
           if(after && index == _nodes.length) {
             _holder.children.add(splitter);
@@ -66,7 +66,7 @@ class DockableContainer extends DockableContainerInterface {
           for(DockContainer node in tNodes) {
             unDock(node);
           }
-          _horizontal = arg_horizontal;
+          _vertical = arg_horizontal;
           DockableContainer tC = new Element.tag('dockable-container');
           //TODO: adjust weights on all newly created DCs
           _commonDocker(tC, null, arg_horizontal, after);
@@ -141,7 +141,7 @@ class DockableContainer extends DockableContainerInterface {
     if(_oldPanel != null && _newPanel != null) {
       int index = _nodes.indexOf(_oldPanel);
       if(index != -1) {
-        if(_horizontal == true) {
+        if(_vertical == true) {
           dockToLeft(_newPanel, _oldPanel);
         } else {
           dockToTop(_newPanel, _oldPanel);
@@ -224,7 +224,7 @@ class DockableContainer extends DockableContainerInterface {
     if(this._nodes.length != 0) {
       _calculateWeight();
       for(DockContainer node in _nodes) {
-        if(this._horizontal == true) {
+        if(this._vertical == true) {
           node.style.width = "auto";
           node.style.height = "auto";
           node.style.flex = "${node._calcweight}";
@@ -272,11 +272,12 @@ class DockableContainer extends DockableContainerInterface {
       DockContainer tCont = _nodes[splitterInd];
       DockContainer tContNext = _nodes[splitterInd + 1];
       num deltaPer = 0;
-      if(_horizontal == true) {
+      if(_vertical == true) {
         deltaPer = (e.offsetPos - (tCont.offsetLeft + tCont.offsetWidth) + _holder.offsetLeft)/_holder.offsetWidth;
-        //print('${tCont.ContainerName} ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth} ${_outdiv.offsetWidth}');
+        print('hori ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth}');
       } else {
         deltaPer = (e.offsetPos - (tCont.offsetTop + tCont.offsetHeight) + _holder.offsetTop)/_holder.offsetHeight;
+        print('vert ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth}');
       }
       tCont.weight = tCont.weight + deltaPer;
       tContNext.weight = tContNext.weight - deltaPer;
@@ -301,14 +302,14 @@ class DockableContainer extends DockableContainerInterface {
     }
   }
   
-  void set _horizontal(bool arg_horizontal) {
-    if(__horizontal != arg_horizontal) {
-      if(arg_horizontal) {
+  void set _vertical(bool arg_vertical) {
+    if(__vertical != arg_vertical) {
+      if(arg_vertical) {
         _holder.classes.remove('vertical');
       } else {
         _holder.classes.add('vertical');
       }
-      __horizontal = arg_horizontal;
+      __vertical = arg_vertical;
     }
   }
 }

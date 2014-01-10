@@ -1,11 +1,7 @@
 <polymer-element name="dockable-splitter">
   <template>
-    <!-- TODO -->
-    <!-- BUG: https://code.google.com/p/dart/issues/detail?id=14382 -->
-    <!-- link rel="stylesheet" href="spark-splitter.css" -->
     <style>
       dockable-splitter {
-        /*display: flex;*/
         height: auto;
         width: 7px;
         background: #efefef url('packages/dockable/splitter/handle.png') no-repeat center;
@@ -13,7 +9,7 @@
         cursor: col-resize;
       }
 
-      .vertical {
+      dockable-splitter.vertical {
         width: auto;
         height: 7px;
         background-color: #efefef;
