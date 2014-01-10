@@ -10,6 +10,8 @@ class TabItem extends SelectableItemImpl {
   TabItem(Element arg_content, String arg_title) {
     _tab = new Element.tag('tab-title-item');
     _page = new Element.tag('page-item');
+    _tab.setTitle(arg_title);
+    _page.setContent(arg_content);
     
     _tab.onSelect.listen((tabItem) {
       select();

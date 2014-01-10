@@ -38,13 +38,4 @@ class DockablePanel extends DockContainer {
     }
     return __tabs;
   }
-  
-  DivElement __holder;
-  DivElement get _holder {
-    if(__holder == null) {
-      __holder = this.shadowRoot.querySelector(".dockable-container-outdiv");
-      assert(__holder != null);
-    }
-    return __holder;
-  }
 }

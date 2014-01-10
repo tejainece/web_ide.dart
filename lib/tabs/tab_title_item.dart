@@ -14,10 +14,6 @@ class TabTitleItem extends PolymerElement with SelectableItemImpl {
   DivElement _closeBtnDiv;
 
   TabTitleItem.created() : super.created() {
-    
-  }
-  
-  void enteredView() {
     _holderDiv = this.shadowRoot.querySelector(".holder");
     if(_holderDiv == null) {
       print("TabTitleItem: holder cannot be null!");
@@ -46,6 +42,10 @@ class TabTitleItem extends PolymerElement with SelectableItemImpl {
         _parent.select(this);
       }
     });
+  }
+  
+  void enteredView() {
+    
   }
   
   void setTitle(String arg_content) {

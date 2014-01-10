@@ -27,10 +27,10 @@ main() {
     v3.style.backgroundColor = 'green';
     DockablePanel p1 = new Element.tag('dockable-panel');
     DivElement d1 = new DivElement();
-    d1.text = "blah blah";
+    d1.text = "blah blah 1 ";
     p1.addPanel(d1, 'my first panel');
     DivElement d2 = new DivElement();
-    d2.text = "blah blah";
+    d2.text = "blah blah 2";
     p1.addPanel(d2, 'my second panel');
     
     //test dockToBottom splitter slide

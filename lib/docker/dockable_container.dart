@@ -225,12 +225,12 @@ class DockableContainer extends DockableContainerInterface {
       _calculateWeight();
       for(DockContainer node in _nodes) {
         if(this._vertical == true) {
-          node.style.width = "auto";
+          node.style.width = "";
           node.style.height = "auto";
           node.style.flex = "${node._calcweight}";
         } else {
           node.style.width = "auto";
-          node.style.height = "auto";
+          node.style.height = "";
           node.style.flex = "${node._calcweight}";
         }
         node.performLayout();
