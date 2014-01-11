@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<link rel="import" href="../iconbutton/dockable_icon_button.html">
+
+<polymer-element name="dockable-toolbar-icon-item" attributes="size src togglable vertical">
+  <template>
+    <style>
+      dockable-toolbar-icon-item {
+        box-sizing: border-box;
+        display: inline-block;
+        overflow: hidden;
+        height: 100%;
+      }
+      dockable-toolbar-icon-item.vertical {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 100%;
+      }
+    </style>
+    <dockable-icon-button src="{{src}}" size="{{size}}" togglable="{{togglable}}"></dockable-icon-button>
+  </template>
+
+<script type="application/dart" src='toolbar.dart'></script>
+
+</polymer-element>

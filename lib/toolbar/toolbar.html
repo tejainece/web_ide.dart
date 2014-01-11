@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<link rel="import" href="toolbariconitem.html">
+<link rel="import" href="toolbarseparater.html">
+
+<polymer-element name="dockable-toolbar" attributes="vertical size">
+  <template>
+    <style>
+      dockable-toolbar {
+        display: flex;
+        flex-direction: row;
+      }
+      dockable-toolbar.vertical {
+        flex-direction: column;
+      }
+    </style>
+    <content></content>
+  </template>
+
+  <script type="application/dart" src='toolbar.dart'></script>
+
+</polymer-element>

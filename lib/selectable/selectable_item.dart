@@ -13,7 +13,8 @@ abstract class SelectableItem {
    */
   bool _select();
   /*
-   * called from _select to notify derived class that they have been selected
+   * called from _select to notify derived class that they have been selected.
+   * Derived class should implement this to get selected notifications.
    */
   void selected();
   /*
