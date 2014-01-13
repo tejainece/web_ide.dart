@@ -1,23 +1,23 @@
 <polymer-element name="dock-manager">
   <template>
     <style>
-      dockable-manager {
+      dock-manager {
         width: 100%;
         height: 100%;
         background-color: blue;
-        display: block;
+        display: flex;
+        flex-direction: column;
         box-sizing:border-box;
       }
-      .dockable-manager-outdiv {
-        width: 100%;
-        height: 100%;
+      dock-manager > dockable-container {
+        flex: 1;
         background-color: green;
         box-sizing:border-box;
       }
     </style>
-    <div class="dockable-manager-outdiv">
-      <dockable-container></dockable-container>
-    </div>
+    <!--<div class="dockable-manager-outdiv">-->
+    <dockable-container></dockable-container>
+    <!--</div>-->
   </template>
   <link rel="import" href="dockable_container.html">
   <link rel="import" href="dockable_panel.html">

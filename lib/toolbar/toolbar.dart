@@ -44,8 +44,7 @@ class ToolbarItem extends PolymerElement {
 /*
  * TODO:
  * Development:
- * 1) Add seperator item
- * 2) Improve looks
+ * 1) Improve looks
  * 
  * Testing:
  * 1) Vertical
@@ -76,6 +75,11 @@ class DockableToolbar extends PolymerElement {
   @override 
   void polymerCreated() {
     super.polymerCreated();
+  }
+  
+  @override
+  void enteredView() {
+    super.enteredView();
     verticalChanged();
   }
   
@@ -106,7 +110,6 @@ class DockableToolbar extends PolymerElement {
     sizeChanged();
     print('content length: ${this.children.length}');
     for(HtmlElement _item in this.children) {
-      print('${_item is ToolbarItem}');
       if(_item is ToolbarItem) {
         _item.vertical = vertical;
       } else {
@@ -122,21 +125,23 @@ class DockableToolbar extends PolymerElement {
     if(arg_item != null) {
       //TODO: should we find if it already belongs to another Toolbar and remove from it?
       arg_item.vertical = vertical;
-      _content.children.add(arg_item);
+      this.children.add(arg_item);
     }
   }
+  
+  //TODO: add item before
   
   /**
    * Removes a toolbar item from the toolbar.
    */
   bool removeItem(ToolbarItem arg_item) {
-    return _content.children.remove(arg_item);
+    return this.children.remove(arg_item);
   }
   
   /**
    * Returns if the toolbar contains the provided toolbar item.
    */
   bool containsItem(ToolbarItem arg_item) {
-     return _content.children.contains(arg_item);
+     return this.children.contains(arg_item);
   }
 }

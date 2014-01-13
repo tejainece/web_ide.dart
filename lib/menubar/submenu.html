@@ -1,0 +1,35 @@
+<link rel="import" href="submenuitem.html">
+<link rel="import" href="submenuseparater.html">
+<polymer-element name="sub-menu" attributes="show">
+  <template>
+    <style>
+      sub-menu {
+          background : #2BA6CB;
+
+          width: 150px;
+          height: auto;
+          display: none;
+          flex-direction: column;
+          box-sizing:border-box;
+          margin: 0;
+          padding: 0;
+          position:absolute;
+          
+          -moz-user-select: -moz-none;
+          -khtml-user-select: none;
+          -webkit-user-select: none;
+          -o-user-select: none;
+          user-select: none;
+          z-index: 10000;
+      }
+      sub-menu.active {
+        display: flex;
+      }
+    </style>
+    <content>
+    </content>
+  </template>
+  <link rel="import" href="menuitem.html">
+  <script type="application/dart" src="menubar.dart"></script>
+</polymer-element>
+

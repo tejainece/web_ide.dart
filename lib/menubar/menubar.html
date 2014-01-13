@@ -1,0 +1,29 @@
+<link rel="import" href="menuitem.html">
+<link rel="import" href="submenu.html">
+<polymer-element name="menu-bar" attributes="size">
+  <template>
+    <style>
+      menu-bar {
+          background : #2BA6CB;
+
+          display: flex;
+          flex-direction: row;
+          
+          box-sizing:border-box;
+          margin: 0;
+          padding: 0;
+          
+          -moz-user-select: -moz-none;
+          -khtml-user-select: none;
+          -webkit-user-select: none;
+          -o-user-select: none;
+          user-select: none;
+      }
+    </style>
+    <content>
+    </content>
+  </template>
+  <link rel="import" href="menuitem.html">
+  <script type="application/dart" src="menubar.dart"></script>
+</polymer-element>
+

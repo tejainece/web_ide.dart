@@ -214,8 +214,10 @@ class DockableContainer extends DockableContainerInterface {
   performLayout() {
     if(isRoot == true) {
       //If it is the root, fill the parent
-      this.style.width = "${this.parent.offsetWidth}px";
-      this.style.height = "${this.parent.offsetHeight}px";
+      /*this.style.width = "${this.parent.offsetWidth}px";
+      this.style.height = "${this.parent.offsetHeight}px";*/
+      this.style.width = "";
+      this.style.height = "";
     }
     //Adjust the size of outdiv
     //this._outdiv.style.width = "${this.offsetWidth}px";

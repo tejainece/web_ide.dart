@@ -1,0 +1,38 @@
+<link rel="import" href="../icon/dockable_icon.html">
+<polymer-element name="submenu-item" attributes="icon title checkable checked" on-click="{{select}}">
+  <template>
+    <style>
+      submenu-item {
+          height: 24px;
+          background-color: blue;
+          display: flex;
+          flex-direction:row;
+          box-sizing:border-box;
+          align-items: center;
+      }
+      submenu-item:hover {
+          background-color: gray;
+      }
+      submenu-item:active {
+          background-color: green;
+          border: 1px solid black;
+      }
+      submenu-item.checked {
+          background-color: orange;
+      }
+      .icon {
+        display: inline-block;
+        padding-right: 4px;
+      } 
+      .title {
+        display: inline-block;
+      }
+    </style>
+
+    <dockable-icon src="{{icon}}" class="icon"></dockable-icon>    
+    <div class="title">{{title}}</div>
+    
+  </template>
+  <script type="application/dart" src="menubar.dart"></script>
+</polymer-element>
+

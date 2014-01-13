@@ -1,0 +1,36 @@
+<link rel="import" href="../icon/dockable_icon.html">
+<polymer-element name="menu-item" attributes="icon title" on-click="{{select}}">
+  <template>
+    <style>
+      menu-item {
+          width: 150px;
+          height: 100%;
+          background-color: blue;
+          display: flex;
+          flex-direction:row;
+          box-sizing:border-box;
+          align-items: center;
+      }
+      menu-item:hover {
+          background-color: gray;
+      }
+      menu-item:active {
+          background-color: green;
+          border: 1px solid black;
+      }
+      .icon {
+        display: inline-block;
+        padding-right: 4px;
+      }
+      .title {
+        display: inline-block;
+      }
+    </style>
+    
+    <dockable-icon src="{{icon}}" class="icon"></dockable-icon>
+    <div class="title">{{title}}</div>
+    
+  </template>
+  <script type="application/dart" src="menubar.dart"></script>
+</polymer-element>
+

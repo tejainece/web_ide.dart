@@ -1,11 +1,15 @@
+html,body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
 body {
   background-color: white;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   font-weight: normal;
   line-height: 1.2em;
-  margin: 0px;
-  padding: 0px;
 }
 
 #main-container {
@@ -14,9 +18,6 @@ body {
   /*position: absolute;*/
   border: 1px solid #ccc;
   background-color: gray;
-  
-  display: flex;
-  flex-direction: column;
 }
 
 
