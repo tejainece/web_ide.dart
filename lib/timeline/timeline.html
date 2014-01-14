@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<polymer-element name="timeline-manager" attributes="startTime stopTime">
+  <template>
+    <style>
+      timeline-manager {
+        display: block;
+        
+      }
+      
+      .time-holder {
+        bottom: 0px;
+        width: 100%;
+      }
+      
+      .time-marker {
+        width: 100%;
+        height: 10px;
+        position: relative;;
+      }
+      
+      .time-marker div {
+        width: 1px;
+        position: absolute;
+        background-color: black;
+        height: 5px;
+        display: inline-block;
+      }
+      
+      .time-marker div.highlight {
+        height: 10px;
+        width: 2px;
+      }
+      
+      .time-label-minor {
+        width: 100%;
+        height: 10px;
+        position: relative;
+      }
+      
+      .time-label-minor span {
+        display: inline-block;
+        font-size:small;
+        text-align: center;
+        position: absolute;
+      }
+      
+      .time-label-minor span.highlight {
+        font-weight: bold;
+      }
+    </style>
+    <div class="time-holder">
+      <div class="time-marker">
+      </div>
+      <div class="time-label-minor">
+      </div>
+    </div>
+  </template>
+  <script type="application/dart" src='timeline.dart'></script>
+</polymer-element>
+
