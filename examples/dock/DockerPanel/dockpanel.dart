@@ -5,8 +5,6 @@ import 'package:polymer/polymer.dart';
 
 import 'package:dockable/docker/dock_manager.dart';
 
-num count = 0; //TODO: remove
-
 DockManager dm;
 List<DockableContainer> conatiners = new List<DockableContainer>();
 main() {

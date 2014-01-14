@@ -22,7 +22,6 @@ class DockManager extends PolymerElement {
       assert(false);
     } else {
       _rootContainer.style.backgroundColor = "green";//TODO: remove
-      //_rootContainer.setRoot(this);
     }
   }
   
@@ -40,13 +39,5 @@ class DockManager extends PolymerElement {
   
   bool dockToBottom(DockableContainer _newPanel) {
     return _rootContainer.dockToBottom(_newPanel);
-  }
-  
-  void enteredView() {
-    _outdiv = this.shadowRoot.querySelector(".dockable-manager-outdiv");
-    if(_outdiv == null) {
-      print("Dockable->DockableContainer: outdiv cannot be null!");
-      assert(false);
-    }
   }
 }

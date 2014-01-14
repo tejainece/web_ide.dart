@@ -52,16 +52,13 @@ class SubMenuItem extends SubMenuContentItem {
     assert(_iconDiv != null);
     _titleDiv = this.shadowRoot.querySelector(".title");
     assert(_titleDiv != null);
-    //TODO: should we add it to the body?
-    document.body.children.add(_submenu);
     checkableChanged();
     checkedChanged();
   }
   
   @override
   void leftView() {
-    //TODO: should we add it to the body?
-    document.body.children.remove(_submenu);
+    _submenu.remove();
   }
   
   SubMenu _submenu = new Element.tag('sub-menu');

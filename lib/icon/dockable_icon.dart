@@ -52,9 +52,7 @@ class DockableIcon extends PolymerElement {
     this.sizeChanged();
   }
     
-  void sizeChanged() {
-    _logger.finest('sizeChanged size:${this.size}');
-    
+  void sizeChanged() {    
     this.style.width =  '${this.size}px';
     this.style.height = '${this.size}px';
     this.style.backgroundSize = '${this.size}px ${this.size}px';

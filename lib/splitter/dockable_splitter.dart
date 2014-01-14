@@ -15,12 +15,13 @@ class DockableSplitterSlideEvent {
 
 @CustomTag('dockable-splitter')
 class DockableSplitter extends PolymerElement {
-  bool _vertical = false;
+  /*bool _vertical = false;
   bool get vertical => _vertical;
   set vertical(bool _v) {
     setAttribute('vertical', _v ? 'true' : 'false');
-  }
-  @published bool locked = false;
+  }*/
+  @published bool vertical;
+  @published bool locked;
 
   /// Temporary subsciptions to event streams, active only during dragging.
   StreamSubscription<MouseEvent> _trackSubscr;
@@ -29,23 +30,23 @@ class DockableSplitter extends PolymerElement {
   /// Constructor.
   DockableSplitter.created() : super.created() {
     onMouseDown.listen(trackStart);
-    vertical = false;
+    if(vertical == null) {
+      vertical = false;
+    }
+    if(locked == null) {
+      locked = false;
+    }
   }
 
   /// Triggered when [vertical] is externally changed.
   void verticalChanged() {
-    if(_vertical) {
+    if(vertical == true) {
       classes.add('vertical');
-    } else {
+    } else if(vertical == false) {
       classes.remove('vertical');
+    } else {
+      vertical = false;
     }
-  }
-
-/// Cache the current size of the target.
-  void _cacheTargetSize() {
-    //final style = _target.getComputedStyle();
-    //final sizeStr = _isHorizontal ? style.height : style.width;
-    //_targetSize = int.parse(_sizeRe.firstMatch(sizeStr).group(1));
   }
 
   /// When dragging starts, cache the target's size and temporarily subscribe
@@ -55,11 +56,7 @@ class DockableSplitter extends PolymerElement {
     classes.add('active');
 
     if (!locked) {
-      _cacheTargetSize();
-      // NOTE: unlike onMouseDown, monitor onMouseMove and onMouseUp for
-      // the entire document; otherwise, once/if the cursor leaves the boundary
-      // of our element, the events will stop firing, leaving us in a permanent
-      // "sticky" dragging state.
+      // To avoid sticky dragging state
       _trackSubscr = document.onMouseMove.listen(track);
       _trackEndSubscr = document.onMouseUp.listen(trackEnd);
     }
@@ -95,7 +92,7 @@ class DockableSplitter extends PolymerElement {
     classes.remove('active');
   }
   
-  void attributeChanged(String name, String oldValue, String newValue) {
+  /*void attributeChanged(String name, String oldValue, String newValue) {
     /* code to set vertical correctly*/
     if(name == 'vertical') {
       if(newValue == 'false') {
@@ -106,7 +103,7 @@ class DockableSplitter extends PolymerElement {
       verticalChanged();
     }
     super.attributeChanged(name, oldValue, newValue);
-  }
+  }*/
   
   //events
   StreamController _slideEventController = new StreamController.broadcast();

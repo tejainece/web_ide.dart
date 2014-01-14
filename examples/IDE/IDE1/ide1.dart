@@ -5,6 +5,7 @@ import 'package:polymer/polymer.dart';
 
 import 'package:dockable/docker/dock_manager.dart';
 import 'package:dockable/toolbar/toolbar.dart';
+import 'package:dockable/menubar/menubar.dart';
 
 num count = 0; //TODO: remove
 
@@ -45,6 +46,24 @@ DockableToolbar buildToolbar() {
   tb.addItem(ic2);
   
   return tb;
+}
+
+Menubar buildMenubar() {
+  Menubar mb = new Element.tag('menu-bar');
+  
+  MenuItem menu1 = new Element.tag('menu-item')
+    ..title = "Menu1";
+  mb.addMenu(menu1);
+  
+  MenuItem menu2 = new Element.tag('menu-item')
+  ..title = "Menu2";
+  mb.addMenu(menu2);
+  
+  MenuItem menu3 = new Element.tag('menu-item')
+  ..title = "Menu3";
+  mb.addMenu(menu3);
+  
+  return mb;
 }
 
 List<DockableContainer> conatiners = new List<DockableContainer>();

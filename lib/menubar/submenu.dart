@@ -26,6 +26,10 @@ abstract class SubMenuContentItem extends SubMenuItemBase {
   
   num indexOf(SubMenuItemBase arg_item);
   
+  bool hasSubmenu() {
+    return _submenu.children.length > 0;
+  }
+  
   bool _isDecendantMenu(SubMenuItemBase arg_item) {
     return _submenu._isDecendantMenu(arg_item);
   }
@@ -39,11 +43,17 @@ class SubMenu extends PolymerElement {
   StreamSubscription<KeyboardEvent> _documentKeyboardSubscr;
   void showChanged() {
     if(show) {
-      _documentEndSubscr = document.onMouseDown.listen((MouseEvent e){
-        //TODO: check for togglability
-        if(e.target is SubMenuItemBase && _isDecendantMenu(e.target)) {
-          
+      _documentEndSubscr = document.onMouseUp.listen((MouseEvent e){
+        bool shouldHide = false;
+        if(e.target is SubMenuContentItem && _isDecendantMenu(e.target)) {
+          SubMenuContentItem _smct = e.target;
+          if(!_smct.checkable && !_smct.hasSubmenu()) {
+            shouldHide = true;
+          }
         } else {
+          shouldHide = true;
+        }
+        if(shouldHide) {
           this.show = false;
         }
       });
@@ -52,7 +62,9 @@ class SubMenu extends PolymerElement {
           this.show = false;
         }
       });
-      this.classes.add('active');
+      //TODO: should we add it to the body?
+      document.body.children.add(this);
+      //this.classes.add('active');
     } else {
       if(_documentEndSubscr != null) {
         _documentEndSubscr.cancel();
@@ -62,7 +74,8 @@ class SubMenu extends PolymerElement {
         _documentKeyboardSubscr.cancel();
         _documentKeyboardSubscr = null;
       }
-      this.classes.remove('active');
+      //this.classes.remove('active');
+      this.remove();
     }
   }
   

@@ -55,9 +55,7 @@ class DockableIconButton extends PolymerElement {
    */
   @published int size = 24;
   
-  void sizeChanged() {
-    print('sizeChanged size:${this.size}');
-    
+  void sizeChanged() {    
     this.style.width =  '${this.size}px';
     this.style.height = '${this.size}px';
   }

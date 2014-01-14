@@ -31,7 +31,6 @@ class ToolbarItem extends PolymerElement {
   @published bool vertical = false;
   
   void verticalChanged() {
-    print('icon item: verticalChanged');
     if(vertical) {
       this.classes.add('vertical');
     } else {

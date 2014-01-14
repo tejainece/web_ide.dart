@@ -51,11 +51,12 @@ abstract class DockableContainerInterface extends DockContainer {
   /*
    * Specifies the direction of the container.
    */
-  bool __vertical = true;
+  @published bool vertical;
+  /*bool __vertical = true;
   bool get _vertical => __vertical;
   void set _vertical(bool arg_direction) {
     if(arg_direction != null) {
       __vertical = arg_direction;
     }
-  }
+  }*/
 }

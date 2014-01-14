@@ -29,14 +29,11 @@ class MenuItem extends PolymerElement {
         addItem(_el);
       }
     }
-    //TODO: should we add it to the body?
-    document.body.children.add(_submenu);
   }
   
   @override
   void leftView() {
-    //TODO: should we add it to the body?
-    document.body.children.remove(_submenu);
+    _submenu.remove();
   }
   
   SubMenu _submenu = new Element.tag('sub-menu');

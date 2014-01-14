@@ -29,8 +29,8 @@ class DockableContainer extends DockableContainerInterface {
     }
     
     //if _nodes.length < 2 and _direction != arg_direction, change it to arg_direction
-    if (_nodes.length < 2 || __vertical == arg_horizontal) {
-      _vertical = arg_horizontal;
+    if (_nodes.length < 2 || vertical == arg_horizontal) {
+      vertical = arg_horizontal;
       if(_nodes.length == 0) {
         _holder.children.insert(0, newContainer);
         _nodes.insert(0, newContainer);
@@ -66,7 +66,7 @@ class DockableContainer extends DockableContainerInterface {
           for(DockContainer node in tNodes) {
             unDock(node);
           }
-          _vertical = arg_horizontal;
+          vertical = arg_horizontal;
           DockableContainer tC = new Element.tag('dockable-container');
           //TODO: adjust weights on all newly created DCs
           _commonDocker(tC, null, arg_horizontal, after);
@@ -141,7 +141,7 @@ class DockableContainer extends DockableContainerInterface {
     if(_oldPanel != null && _newPanel != null) {
       int index = _nodes.indexOf(_oldPanel);
       if(index != -1) {
-        if(_vertical == true) {
+        if(vertical == true) {
           dockToLeft(_newPanel, _oldPanel);
         } else {
           dockToTop(_newPanel, _oldPanel);
@@ -226,7 +226,7 @@ class DockableContainer extends DockableContainerInterface {
     if(this._nodes.length != 0) {
       _calculateWeight();
       for(DockContainer node in _nodes) {
-        if(this._vertical == true) {
+        if(this.vertical == true) {
           node.style.width = "";
           node.style.height = "auto";
           node.style.flex = "${node._calcweight}";
@@ -251,7 +251,7 @@ class DockableContainer extends DockableContainerInterface {
     if(__holder == null) {
       __holder = this.shadowRoot.querySelector(".holder");
       if(__holder == null) {
-        print("Dockable->DockableContainer: outdiv cannot be null!");
+        print("Dockable->DockableContainer: outdiv cannot be null!!!!");
         assert(false);
       }
     }
@@ -274,12 +274,12 @@ class DockableContainer extends DockableContainerInterface {
       DockContainer tCont = _nodes[splitterInd];
       DockContainer tContNext = _nodes[splitterInd + 1];
       num deltaPer = 0;
-      if(_vertical == true) {
+      if(vertical == true) {
         deltaPer = (e.offsetPos - (tCont.offsetLeft + tCont.offsetWidth) + _holder.offsetLeft)/_holder.offsetWidth;
-        print('hori ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth}');
+        //print('hori ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth}');
       } else {
         deltaPer = (e.offsetPos - (tCont.offsetTop + tCont.offsetHeight) + _holder.offsetTop)/_holder.offsetHeight;
-        print('vert ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth}');
+        //print('vert ${deltaPer} ${e.clientPos} ${tCont.offsetLeft} ${tCont.offsetWidth}');
       }
       tCont.weight = tCont.weight + deltaPer;
       tContNext.weight = tContNext.weight - deltaPer;
@@ -304,14 +304,13 @@ class DockableContainer extends DockableContainerInterface {
     }
   }
   
-  void set _vertical(bool arg_vertical) {
-    if(__vertical != arg_vertical) {
-      if(arg_vertical) {
-        _holder.classes.remove('vertical');
-      } else {
-        _holder.classes.add('vertical');
-      }
-      __vertical = arg_vertical;
+  void verticalChanged() {
+    if(vertical == true) {
+      _holder.classes.remove('vertical');
+    } else if(vertical == false) {
+      _holder.classes.add('vertical');
+    } else {
+      vertical = false;
     }
   }
 }
