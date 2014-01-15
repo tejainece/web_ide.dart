@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<polymer-element name="timeline-manager" attributes="startTime stopTime">
+<link rel="import" href="timelinerow.html">
+<link rel="import" href="timelineelement.html">
+
+<polymer-element name="timeline-manager" attributes="startTime stopTime zoom">
   <template>
     <style>
       timeline-manager {
         display: block;
+        box-sizing:border-box;
+        position: relative;
+        overflow: hidden;
         
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+      
+      .time-nav {
+        top:  0px;
+        box-sizing:border-box;
+        position: absolute;
       }
       
       .time-holder {
         bottom: 0px;
-        width: 100%;
+        box-sizing:border-box;
+        overflow: hidden;
+        height: 24px;
+        
+        position: absolute;
       }
       
       .time-marker {
         width: 100%;
         height: 10px;
-        position: relative;;
+        position: relative;
+        box-sizing:border-box;
       }
       
       .time-marker div {
@@ -24,6 +46,7 @@
         background-color: black;
         height: 5px;
         display: inline-block;
+        box-sizing:border-box;
       }
       
       .time-marker div.highlight {
@@ -33,27 +56,33 @@
       
       .time-label-minor {
         width: 100%;
-        height: 10px;
+        height: 14px;
         position: relative;
+        box-sizing:border-box;
       }
       
-      .time-label-minor span {
+      .time-label-minor div {
         display: inline-block;
         font-size:small;
         text-align: center;
         position: absolute;
+        box-sizing:border-box;
+        cursor: default;
       }
       
-      .time-label-minor span.highlight {
+      .time-label-minor div.highlight {
         font-weight: bold;
       }
     </style>
+    <div class="time-nav">
+    </div>
     <div class="time-holder">
       <div class="time-marker">
       </div>
       <div class="time-label-minor">
       </div>
     </div>
+    
   </template>
   <script type="application/dart" src='timeline.dart'></script>
 </polymer-element>

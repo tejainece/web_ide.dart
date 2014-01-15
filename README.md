@@ -27,6 +27,11 @@ TODO
 2) Make the widgets CSS-able
 3) Try to control access to children
 4) Improve DOCs and API
+5) Drag-and-drop
+
+Dock
+====
+1) Draggable dock panels
 
 Ruler
 =====

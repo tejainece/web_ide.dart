@@ -39,12 +39,12 @@ class RulerWidget extends PolymerElement {
   /**
    * Interval at which the markings are highlighted.
    */
-  @published int highlightEvery = 5;
+  @published int highlightEvery = 10;
   
   /**
    * Interval at which the markings are labelled.
    */
-  @published int labelEvery = 10;
+  @published int labelEvery = 5;
   
   void startValueChanged() {
     if(startValue > stopValue) {
@@ -64,21 +64,15 @@ class RulerWidget extends PolymerElement {
     if(stepValue == 0) {
       stepValue = 1;
     }
-    _recalcSpacing();
+    performLayout();
   }
   
   void highlightEveryChanged() {
-    if(stepValue == 0) {
-      stepValue = 1;
-    }
-    _recalcSpacing();
+    performLayout();
   }
   
   void labelEveryChanged() {
-    if(stepValue == 0) {
-      stepValue = 1;
-    }
-    _recalcSpacing();
+    performLayout();
   }
       
   @override 
@@ -91,7 +85,6 @@ class RulerWidget extends PolymerElement {
   void enteredView() {
     super.enteredView();
     _recalcSpacing();
-    performLayout();
   }
   
   void performLayout() {
@@ -131,9 +124,8 @@ class RulerWidget extends PolymerElement {
   
   double _spacing = 5.0;
   void _recalcSpacing() {
-    //TODO: determine spacing depending on width, startValue and stopValue
-    int step = (stopValue - startValue);
-    _spacing = this.offsetWidth/step;
+    _spacing = this.offsetWidth/(stopValue - startValue);
+    performLayout();
   }
   
   DivElement _timeMarkerDiv;

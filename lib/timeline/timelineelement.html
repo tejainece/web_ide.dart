@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<polymer-element name="timeline-element" attributes="timelinePosition timelineWidth">
+  <template>
+    <style>
+      timeline-element {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        position: absolute;
+      }
+      .left-expand {
+        display: inline-block;
+        background-color: red;
+        width: 5px;
+        cursor: w-resize;
+      }
+      .mover {
+        display: inline-block;
+        background-color: blue;
+        flex-grow: 1;
+        cursor: move;
+      }
+      .right-expand {
+        display: inline-block;
+        background-color: red;
+        width: 5px;
+        cursor: e-resize;
+      }
+    </style>
+    <div class="left-expand"></div>
+    <div class="mover"></div>
+    <div class="right-expand"></div>
+  </template>
+  <script type="application/dart" src='timeline.dart'></script>
+</polymer-element>

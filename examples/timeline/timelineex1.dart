@@ -8,14 +8,6 @@ import 'package:dockable/timeline/timeline.dart';
 main() {
   DivElement mc = querySelector('#main-container');
   initPolymer().run(() {    
-    /*DockableIcon ic1 = new Element.tag("dockable-icon");
-    ic1.src = "../icons/windowadd32x32.png";
-    ic1.size = 32;
-    document.body.children.add(ic1);
-    
-    DockableIcon ic2 = new Element.tag("dockable-icon");
-    ic2.src = "../icons/star24x24.png";
-    ic2.size = 24;
-    document.body.children.add(ic2);*/
+    TimelineManager man = querySelector('#timeline');
   });
 }
