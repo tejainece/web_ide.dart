@@ -1,9 +1,4 @@
-library dockable.splitter;
-
-import 'dart:html';
-import 'dart:async';
-
-import 'package:polymer/polymer.dart';
+part of dockable;
 
 class DockableSplitterSlideEvent {
   DockableSplitter target;

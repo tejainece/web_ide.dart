@@ -1,9 +1,4 @@
-library selectable;
-
-import 'dart:async';
-
-part 'selectable_item.dart';
-part 'multi_selectable.dart';
+part of dockable;
 
 abstract class Selectable {
   List<SelectableItem> get items;

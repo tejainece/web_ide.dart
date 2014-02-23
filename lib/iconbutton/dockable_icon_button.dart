@@ -3,13 +3,7 @@
 // governed by a BSD-style license that can be found in the LICENSE file.
 // This work is a port of the polymer-elements from the Polymer project, 
 // http://www.polymer-project.org/. 
-library dockable.iconbutton;
-
-import 'dart:async';
-
-import 'package:polymer/polymer.dart';
-
-import '../icon/dockable_icon.dart';
+part of dockable;
 
 /*
  * TODO:

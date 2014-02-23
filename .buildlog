@@ -8,3 +8,994 @@ build.dart --machine --changed=lib/timeline/timelineelement.html
 [{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
 build.dart finished [2311 ms]
 
+---
+build.dart --machine --changed=examples/timeline/timelineex1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2605 ms]
+
+---
+build.dart --machine --changed=examples/timeline/timelineex1.dart.js --changed=examples/timeline/timelineex1.da...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2055 ms]
+
+---
+build.dart --machine --full
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2087 ms]
+
+---
+build.dart --machine --changed=examples/timeline/timelineex1.dart.js --changed=examples/timeline/timelineex1.da...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2106 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timeline.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1928 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelinerow.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1980 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelinerow.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1964 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2022 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1992 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1931 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1931 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1946 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1977 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1966 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2506 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1994 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2097 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1904 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1943 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1950 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [1940 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2248 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2203 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2098 ms]
+
+---
+build.dart --machine --changed=web/DockableModal/DockableModal.dart --changed=web/DockableModal/DockableModal.h...
+[{"method":"error","params":{"file":"web/Pages/pages_ex_1.html","message":"couldn't find imported asset \"lib/pages/page_manager.html\" in package \"dockable\".","line":9,"charStart":149,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/icon/iconex1/iconex1.html","message":"couldn't find imported asset \"lib/icon/dockable_icon.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":319}}]
+[{"method":"error","params":{"file":"web/Tabs/TabsTitle/tabs_title_1.html","message":"couldn't find imported asset \"lib/tabs/tab_title.html\" in package \"dockable\".","line":10,"charStart":189,"charEnd":253}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":21,"charStart":461,"charEnd":515}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":22,"charStart":536,"charEnd":590}}]
+[{"method":"error","params":{"file":"web/dock/DockerStatic/dockerstatic.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":151,"charEnd":220}}]
+[{"method":"error","params":{"file":"web/dock/DockerAddButtons/dockeraddbuttons.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":224}}]
+[{"method":"error","params":{"file":"web/Tabs/TabManager/tab_manager_1.html","message":"couldn't find imported asset \"lib/tabs/tab_manager.html\" in package \"dockable\".","line":10,"charStart":190,"charEnd":256}}]
+[{"method":"error","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":24,"charStart":537,"charEnd":621}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":25,"charStart":657,"charEnd":699}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":26,"charStart":740,"charEnd":812}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":27,"charStart":848,"charEnd":890}}]
+[{"method":"error","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"couldn't find imported asset \"lib/menubar/menubar.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-bar\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":15,"charStart":392,"charEnd":461}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":470,"charEnd":547}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":571,"charEnd":653}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":664,"charEnd":771}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-separater-item\" not found.","line":19,"charStart":797,"charEnd":821}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":20,"charStart":857,"charEnd":941}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":23,"charStart":1006,"charEnd":1080}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":24,"charStart":1089,"charEnd":1166}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":25,"charStart":1190,"charEnd":1272}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":27,"charStart":1313,"charEnd":1382}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":28,"charStart":1401,"charEnd":1475}}]
+[{"method":"error","params":{"file":"web/DockableModal/DockableModal.html","message":"couldn't find imported asset \"lib/modal/modal.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":312}}]
+[{"method":"error","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"couldn't find imported asset \"lib/iconbutton/dockable_icon_button.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":332}}]
+[{"method":"warning","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"definition for Polymer element with tag name \"dockable-icon-button\" not found.","line":21,"charStart":480,"charEnd":548}}]
+[{"method":"error","params":{"file":"web/ruler/rulerex1.html","message":"couldn't find imported asset \"lib/ruler/ruler.html\" in package \"dockable\".","line":19,"charStart":294,"charEnd":355}}]
+[{"method":"warning","params":{"file":"web/ruler/rulerex1.html","message":"definition for Polymer element with tag name \"ruler-widget\" not found.","line":24,"charStart":498,"charEnd":575}}]
+[{"method":"error","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":137,"charEnd":206}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":10,"charStart":211,"charEnd":276}}]
+[{"method":"error","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"couldn't find imported asset \"lib/menubar/submenu.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"sub-menu\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":15,"charStart":392,"charEnd":464}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":486,"charEnd":563}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":585,"charEnd":657}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":679,"charEnd":756}}]
+[{"method":"error","params":{"file":"web/timeline/timelineex1.html","message":"couldn't find imported asset \"lib/timeline/timeline.html\" in package \"dockable\".","line":21,"charStart":335,"charEnd":402}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-manager\" not found.","line":26,"charStart":548,"charEnd":592}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":27,"charStart":599,"charEnd":613}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":28,"charStart":622,"charEnd":675}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":29,"charStart":703,"charEnd":757}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":31,"charStart":805,"charEnd":819}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":32,"charStart":828,"charEnd":881}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":33,"charStart":909,"charEnd":963}}]
+[{"method":"error","params":{"file":"web/dock/DockerPanel/dockpanel.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":148,"charEnd":217}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on Dockable|web/Pages/pages_ex_1.html threw error: couldn't find imported asset "lib/pages/page_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/icon/iconex1/iconex1.html threw error: couldn't find imported asset "lib/icon/dockable_icon.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabsTitle/tabs_title_1.html threw error: couldn't find imported asset "lib/tabs/tab_title.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerStatic/dockerstatic.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerAddButtons/dockeraddbuttons.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabManager/tab_manager_1.html threw error: couldn't find imported asset "lib/tabs/tab_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/toolbarex/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/menubarex1/menubarex1.html threw error: couldn't find imported asset "lib/menubar/menubar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/DockableModal/DockableModal.html threw error: couldn't find imported asset "lib/modal/modal.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/iconbutton/iconbuttonex1/iconbuttonex1.html threw error: couldn't find imported asset "lib/iconbutton/dockable_icon_button.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/ruler/rulerex1.html threw error: couldn't find imported asset "lib/ruler/ruler.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/runtime_add/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/submenuex1/submenuex1.html threw error: couldn't find imported asset "lib/menubar/submenu.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/timeline/timelineex1.html threw error: couldn't find imported asset "lib/timeline/timeline.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerPanel/dockpanel.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable".}
+build.dart finished [2255 ms]
+
+---
+build.dart --machine --full
+[{"method":"error","params":{"file":"web/Pages/pages_ex_1.html","message":"couldn't find imported asset \"lib/pages/page_manager.html\" in package \"dockable\".","line":9,"charStart":149,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":137,"charEnd":206}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":10,"charStart":211,"charEnd":276}}]
+[{"method":"error","params":{"file":"web/icon/iconex1/iconex1.html","message":"couldn't find imported asset \"lib/icon/dockable_icon.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":319}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":21,"charStart":461,"charEnd":515}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":22,"charStart":536,"charEnd":590}}]
+[{"method":"error","params":{"file":"web/Tabs/TabManager/tab_manager_1.html","message":"couldn't find imported asset \"lib/tabs/tab_manager.html\" in package \"dockable\".","line":10,"charStart":190,"charEnd":256}}]
+[{"method":"error","params":{"file":"web/Tabs/TabsTitle/tabs_title_1.html","message":"couldn't find imported asset \"lib/tabs/tab_title.html\" in package \"dockable\".","line":10,"charStart":189,"charEnd":253}}]
+[{"method":"error","params":{"file":"web/dock/DockerAddButtons/dockeraddbuttons.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":224}}]
+[{"method":"error","params":{"file":"web/dock/DockerStatic/dockerstatic.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":151,"charEnd":220}}]
+[{"method":"error","params":{"file":"web/dock/DockerPanel/dockpanel.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":148,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"error","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":24,"charStart":537,"charEnd":621}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":25,"charStart":657,"charEnd":699}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":26,"charStart":740,"charEnd":812}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":27,"charStart":848,"charEnd":890}}]
+[{"method":"error","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"couldn't find imported asset \"lib/menubar/menubar.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-bar\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":15,"charStart":392,"charEnd":461}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":470,"charEnd":547}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":571,"charEnd":653}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":664,"charEnd":771}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-separater-item\" not found.","line":19,"charStart":797,"charEnd":821}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":20,"charStart":857,"charEnd":941}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":23,"charStart":1006,"charEnd":1080}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":24,"charStart":1089,"charEnd":1166}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":25,"charStart":1190,"charEnd":1272}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":27,"charStart":1313,"charEnd":1382}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":28,"charStart":1401,"charEnd":1475}}]
+[{"method":"error","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"couldn't find imported asset \"lib/menubar/submenu.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"sub-menu\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":15,"charStart":392,"charEnd":464}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":486,"charEnd":563}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":585,"charEnd":657}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":679,"charEnd":756}}]
+[{"method":"error","params":{"file":"web/timeline/timelineex1.html","message":"couldn't find imported asset \"lib/timeline/timeline.html\" in package \"dockable\".","line":21,"charStart":335,"charEnd":402}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-manager\" not found.","line":26,"charStart":548,"charEnd":592}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":27,"charStart":599,"charEnd":613}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":28,"charStart":622,"charEnd":675}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":29,"charStart":703,"charEnd":757}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":31,"charStart":805,"charEnd":819}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":32,"charStart":828,"charEnd":881}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":33,"charStart":909,"charEnd":963}}]
+[{"method":"error","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"couldn't find imported asset \"lib/iconbutton/dockable_icon_button.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":332}}]
+[{"method":"warning","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"definition for Polymer element with tag name \"dockable-icon-button\" not found.","line":21,"charStart":480,"charEnd":548}}]
+[{"method":"error","params":{"file":"web/DockableModal/DockableModal.html","message":"couldn't find imported asset \"lib/modal/modal.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":312}}]
+[{"method":"error","params":{"file":"web/ruler/rulerex1.html","message":"couldn't find imported asset \"lib/ruler/ruler.html\" in package \"dockable\".","line":19,"charStart":294,"charEnd":355}}]
+[{"method":"warning","params":{"file":"web/ruler/rulerex1.html","message":"definition for Polymer element with tag name \"ruler-widget\" not found.","line":24,"charStart":498,"charEnd":575}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on Dockable|web/Pages/pages_ex_1.html threw error: couldn't find imported asset "lib/pages/page_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/icon/iconex1/iconex1.html threw error: couldn't find imported asset "lib/icon/dockable_icon.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabManager/tab_manager_1.html threw error: couldn't find imported asset "lib/tabs/tab_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabsTitle/tabs_title_1.html threw error: couldn't find imported asset "lib/tabs/tab_title.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerAddButtons/dockeraddbuttons.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerStatic/dockerstatic.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerPanel/dockpanel.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/runtime_add/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/toolbarex/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/menubarex1/menubarex1.html threw error: couldn't find imported asset "lib/menubar/menubar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/submenuex1/submenuex1.html threw error: couldn't find imported asset "lib/menubar/submenu.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/timeline/timelineex1.html threw error: couldn't find imported asset "lib/timeline/timeline.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/iconbutton/iconbuttonex1/iconbuttonex1.html threw error: couldn't find imported asset "lib/iconbutton/dockable_icon_button.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/DockableModal/DockableModal.html threw error: couldn't find imported asset "lib/modal/modal.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/ruler/rulerex1.html threw error: couldn't find imported asset "lib/ruler/ruler.html" in package "dockable".}
+build.dart finished [3319 ms]
+
+---
+build.dart --machine --full
+[{"method":"error","params":{"file":"web/Pages/pages_ex_1.html","message":"couldn't find imported asset \"lib/pages/page_manager.html\" in package \"dockable\".","line":9,"charStart":149,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/icon/iconex1/iconex1.html","message":"couldn't find imported asset \"lib/icon/dockable_icon.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":319}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":21,"charStart":461,"charEnd":515}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":22,"charStart":536,"charEnd":590}}]
+[{"method":"error","params":{"file":"web/Tabs/TabManager/tab_manager_1.html","message":"couldn't find imported asset \"lib/tabs/tab_manager.html\" in package \"dockable\".","line":10,"charStart":190,"charEnd":256}}]
+[{"method":"error","params":{"file":"web/Tabs/TabsTitle/tabs_title_1.html","message":"couldn't find imported asset \"lib/tabs/tab_title.html\" in package \"dockable\".","line":10,"charStart":189,"charEnd":253}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":137,"charEnd":206}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":10,"charStart":211,"charEnd":276}}]
+[{"method":"error","params":{"file":"web/dock/DockerPanel/dockpanel.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":148,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/dock/DockerAddButtons/dockeraddbuttons.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":224}}]
+[{"method":"error","params":{"file":"web/dock/DockerStatic/dockerstatic.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":151,"charEnd":220}}]
+[{"method":"error","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"error","params":{"file":"web/DockableModal/DockableModal.html","message":"couldn't find imported asset \"lib/modal/modal.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":312}}]
+[{"method":"error","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"couldn't find imported asset \"lib/iconbutton/dockable_icon_button.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":332}}]
+[{"method":"warning","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"definition for Polymer element with tag name \"dockable-icon-button\" not found.","line":21,"charStart":480,"charEnd":548}}]
+[{"method":"error","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":24,"charStart":537,"charEnd":621}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":25,"charStart":657,"charEnd":699}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":26,"charStart":740,"charEnd":812}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":27,"charStart":848,"charEnd":890}}]
+[{"method":"error","params":{"file":"web/ruler/rulerex1.html","message":"couldn't find imported asset \"lib/ruler/ruler.html\" in package \"dockable\".","line":19,"charStart":294,"charEnd":355}}]
+[{"method":"warning","params":{"file":"web/ruler/rulerex1.html","message":"definition for Polymer element with tag name \"ruler-widget\" not found.","line":24,"charStart":498,"charEnd":575}}]
+[{"method":"error","params":{"file":"web/timeline/timelineex1.html","message":"couldn't find imported asset \"lib/timeline/timeline.html\" in package \"dockable\".","line":21,"charStart":335,"charEnd":402}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-manager\" not found.","line":26,"charStart":548,"charEnd":592}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":27,"charStart":599,"charEnd":613}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":28,"charStart":622,"charEnd":675}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":29,"charStart":703,"charEnd":757}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":31,"charStart":805,"charEnd":819}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":32,"charStart":828,"charEnd":881}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":33,"charStart":909,"charEnd":963}}]
+[{"method":"error","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"couldn't find imported asset \"lib/menubar/submenu.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"sub-menu\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":15,"charStart":392,"charEnd":464}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":486,"charEnd":563}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":585,"charEnd":657}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":679,"charEnd":756}}]
+[{"method":"error","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"couldn't find imported asset \"lib/menubar/menubar.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-bar\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":15,"charStart":392,"charEnd":461}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":470,"charEnd":547}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":571,"charEnd":653}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":664,"charEnd":771}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-separater-item\" not found.","line":19,"charStart":797,"charEnd":821}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":20,"charStart":857,"charEnd":941}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":23,"charStart":1006,"charEnd":1080}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":24,"charStart":1089,"charEnd":1166}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":25,"charStart":1190,"charEnd":1272}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":27,"charStart":1313,"charEnd":1382}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":28,"charStart":1401,"charEnd":1475}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on Dockable|web/Pages/pages_ex_1.html threw error: couldn't find imported asset "lib/pages/page_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/icon/iconex1/iconex1.html threw error: couldn't find imported asset "lib/icon/dockable_icon.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabManager/tab_manager_1.html threw error: couldn't find imported asset "lib/tabs/tab_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabsTitle/tabs_title_1.html threw error: couldn't find imported asset "lib/tabs/tab_title.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerPanel/dockpanel.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerAddButtons/dockeraddbuttons.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerStatic/dockerstatic.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/runtime_add/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/DockableModal/DockableModal.html threw error: couldn't find imported asset "lib/modal/modal.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/iconbutton/iconbuttonex1/iconbuttonex1.html threw error: couldn't find imported asset "lib/iconbutton/dockable_icon_button.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/toolbarex/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/ruler/rulerex1.html threw error: couldn't find imported asset "lib/ruler/ruler.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/timeline/timelineex1.html threw error: couldn't find imported asset "lib/timeline/timeline.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/submenuex1/submenuex1.html threw error: couldn't find imported asset "lib/menubar/submenu.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/menubarex1/menubarex1.html threw error: couldn't find imported asset "lib/menubar/menubar.html" in package "dockable".}
+build.dart finished [20504 ms]
+
+---
+build.dart --machine --full
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":137,"charEnd":206}}]
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":10,"charStart":211,"charEnd":276}}]
+[{"method":"error","params":{"file":"web/dock/DockerAddButtons/dockeraddbuttons.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":224}}]
+[{"method":"error","params":{"file":"web/Pages/pages_ex_1.html","message":"couldn't find imported asset \"lib/pages/page_manager.html\" in package \"dockable\".","line":9,"charStart":149,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/icon/iconex1/iconex1.html","message":"couldn't find imported asset \"lib/icon/dockable_icon.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":319}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":21,"charStart":461,"charEnd":515}}]
+[{"method":"warning","params":{"file":"web/icon/iconex1/iconex1.html","message":"definition for Polymer element with tag name \"dockable-icon\" not found.","line":22,"charStart":536,"charEnd":590}}]
+[{"method":"error","params":{"file":"web/Tabs/TabManager/tab_manager_1.html","message":"couldn't find imported asset \"lib/tabs/tab_manager.html\" in package \"dockable\".","line":10,"charStart":190,"charEnd":256}}]
+[{"method":"error","params":{"file":"web/dock/DockerPanel/dockpanel.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":148,"charEnd":217}}]
+[{"method":"error","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"couldn't find imported asset \"lib/menubar/submenu.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"sub-menu\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":15,"charStart":392,"charEnd":464}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":486,"charEnd":563}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":585,"charEnd":657}}]
+[{"method":"warning","params":{"file":"web/menubar/submenuex1/submenuex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":679,"charEnd":756}}]
+[{"method":"error","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"couldn't find imported asset \"lib/menubar/menubar.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":220}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-bar\" not found.","line":14,"charStart":365,"charEnd":385}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":15,"charStart":392,"charEnd":461}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":16,"charStart":470,"charEnd":547}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":17,"charStart":571,"charEnd":653}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":18,"charStart":664,"charEnd":771}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-separater-item\" not found.","line":19,"charStart":797,"charEnd":821}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":20,"charStart":857,"charEnd":941}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":23,"charStart":1006,"charEnd":1080}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":24,"charStart":1089,"charEnd":1166}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"submenu-item\" not found.","line":25,"charStart":1190,"charEnd":1272}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":27,"charStart":1313,"charEnd":1382}}]
+[{"method":"warning","params":{"file":"web/menubar/menubarex1/menubarex1.html","message":"definition for Polymer element with tag name \"menu-item\" not found.","line":28,"charStart":1401,"charEnd":1475}}]
+[{"method":"error","params":{"file":"web/DockableModal/DockableModal.html","message":"couldn't find imported asset \"lib/modal/modal.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":312}}]
+[{"method":"error","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"couldn't find imported asset \"lib/iconbutton/dockable_icon_button.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":332}}]
+[{"method":"warning","params":{"file":"web/iconbutton/iconbuttonex1/iconbuttonex1.html","message":"definition for Polymer element with tag name \"dockable-icon-button\" not found.","line":21,"charStart":480,"charEnd":548}}]
+[{"method":"error","params":{"file":"web/timeline/timelineex1.html","message":"couldn't find imported asset \"lib/timeline/timeline.html\" in package \"dockable\".","line":21,"charStart":335,"charEnd":402}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-manager\" not found.","line":26,"charStart":548,"charEnd":592}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":27,"charStart":599,"charEnd":613}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":28,"charStart":622,"charEnd":675}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":29,"charStart":703,"charEnd":757}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-row\" not found.","line":31,"charStart":805,"charEnd":819}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":32,"charStart":828,"charEnd":881}}]
+[{"method":"warning","params":{"file":"web/timeline/timelineex1.html","message":"definition for Polymer element with tag name \"timeline-element\" not found.","line":33,"charStart":909,"charEnd":963}}]
+[{"method":"error","params":{"file":"web/dock/DockerStatic/dockerstatic.html","message":"couldn't find imported asset \"lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":151,"charEnd":220}}]
+[{"method":"error","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/runtime_add/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"error","params":{"file":"web/ruler/rulerex1.html","message":"couldn't find imported asset \"lib/ruler/ruler.html\" in package \"dockable\".","line":19,"charStart":294,"charEnd":355}}]
+[{"method":"warning","params":{"file":"web/ruler/rulerex1.html","message":"definition for Polymer element with tag name \"ruler-widget\" not found.","line":24,"charStart":498,"charEnd":575}}]
+[{"method":"error","params":{"file":"web/Tabs/TabsTitle/tabs_title_1.html","message":"couldn't find imported asset \"lib/tabs/tab_title.html\" in package \"dockable\".","line":10,"charStart":189,"charEnd":253}}]
+[{"method":"error","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"couldn't find imported asset \"lib/toolbar/toolbar.html\" in package \"dockable\".","line":18,"charStart":258,"charEnd":323}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar\" not found.","line":23,"charStart":468,"charEnd":530}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":24,"charStart":537,"charEnd":621}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":25,"charStart":657,"charEnd":699}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-icon-item\" not found.","line":26,"charStart":740,"charEnd":812}}]
+[{"method":"warning","params":{"file":"web/toolbar/toolbarex/toolbarex1.html","message":"definition for Polymer element with tag name \"dockable-toolbar-separater-item\" not found.","line":27,"charStart":848,"charEnd":890}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerAddButtons/dockeraddbuttons.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Pages/pages_ex_1.html threw error: couldn't find imported asset "lib/pages/page_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/icon/iconex1/iconex1.html threw error: couldn't find imported asset "lib/icon/dockable_icon.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabManager/tab_manager_1.html threw error: couldn't find imported asset "lib/tabs/tab_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerPanel/dockpanel.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/submenuex1/submenuex1.html threw error: couldn't find imported asset "lib/menubar/submenu.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/menubar/menubarex1/menubarex1.html threw error: couldn't find imported asset "lib/menubar/menubar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/DockableModal/DockableModal.html threw error: couldn't find imported asset "lib/modal/modal.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/iconbutton/iconbuttonex1/iconbuttonex1.html threw error: couldn't find imported asset "lib/iconbutton/dockable_icon_button.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/timeline/timelineex1.html threw error: couldn't find imported asset "lib/timeline/timeline.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/dock/DockerStatic/dockerstatic.html threw error: couldn't find imported asset "lib/docker/dock_manager.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/runtime_add/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/ruler/rulerex1.html threw error: couldn't find imported asset "lib/ruler/ruler.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/Tabs/TabsTitle/tabs_title_1.html threw error: couldn't find imported asset "lib/tabs/tab_title.html" in package "dockable"., Transform polymer (Linter) on Dockable|web/toolbar/toolbarex/toolbarex1.html threw error: couldn't find imported asset "lib/toolbar/toolbar.html" in package "dockable".}
+build.dart finished [12173 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6510 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3776 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [9064 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerAddButtons/dockeraddbuttons.html
+[{"method":"error","params":{"file":"web/dock/DockerAddButtons/dockeraddbuttons.html","message":"couldn't find imported asset \"web/dock/lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":213}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on dockable|web/dock/DockerAddButtons/dockeraddbuttons.html threw error: couldn't find imported asset "web/dock/lib/docker/dock_manager.html" in package "dockable".}
+build.dart finished [5550 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerAddButtons/dockeraddbuttons.html
+[{"method":"error","params":{"file":"web/dock/DockerAddButtons/dockeraddbuttons.html","message":"couldn't find imported asset \"web/lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":155,"charEnd":216}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on dockable|web/dock/DockerAddButtons/dockeraddbuttons.html threw error: couldn't find imported asset "web/lib/docker/dock_manager.html" in package "dockable".}
+build.dart finished [3296 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerAddButtons/dockeraddbuttons.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3199 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerAddButtons/dockeraddbuttons.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3120 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerAddButtons/dockeraddbuttons.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3108 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerPanel/dockpanel.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3366 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3279 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerStatic/dockerstatic.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3226 ms]
+
+---
+build.dart --machine --changed=web/dock/DockerStatic/dockerstatic.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3224 ms]
+
+---
+build.dart --machine --changed=web/DockableModal/DockableModal.html
+[{"method":"error","params":{"file":"web/DockableModal/DockableModal.html","message":"couldn't find imported asset \"../lib/modal/modal.html\" in package \"dockable\".","line":16,"charStart":251,"charEnd":307}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on dockable|web/DockableModal/DockableModal.html threw error: couldn't find imported asset "../lib/modal/modal.html" in package "dockable".}
+build.dart finished [3171 ms]
+
+---
+build.dart --machine --changed=web/DockableModal/DockableModal.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3267 ms]
+
+---
+build.dart --machine --changed=web/DockableModal/DockableModal.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3062 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3319 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4570 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4072 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3487 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3157 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3197 ms]
+
+---
+build.dart --machine --changed=lib/docker/dockable_container.dart --changed=lib/docker/dockable_panel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4374 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3770 ms]
+
+---
+build.dart --machine --changed=lib/icon/dockable_icon.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4301 ms]
+
+---
+build.dart --machine --changed=lib/icon/dockable_icon.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4327 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3332 ms]
+
+---
+build.dart --machine --changed=lib/icon/dockable_icon.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5023 ms]
+
+---
+build.dart --machine --changed=lib/docker/dockable_container.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5839 ms]
+
+---
+build.dart --machine --changed=lib/docker/dockable_panel.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3857 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3278 ms]
+
+---
+build.dart --machine --changed=lib/icon/dockable_icon.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4240 ms]
+
+---
+build.dart --machine --changed=lib/icon/dockable_icon.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4493 ms]
+
+---
+build.dart --machine --changed=lib/icon/dockable_icon.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3746 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/dockable_icon_button.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4387 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4011 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4658 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5953 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4770 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/dockable_icon_button.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3365 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/dockable_icon_button.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5320 ms]
+
+---
+build.dart --machine --changed=lib/menubar/menubar.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4555 ms]
+
+---
+build.dart --machine --changed=lib/menubar/menubar.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5349 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5483 ms]
+
+---
+build.dart --machine --changed=lib/menubar/menubar.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4622 ms]
+
+---
+build.dart --machine --changed=lib/menubar/menuitem.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5208 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4573 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart --changed=lib/menubar/menuitem.html --changed=lib/menubar/subm...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5378 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart --changed=lib/menubar/submenuitem.html --changed=lib/menubar/s...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4639 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4295 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenuseparater.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3988 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4754 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4014 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4761 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4181 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3574 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3192 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3234 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4683 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5079 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4559 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3309 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4085 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3220 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4930 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4298 ms]
+
+---
+build.dart --machine --changed=lib/panel/dockable_panel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3277 ms]
+
+---
+build.dart --machine --changed=lib/panel/dockable_panel.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4035 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4176 ms]
+
+---
+build.dart --machine --changed=lib/ruler/ruler.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5518 ms]
+
+---
+build.dart --machine --changed=lib/ruler/ruler.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4412 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3260 ms]
+
+---
+build.dart --machine --changed=lib/selectable/selectable_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4855 ms]
+
+---
+build.dart --machine --changed=lib/selectable/selectable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4050 ms]
+
+---
+build.dart --machine --changed=lib/selectable/selectable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4291 ms]
+
+---
+build.dart --machine --changed=lib/selectable/multi_selectable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3983 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5534 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6152 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4310 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3181 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3151 ms]
+
+---
+build.dart --machine --changed=lib/panel/dockable_panel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3201 ms]
+
+---
+build.dart --machine --changed=lib/panel/dockable_panel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5173 ms]
+
+---
+build.dart --machine --changed=lib/panel/dockable_panel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4092 ms]
+
+---
+build.dart --machine --changed=lib/panel/dockable_panel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4210 ms]
+
+---
+build.dart --machine --changed=lib/splitter/dockable_splitter.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4820 ms]
+
+---
+build.dart --machine --changed=lib/splitter/dockable_splitter.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4155 ms]
+
+---
+build.dart --machine --changed=lib/splitter/dockable_splitter.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4036 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4223 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5216 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4357 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4654 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4235 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_title.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4122 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_title.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3426 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_title_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3780 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_title_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4624 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4257 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3136 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3766 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timeline.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4628 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4819 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelinerow.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4787 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timeline.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5212 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelineelement.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4539 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timelinerow.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4924 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4336 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3157 ms]
+
+---
+build.dart --machine --changed=lib/timeline/timeline.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3622 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4111 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3714 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3624 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3312 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbarseparater.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4796 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbarseparater.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4452 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4719 ms]
+
+---
+build.dart --machine --full
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3814 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3171 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4045 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2964 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3184 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3021 ms]
+
+---
+build.dart --machine --changed=web/IDE/IDE1/ide1.html
+[{"method":"error","params":{"file":"web/IDE/IDE1/ide1.html","message":"couldn't find imported asset \"web/lib/docker/dock_manager.html\" in package \"dockable\".","line":9,"charStart":137,"charEnd":198}}]
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build failed with errors: {Transform polymer (Linter) on dockable|web/IDE/IDE1/ide1.html threw error: couldn't find imported asset "web/lib/docker/dock_manager.html" in package "dockable".}
+build.dart finished [3013 ms]
+
+---
+build.dart --machine --changed=web/IDE/IDE1/ide1.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2879 ms]
+
+---
+build.dart --machine --changed=web/IDE/IDE1/ide1.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2817 ms]
+
+---
+build.dart --machine --changed=web/IDE/IDE1/ide1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4509 ms]
+
+---
+build.dart --machine --changed=web/IDE/IDE1/ide1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2907 ms]
+
+---
+build.dart --machine --changed=test/DockableModal/DockableModal.dart --changed=test/DockableModal/DockableModal...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [2633 ms]
+

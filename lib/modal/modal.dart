@@ -1,7 +1,4 @@
-library dockable.modal;
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-import 'dart:async';
+part of dockable;
 
 @CustomTag('dockable-modal')
 class DockableModal extends PolymerElement {

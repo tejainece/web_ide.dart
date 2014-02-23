@@ -1,4 +1,6 @@
+library dockable.panel;
 import 'package:polymer/polymer.dart';
+//part of dockable;
 
 ///Container implementation
 @CustomTag('dockable-panel')

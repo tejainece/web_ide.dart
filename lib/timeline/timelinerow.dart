@@ -1,4 +1,4 @@
-part of dockable.timeline;
+part of dockable;
 
 /**
  * timeline-row is a ruler widget.
@@ -73,6 +73,22 @@ class TimelineRow extends PolymerElement {
   int getTimeIntervalForWidth(int arg_interval) {
     if(_manager != null) {
       return _manager.getTimeIntervalForWidth(arg_interval);
+    } else {
+      return 0;
+    }
+  }
+  
+  int getStartTime() {
+    if(_manager != null) {
+      return _manager.startTime;
+    } else {
+      return 0;
+    }
+  }
+  
+  int getStopTime() {
+    if(_manager != null) {
+      return _manager.stopTime;
     } else {
       return 0;
     }

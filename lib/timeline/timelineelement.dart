@@ -1,6 +1,4 @@
-part of dockable.timeline;
-
-//TODO: implement UI width modifiers
+part of dockable;
 
 /**
  * timeline-element is a ruler widget.
@@ -19,10 +17,20 @@ class TimelineElement extends PolymerElement {
   @published int timelineWidth = 0;
   
   void timelinePositionChanged() {
+    if(timelinePosition == null || timelinePosition < _row.getStartTime()) {
+      timelinePosition = _row.getStartTime();
+    } else if(timelinePosition + timelineWidth > _row.getStopTime()) {
+      timelinePosition = _row.getStopTime() - timelineWidth;
+    }
     performLayout();
   }
   
   void timelineWidthChanged() {
+    if(timelineWidth == null || timelineWidth == 0) {
+      timelineWidth = 1;
+    } else if(timelinePosition + timelineWidth > _row.getStopTime()) {
+      timelineWidth = _row.getStopTime() - timelinePosition;
+    }
     performLayout();
   }
   
@@ -89,9 +97,9 @@ class TimelineElement extends PolymerElement {
           int newPos = temp2 + (e1.page.x - temp1);
           int newTime = _row.getTimeForLeft(newPos);
           int newWidth = timelinePosition - newTime + timelineWidth;
-          if(newWidth > 0) {
-            timelinePosition = newTime; 
-            timelineWidth = newWidth; 
+          if(newWidth > 0 && newTime >= 0) {
+            timelineWidth = newWidth;
+            timelinePosition = newTime;
           }
         });
         _trackEndSubscr = document.onMouseUp.listen((MouseEvent e2) {

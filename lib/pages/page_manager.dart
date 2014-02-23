@@ -1,10 +1,4 @@
-library dockable.pages;
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-
-import '../selectable/selectable.dart';
-
-part 'page_item.dart';
+part of dockable;
 
 @CustomTag('page-manager')
 class PageManager extends PolymerElement {

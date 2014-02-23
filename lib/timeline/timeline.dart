@@ -1,12 +1,4 @@
-library dockable.timeline;
-
-import 'dart:html';
-import 'dart:async';
-import 'package:polymer/polymer.dart';
-import 'package:logging/logging.dart';
-
-part 'timelinerow.dart';
-part 'timelineelement.dart';
+part of dockable;
 
 //TODO: markers are currently just numbers. make them represent time
 //TODO: make the interface between timelinemanager, timelinerow and timelineelement standard

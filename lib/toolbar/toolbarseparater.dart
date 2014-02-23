@@ -1,4 +1,4 @@
-part of dockable.toolbar;
+part of dockable;
 
 /*
  * TODO:

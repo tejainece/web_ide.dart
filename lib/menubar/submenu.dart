@@ -1,4 +1,4 @@
-part of dockable.menubar;
+part of dockable;
 
 /*
  * TODO:

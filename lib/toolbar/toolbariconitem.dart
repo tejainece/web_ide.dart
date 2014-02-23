@@ -1,4 +1,4 @@
-part of dockable.toolbar;
+part of dockable;
 
 @CustomTag('dockable-toolbar-icon-item')
 class ToolbarIconItem extends ToolbarItem {

@@ -1,14 +1,4 @@
-library dockable.dock;
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-import 'dart:async';
-import '../splitter/dockable_splitter.dart';
-import '../tabs/tab_manager.dart';
-import '../modal/modal.dart';
-
-part 'dockable_container.dart';
-part 'dock_container.dart';
-part 'dockable_panel.dart';
+part of dockable;
 
 @CustomTag('dock-manager')
 class DockManager extends PolymerElement {

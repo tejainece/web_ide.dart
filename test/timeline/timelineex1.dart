@@ -8,6 +8,6 @@ import 'package:dockable/timeline/timeline.dart';
 main() {
   DivElement mc = querySelector('#main-container');
   initPolymer().run(() {    
-    TimelineManager man = querySelector('#timeline');
+    //TimelineManager man = querySelector('#timeline');
   });
 }

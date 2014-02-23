@@ -3,7 +3,7 @@ library main;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-import 'package:dockable/modal/modal.dart';
+import '../../lib/modal/modal.dart';
 
 List<DockableModal> tabs = new List<DockableModal>();
 main() {

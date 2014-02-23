@@ -1,4 +1,4 @@
-part of dockable.dock;
+part of dockable;
 
 //TODO: implement content
 //TODO: implement animation

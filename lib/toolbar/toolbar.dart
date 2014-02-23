@@ -1,12 +1,4 @@
-library dockable.toolbar;
-
-import 'dart:html';
-
-import 'package:polymer/polymer.dart';
-import '../iconbutton/dockable_icon_button.dart';
-
-part 'toolbariconitem.dart';
-part 'toolbarseparater.dart';
+part of dockable;
 
 class ToolbarItem extends PolymerElement {
   ToolbarItem.created() : super.created();

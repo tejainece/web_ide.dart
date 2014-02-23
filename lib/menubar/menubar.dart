@@ -1,14 +1,4 @@
-library dockable.menubar;
-
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-import 'dart:async';
-import '../icon/dockable_icon.dart';
-
-part 'menuitem.dart';
-part 'submenuseparater.dart';
-part 'submenu.dart';
-part 'submenuitem.dart';
+part of dockable;
 
 @CustomTag('menu-bar')
 class Menubar extends PolymerElement {

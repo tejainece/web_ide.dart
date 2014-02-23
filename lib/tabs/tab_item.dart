@@ -1,4 +1,4 @@
-part of dockable.tabs;
+part of dockable;
 
 class TabItem extends SelectableItemImpl {
   

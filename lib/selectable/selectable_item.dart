@@ -1,4 +1,4 @@
-part of selectable;
+part of dockable;
 
 abstract class SelectableItem {
   

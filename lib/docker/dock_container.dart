@@ -1,4 +1,4 @@
-part of dockable.dock;
+part of dockable;
 
 abstract class DockContainer extends PolymerElement {
   

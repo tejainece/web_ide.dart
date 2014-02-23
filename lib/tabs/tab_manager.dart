@@ -1,14 +1,4 @@
-library dockable.tabs;
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-import 'dart:async';
-
-import '../selectable/selectable.dart';
-import '../pages/page_manager.dart';
-
-part 'tab_title_item.dart';
-part 'tab_title.dart';
-part 'tab_item.dart';
+part of dockable;
 
 @CustomTag('tab-manager')
 class TabManager extends PolymerElement with SelectionManager {
