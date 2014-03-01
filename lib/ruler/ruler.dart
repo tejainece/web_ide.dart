@@ -1,4 +1,9 @@
-part of dockable;
+library ruler;
+
+import 'package:polymer/polymer.dart';
+import 'package:logging/logging.dart';
+import 'dart:html';
+import 'dart:async';
 
 /**
  * ruler-widget is a ruler widget.

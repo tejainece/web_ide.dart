@@ -1,4 +1,4 @@
-part of dockable;
+part of menubar;
 
 @CustomTag('menu-item')
 class MenuItem extends PolymerElement {

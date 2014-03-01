@@ -1,4 +1,4 @@
-part of dockable;
+part of timeline;
 
 /**
  * timeline-row is a ruler widget.

@@ -3,7 +3,7 @@ library main;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-import 'package:dockable/iconbutton/dockable_icon_button.dart';
+import 'package:dockable/iconbutton/icon_button.dart';
 
 main() {
   DivElement mc = querySelector('#main-container');

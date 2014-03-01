@@ -1,4 +1,4 @@
-part of dockable;
+part of tabs;
 
 @CustomTag('tab-title')
 class TabTitle extends PolymerElement {

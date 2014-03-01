@@ -1,4 +1,12 @@
-part of dockable;
+library selectable;
+
+import 'package:polymer/polymer.dart';
+import 'package:logging/logging.dart';
+import 'dart:html';
+import 'dart:async';
+
+part 'multi_selectable.dart';
+part 'selectable_item.dart';
 
 abstract class Selectable {
   List<SelectableItem> get items;

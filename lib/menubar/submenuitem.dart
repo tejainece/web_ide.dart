@@ -1,4 +1,4 @@
-part of dockable;
+part of menubar;
 
 /*
  * TODO:
@@ -42,7 +42,7 @@ class SubMenuItem extends SubMenuContentItem {
     super.enteredView();
     for(Element _el in this.children) {
       if(!SubMenu.isSubMenuItem(_el)) {
-        _el.remove();
+        //_el.remove(); //TODO: implement this
       } else {
         _el.remove();
         addItem(_el);
@@ -94,6 +94,7 @@ class SubMenuItem extends SubMenuContentItem {
   
   void _showSubMenu() {
     if(_submenu.children.length != 0 && _submenu.show == false) {
+      print("showing sub menu");
       _submenu.style.left = "${this.offsetLeft+this.offsetWidth}px";
       _submenu.style.top = "${this.parent.offsetTop + this.offsetTop}px";
       _submenu.show = true;

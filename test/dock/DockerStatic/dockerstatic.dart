@@ -3,7 +3,7 @@ library main;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-import '../../../lib/docker/dock_manager.dart';
+import '../../../lib/dockable.dart';
 
 num count = 0; //TODO: remove
 

@@ -3,7 +3,7 @@ library main;
 import 'dart:html';
 import 'package:polymer/polymer.dart';
 
-import 'package:dockable/tabs/tab_manager.dart';
+import '../../../lib/dockable.dart';
 
 TabManager tm;
 List<TabItem> tabs = new List<TabItem>();

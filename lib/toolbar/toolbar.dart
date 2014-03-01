@@ -1,4 +1,12 @@
-part of dockable;
+library toolbar;
+
+import 'package:polymer/polymer.dart';
+import 'package:logging/logging.dart';
+import 'dart:html';
+import 'dart:async';
+
+part 'toolbariconitem.dart';
+part 'toolbarseparater.dart';
 
 class ToolbarItem extends PolymerElement {
   ToolbarItem.created() : super.created();
@@ -99,7 +107,6 @@ class DockableToolbar extends PolymerElement {
       this.classes.remove('vertical');
     }
     sizeChanged();
-    print('content length: ${this.children.length}');
     for(HtmlElement _item in this.children) {
       if(_item is ToolbarItem) {
         _item.vertical = vertical;

@@ -1,4 +1,15 @@
-part of dockable;
+library docker;
+
+import 'package:polymer/polymer.dart';
+import 'dart:html';
+import 'dart:async';
+
+import '../tabs/tab_manager.dart';
+import '../splitter/splitter.dart';
+
+part 'dock_container.dart';
+part 'dockable_container.dart';
+part 'dockable_panel.dart';
 
 @CustomTag('dock-manager')
 class DockManager extends PolymerElement {

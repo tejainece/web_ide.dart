@@ -2,14 +2,14 @@
 <polymer-element name="tab-title-item" attributes="icon title hasCloseBtn">
   <template>
     <style scope>
-      tab-title-item {
+      :host {
           width: 150px;
           height: 100%;
           background-color: blue;
           display: inline-block;
           box-sizing:border-box;
       }
-      tab-title-item.active {
+      :host(.active:host) {
           background-color: green;
       }
       .holder {
@@ -37,6 +37,6 @@
       </div>
     </div>
   </template>
-  <script type="application/dart" src="../dockable.dart"></script>
+  <script type="application/dart" src="tab_manager.dart"></script>
 </polymer-element>
 

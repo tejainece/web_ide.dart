@@ -1,7 +1,7 @@
 <polymer-element name="dockable-container" attributes="vertical">
   <template>
     <style>
-      dockable-container {
+      :host {
         background-color: maroon;
         display: flex;
         box-sizing:border-box;
@@ -16,7 +16,7 @@
         flex-flow: row;
         flex-grow: 1;
       }
-      .vertical {
+      :host > div.holder.vertical {
         flex-flow: column;
       }
     </style>
@@ -24,7 +24,6 @@
       <!--<content></content>-->
     </div>
   </template>
-  <link rel="import" href="../splitter/dockable_splitter.html">
-  <script type="application/dart" src="../dockable.dart"></script>
+  <link rel="import" href="../splitter/splitter.html">
+  <script type="application/dart" src="dock_manager.dart"></script>
 </polymer-element>
-

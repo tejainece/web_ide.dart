@@ -2,13 +2,13 @@
 <polymer-element name="page-item">
   <template>
     <style>
-      page-item {
+      :host {
           width: 0px;
           height: 0px;
           display: none; !important
           box-sizing:border-box;
       }
-      page-item.active {
+      :host(.active:host) {
           background-color: orange;
           display: block;
           width: auto;
@@ -26,6 +26,6 @@
       <content></content>
     </div>
   </template>
-  <script type="application/dart" src="../dockable.dart"></script>
+  <script type="application/dart" src="page_manager.dart"></script>
 </polymer-element>
 

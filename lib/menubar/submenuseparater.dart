@@ -1,4 +1,4 @@
-part of dockable;
+part of menubar;
 
 @CustomTag('submenu-separater-item')
 class SubMenuSeparaterItem extends SubMenuItemBase {

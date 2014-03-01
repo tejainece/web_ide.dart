@@ -1,4 +1,9 @@
-part of dockable;
+library icon;
+
+import 'package:polymer/polymer.dart';
+import 'package:logging/logging.dart';
+import 'dart:html';
+import 'dart:async';
 
 /**
  * dockable-icon is a 24x24 glyph expressed as a background-image.

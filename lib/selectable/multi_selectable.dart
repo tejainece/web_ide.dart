@@ -1,4 +1,4 @@
-part of dockable;
+part of selectable;
 
 abstract class MultiSelectable extends Selectable {
   void set multiSelect(bool arg_multi);

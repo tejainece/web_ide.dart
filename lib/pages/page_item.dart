@@ -1,4 +1,4 @@
-part of dockable;
+part of page;
 
 @CustomTag('page-item')
 class PageItem extends PolymerElement with SelectableItemImpl {

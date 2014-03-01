@@ -1,4 +1,4 @@
-part of dockable;
+part of menubar;
 
 /*
  * TODO:
@@ -101,7 +101,7 @@ class SubMenu extends PolymerElement {
     super.enteredView();
     for(Element _el in this.children) {
       if(!isSubMenuItem(_el)) {
-        _el.remove();
+        //_el.remove(); //TODO: implement me
       }
     }
   }

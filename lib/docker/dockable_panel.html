@@ -1,7 +1,7 @@
 <polymer-element name="dockable-panel">
   <template>
     <style >
-      dockable-panel {
+      :host {
         background-color: maroon;
         display: flex;
         flex-direction: column;
@@ -18,6 +18,6 @@
     <tab-manager id="tabs"></tab-manager>
   </template>
   <link rel="import" href="../tabs/tab_manager.html">
-  <script type="application/dart" src="../dockable.dart"></script>
+  <script type="application/dart" src="dock_manager.dart"></script>
 </polymer-element>
 

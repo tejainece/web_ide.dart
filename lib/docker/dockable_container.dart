@@ -1,4 +1,4 @@
-part of dockable;
+part of docker;
 
 //TODO: implement animation
 //TODO: test setting custom widths
