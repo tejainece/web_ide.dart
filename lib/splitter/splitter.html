@@ -1,0 +1,29 @@
+<polymer-element name="dockable-splitter" attributes="vertical locked">
+  <template>
+    <style>
+      :host {
+        height: auto;
+        width: 7px;
+        background: #efefef url('packages/dockable/splitter/handle.png') no-repeat center;
+        box-shadow: inset 0 0 2px 1px #ccc;
+        cursor: col-resize;
+      }
+
+      :host(.vertical:host) {
+        width: auto;
+        height: 7px;
+        background-color: #efefef;
+        background-image: url('packages/dockable/splitter/handle_horiz.png') ;
+        cursor: row-resize;
+      }
+
+      :hover, .active {
+        background-color: #ddd;
+      }
+    </style>
+  </template>
+  <div>
+  </div>
+
+  <script type="application/dart" src="splitter.dart"></script>
+</polymer-element>
