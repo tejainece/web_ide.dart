@@ -1,13 +1,91 @@
 <!DOCTYPE html>
-<polymer-element name="dock-stage" attributes="scale resizeable">
+<link rel="import" href="stage_element.html">
+<polymer-element name="dock-stage" attributes="stagewidth stageheight stagescale resizable">
   <template>
     <style>
       :host {
+        position: absolute;
+        background-color: gray;
+      }
+      
+      :host > div.canvas {
         display: block;
+        position: absolute;
         background-color: white;
+        box-sizing: border-box;
         border: solid 1px black;
+        
+        left: 50%;
+        top: 50%;
+      }
+      
+      :host > .anchor-nw {
+        width: 5px;
+        height: 5px;
+        display: none;        
+        position: absolute;
+        
+        cursor: nw-resize;
+        background-color: blue;
+        border: thin solid black;
+      }
+      
+      :host > .anchor-nw.show {
+        display: block;
+      }
+      
+      :host > .anchor-ne {
+        width: 5px;
+        height: 5px;
+        display: none;        
+        position: absolute;
+        
+        cursor: ne-resize;
+        background-color: blue;
+        border: thin solid black;
+      }
+      
+      :host > .anchor-ne.show {
+        display: block;
+      }
+      
+      :host > .anchor-sw {
+        width: 5px;
+        height: 5px;
+        display: none;        
+        position: absolute;
+        
+        cursor: sw-resize;
+        background-color: blue;
+        border: thin solid black;
+      }
+      
+      :host > .anchor-sw.show {
+        display: block;
+      }
+      
+      :host > .anchor-se {
+        width: 5px;
+        height: 5px;
+        display: none;        
+        position: absolute;
+        
+        cursor: se-resize;
+        background-color: blue;
+        border: thin solid black;
+      }
+      
+      :host > .anchor-se.show {
+        display: block;
       }
     </style>
+    <div class="canvas">
+    </div>
+    
+    <div class="anchor-nw"></div>
+    <div class="anchor-ne"></div>
+    <div class="anchor-sw"></div>
+    <div class="anchor-se"></div>
   </template>
 
   <script type="application/dart" src="stage.dart"></script>

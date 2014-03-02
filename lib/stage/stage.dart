@@ -5,52 +5,610 @@ import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
 
+part 'stage_element.dart';
+
+/*
+ * TODO:
+ * Implement resizable
+ * Implement select and deselect events
+ */
+
 /**
  * dock-stage is a stage used to create GUI interfaces like XCode Storyboard.
  *
- *     <dockable-icon width="720" height="480"></dockable-icon>
+ *     <dock-stage width="720" height="480"></dock-stage>
  *
  * @class dock-stage
  */
 @CustomTag('dock-stage')
 class DockStage extends PolymerElement {
-  DockStage.created() : super.created() {
+  DockStage.created(): super.created() {
     _logger.finest('created');
   }
 
-  final _logger = new Logger('Dockable.ColorPicker');
-      
-  @override 
+  final _logger = new Logger('Dockable.Stage');
+
+  @override
   void polymerCreated() {
     _logger.finest('polymerCreated');
     super.polymerCreated();
   }
-  
+
   @override
   void ready() {
     super.ready();
+    for (HtmlElement child in children) {
+      child.remove();
+      if (child is StageElement) {
+        addElement(child);
+      }
+    }
   }
-  
+
+  @override
+  void enteredView() {
+    super.enteredView();
+    _clicksub = onClick.listen(_stageClicked);
+
+    onMouseWheel.listen((WheelEvent event) {
+      if(event.wheelDeltaY < 0) {
+        zoomOut();
+      } else {
+        zoomIn();
+      }
+    });
+  }
+
+  @override
+  void leftView() {
+    if (_clicksub != null) {
+      _clicksub.cancel();
+      _clicksub = null;
+    }
+
+    if (_mousemove != null) {
+      _mousemove.cancel();
+      _mousemove = null;
+    }
+    if (_mouseup != null) {
+      _mouseup.cancel();
+      _mouseup = null;
+    }
+    if (_mouseout != null) {
+      _mouseout.cancel();
+      _mouseout = null;
+    }
+    if (_moveEscape != null) {
+      _moveEscape.cancel();
+      _moveEscape = null;
+    }
+  }
+
+  StreamSubscription _clicksub;
+  StreamSubscription _mouseout, _mousemove, _mouseup;
+  StreamSubscription _moveEscape;
+
+
+  /* Element selection */
+  void _stageClicked(MouseEvent event) {
+    //Don't do selection at the end of move
+    if(_wasMoving) {
+      _wasMoving = false;
+      _showHideAnchors();
+      return;
+    }
+    if(_wasResizing) {
+      _wasResizing = false;
+      _showHideAnchors();
+      return;
+    }
+
+    bool multi = event.shiftKey;
+    if (_elements.contains(event.target)) {
+      StageElement target = event.target;
+      if (multi) {
+        if (target.isSelected) {
+          deselectElement(target);
+        } else {
+          if (target.selectable) {
+            selectElement(target);
+          }
+        }
+      } else {
+        deselectAllElements();
+        if (target.selectable) {
+          selectElement(target);
+        }
+      }
+    } else {
+      deselectAllElements();
+    }
+
+  }
+
+  void selectElement(StageElement _elem) {
+    if (_elem.selectable) {
+      _selected.add(_elem);
+      _elem._selected();
+    }
+    _showHideAnchors();
+  }
+
+  void deselectElement(StageElement _elem) {
+    _selected.remove(_elem);
+    _elem._deselected();
+    _showHideAnchors();
+  }
+
+  void deselectAllElements() {
+    _selected.forEach((StageElement _elem) {
+      _elem._deselected();
+    });
+    _selected.clear();
+    _showHideAnchors();
+  }
+
+  /* Move */
+  Point _moveStartPt;
+  bool _wasMoving = false;
+
   /*
-   * Properties
-   */  
-  @published num scale = 1.0;
-  
-  @published bool resizable = true;
-  
-  void widthChanged() {
-    
+   * Called by the [StageElement] when the user starts to move
+   */
+  void _startMove(MouseEvent event) {
+    _mousemove = onMouseMove.listen(_processMove);
+    _mouseup = onMouseUp.listen(_stopMove);
+    _mouseout = onMouseOut.listen(_stopMove);
+    _moveEscape = document.onKeyDown.listen((KeyboardEvent event) {
+      if (event.keyCode == KeyCode.ESC) {
+        _stopMove(null);
+        for (StageElement _elem in _selected) {
+          _elem.left = _elem._savedPosBeforeMove.x/stagescale;
+          _elem.top = _elem._savedPosBeforeMove.y/stagescale;
+        }
+      }
+    });
+    _moveStartPt = event.page;
+
+    for (StageElement _elem in _selected) {
+      _elem._savedPosBeforeMove = new Point(_elem.offsetLeft, _elem.offsetTop);
+    }
   }
-  
-  void heightChanged() {
-    
+
+  void _processMove(MouseEvent event) {
+    if (getBoundingClientRect().containsPoint(event.page)) {
+      Point diff = event.page - _moveStartPt;
+      for (StageElement _elem in _selected) {
+        _elem.left = (_elem._savedPosBeforeMove.x + diff.x)/stagescale;
+        _elem.top = (_elem._savedPosBeforeMove.y + diff.y)/stagescale;
+      }
+    }
+    _wasMoving = true;
+    _showHideAnchors();
   }
-  
-  void scaleChanged() {
-    
+
+  void _stopMove(MouseEvent event) {
+    _moveStartPt = null;
+    if (_mousemove != null) {
+      _mousemove.cancel();
+      _mousemove = null;
+    }
+    if (_mouseup != null) {
+      _mouseup.cancel();
+      _mouseup = null;
+    }
+    if (_mouseout != null) {
+      _mouseout.cancel();
+      _mouseout = null;
+    }
+    if (_moveEscape != null) {
+      _moveEscape.cancel();
+      _moveEscape = null;
+    }
   }
-  
+
+  /* Element resize */
+
+  StreamSubscription _nwMD, _nwC;
+  StreamSubscription _neMD, _neC;
+  StreamSubscription _swMD, _swC;
+  StreamSubscription _seMD, _seC;
+  StreamSubscription _ancMM, _ancMU, _ancMO, _ancEsc;
+  bool _anchorShowing = false;
+  bool _wasResizing = false;
+
+  _cancelResize(MouseEvent event) {
+    print("cancelled");
+    if(_ancMM != null) {
+      print("cancelling");
+      _ancMM.cancel();
+      _ancMM = null;
+    }
+    if(_ancMU != null) {
+      _ancMU.cancel();
+      _ancMU = null;
+    }
+    if(_ancEsc != null) {
+      _ancEsc.cancel();
+      _ancEsc = null;
+    }
+    if(_ancMO != null) {
+      _ancMO.cancel();
+      _ancMO = null;
+    }
+    _wasResizing = false;
+    //_showHideAnchors();
+    style.cursor = "default";
+  }
+
+  _showHideAnchors() {
+    if(_selected.length == 1 && !_wasMoving && !_wasResizing) {
+      StageElement selectedEl = _selected.first;
+
+      //Fix anchor position
+      _anchornw.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft - 5}px";
+      _anchornw.style.top = "${_canvas.offsetTop + selectedEl.offsetTop - 5}px";
+
+      _anchorne.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft + selectedEl.offsetWidth}px";
+      _anchorne.style.top = "${_canvas.offsetTop + selectedEl.offsetTop - 5}px";
+
+      _anchorsw.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft - 5}px";
+      _anchorsw.style.top = "${_canvas.offsetTop + selectedEl.offsetTop + selectedEl.offsetHeight}px";
+
+      _anchorse.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft + selectedEl.offsetWidth}px";
+      _anchorse.style.top = "${_canvas.offsetTop + selectedEl.offsetTop + selectedEl.offsetHeight}px";
+
+      if(!_anchorShowing) {
+        _anchorShowing = true;
+
+        /* Northwest */
+        _anchornw.classes.add("show");
+        _nwMD = _anchornw.onMouseDown.listen((MouseEvent event) {
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
+              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Point startPoint = event.page;
+          _ancMM = onMouseMove.listen((MouseEvent event) {
+            _wasResizing = true;
+            _showHideAnchors();
+            Point diff = event.page - startPoint;
+            num elW = initRect.width -  diff.x;
+            num elH = initRect.height -  diff.y;
+            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
+              selectedEl.left = initRect.left +  diff.x;
+              selectedEl.top = initRect.top +  diff.y;
+              selectedEl.width = initRect.width -  diff.x;
+              selectedEl.height = initRect.height -  diff.y;
+            }
+          });
+          _ancMU = onMouseUp.listen(_cancelResize);
+          _ancMO = onMouseOut.listen(_cancelResize);
+          _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
+            if (event.keyCode == KeyCode.ESC) {
+              _cancelResize(null);
+              selectedEl.left = initRect.left;
+              selectedEl.top = initRect.top;
+              selectedEl.width = initRect.width;
+              selectedEl.height = initRect.height;
+            }
+          });
+          style.cursor = "nw-resize";
+        }); //End of onMouseDown
+        _nwC = _anchornw.onClick.listen((MouseEvent event) {
+          //Stop propagation to prevent element deselection when
+          //anchors are clicked
+          event.stopPropagation();
+        });
+
+        /* Northeast */
+        _anchorne.classes.add("show");
+        _neMD = _anchorne.onMouseDown.listen((MouseEvent event) {
+          print("starting");
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
+              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Point startPoint = event.page;
+          _ancMM = onMouseMove.listen((MouseEvent event) {
+            _wasResizing = true;
+            _showHideAnchors();
+            Point diff = event.page - startPoint;
+            num elW = initRect.width +  diff.x;
+            num elH = initRect.height -  diff.y;
+            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
+              //selectedEl.left = initRect.left;
+              selectedEl.top = initRect.top +  diff.y;
+              selectedEl.width = initRect.width +  diff.x;
+              selectedEl.height = initRect.height -  diff.y;
+            }
+          });
+          _ancMU = onMouseUp.listen(_cancelResize);
+          _ancMO = onMouseOut.listen(_cancelResize);
+          _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
+            if (event.keyCode == KeyCode.ESC) {
+              _cancelResize(null);
+              selectedEl.left = initRect.left;
+              selectedEl.top = initRect.top;
+              selectedEl.width = initRect.width;
+              selectedEl.height = initRect.height;
+            }
+          });
+          style.cursor = "ne-resize";
+        });
+        _neC = _anchorne.onClick.listen((MouseEvent event) {
+          //Stop propagation to prevent element deselection when
+          //anchors are clicked
+          event.stopPropagation();
+        });
+
+
+        /* Southwest */
+        _anchorsw.classes.add("show");
+        _swMD = _anchorsw.onMouseDown.listen((MouseEvent event) {
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
+              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Point startPoint = event.page;
+          _ancMM = onMouseMove.listen((MouseEvent event) {
+            _wasResizing = true;
+            _showHideAnchors();
+            Point diff = event.page - startPoint;
+            num elW = initRect.width - diff.x;
+            num elH = initRect.height + diff.y;
+            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
+              selectedEl.left = initRect.left +  diff.x;
+              //selectedEl.top = initRect.top;
+              selectedEl.width = initRect.width - diff.x;
+              selectedEl.height = initRect.height + diff.y;
+            }
+          });
+          _ancMU = onMouseUp.listen(_cancelResize);
+          _ancMO = onMouseOut.listen(_cancelResize);
+          _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
+            if (event.keyCode == KeyCode.ESC) {
+              _cancelResize(null);
+              selectedEl.left = initRect.left;
+              selectedEl.top = initRect.top;
+              selectedEl.width = initRect.width;
+              selectedEl.height = initRect.height;
+            }
+          });
+          style.cursor = "sw-resize";
+        });
+        _swC = _anchorsw.onClick.listen((MouseEvent event) {
+          //Stop propagation to prevent element deselection when
+          //anchors are clicked
+          event.stopPropagation();
+        });
+
+        /* Southeast */
+        _anchorse.classes.add("show");
+        _seMD = _anchorse.onMouseDown.listen((MouseEvent event) {
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
+              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Point startPoint = event.page;
+          _ancMM = onMouseMove.listen((MouseEvent event) {
+            _wasResizing = true;
+            _showHideAnchors();
+            Point diff = event.page - startPoint;
+            num elW = initRect.width + diff.x;
+            num elH = initRect.height + diff.y;
+            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
+              //selectedEl.left = initRect.left +  diff.x;
+              //selectedEl.top = initRect.top;
+              selectedEl.width = initRect.width + diff.x;
+              selectedEl.height = initRect.height + diff.y;
+            }
+          });
+          _ancMU = onMouseUp.listen(_cancelResize);
+          _ancMO = onMouseOut.listen(_cancelResize);
+          _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
+            if (event.keyCode == KeyCode.ESC) {
+              _cancelResize(null);
+              selectedEl.left = initRect.left;
+              selectedEl.top = initRect.top;
+              selectedEl.width = initRect.width;
+              selectedEl.height = initRect.height;
+            }
+          });
+          style.cursor = "se-resize";
+        });
+        _seC = _anchorse.onClick.listen((MouseEvent event) {
+          //Stop propagation to prevent element deselection when
+          //anchors are clicked
+          event.stopPropagation();
+        });
+
+      }
+
+    } else if(_anchorShowing) {
+      //TODO: fix cancelling stream subscriptions
+      if(_nwMD != null) {
+        _nwMD.cancel();
+        _nwMD = null;
+      }
+      if(_neMD != null) {
+        _neMD.cancel();
+        _neMD = null;
+      }
+      if(_swMD != null) {
+        _swMD.cancel();
+        _swMD = null;
+      }
+      if(_seMD != null) {
+        _seMD.cancel();
+        _seMD = null;
+      }
+
+      if(_nwC != null) {
+        _nwC.cancel();
+        _nwC = null;
+      }
+      if(_neC != null) {
+        _neC.cancel();
+        _neC = null;
+      }
+      if(_swC != null) {
+        _swC.cancel();
+        _swC = null;
+      }
+      if(_seC != null) {
+        _seC.cancel();
+        _seC = null;
+      }
+
+      _anchornw.classes.remove("show");
+      _anchorne.classes.remove("show");
+      _anchorsw.classes.remove("show");
+      _anchorse.classes.remove("show");
+
+      _anchorShowing = false;
+    }
+  }
+
+  DivElement _divanchornw;
+  DivElement get _anchornw {
+    if (_divanchornw == null) {
+      _divanchornw = this.shadowRoot.querySelector(".anchor-nw");
+      assert(_divanchornw != null);
+    }
+    return _divanchornw;
+  }
+
+  DivElement _divanchorne;
+  DivElement get _anchorne {
+    if (_divanchorne == null) {
+      _divanchorne = this.shadowRoot.querySelector(".anchor-ne");
+      assert(_divanchorne != null);
+    }
+    return _divanchorne;
+  }
+
+  DivElement _divanchorsw;
+  DivElement get _anchorsw {
+    if (_divanchorsw == null) {
+      _divanchorsw = this.shadowRoot.querySelector(".anchor-sw");
+      assert(_divanchorsw != null);
+    }
+    return _divanchorsw;
+  }
+
+  DivElement _divanchorse;
+  DivElement get _anchorse {
+    if (_divanchorse == null) {
+      _divanchorse = this.shadowRoot.querySelector(".anchor-se");
+      assert(_divanchorse != null);
+    }
+    return _divanchorse;
+  }
+
+
+  /* Element operations - addition, removal, etc */
+  DivElement _divcanvas;
+  DivElement get _canvas {
+    if (_divcanvas == null) {
+      _divcanvas = this.shadowRoot.querySelector(".canvas");
+      assert(_divcanvas != null);
+    }
+    return _divcanvas;
+  }
+
+  /*
+   * Adds an element to the stage
+   */
+  bool addElement(StageElement _elem) {
+    bool ret = true;
+    if (_elem != null) {
+      _canvas.children.add(_elem);
+      _elements.add(_elem);
+      _elem._added(this);
+    } else {
+      ret = false;
+    }
+    return ret;
+  }
+
+  /*
+   * Removes an element from the stage
+   */
+  bool removeElement(StageElement _elem) {
+    bool ret = true;
+    if (_elem != null && shadowRoot.children.contains(_elem)) {
+      if (_elem.isSelected) {
+        deselectElement(_elem);
+      }
+      _canvas.children.remove(_elem);
+      _elements.remove(_elem);
+      _elem._removed();
+    } else {
+      ret = false;
+    }
+    return ret;
+  }
+
+
+  /* Zoom */
+  /*
+   * Zooms into the stage
+   */
+  void zoomIn() {
+    stagescale = stagescale * 1.1;
+  }
+
+  /*
+   * Zooms out of the stage
+   */
+  void zoomOut() {
+    stagescale = stagescale * 0.9;
+  }
+
+  void cancelZoom() {
+    stagescale = 1;
+  }
+
+  List<StageElement> _elements = new List<StageElement>();
+  List<StageElement> get elements => _elements;
+
+  Set<StageElement> _selected = new Set<StageElement>();
+  Set<StageElement> get selected => _selected;
+
+  /* Properties */
+  @published
+  num stagewidth = 0;
+
+  @published
+  num stageheight = 0;
+
+  @published
+  num stagescale = 1.0;
+
+  @published
+  bool resizable = true;
+
+  void stagewidthChanged() {
+    _canvas.style.width = "${stagewidth * stagescale}px";
+    _canvas.style.marginLeft = "-${_canvas.offsetWidth/2}px";
+  }
+
+  void stageheightChanged() {
+    _canvas.style.height = "${stageheight  * stagescale}px";
+    _canvas.style.marginTop = "-${_canvas.offsetHeight/2}px";
+  }
+
+  void stagescaleChanged() {
+    _canvas.style.width = "${stagewidth * stagescale}px";
+    _canvas.style.marginLeft = "-${_canvas.offsetWidth/2}px";
+
+    _canvas.style.height = "${stageheight  * stagescale}px";
+    _canvas.style.marginTop = "-${_canvas.offsetHeight/2}px";
+
+    for(StageElement elem in _elements) {
+      elem.widthChanged();
+      elem.heightChanged();
+      elem.leftChanged();
+      elem.topChanged();
+    }
+
+    _showHideAnchors();
+  }
+
   void resizableChanged() {
-    
+
   }
 }

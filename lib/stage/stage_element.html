@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<polymer-element name="stage-element" attributes="left top width height movable resizable selectable">
+  <template>
+    <style>
+      :host {
+        position: absolute;
+        
+        left: 20px;
+        right: 20px;
+        
+        box-sizing: border-box;
+        border: solid 1px black;
+        
+        background-color: white;
+      }
+      
+      :host(.selected:host) {
+        outline: blue dashed 2px;
+        border: none;
+      }
+    </style>
+  </template>
+
+  <script type="application/dart" src="stage.dart"></script>
+</polymer-element>
+
