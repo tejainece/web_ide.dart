@@ -2,7 +2,6 @@ part of stage;
 
 /*
  * TODO:
- * Implement resize
  * Implement select and deselect events
  */
 
@@ -34,7 +33,7 @@ class StageElement extends PolymerElement {
 
   @override
   void leftView() {
-
+    super.leftView();
   }
 
   /*
@@ -74,8 +73,12 @@ class StageElement extends PolymerElement {
     }
   }
 
+  /* Selection */
   StreamSubscription _click;
   StreamSubscription _mouseDown;
+
+  EventStreamProvider<CustomEvent> _selectedEventP = new EventStreamProvider<CustomEvent>("selected");
+  EventStreamProvider<CustomEvent> _deselectedEventP = new EventStreamProvider<CustomEvent>("deselected");
 
   /*
    * Selects the element
@@ -96,13 +99,29 @@ class StageElement extends PolymerElement {
   }
 
   void _selected() {
-    //TODO: show anchors
     this.classes.add("selected");
+
+    //TODO: send valid detail
+    var event = new CustomEvent("selected",
+              canBubble: false, cancelable: false, detail: null);
+    dispatchEvent(event);
   }
 
   void _deselected() {
     this.classes.remove("selected");
+
+    //TODO: send valid detail
+    var event = new CustomEvent("deselected",
+              canBubble: false, cancelable: false, detail: null);
+    dispatchEvent(event);
   }
+
+  Stream<CustomEvent> get onSelected =>
+      _selectedEventP.forTarget(this);
+
+  Stream<CustomEvent> get onDeselected =>
+        _deselectedEventP.forTarget(this);
+
 
   /*
    * Parent stage

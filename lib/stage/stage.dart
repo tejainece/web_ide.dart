@@ -4,6 +4,7 @@ import 'package:polymer/polymer.dart';
 import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
+import 'dart:math';
 
 part 'stage_element.dart';
 
@@ -61,6 +62,7 @@ class DockStage extends PolymerElement {
 
   @override
   void leftView() {
+    super.leftView();
     if (_clicksub != null) {
       _clicksub.cancel();
       _clicksub = null;
@@ -91,7 +93,7 @@ class DockStage extends PolymerElement {
 
   /* Element selection */
   void _stageClicked(MouseEvent event) {
-    //Don't do selection at the end of move
+    //Don't do selection at the end of move and resize
     if(_wasMoving) {
       _wasMoving = false;
       _showHideAnchors();
@@ -127,7 +129,7 @@ class DockStage extends PolymerElement {
   }
 
   void selectElement(StageElement _elem) {
-    if (_elem.selectable) {
+    if (_elem.selectable && !_elem.isSelected) {
       _selected.add(_elem);
       _elem._selected();
     }
@@ -135,8 +137,10 @@ class DockStage extends PolymerElement {
   }
 
   void deselectElement(StageElement _elem) {
-    _selected.remove(_elem);
-    _elem._deselected();
+    if(_elem.isSelected) {
+      _selected.remove(_elem);
+      _elem._deselected();
+    }
     _showHideAnchors();
   }
 
@@ -218,9 +222,7 @@ class DockStage extends PolymerElement {
   bool _wasResizing = false;
 
   _cancelResize(MouseEvent event) {
-    print("cancelled");
     if(_ancMM != null) {
-      print("cancelling");
       _ancMM.cancel();
       _ancMM = null;
     }
@@ -236,7 +238,7 @@ class DockStage extends PolymerElement {
       _ancMO.cancel();
       _ancMO = null;
     }
-    _wasResizing = false;
+    //_wasResizing = false;
     //_showHideAnchors();
     style.cursor = "default";
   }
@@ -274,10 +276,10 @@ class DockStage extends PolymerElement {
             num elW = initRect.width -  diff.x;
             num elH = initRect.height -  diff.y;
             if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
-              selectedEl.left = initRect.left +  diff.x;
-              selectedEl.top = initRect.top +  diff.y;
-              selectedEl.width = initRect.width -  diff.x;
-              selectedEl.height = initRect.height -  diff.y;
+              selectedEl.left = (initRect.left +  diff.x)/stagescale;
+              selectedEl.top = (initRect.top +  diff.y)/stagescale;
+              selectedEl.width = (initRect.width -  diff.x)/stagescale;
+              selectedEl.height = (initRect.height -  diff.y)/stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -285,10 +287,10 @@ class DockStage extends PolymerElement {
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
-              selectedEl.left = initRect.left;
-              selectedEl.top = initRect.top;
-              selectedEl.width = initRect.width;
-              selectedEl.height = initRect.height;
+              selectedEl.left = (initRect.left)/stagescale;
+              selectedEl.top = (initRect.top)/stagescale;
+              selectedEl.width = (initRect.width)/stagescale;
+              selectedEl.height = (initRect.height)/stagescale;
             }
           });
           style.cursor = "nw-resize";
@@ -302,7 +304,6 @@ class DockStage extends PolymerElement {
         /* Northeast */
         _anchorne.classes.add("show");
         _neMD = _anchorne.onMouseDown.listen((MouseEvent event) {
-          print("starting");
           Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
               selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
           Point startPoint = event.page;
@@ -314,9 +315,9 @@ class DockStage extends PolymerElement {
             num elH = initRect.height -  diff.y;
             if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
               //selectedEl.left = initRect.left;
-              selectedEl.top = initRect.top +  diff.y;
-              selectedEl.width = initRect.width +  diff.x;
-              selectedEl.height = initRect.height -  diff.y;
+              selectedEl.top = (initRect.top +  diff.y)/stagescale;
+              selectedEl.width = (initRect.width +  diff.x)/stagescale;
+              selectedEl.height = (initRect.height -  diff.y)/stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -324,10 +325,10 @@ class DockStage extends PolymerElement {
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
-              selectedEl.left = initRect.left;
-              selectedEl.top = initRect.top;
-              selectedEl.width = initRect.width;
-              selectedEl.height = initRect.height;
+              //selectedEl.left = initRect.left;
+              selectedEl.top = (initRect.top)/stagescale;
+              selectedEl.width = (initRect.width)/stagescale;
+              selectedEl.height = (initRect.height)/stagescale;
             }
           });
           style.cursor = "ne-resize";
@@ -352,10 +353,10 @@ class DockStage extends PolymerElement {
             num elW = initRect.width - diff.x;
             num elH = initRect.height + diff.y;
             if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
-              selectedEl.left = initRect.left +  diff.x;
+              selectedEl.left = (initRect.left +  diff.x)/stagescale;
               //selectedEl.top = initRect.top;
-              selectedEl.width = initRect.width - diff.x;
-              selectedEl.height = initRect.height + diff.y;
+              selectedEl.width = (initRect.width - diff.x)/stagescale;
+              selectedEl.height = (initRect.height + diff.y)/stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -363,10 +364,10 @@ class DockStage extends PolymerElement {
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
-              selectedEl.left = initRect.left;
-              selectedEl.top = initRect.top;
-              selectedEl.width = initRect.width;
-              selectedEl.height = initRect.height;
+              selectedEl.left = (initRect.left)/stagescale;
+              //selectedEl.top = initRect.top;
+              selectedEl.width = (initRect.width)/stagescale;
+              selectedEl.height = (initRect.height)/stagescale;
             }
           });
           style.cursor = "sw-resize";
@@ -392,8 +393,8 @@ class DockStage extends PolymerElement {
             if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
               //selectedEl.left = initRect.left +  diff.x;
               //selectedEl.top = initRect.top;
-              selectedEl.width = initRect.width + diff.x;
-              selectedEl.height = initRect.height + diff.y;
+              selectedEl.width = (initRect.width + diff.x)/stagescale;
+              selectedEl.height = (initRect.height + diff.y)/stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -401,10 +402,10 @@ class DockStage extends PolymerElement {
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
-              selectedEl.left = initRect.left;
-              selectedEl.top = initRect.top;
-              selectedEl.width = initRect.width;
-              selectedEl.height = initRect.height;
+              //selectedEl.left = initRect.left;
+              //selectedEl.top = initRect.top;
+              selectedEl.width = (initRect.width)/stagescale;
+              selectedEl.height = (initRect.height)/stagescale;
             }
           });
           style.cursor = "se-resize";
@@ -548,19 +549,34 @@ class DockStage extends PolymerElement {
    * Zooms into the stage
    */
   void zoomIn() {
-    stagescale = stagescale * 1.1;
+    stagescale = stagescale * 1.5;
   }
 
   /*
    * Zooms out of the stage
    */
   void zoomOut() {
-    stagescale = stagescale * 0.9;
+    stagescale = stagescale * 0.666;
   }
 
   void cancelZoom() {
     stagescale = 1;
   }
+
+  //TODO: implement fit
+  /*void fit() {
+    num xDiff = offsetWidth/stagewidth;
+    num yDiff = offsetHeight/stageheight;
+
+    num diff = xDiff < yDiff? xDiff : yDiff;
+    if(diff > 1.5) {
+      int nTimes = (log(diff) * 2.46630351).floor();
+      stagescale = stagescale * pow(1.5, nTimes);
+    } else if (diff < 0.666) {
+      int nTimes = (log(diff) * 2.46630351).floor();
+      stagescale = stagescale * pow(0.666, nTimes);
+    }
+  }*/
 
   List<StageElement> _elements = new List<StageElement>();
   List<StageElement> get elements => _elements;
