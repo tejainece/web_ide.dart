@@ -13,22 +13,23 @@ main() {
     tm = new Element.tag('tab-manager');
     tm.id = "dm";
     mc.children.add(tm);
-    
+
     for(int i = 0; i < 3; i++) {
-      TabItem ti = new TabItem(null, null);
-      ti.content = new DivElement();
+      DivElement content = new DivElement();
+      content.text = "Tab${i} data";
+      TabItem ti = new TabItem(content, "Tab${i}");
       tm.addItem(ti);
       tabs.add(ti);
     }
   });
-  
+
   querySelector("#add_page").onClick.listen((e) {
     TabItem ti = new TabItem(null, null);
     tm.addItem(ti);
     tabs.add(ti);
   });
-  
+
   querySelector("#rm_cur_page").onClick.listen((e) {
-    
+
   });
 }

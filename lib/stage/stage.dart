@@ -543,6 +543,14 @@ class DockStage extends PolymerElement {
     return ret;
   }
 
+  void removeAllElements() {
+    List<StageElement> listEl = _elements;
+
+    for(StageElement el in listEl) {
+      removeElement(el);
+    }
+  }
+
 
   /* Zoom */
   /*

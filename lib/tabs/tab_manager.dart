@@ -31,15 +31,16 @@ class TabManager extends PolymerElement with SelectionManager {
     }
     return __pages;
   }
-  
+
   TabManager.created() : super.created() {
-    
+
   }
-  
+
   void enteredView() {
     //TODO: add pages already present in dom
+    super.enteredView();
   }
-  
+
   bool addItem(TabItem arg_tab) {
     bool ret = super.addItem(arg_tab);
     if(ret) {
@@ -49,7 +50,7 @@ class TabManager extends PolymerElement with SelectionManager {
     }
     return ret;
   }
-  
+
   bool removeItem(TabItem arg_tab) {
     bool ret = super.removeItem(arg_tab);
     if(ret) {
@@ -59,10 +60,10 @@ class TabManager extends PolymerElement with SelectionManager {
     }
     return ret;
   }
-  
+
   bool deselect(TabItem arg_tab) {
     return false;
   }
-  
+
   TabItem get selectedItem => super.selectedItem;
 }

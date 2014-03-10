@@ -8,20 +8,21 @@ import 'dart:async';
 part 'multi_selectable.dart';
 part 'selectable_item.dart';
 
+
 abstract class Selectable {
   List<SelectableItem> get items;
   bool addItem(SelectableItem arg_item);
   bool removeItem(SelectableItem arg_item);
-  
+
   //TODO: implement
   //bool insertAfter(SelectableItem arg_item);
   //bool insertBefore(SelectableItem arg_item);
-  
+
   //num indexOf(SelectableItem arg_item);
-  
+
   SelectableItem get selectedItem;
   bool isSelected(SelectableItem arg_item);
-  
+
   bool select(SelectableItem arg_item);
   bool deselect(SelectableItem arg_item);
 }
@@ -32,7 +33,7 @@ class SelectionManager implements Selectable {
     //TODO: can we somehow return unmutable or const list?
     return _items;
   }
-  
+
   bool addItem(SelectableItem arg_item) {
     bool ret = false;
     if(!_items.contains(arg_item)) {
@@ -41,7 +42,7 @@ class SelectionManager implements Selectable {
     }
     return ret;
   }
-  
+
   bool removeItem(SelectableItem arg_item) {
     bool ret = false;
     if(_items.contains(arg_item)) {
@@ -52,19 +53,19 @@ class SelectionManager implements Selectable {
     }
     return ret;
   }
-  
+
   num indexOf(SelectableItem arg_item) {
     return _items.indexOf(arg_item);
   }
-  
+
   SelectableItem _selected;
-  
+
   SelectableItem get selectedItem => _selected;
-  
+
   bool isSelected(SelectableItem arg_item) {
     return _selected == arg_item;
   }
-  
+
   bool select(SelectableItem arg_item) {
     bool ret = false;
     if(_items.contains(arg_item) && _selected != arg_item) {
@@ -78,7 +79,7 @@ class SelectionManager implements Selectable {
     }
     return ret;
   }
-  
+
   bool deselect(SelectableItem arg_item) {
     bool ret = false;
     if(_items.contains(arg_item) && _selected == arg_item) {
@@ -88,7 +89,7 @@ class SelectionManager implements Selectable {
     }
     return ret;
   }
-  
+
   /*void toggle(SelectableItem arg_item) {
     if(_items.contains(arg_item)) {
       if(_selected == arg_item) {

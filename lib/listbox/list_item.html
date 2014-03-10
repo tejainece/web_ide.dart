@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<polymer-element name="list-item" attributes="label">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      :host:hover {
+        background-color: red;
+      }
+      :host:active {
+        background-color: blue;
+      }
+      :host(.selected) {
+        background-color: green;
+      }
+    </style>
+
+    {{label}}
+  </template>
+
+  <script type="application/dart" src="listbox.dart"></script>
+</polymer-element>
+

@@ -10,19 +10,26 @@
       }
       :host(.active:host) {
           background-color: orange;
-          display: block;
-          width: auto;
-          height: auto;
+          display: table-row;
+          /*width: 100%;*/
+          height: 100;
           flex: 1;
       }
-      #holder {
+      .holder {
           width: 100%;
           height: 100%;
-          display: block;
+          display: table-row;
           box-sizing:border-box;
+
+          background-color: red;
+          /*postion: absolute;*/
       }
+
+      /*.holder > * {
+          position: relative;
+      }*/
     </style>
-    <div id="holder">
+    <div class="holder">
       <content></content>
     </div>
   </template>

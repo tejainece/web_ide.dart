@@ -6,6 +6,9 @@ export 'docker/dock_manager.dart';
 
 export 'icon/dockable_icon.dart';
 export 'iconbutton/icon_button.dart';
+
+export 'listbox/listbox.dart';
+
 export 'menubar/menubar.dart';
 export 'modal/modal.dart';
 

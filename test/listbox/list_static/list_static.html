@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+    <link rel="stylesheet" href="list_static.css">
+
+    <link rel="import" href="../../../lib/listbox/listbox.html">
+    <script type="application/dart" src="list_static.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </head>
+  <body>
+    <button id="add_item">Add Item</button>
+    <button id="rm_cur_item">Remove current item</button>
+    <div id="main-container">
+      <list-box id="list">
+        <list-item label="ravi"></list-item>
+        <list-item label="teja"></list-item>
+      </list-box>
+    </div>
+  </body>
+</html>

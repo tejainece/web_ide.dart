@@ -11,6 +11,10 @@ part 'dock_container.dart';
 part 'dockable_container.dart';
 part 'dockable_panel.dart';
 
+/*
+ * implement dockTo*Of methods
+ */
+
 @CustomTag('dock-manager')
 class DockManager extends PolymerElement {
   DockableContainer _rootContainer;
@@ -25,20 +29,20 @@ class DockManager extends PolymerElement {
       _rootContainer.style.backgroundColor = "green";//TODO: remove
     }
   }
-  
-  bool dockToLeft(DockableContainer _newPanel) {
-    return _rootContainer.dockToLeft(_newPanel);
+
+  bool dockToLeft(DockContainer newContainer, [DockContainer leftOf]) {
+    return _rootContainer.dockToLeft(newContainer, leftOf);
   }
-  
-  bool dockToRight(DockableContainer _newPanel) {
-    return _rootContainer.dockToRight(_newPanel);
+
+  bool dockToRight(DockContainer newContainer, [DockContainer rightOf]) {
+    return _rootContainer.dockToRight(newContainer, rightOf);
   }
-  
-  bool dockToTop(DockableContainer _newPanel) {
-    return _rootContainer.dockToTop(_newPanel);
+
+  bool dockToTop(DockContainer newContainer, [DockContainer topOf]) {
+    return _rootContainer.dockToTop(newContainer, topOf);
   }
-  
-  bool dockToBottom(DockableContainer _newPanel) {
-    return _rootContainer.dockToBottom(_newPanel);
+
+  bool dockToBottom(DockContainer newContainer, [DockContainer bottomOf]) {
+    return _rootContainer.dockToBottom(newContainer, bottomOf);
   }
 }

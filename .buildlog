@@ -6690,3 +6690,1538 @@ build.dart --machine --changed=test/stage/stage_element_events/stage_element_eve
 [{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
 build.dart finished [4863 ms]
 
+---
+build.dart --machine --changed=lib/list/color_picker.dart --changed=lib/list/color_picker.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4349 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart --removed=lib/list/color_picker.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3337 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html --removed=lib/list/color_picker.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5235 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3539 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3409 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3472 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3520 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3238 ms]
+
+---
+build.dart --machine --changed=lib/list/color_picker.dart --changed=lib/list/color_picker.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3246 ms]
+
+---
+build.dart --machine --changed=lib/list/list-item.dart --removed=lib/list/color_picker.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3673 ms]
+
+---
+build.dart --machine --changed=lib/list/list-item.html --removed=lib/list/color_picker.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4594 ms]
+
+---
+build.dart --machine --changed=lib/list/list-item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3398 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html --removed=lib/list/list-item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3401 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart --removed=lib/list/list-item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3495 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6721 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3295 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4252 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3295 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3549 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3639 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3552 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3418 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3545 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3711 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3402 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3331 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3413 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3389 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3374 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3334 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3302 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3251 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3198 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3234 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3326 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3183 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3231 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3234 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3334 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3552 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3205 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3277 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3241 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3157 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3468 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3218 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3262 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4618 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4477 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4277 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3636 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3425 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3315 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4026 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4971 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4508 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4877 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4404 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4059 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3772 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5046 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3587 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3456 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3244 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3299 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3589 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/tab_manager_1.css --changed=test/list/list_static/tab_mana...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3310 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html --removed=test/list/list_static/tab_manag...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3245 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.css.css --removed=test/list/list_static/tab_ma...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3321 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.css --removed=test/list/list_static/list_stati...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3328 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.dart --removed=test/list/list_static/tab_manag...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3657 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3433 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3262 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3257 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3866 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3296 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3299 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3142 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3445 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3371 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3217 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3279 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4574 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4815 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5157 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3443 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6921 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3770 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3360 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.css
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4243 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4867 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4913 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3343 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3414 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3454 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4387 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3573 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3775 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3384 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3365 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3360 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3394 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3530 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3371 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3485 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5390 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4919 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3363 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3297 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4950 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3477 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5034 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3333 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3503 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4926 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3403 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3416 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4019 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5210 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5021 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3362 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4473 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.css --changed=test/list/list_dynamic/list_sta...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3583 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4042 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3812 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3497 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3612 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3455 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3453 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3894 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3444 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3528 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3673 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5178 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5289 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5609 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3466 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3598 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6017 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_static.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6529 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [7810 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6201 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5527 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6078 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4323 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3761 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3943 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3594 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.css --removed=test/list/list_dynamic/list_st...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3758 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.dart --removed=test/list/list_dynamic/list_s...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3860 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.html --removed=test/list/list_dynamic/list_s...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5127 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4309 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4010 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6857 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5812 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4935 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5581 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3728 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3770 ms]
+
+---
+build.dart --machine --changed=lib/selectable/selectable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3949 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3784 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3586 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3595 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3984 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3778 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3483 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3703 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3614 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3549 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3667 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3744 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3868 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3781 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3607 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3660 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3664 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4019 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3565 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3617 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3658 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3682 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3586 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3704 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3764 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3604 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3677 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3633 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3672 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3734 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3626 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3732 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3486 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3574 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3584 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3658 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3792 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3573 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3847 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3809 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4232 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3628 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3612 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3547 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3578 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3606 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3722 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3875 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3700 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3523 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3846 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3666 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3702 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3717 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3623 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3717 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3627 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3727 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3486 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3932 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5444 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3876 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5387 ms]
+
+---
+build.dart --machine --changed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3893 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3632 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3373 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4336 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4210 ms]
+
+---
+build.dart --machine --changed=lib/list/list_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3986 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6939 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3891 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3455 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3507 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3511 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3714 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3652 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3615 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3539 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3513 ms]
+
+---
+build.dart --machine --changed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3551 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5146 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5594 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5316 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3789 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3666 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5283 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3641 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3452 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3505 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3619 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [21091 ms]
+
+---
+build.dart --machine --full
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [18978 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3818 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5551 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5516 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3590 ms]
+
+---
+build.dart --machine --changed=lib/tabs/tab_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3878 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5119 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6913 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5025 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3397 ms]
+
+---
+build.dart --machine --changed=test/Pages/pages_ex_1.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4002 ms]
+
+---
+build.dart --machine --changed=test/Pages/pages_ex_1.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4429 ms]
+
+---
+build.dart --machine --changed=lib/list/listbox.dart --removed=lib/list/list.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4011 ms]
+
+---
+build.dart --machine --changed=lib/list/listbox.html --removed=lib/list/list.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4431 ms]
+
+---
+build.dart --machine --changed=test/list/list_dynamic/list_dynamic.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3813 ms]
+
+---
+build.dart --machine --changed=lib/list/listbox.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3448 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3349 ms]
+
+---
+build.dart --machine --changed=test/list/list_static/list_static.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3319 ms]
+
+---
+build.dart --machine --changed=lib/list/listbox.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3527 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.dart --changed=lib/listbox/list_item.html --changed=lib/li...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5438 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3781 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5413 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3585 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3246 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3464 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5394 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4180 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4312 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3993 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3536 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3234 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3372 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3566 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3329 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5496 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4768 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5007 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5047 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerPanel/dockpanel.dart
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3377 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4760 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5363 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [7257 ms]
+
+---
+build.dart --machine --removed=build/test/DockableModal/DockableModal.dart.js --removed=build/test/DockableModa...
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4149 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4429 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5526 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [6291 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [7442 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5020 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4925 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5343 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4821 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3332 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3246 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [4977 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_manager.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [3418 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [7787 ms]
+
+---
+build.dart --machine --changed=lib/pages/page_item.html
+[{"method":"warning","params":{"file":"lib/polymer_ui_menu_button/polymer_ui_menu_button.html","message":"definition for Polymer element with tag name \"polymer-overlay\" not found.","line":33,"charStart":2303,"charEnd":2366}}]
+build.dart finished [5261 ms]
+
