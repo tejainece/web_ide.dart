@@ -1,28 +1,96 @@
 <!DOCTYPE html>
 <link rel="import" href="../icon/dockable_icon.html">
 
-<polymer-element name="dockable-icon-button" attributes="src togglable size">
+<polymer-element name="icon-button" attributes="src togglable size">
   <template>
     <style>
       :host {
         box-sizing: border-box;
-        display: block;
+        display: inline-block;
+
+        padding: {{(size-2) * PADDING_SIZE}}px {{(size-2) * PADDING_SIZE}}px {{(size-2) * PADDING_SIZE}}px {{(size-2) * PADDING_SIZE}}px;
+      }
+
+      :host:hover {
+        box-sizing: border-box;
+        border:solid 1px #c6c6c6!important;
+
+        -webkit-box-shadow:0 1px 1px rgba(0,0,0,.1);
+        -moz-box-shadow:0 1px 1px rgba(0,0,0,.1);
+        box-shadow:0 1px 1px rgba(0,0,0,.1);
+        background-color:#f8f8f8;
+        background-image:-webkit-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:-moz-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:-ms-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        background:0;
+        outline:none;
+        vertical-align:middle;
+        cursor:default;
+      }
+      :host:active {
+        box-sizing: border-box;
+        border:solid 1px #c6c6c6!important;
+        -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
+        -moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
+        box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
+        background-color:#f6f6f6;
+        background-image:-webkit-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:-moz-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:-ms-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:-o-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        border-color:#c6c6c6;
+
+        -webkit-border-radius:2px;
+        -moz-border-radius:2px;
+        border-radius:2px;
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+        background:0;
+        outline:none;
+        vertical-align:middle;
+        cursor:default;
       }
       :host(.active:host) {
-        background-color: blue;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        background-color: #eee;
+        background-image: -webkit-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: -moz-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: -ms-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: -o-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: linear-gradient(top,#eee,#e0e0e0)!important;
+        border: solid 1px #ccc;
+
+
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        background: 0;
+        outline: none;
+        vertical-align: middle;
+        cursor: default;
       }
-      :host :hover {
-        border: 1px solid black;
-      }
-      :host :active {
-        background-color: gray;
-      }
-      dockable-icon {
-        display: block !important;
+      :host > dockable-icon {
+        display: inline-block !important;
       }
     </style>
 
-    <dockable-icon src="{{src}}" size="{{size}}"></dockable-icon>
+    <dockable-icon src="{{src}}" size="{{((size-2)*ICON_SIZE).toInt()}}"></dockable-icon>
   </template>
   <script type="application/dart" src='icon_button.dart'></script>
 </polymer-element>

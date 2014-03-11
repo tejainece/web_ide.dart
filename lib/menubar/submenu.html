@@ -4,23 +4,39 @@
   <template>
     <style>
       :host {
-          background : #2BA6CB;
-
           width: 150px;
           height: auto;
           display: flex;
           flex-direction: column;
           box-sizing:border-box;
-          margin: 0;
-          padding: 0;
           position:absolute;
-          
+
+          -webkit-border-radius: 0;
+          -moz-border-radius: 0;
+          border-radius: 0;
+          -webkit-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          -moz-box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          -webkit-transition: opacity 0.218s;
+          -moz-transition: opacity 0.218s;
+          -o-transition: opacity 0.218s;
+          transition: opacity 0.218s;
+          background: #fff;
+          border: 1px solid #ccc;
+          border: 1px solid rgba(0,0,0,.2);
+          cursor: default;
+          font-size: 13px;
+          margin: 0;
+          outline: none;
+          padding: 6px 0;
+
           -moz-user-select: -moz-none;
           -khtml-user-select: none;
           -webkit-user-select: none;
           -o-user-select: none;
           user-select: none;
-          z-index: 10000;
+
+          z-index: 1001;
       }
     </style>
     <content>

@@ -18,7 +18,7 @@ class TabManager extends PolymerElement with SelectionManager {
   TabTitle __tabs;
   TabTitle get _tabs {
     if(__tabs == null) {
-      __tabs = this.shadowRoot.querySelector("#header");
+      __tabs = this.shadowRoot.querySelector(".header");
       assert(__tabs != null);
     }
     return __tabs;
@@ -26,7 +26,7 @@ class TabManager extends PolymerElement with SelectionManager {
   PageManager __pages;
   PageManager get _pages {
     if(__pages == null) {
-      __pages = this.shadowRoot.querySelector("#pages");
+      __pages = this.shadowRoot.querySelector(".pages");
       assert(__pages != null);
     }
     return __pages;

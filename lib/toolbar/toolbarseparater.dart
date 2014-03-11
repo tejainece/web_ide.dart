@@ -6,11 +6,11 @@ part of toolbar;
  * 1) Size should always be 2px
  */
 
-@CustomTag('dockable-toolbar-separater-item')
+@CustomTag('toolbar-separater-item')
 class ToolbarSeparater extends ToolbarItem {
   ToolbarSeparater.created() : super.created();
-  
-  @override 
+
+  @override
   void polymerCreated() {
     super.polymerCreated();
   }

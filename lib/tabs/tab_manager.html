@@ -4,24 +4,24 @@
       :host {
         width: 100%;
         height: 100%;
-        background-color: blue;
+        background-color: #eee;
         display: flex;
         flex-flow: column;
         box-sizing:border-box;
       }
 
-      #header {
+      .header {
         width: 100%;
         height: 35px;
       }
 
-      #pages {
+      .pages {
         width: 100%;
         flex-grow: 1;
       }
     </style>
-    <tab-title id="header"></tab-title>
-    <page-manager id="pages"></page-manager>
+    <tab-title class="header"></tab-title>
+    <page-manager class="pages"></page-manager>
   </template>
   <link rel="import" href="tab_title.html">
   <link rel="import" href="../pages/page_manager.html">

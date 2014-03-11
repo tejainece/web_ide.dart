@@ -3,36 +3,45 @@
   <template>
     <style>
       :host {
-          height: 24px;
-          background-color: blue;
+          /*height: 24px;*/
           display: flex;
           flex-direction:row;
           box-sizing:border-box;
-          align-items: center;
+          /*align-items: center;*/
+
+          position: relative;
+          color: #333;
+          cursor: pointer;
+          margin: 0;
+          padding: 6px 8em 6px 30px;
+          white-space: nowrap;
       }
       :host:hover {
-          background-color: gray;
+          background-color:#eee;
+          border-color:#eee;
+          border-style:dotted;
+          border-width:1px 0;
+          padding-top:5px;
+          padding-bottom:5px;
       }
       :host:active {
-          background-color: green;
-          border: 1px solid black;
       }
-      
+
       :host(.checked:host) {
           background-color: orange;
       }
       .icon {
         display: inline-block;
         padding-right: 4px;
-      } 
+      }
       .title {
         display: inline-block;
       }
     </style>
 
-    <dockable-icon src="{{icon}}" class="icon"></dockable-icon>    
+    <dockable-icon src="{{icon}}" class="icon"></dockable-icon>
     <div class="title">{{title}}</div>
-    
+
   </template>
   <script type="application/dart" src="menubar.dart"></script>
 </polymer-element>

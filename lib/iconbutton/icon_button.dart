@@ -10,28 +10,28 @@ import 'dart:async';
  * 1) Two modes: Toggle mode and Click mode
  * 2) onClick() stream
  * 3) onSelect() stream
- * 
+ *
  * Show border on mouse over
  */
 
 /**
- * dockable-ui-icon-button enables you to place an image centered in a button.
+ * icon-button enables you to place an image centered in a button.
  *
  * Example:
  *
- *     <dockable-button src="star.png"></dockable-icon-button>
+ *     <icon-button src="star.png"></icon-button>
  *
  * @class dockable-icon-button
  */
-@CustomTag('dockable-icon-button')
-class DockableIconButton extends PolymerElement {
-  DockableIconButton.created() : super.created();
-  
-  @override 
+@CustomTag('icon-button')
+class IconButton extends PolymerElement {
+  IconButton.created() : super.created();
+
+  @override
   void polymerCreated() {
     super.polymerCreated();
     sizeChanged();
-    
+
     onClick.listen((e) {
       if(togglable) {
         toggleSelection();
@@ -43,27 +43,31 @@ class DockableIconButton extends PolymerElement {
    * The URL of an image for the icon.
    */
   @published String src = '';
-  
+
   /**
    * The size of the icon button.
    */
   @published int size = 24;
-  
-  void sizeChanged() {    
+  @published num ICON_SIZE = 0.8;
+  @published num PADDING_SIZE = 0.1;
+
+  void sizeChanged() {
     this.style.width =  '${this.size}px';
     this.style.height = '${this.size}px';
+
+    //this.style.padding = '${this.size }px ${this.size}px';
   }
-  
+
   /**
-   * Sets if the icon button is togglable 
+   * Sets if the icon button is togglable
    */
   @published bool togglable = false;
-  
+
   void togglableChange() {
     //TODO: debug to see if the value of toggable is updated?
     print('${togglable}');
     if(togglable) {
-      
+
     } else {
       deselect();
     }
@@ -78,16 +82,20 @@ class DockableIconButton extends PolymerElement {
   select() {
     if(togglable && _selected != true) {
       _selected = true;
-      //TODO: return a event object?
-      _selectionEC.add(this);
+      //TODO: send valid detail
+      var event = new CustomEvent("selected",
+                canBubble: false, cancelable: false, detail: null);
+      dispatchEvent(event);
       this.classes.add('active');
     }
   }
   deselect() {
     if(togglable && _selected != false) {
       _selected = false;
-      //TODO: return a event object?
-      _deselectionEC.add(this);
+      //TODO: send valid detail
+      var event = new CustomEvent("deselected",
+                canBubble: false, cancelable: false, detail: null);
+      dispatchEvent(event);
       this.classes.remove('active');
     }
   }
@@ -98,11 +106,13 @@ class DockableIconButton extends PolymerElement {
       select();
     }
   }
-  
+
   //events
-  StreamController _selectionEC = new StreamController.broadcast();
-  Stream get onButtonSelected => _selectionEC.stream;
-  
-  StreamController _deselectionEC = new StreamController.broadcast();
-  Stream get onButtonDeselected => _deselectionEC.stream;
+  EventStreamProvider<CustomEvent> _selectedEventP = new EventStreamProvider<CustomEvent>("selected");
+  Stream<CustomEvent> get onSelected =>
+        _selectedEventP.forTarget(this);
+
+  EventStreamProvider<CustomEvent> _deselectedEventP = new EventStreamProvider<CustomEvent>("deselected");
+  Stream<CustomEvent> get onDeselected =>
+        _deselectedEventP.forTarget(this);
 }

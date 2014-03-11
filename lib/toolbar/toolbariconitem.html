@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <link rel="import" href="../iconbutton/icon_button.html">
-<polymer-element name="dockable-toolbar-icon-item" attributes="size vertical src togglable">
+<polymer-element name="toolbar-icon-item" attributes="vertical src togglable">
   <template>
     <style>
       :host {
@@ -15,8 +15,20 @@
         display: inline-block;
         width: 100%;
       }
+
+      :host(.active:host) {
+
+      }
+
+      :host > icon-button {
+        margin-top: 6px;
+        margin-bottom: 6px;
+        margin-left: 6px;
+        margin-right: 6px;
+        vertical-align: middle;
+      }
     </style>
-    <dockable-icon-button src="{{src}}" size="{{size}}" togglable="{{togglable}}"></dockable-icon-button>
+    <icon-button src="{{src}}" togglable="{{togglable}}"></icon-button>
   </template>
 
 <script type="application/dart" src='toolbar.dart'></script>
