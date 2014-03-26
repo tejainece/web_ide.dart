@@ -21,17 +21,24 @@ class ToolbarIconItem extends ToolbarItem {
 
   void ready() {
     super.ready();
-    _ic_bt.onSelected.listen((_) {
-      this.classes.add("active");
-    });
-    _ic_bt.onDeselected.listen((_) {
-      this.classes.remove("active");
+    _ic_bt.onChanged.listen((_) {
+      if(_ic_bt.checked) {
+        this.classes.add("active");
+      } else {
+        this.classes.remove("active");
+      }
     });
   }
 
+  num _ICON_MARGIN_SIZE = 6.0;
+  @observable num get ICON_MARGIN_SIZE => _ICON_MARGIN_SIZE;
+
   void set _size(int new_size) {
-    super._size = new_size;
-    _ic_bt.size = new_size - 12;
+    this.style.width = "${new_size}px";
+    _ICON_MARGIN_SIZE = ((6 * new_size)~/32);
+
+    _ic_bt.height = new_size - (2 * ICON_MARGIN_SIZE);
+    _ic_bt.height = new_size - (2 * ICON_MARGIN_SIZE);
   }
 
   IconButton _ic_bt_el;

@@ -4,7 +4,7 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
 
-import '../icon/dockable_icon.dart';
+import '../icon/icon_view.dart';
 
 part 'menuitem.dart';
 part 'submenu.dart';
@@ -14,14 +14,14 @@ part 'submenuseparater.dart';
 @CustomTag('menu-bar')
 class Menubar extends PolymerElement {
   @published int size = 24;
-  
+
   void sizeChanged() {
     this.style.maxHeight = "${this.size}px";
   }
-  
+
   Menubar.created() : super.created() {
   }
-  
+
   void enteredView() {
     super.enteredView();
     sizeChanged();
@@ -31,7 +31,7 @@ class Menubar extends PolymerElement {
       }
     }*/
   }
-  
+
   bool addMenu(MenuItem arg_item) {
     bool ret = false;
     if(arg_item != null) {
@@ -40,7 +40,7 @@ class Menubar extends PolymerElement {
     }
     return ret;
   }
-  
+
   bool addMenuBefore(MenuItem before, MenuItem arg_item) {
     bool ret = false;
     if(arg_item != null) {
@@ -57,11 +57,11 @@ class Menubar extends PolymerElement {
     }
     return ret;
   }
-  
+
   bool removeMenu(MenuItem arg_item) {
     return this.children.remove(arg_item);
   }
-  
+
   num indexOf(MenuItem arg_item) {
     return this.children.indexOf(arg_item);
   }

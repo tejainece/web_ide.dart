@@ -10,8 +10,8 @@ part 'stage_element.dart';
 
 /*
  * TODO:
- * Implement resizable
  * Implement select and deselect events
+ * Fix scaling: elements are getting wrong size when scaled
  */
 
 /**
@@ -23,6 +23,12 @@ part 'stage_element.dart';
  */
 @CustomTag('dock-stage')
 class DockStage extends PolymerElement {
+
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   DockStage.created(): super.created() {
     _logger.finest('created');
   }
@@ -44,26 +50,29 @@ class DockStage extends PolymerElement {
         addElement(child);
       }
     }
-  }
 
-  @override
-  void enteredView() {
-    super.enteredView();
     _clicksub = onClick.listen(_stageClicked);
 
     onMouseWheel.listen((WheelEvent event) {
-      if(event.wheelDeltaY < 0) {
-        zoomOut();
-      } else {
-        zoomIn();
+      if (event.ctrlKey) {
+        if (event.wheelDeltaY < 0) {
+          zoomOut();
+        } else {
+          zoomIn();
+        }
       }
     });
   }
 
   @override
+  void enteredView() {
+    super.enteredView();
+  }
+
+  @override
   void leftView() {
     super.leftView();
-    if (_clicksub != null) {
+    /*if (_clicksub != null) {
       _clicksub.cancel();
       _clicksub = null;
     }
@@ -83,7 +92,7 @@ class DockStage extends PolymerElement {
     if (_moveEscape != null) {
       _moveEscape.cancel();
       _moveEscape = null;
-    }
+    }*/
   }
 
   StreamSubscription _clicksub;
@@ -94,12 +103,12 @@ class DockStage extends PolymerElement {
   /* Element selection */
   void _stageClicked(MouseEvent event) {
     //Don't do selection at the end of move and resize
-    if(_wasMoving) {
+    if (_wasMoving) {
       _wasMoving = false;
       _showHideAnchors();
       return;
     }
-    if(_wasResizing) {
+    if (_wasResizing) {
       _wasResizing = false;
       _showHideAnchors();
       return;
@@ -137,7 +146,7 @@ class DockStage extends PolymerElement {
   }
 
   void deselectElement(StageElement _elem) {
-    if(_elem.isSelected) {
+    if (_elem.isSelected) {
       _selected.remove(_elem);
       _elem._deselected();
     }
@@ -162,13 +171,13 @@ class DockStage extends PolymerElement {
   void _startMove(MouseEvent event) {
     _mousemove = onMouseMove.listen(_processMove);
     _mouseup = onMouseUp.listen(_stopMove);
-    _mouseout = onMouseOut.listen(_stopMove);
+    _mouseout = onMouseLeave.listen(_stopMove);
     _moveEscape = document.onKeyDown.listen((KeyboardEvent event) {
       if (event.keyCode == KeyCode.ESC) {
         _stopMove(null);
         for (StageElement _elem in _selected) {
-          _elem.left = _elem._savedPosBeforeMove.x/stagescale;
-          _elem.top = _elem._savedPosBeforeMove.y/stagescale;
+          _elem.left = _elem._savedPosBeforeMove.x / stagescale;
+          _elem.top = _elem._savedPosBeforeMove.y / stagescale;
         }
       }
     });
@@ -183,8 +192,8 @@ class DockStage extends PolymerElement {
     if (getBoundingClientRect().containsPoint(event.page)) {
       Point diff = event.page - _moveStartPt;
       for (StageElement _elem in _selected) {
-        _elem.left = (_elem._savedPosBeforeMove.x + diff.x)/stagescale;
-        _elem.top = (_elem._savedPosBeforeMove.y + diff.y)/stagescale;
+        _elem.left = (_elem._savedPosBeforeMove.x + diff.x) / stagescale;
+        _elem.top = (_elem._savedPosBeforeMove.y + diff.y) / stagescale;
       }
     }
     _wasMoving = true;
@@ -222,19 +231,19 @@ class DockStage extends PolymerElement {
   bool _wasResizing = false;
 
   _cancelResize(MouseEvent event) {
-    if(_ancMM != null) {
+    if (_ancMM != null) {
       _ancMM.cancel();
       _ancMM = null;
     }
-    if(_ancMU != null) {
+    if (_ancMU != null) {
       _ancMU.cancel();
       _ancMU = null;
     }
-    if(_ancEsc != null) {
+    if (_ancEsc != null) {
       _ancEsc.cancel();
       _ancEsc = null;
     }
-    if(_ancMO != null) {
+    if (_ancMO != null) {
       _ancMO.cancel();
       _ancMO = null;
     }
@@ -244,23 +253,29 @@ class DockStage extends PolymerElement {
   }
 
   _showHideAnchors() {
-    if(_selected.length == 1 && !_wasMoving && !_wasResizing) {
+    if (_selected.length == 1 && !_wasMoving && !_wasResizing) {
       StageElement selectedEl = _selected.first;
 
       //Fix anchor position
-      _anchornw.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft - 5}px";
+      _anchornw.style.left =
+          "${_canvas.offsetLeft + selectedEl.offsetLeft - 5}px";
       _anchornw.style.top = "${_canvas.offsetTop + selectedEl.offsetTop - 5}px";
 
-      _anchorne.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft + selectedEl.offsetWidth}px";
+      _anchorne.style.left =
+          "${_canvas.offsetLeft + selectedEl.offsetLeft + selectedEl.offsetWidth}px";
       _anchorne.style.top = "${_canvas.offsetTop + selectedEl.offsetTop - 5}px";
 
-      _anchorsw.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft - 5}px";
-      _anchorsw.style.top = "${_canvas.offsetTop + selectedEl.offsetTop + selectedEl.offsetHeight}px";
+      _anchorsw.style.left =
+          "${_canvas.offsetLeft + selectedEl.offsetLeft - 5}px";
+      _anchorsw.style.top =
+          "${_canvas.offsetTop + selectedEl.offsetTop + selectedEl.offsetHeight}px";
 
-      _anchorse.style.left = "${_canvas.offsetLeft + selectedEl.offsetLeft + selectedEl.offsetWidth}px";
-      _anchorse.style.top = "${_canvas.offsetTop + selectedEl.offsetTop + selectedEl.offsetHeight}px";
+      _anchorse.style.left =
+          "${_canvas.offsetLeft + selectedEl.offsetLeft + selectedEl.offsetWidth}px";
+      _anchorse.style.top =
+          "${_canvas.offsetTop + selectedEl.offsetTop + selectedEl.offsetHeight}px";
 
-      if(!_anchorShowing) {
+      if (!_anchorShowing) {
         _anchorShowing = true;
 
         /* Northwest */
@@ -273,13 +288,14 @@ class DockStage extends PolymerElement {
             _wasResizing = true;
             _showHideAnchors();
             Point diff = event.page - startPoint;
-            num elW = initRect.width -  diff.x;
-            num elH = initRect.height -  diff.y;
-            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
-              selectedEl.left = (initRect.left +  diff.x)/stagescale;
-              selectedEl.top = (initRect.top +  diff.y)/stagescale;
-              selectedEl.width = (initRect.width -  diff.x)/stagescale;
-              selectedEl.height = (initRect.height -  diff.y)/stagescale;
+            num elW = initRect.width - diff.x;
+            num elH = initRect.height - diff.y;
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
+                elH > 0) {
+              selectedEl.left = (initRect.left + diff.x) / stagescale;
+              selectedEl.top = (initRect.top + diff.y) / stagescale;
+              selectedEl.width = (initRect.width - diff.x) / stagescale;
+              selectedEl.height = (initRect.height - diff.y) / stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -287,10 +303,10 @@ class DockStage extends PolymerElement {
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
-              selectedEl.left = (initRect.left)/stagescale;
-              selectedEl.top = (initRect.top)/stagescale;
-              selectedEl.width = (initRect.width)/stagescale;
-              selectedEl.height = (initRect.height)/stagescale;
+              selectedEl.left = (initRect.left) / stagescale;
+              selectedEl.top = (initRect.top) / stagescale;
+              selectedEl.width = (initRect.width) / stagescale;
+              selectedEl.height = (initRect.height) / stagescale;
             }
           });
           style.cursor = "nw-resize";
@@ -311,13 +327,14 @@ class DockStage extends PolymerElement {
             _wasResizing = true;
             _showHideAnchors();
             Point diff = event.page - startPoint;
-            num elW = initRect.width +  diff.x;
-            num elH = initRect.height -  diff.y;
-            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
+            num elW = initRect.width + diff.x;
+            num elH = initRect.height - diff.y;
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
+                elH > 0) {
               //selectedEl.left = initRect.left;
-              selectedEl.top = (initRect.top +  diff.y)/stagescale;
-              selectedEl.width = (initRect.width +  diff.x)/stagescale;
-              selectedEl.height = (initRect.height -  diff.y)/stagescale;
+              selectedEl.top = (initRect.top + diff.y) / stagescale;
+              selectedEl.width = (initRect.width + diff.x) / stagescale;
+              selectedEl.height = (initRect.height - diff.y) / stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -326,9 +343,9 @@ class DockStage extends PolymerElement {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
               //selectedEl.left = initRect.left;
-              selectedEl.top = (initRect.top)/stagescale;
-              selectedEl.width = (initRect.width)/stagescale;
-              selectedEl.height = (initRect.height)/stagescale;
+              selectedEl.top = (initRect.top) / stagescale;
+              selectedEl.width = (initRect.width) / stagescale;
+              selectedEl.height = (initRect.height) / stagescale;
             }
           });
           style.cursor = "ne-resize";
@@ -352,11 +369,12 @@ class DockStage extends PolymerElement {
             Point diff = event.page - startPoint;
             num elW = initRect.width - diff.x;
             num elH = initRect.height + diff.y;
-            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
-              selectedEl.left = (initRect.left +  diff.x)/stagescale;
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
+                elH > 0) {
+              selectedEl.left = (initRect.left + diff.x) / stagescale;
               //selectedEl.top = initRect.top;
-              selectedEl.width = (initRect.width - diff.x)/stagescale;
-              selectedEl.height = (initRect.height + diff.y)/stagescale;
+              selectedEl.width = (initRect.width - diff.x) / stagescale;
+              selectedEl.height = (initRect.height + diff.y) / stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -364,10 +382,10 @@ class DockStage extends PolymerElement {
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
               _cancelResize(null);
-              selectedEl.left = (initRect.left)/stagescale;
+              selectedEl.left = (initRect.left) / stagescale;
               //selectedEl.top = initRect.top;
-              selectedEl.width = (initRect.width)/stagescale;
-              selectedEl.height = (initRect.height)/stagescale;
+              selectedEl.width = (initRect.width) / stagescale;
+              selectedEl.height = (initRect.height) / stagescale;
             }
           });
           style.cursor = "sw-resize";
@@ -390,11 +408,12 @@ class DockStage extends PolymerElement {
             Point diff = event.page - startPoint;
             num elW = initRect.width + diff.x;
             num elH = initRect.height + diff.y;
-            if(getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
+                elH > 0) {
               //selectedEl.left = initRect.left +  diff.x;
               //selectedEl.top = initRect.top;
-              selectedEl.width = (initRect.width + diff.x)/stagescale;
-              selectedEl.height = (initRect.height + diff.y)/stagescale;
+              selectedEl.width = (initRect.width + diff.x) / stagescale;
+              selectedEl.height = (initRect.height + diff.y) / stagescale;
             }
           });
           _ancMU = onMouseUp.listen(_cancelResize);
@@ -404,8 +423,8 @@ class DockStage extends PolymerElement {
               _cancelResize(null);
               //selectedEl.left = initRect.left;
               //selectedEl.top = initRect.top;
-              selectedEl.width = (initRect.width)/stagescale;
-              selectedEl.height = (initRect.height)/stagescale;
+              selectedEl.width = (initRect.width) / stagescale;
+              selectedEl.height = (initRect.height) / stagescale;
             }
           });
           style.cursor = "se-resize";
@@ -418,38 +437,38 @@ class DockStage extends PolymerElement {
 
       }
 
-    } else if(_anchorShowing) {
+    } else if (_anchorShowing) {
       //TODO: fix cancelling stream subscriptions
-      if(_nwMD != null) {
+      if (_nwMD != null) {
         _nwMD.cancel();
         _nwMD = null;
       }
-      if(_neMD != null) {
+      if (_neMD != null) {
         _neMD.cancel();
         _neMD = null;
       }
-      if(_swMD != null) {
+      if (_swMD != null) {
         _swMD.cancel();
         _swMD = null;
       }
-      if(_seMD != null) {
+      if (_seMD != null) {
         _seMD.cancel();
         _seMD = null;
       }
 
-      if(_nwC != null) {
+      if (_nwC != null) {
         _nwC.cancel();
         _nwC = null;
       }
-      if(_neC != null) {
+      if (_neC != null) {
         _neC.cancel();
         _neC = null;
       }
-      if(_swC != null) {
+      if (_swC != null) {
         _swC.cancel();
         _swC = null;
       }
-      if(_seC != null) {
+      if (_seC != null) {
         _seC.cancel();
         _seC = null;
       }
@@ -546,7 +565,7 @@ class DockStage extends PolymerElement {
   void removeAllElements() {
     List<StageElement> listEl = _elements;
 
-    for(StageElement el in listEl) {
+    for (StageElement el in listEl) {
       removeElement(el);
     }
   }
@@ -607,12 +626,12 @@ class DockStage extends PolymerElement {
 
   void stagewidthChanged() {
     _canvas.style.width = "${stagewidth * stagescale}px";
-    _canvas.style.marginLeft = "-${_canvas.offsetWidth/2}px";
+    _canvas.style.marginLeft = "-${stagewidth * stagescale/2}px";
   }
 
   void stageheightChanged() {
     _canvas.style.height = "${stageheight  * stagescale}px";
-    _canvas.style.marginTop = "-${_canvas.offsetHeight/2}px";
+    _canvas.style.marginTop = "-${stagewidth * stagescale/2}px";
   }
 
   void stagescaleChanged() {
@@ -622,7 +641,7 @@ class DockStage extends PolymerElement {
     _canvas.style.height = "${stageheight  * stagescale}px";
     _canvas.style.marginTop = "-${_canvas.offsetHeight/2}px";
 
-    for(StageElement elem in _elements) {
+    for (StageElement elem in _elements) {
       elem.widthChanged();
       elem.heightChanged();
       elem.leftChanged();
@@ -635,4 +654,7 @@ class DockStage extends PolymerElement {
   void resizableChanged() {
 
   }
+
+  EventStreamProvider<CustomEvent> _elementSelectedEventP = new EventStreamProvider<CustomEvent>("elementselected");
+  EventStreamProvider<CustomEvent> _elementDeselectedEventP = new EventStreamProvider<CustomEvent>("elementdeselected");
 }

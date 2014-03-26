@@ -2,21 +2,21 @@ part of menubar;
 
 /*
  * TODO:
- * 1) Implement Option list of SubMenuItems (not so important)
- * 2) Fix width
+ * 1) add item clicked event
  */
 
 abstract class SubMenuItemBase extends PolymerElement {
-  SubMenuItemBase.created() : super.created() {
+  SubMenuItemBase.created(): super.created() {
   }
 
   SubMenu _parent_submenu;
 }
 
 abstract class SubMenuContentItem extends SubMenuItemBase {
-  @published bool checkable;
+  @published
+  bool checkable;
 
-  SubMenuContentItem.created() : super.created() {
+  SubMenuContentItem.created(): super.created() {
   }
 
   SubMenu _submenu = new Element.tag('sub-menu');
@@ -32,36 +32,25 @@ abstract class SubMenuContentItem extends SubMenuItemBase {
     return _submenu.children.length > 0;
   }
 
-  bool _isDecendantMenu(SubMenuItemBase arg_item) {
-    return _submenu._isDecendantMenu(arg_item);
+  bool _isDecendantItemOf(SubMenu arg_submenu) {
+    bool ret = false;
+    if (_parent_submenu != null) {
+      ret = _parent_submenu._isDecendantMenuOf(arg_submenu);
+    }
+    return ret;
   }
 }
 
 @CustomTag('sub-menu')
 class SubMenu extends PolymerElement {
 
-  bool _isDecendantMenu(SubMenuItemBase arg_item) {
-    bool ret = false;
-    for(SubMenuItemBase _el in this.children) {
-      if(_el == arg_item) {
-        ret = true;
-        break;
-      }
-      if(_el is SubMenuContentItem && _el._isDecendantMenu(arg_item)) {
-        ret = true;
-        break;
-      }
-    }
-    return ret;
-  }
-
-  SubMenu.created() : super.created() {
+  SubMenu.created(): super.created() {
   }
 
   void enteredView() {
     super.enteredView();
-    for(Element _el in this.children) {
-      if(!isSubMenuItem(_el)) {
+    for (Element _el in this.children) {
+      if (!isSubMenuItem(_el)) {
         //_el.remove(); //TODO: implement me
       }
     }
@@ -73,7 +62,7 @@ class SubMenu extends PolymerElement {
 
   bool addItem(SubMenuItemBase arg_item) {
     bool ret = false;
-    if(arg_item != null) {
+    if (arg_item != null) {
       this.children.add(arg_item);
       arg_item._parent_submenu = this;
       ret = true;
@@ -83,10 +72,10 @@ class SubMenu extends PolymerElement {
 
   bool addItemBefore(SubMenuItemBase before, SubMenuItemBase arg_item) {
     bool ret = false;
-    if(arg_item != null) {
-      if(before != null) {
+    if (arg_item != null) {
+      if (before != null) {
         int index = this.children.indexOf(before);
-        if(index == -1) {
+        if (index == -1) {
           ret = false;
         } else {
           this.children.insert(index, arg_item);
@@ -97,7 +86,7 @@ class SubMenu extends PolymerElement {
         ret = true;
       }
     }
-    if(ret == true) {
+    if (ret == true) {
       arg_item._parent_submenu = this;
     }
     return ret;
@@ -121,44 +110,73 @@ class SubMenu extends PolymerElement {
   StreamSubscription<KeyboardEvent> _documentKeyboardSubscr;
 
   /* properties */
-  @published bool show = false;
+  @published
+  bool show = false;
 
   void showChanged() {
-    if(show) {
-      /*_documentEndSubscr = document.onMouseDown.listen((MouseEvent e) {
-        print("hide!!");
-        bool shouldHide = false;
-        if(e.target is SubMenuContentItem && _isDecendantMenu(e.target)) {
-          SubMenuContentItem _smct = e.target;
-          if(!_smct.checkable && !_smct.hasSubmenu()) {
-            shouldHide = true;
-          }
+    if (show) {
+      _documentEndSubscr = document.onMouseDown.listen((MouseEvent e) {
+        bool hide_t = true;
+        if(triggerItems.contains(e.target)) {
+          hide_t = false;
         } else {
-          shouldHide = true;
+          if (e.target is SubMenuContentItem) {
+            SubMenuContentItem ci_t = e.target;
+            if ((ci_t.checkable || ci_t.hasSubmenu()) && ci_t._isDecendantItemOf(
+                this)) {
+              hide_t = false;
+            }
+          }
         }
-        if(shouldHide) {
-          this.show = false;
-        }
-      });*/
-      _documentKeyboardSubscr = document.onKeyDown.listen((KeyboardEvent e) {
-        if(e.keyCode == KeyCode.ESC) {
-          this.show = false;
+
+        if (hide_t) {
+          print("here");
+          show = false;
+          print("here");
         }
       });
-      //TODO: should we add it to the body?
+      _documentKeyboardSubscr = document.onKeyDown.listen((KeyboardEvent e) {
+        if (e.keyCode == KeyCode.ESC) {
+          show = false;
+        }
+      });
       document.body.children.add(this);
       //this.classes.add('active');
     } else {
-      if(_documentEndSubscr != null) {
+      if (_documentEndSubscr != null) {
         _documentEndSubscr.cancel();
         _documentEndSubscr = null;
       }
-      if(_documentKeyboardSubscr != null) {
+      if (_documentKeyboardSubscr != null) {
         _documentKeyboardSubscr.cancel();
         _documentKeyboardSubscr = null;
       }
       //this.classes.remove('active');
-      this.remove();
+      print("here");
+      _dispatchHideEvent();
+      remove();
     }
+  }
+
+  SubMenuContentItem _parent_submenu_item;
+  List<HtmlElement> triggerItems = new List<HtmlElement>();
+
+  bool _isDecendantMenuOf(SubMenu arg_submenu) {
+    bool ret = false;
+    if (arg_submenu == this) {
+      ret = true;
+    } else if (_parent_submenu_item != null) {
+      ret = _parent_submenu_item._isDecendantItemOf(arg_submenu);
+    }
+    return ret;
+  }
+
+  //Events
+  static const EventStreamProvider<CustomEvent> _hide_eventp = const EventStreamProvider<CustomEvent>('hide');
+
+  Stream<CustomEvent> get onHide => _hide_eventp.forTarget(this);
+
+  void _dispatchHideEvent() {
+    fire('hide', detail: this);
   }
 }

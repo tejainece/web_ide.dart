@@ -8,14 +8,16 @@ import '../../../lib/dockable.dart';
 main() {
   DivElement mc = querySelector('#main-container');
   initPolymer().run(() {
-    DockableIcon ic1 = new Element.tag("dockable-icon");
-    ic1.src = "../icons/windowadd32x32.png";
-    ic1.size = 32;
+    IconView ic1 = new Element.tag("icon-view");
+    ic1.src = "../../asset/icons/windowadd32.png";
+    ic1.width = 32;
+    ic1.height = 32;
     document.body.children.add(ic1);
 
-    DockableIcon ic2 = new Element.tag("dockable-icon");
+    IconView ic2 = new Element.tag("icon-view");
     ic2.src = "../../asset/icons/star24.png";
-    ic2.size = 24;
+    ic2.width = 24;
+    ic2.height = 24;
     document.body.children.add(ic2);
   });
 }

@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<link rel="import" href="../icon/dockable_icon.html">
+<link rel="import" href="../icon/icon_view.html">
+<link rel="import" href="icon_options_button.html">
+<link rel="import" href="icon_list_button.html">
 
-<polymer-element name="icon-button" attributes="src togglable size">
+<polymer-element name="icon-button" attributes="src togglable width height checked">
   <template>
     <style>
       :host {
         box-sizing: border-box;
         display: inline-block;
 
-        padding: {{(size-2) * PADDING_SIZE}}px {{(size-2) * PADDING_SIZE}}px {{(size-2) * PADDING_SIZE}}px {{(size-2) * PADDING_SIZE}}px;
+        width: {{width}}px;
+        height: {{height}}px;
       }
 
       :host:hover {
-        box-sizing: border-box;
-        border:solid 1px #c6c6c6!important;
+        /*border:solid 1px #c6c6c6!important;*/
 
         -webkit-box-shadow:0 1px 1px rgba(0,0,0,.1);
         -moz-box-shadow:0 1px 1px rgba(0,0,0,.1);
@@ -25,20 +27,19 @@
         background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
         background-image:linear-gradient(top,#f8f8f8,#f1f1f1)!important;
 
-        -webkit-border-radius:2px;
+        /*-webkit-border-radius:2px;
         -moz-border-radius:2px;
-        border-radius:2px;
+        border-radius:2px;*/
         -webkit-user-select:none;
         -moz-user-select:none;
         -ms-user-select:none;
         background:0;
-        outline:none;
-        vertical-align:middle;
+        outline:solid 1px #c6c6c6!important;;
         cursor:default;
       }
       :host:active {
         box-sizing: border-box;
-        border:solid 1px #c6c6c6!important;
+        /*border:solid 1px #c6c6c6!important;*/
         -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
         -moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
         box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
@@ -50,18 +51,17 @@
         background-image:linear-gradient(top,#f6f6f6,#f1f1f1)!important;
         border-color:#c6c6c6;
 
-        -webkit-border-radius:2px;
+        /*-webkit-border-radius:2px;
         -moz-border-radius:2px;
-        border-radius:2px;
+        border-radius:2px;*/
         -webkit-user-select:none;
         -moz-user-select:none;
         -ms-user-select:none;
         background:0;
-        outline:none;
-        vertical-align:middle;
+        outline:solid 1px #c6c6c6!important;;
         cursor:default;
       }
-      :host(.active:host) {
+      :host(.checked:host) {
         -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
         -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
         box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
@@ -71,26 +71,36 @@
         background-image: -ms-linear-gradient(top,#eee,#e0e0e0)!important;
         background-image: -o-linear-gradient(top,#eee,#e0e0e0)!important;
         background-image: linear-gradient(top,#eee,#e0e0e0)!important;
-        border: solid 1px #ccc;
+        /*border: solid 1px #ccc;*/
 
 
-        -webkit-border-radius: 2px;
+        /*-webkit-border-radius: 2px;
         -moz-border-radius: 2px;
-        border-radius: 2px;
+        border-radius: 2px;*/
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         background: 0;
-        outline: none;
-        vertical-align: middle;
+        outline: solid 1px #ccc;
         cursor: default;
       }
-      :host > dockable-icon {
+
+      .content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .button-icon {
         display: inline-block !important;
       }
     </style>
-
-    <dockable-icon src="{{src}}" size="{{((size-2)*ICON_SIZE).toInt()}}"></dockable-icon>
+    <div class="content">
+      <icon-view class="button-icon" src="{{src}}" width="{{((width-2)*ICON_SIZE).toInt()}}" height="{{((height-2)*ICON_SIZE).toInt()}}"></icon-view>
+    </div>
   </template>
   <script type="application/dart" src='icon_button.dart'></script>
 </polymer-element>

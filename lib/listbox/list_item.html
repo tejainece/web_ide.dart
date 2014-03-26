@@ -3,20 +3,42 @@
   <template>
     <style>
       :host {
-        display: block;
+        padding-left: 15px;
+
+        background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(247,247,247,1) 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(247,247,247,1)));
+        background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+        background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+        background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+        background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(247,247,247,1) 100%);
+        border-bottom: 1px solid #eee;
+
+        display: flex;
+        flex-direction: row;
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+
+        width: auto;
+        height: {{height}}px;
       }
       :host:hover {
-        background-color: red;
+        background: rgba(0,0,0,0.02);
       }
       :host:active {
-        background-color: blue;
+        background-color: #c6c6c6;
       }
       :host(.selected) {
-        background-color: green;
+        background: rgba(0,0,0,0.02);
+      }
+
+      :host > div.content {
+
       }
     </style>
 
-    {{label}}
+    <div class="content">{{label}}</div>
   </template>
 
   <script type="application/dart" src="listbox.dart"></script>

@@ -15,16 +15,23 @@
       }
     </style>
 
+    <link rel="import" href="packages/polymer/polymer.html">
+
     <link rel="import" href="../../../lib/toolbar/toolbar.html">
     <script type="application/dart" src="toolbarex1.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </head>
   <body>
-    <dockable-toolbar class="toolbar1" vertical="false" size="24">
-      <toolbar-icon-item src="../../resources/icons/star/24x24.png" size="24" togglable="true"></toolbar-icon-item>
-      <toolbar-separater-item size="2"></toolbar-separater-item>
-      <toolbar-icon-item src="../../resources/icons/windowadd/32x32.png" size="24"></toolbar-icon-item>
-      <toolbar-separater-item size="2"></toolbar-separater-item>
+    <dockable-toolbar class="toolbar1" vertical="false" size=32>
+      <toolbar-icon-item src="../../resources/icons/star/24x24.png" togglable="true"></toolbar-icon-item>
+      <toolbar-separater-item></toolbar-separater-item>
+      <toolbar-icon-item src="../../resources/icons/windowadd/32x32.png"></toolbar-icon-item>
+      <toolbar-separater-item></toolbar-separater-item>
+      <toolbar-icon-list-item src="../../asset/icons/star32.png">
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu1"></submenu-item>
+        <submenu-item icon="../../resources/icons/windowadd/32x32.png" title="Menu2"></submenu-item>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu3"></submenu-item>
+      </toolbar-icon-list-item>
     </dockable-toolbar>
   </body>
 </html>

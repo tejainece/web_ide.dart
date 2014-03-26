@@ -1,15 +1,46 @@
 <!DOCTYPE html>
+
+<link rel="import" href="property_category.html">
+<link rel="import" href="property_item.html">
+<link rel="import" href="property_text.html">
+<link rel="import" href="property_number.html">
+<link rel="import" href="property_color.html">
+
 <polymer-element name="property-editor" attributes="">
   <template>
     <style>
       :host {
-        display: block;
-        
-        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;
+        border: solid 1px #ccc;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        background-color: #ccc;
+      }
+
+      :host > #content {
+        width: 100%;
+        flex: 8;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+      :host > #description {
+        width: 100%;
+        flex: 2;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding: 2px 2px 2px 2px;
+        background-color: gray;
       }
     </style>
+    <div id="content">
+    </div>
+    <div id="description">
+      {{description}}
+    </div>
   </template>
 
   <script type="application/dart" src="property_editor.dart"></script>
 </polymer-element>
-

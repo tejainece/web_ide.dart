@@ -5,14 +5,10 @@ import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
 
-/*
- * TODO:
- * 1) Two modes: Toggle mode and Click mode
- * 2) onClick() stream
- * 3) onSelect() stream
- *
- * Show border on mouse over
- */
+import "../menubar/menubar.dart";
+
+part 'icon_list_button.dart';
+part 'icon_options_button.dart';
 
 /**
  * icon-button enables you to place an image centered in a button.
@@ -21,19 +17,26 @@ import 'dart:async';
  *
  *     <icon-button src="star.png"></icon-button>
  *
- * @class dockable-icon-button
+ * @class icon-button
  */
 @CustomTag('icon-button')
 class IconButton extends PolymerElement {
-  IconButton.created() : super.created();
+
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
+  IconButton.created(): super.created();
 
   @override
   void polymerCreated() {
     super.polymerCreated();
-    sizeChanged();
+    widthChanged();
+    heightChanged();
 
     onClick.listen((e) {
-      if(togglable) {
+      if (togglable) {
         toggleSelection();
       }
     });
@@ -42,34 +45,36 @@ class IconButton extends PolymerElement {
   /**
    * The URL of an image for the icon.
    */
-  @published String src = '';
+  @published
+  String src = '';
 
   /**
    * The size of the icon button.
    */
-  @published int size = 24;
-  @published num ICON_SIZE = 0.8;
-  @published num PADDING_SIZE = 0.1;
+  @published
+  int width = 24;
+  @published
+  int height = 24;
+  @observable
+  num get ICON_SIZE => 0.8;
+  @observable
+  num get PADDING_SIZE => 0.1;
 
-  void sizeChanged() {
-    this.style.width =  '${this.size}px';
-    this.style.height = '${this.size}px';
-
-    //this.style.padding = '${this.size }px ${this.size}px';
+  void widthChanged() {
+  }
+  void heightChanged() {
   }
 
   /**
    * Sets if the icon button is togglable
    */
-  @published bool togglable = false;
+  @published
+  bool togglable = false;
 
-  void togglableChange() {
+  void togglableChanged() {
     //TODO: debug to see if the value of toggable is updated?
-    print('${togglable}');
-    if(togglable) {
-
-    } else {
-      deselect();
+    if (!togglable) {
+      checked = false;
     }
   }
 
@@ -77,42 +82,41 @@ class IconButton extends PolymerElement {
    * If true, border is placed around the button to indicate
    * active state.
    */
-  bool _selected = false;
-  bool get selected => _selected;
-  select() {
-    if(togglable && _selected != true) {
-      _selected = true;
-      //TODO: send valid detail
-      var event = new CustomEvent("selected",
-                canBubble: false, cancelable: false, detail: null);
-      dispatchEvent(event);
-      this.classes.add('active');
-    }
-  }
-  deselect() {
-    if(togglable && _selected != false) {
-      _selected = false;
-      //TODO: send valid detail
-      var event = new CustomEvent("deselected",
-                canBubble: false, cancelable: false, detail: null);
-      dispatchEvent(event);
-      this.classes.remove('active');
-    }
-  }
-  toggleSelection() {
-    if(_selected) {
-      deselect();
+  @published
+  bool checked = false;
+
+  void checkedChanged() {
+    if (togglable) {
+      if (checked) {
+        var event = new CustomEvent("changed", canBubble: false, cancelable:
+            false, detail: true);
+        dispatchEvent(event);
+        classes.add('checked');
+      } else {
+        var event = new CustomEvent("changed", canBubble: false, cancelable:
+            false, detail: false);
+        dispatchEvent(event);
+        classes.remove('checked');
+      }
     } else {
-      select();
+      if (checked) {
+        checked = false;
+      }
+    }
+  }
+
+  toggleSelection() {
+    if (togglable) {
+      checked = !checked;
+    } else {
+      if (checked) {
+        checked = false;
+      }
     }
   }
 
   //events
-  EventStreamProvider<CustomEvent> _selectedEventP = new EventStreamProvider<CustomEvent>("selected");
-  Stream<CustomEvent> get onSelected =>
-        _selectedEventP.forTarget(this);
-
-  EventStreamProvider<CustomEvent> _deselectedEventP = new EventStreamProvider<CustomEvent>("deselected");
-  Stream<CustomEvent> get onDeselected =>
-        _deselectedEventP.forTarget(this);
+  EventStreamProvider<CustomEvent> _changedEventP =
+      new EventStreamProvider<CustomEvent>("changed");
+  Stream<CustomEvent> get onChanged => _changedEventP.forTarget(this);
 }

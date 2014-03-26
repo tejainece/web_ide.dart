@@ -2,11 +2,19 @@
 
 <link rel="import" href="toolbariconitem.html">
 <link rel="import" href="toolbarseparater.html">
+<link rel="import" href="toolbariconlistitem.html">
 
 <polymer-element name="dockable-toolbar" attributes="vertical size">
   <template>
     <style>
       :host {
+        display: inline-block;
+        width: 100%;
+      }
+      :host(.vertical:host) {
+        height: 100%;
+      }
+      :host > .content {
         display: flex;
         flex-direction: row;
 
@@ -30,11 +38,11 @@
 
         padding-left: 20px;
       }
-      :host(.vertical:host) {
+      :host(.vertical:host) > .content {
         flex-direction: column;
       }
     </style>
-    <content></content>
+    <div class="content"></div>
   </template>
 
   <script type="application/dart" src='toolbar.dart'></script>

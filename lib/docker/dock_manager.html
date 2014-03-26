@@ -9,16 +9,17 @@
         flex-direction: column;
         box-sizing:border-box;
       }
-      :host > dockable-container {
+      :host > #container {
         flex: 1;
         background-color: #eee;
         box-sizing:border-box;
       }
     </style>
-    <dockable-container></dockable-container>
+    <dock-container id="container"></dock-container>
   </template>
-  <link rel="import" href="dockable_container.html">
-  <link rel="import" href="dockable_panel.html">
+  <link rel="import" href="dock_container.html">
+  <link rel="import" href="dock_panel.html">
+  <link rel="import" href="dock_multi_panel.html">
   <script type="application/dart" src="dock_manager.dart"></script>
 </polymer-element>
 

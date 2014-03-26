@@ -21,10 +21,10 @@
       #icon-container {
         box-sizing: border-box;
         padding: 5px;
-        /*border: solid 1px black;
-        background-image: -webkit-linear-gradient(top,#f5f5f5,#eee);*/
       }
     </style>
+
+    <link rel="import" href="packages/polymer/polymer.html">
 
     <link rel="import" href="../../../lib/iconbutton/icon_button.html">
     <script type="application/dart" src="iconbuttonex1.dart"></script>
@@ -32,11 +32,30 @@
   </head>
   <body>
     <div id="icon-container">
-      <icon-button src="../../resources/icons/star/32x32.png" togglable=true size=35></icon-button>
-      <!--<icon-button src="../../resources/icons/windowadd/32x32.png" togglable=true></icon-button>
+      <icon-button src="../../asset/icons/star32.png" togglable width=24 height=24></icon-button>
+      <icon-button src="../../asset/icons/star32.png" togglable checked width=24 height=24></icon-button>
+      <icon-button src="../../asset/icons/star32.png" width=64 height=32></icon-button>
 
-      <icon-button src="../../resources/icons/windowadd/32x32.png" togglable=false></icon-button>
-      <icon-button src="../../resources/icons/windowadd/32x32.png"></icon-button>-->
+      <icon-list-button src="../../asset/icons/star32.png" width=24 height=24>
+        <div></div>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu1"></submenu-item>
+        <submenu-item icon="../../resources/icons/windowadd/32x32.png" title="Menu2"></submenu-item>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu3"></submenu-item>
+      </icon-list-button>
+
+      <icon-list-button src="../../asset/icons/star32.png" width=24 height=24>
+        <div></div>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu1"></submenu-item>
+        <submenu-item icon="../../resources/icons/windowadd/32x32.png" title="Menu2"></submenu-item>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu3"></submenu-item>
+      </icon-list-button>
+
+      <!--<icon-options-button src="../../asset/icons/star32.png" togglable checked width=24 height=24>
+        <div></div>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu1"></submenu-item>
+        <submenu-item icon="../../resources/icons/windowadd/32x32.png" title="Menu2"></submenu-item>
+        <submenu-item icon="../../resources/icons/star/24x24.png" title="Menu3"></submenu-item>
+      </icon-options-button>-->
     </div>
   </body>
 </html>

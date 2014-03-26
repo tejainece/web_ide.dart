@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<polymer-element name="icon-view" attributes="src width height">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        width: {{width}}px;
+        height: {{height}}px;
+        background-size: {{width}}px {{height}}px;
+      }
+    </style>
+  </template>
+
+  <script type="application/dart" src="icon_view.dart"></script>
+</polymer-element>

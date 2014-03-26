@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<polymer-element name="hsv-picker" attributes="size">
+  <template>
+    <style>
+      :host {
+        width: {{size}}px;
+        height: {{size}}px;
+      }
+
+      :host > .hsv-canvas {
+        cursor: crosshair;
+        border: 1px solid black;
+
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+      <canvas class="hsv-canvas">
+      </canvas>
+  </template>
+
+  <script type="application/dart" src="color_picker.dart"></script>
+</polymer-element>
+

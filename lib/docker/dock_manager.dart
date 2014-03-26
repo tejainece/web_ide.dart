@@ -7,9 +7,10 @@ import 'dart:async';
 import '../tabs/tab_manager.dart';
 import '../splitter/splitter.dart';
 
+part 'dock_container_base.dart';
 part 'dock_container.dart';
-part 'dockable_container.dart';
-part 'dockable_panel.dart';
+part 'dock_panel.dart';
+part 'dock_multi_panel.dart';
 
 /*
  * implement dockTo*Of methods
@@ -17,32 +18,30 @@ part 'dockable_panel.dart';
 
 @CustomTag('dock-manager')
 class DockManager extends PolymerElement {
-  DockableContainer _rootContainer;
+  DockContainer _rootContainer;
   DivElement _outdiv;
 
   DockManager.created() : super.created() {
-    _rootContainer = this.shadowRoot.querySelector("dockable-container");
+    _rootContainer = this.shadowRoot.querySelector("#container");
     if(_rootContainer == null) {
       print("Dockable: No root contianer found!");
       assert(false);
-    } else {
-      _rootContainer.style.backgroundColor = "green";//TODO: remove
     }
   }
 
-  bool dockToLeft(DockContainer newContainer, [DockContainer leftOf]) {
+  bool dockToLeft(DockContainerBase newContainer, [DockContainerBase leftOf]) {
     return _rootContainer.dockToLeft(newContainer, leftOf);
   }
 
-  bool dockToRight(DockContainer newContainer, [DockContainer rightOf]) {
+  bool dockToRight(DockContainerBase newContainer, [DockContainerBase rightOf]) {
     return _rootContainer.dockToRight(newContainer, rightOf);
   }
 
-  bool dockToTop(DockContainer newContainer, [DockContainer topOf]) {
+  bool dockToTop(DockContainerBase newContainer, [DockContainerBase topOf]) {
     return _rootContainer.dockToTop(newContainer, topOf);
   }
 
-  bool dockToBottom(DockContainer newContainer, [DockContainer bottomOf]) {
+  bool dockToBottom(DockContainerBase newContainer, [DockContainerBase bottomOf]) {
     return _rootContainer.dockToBottom(newContainer, bottomOf);
   }
 }

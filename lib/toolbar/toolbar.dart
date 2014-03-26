@@ -6,31 +6,12 @@ import 'dart:html';
 import 'dart:async';
 
 import '../iconbutton/icon_button.dart';
+import "../menubar/menubar.dart";
 
+part 'toolbaritem.dart';
 part 'toolbariconitem.dart';
+part 'toolbariconlistitem.dart';
 part 'toolbarseparater.dart';
-
-class ToolbarItem extends PolymerElement {
-  ToolbarItem.created() : super.created();
-
-  void set _size(int new_size) {
-
-  }
-
-  /*
-   * Is the item displayed vertically or horizontally?
-   * This is complement to item's parent's orientation.
-   */
-  @published bool vertical = false;
-
-  void verticalChanged() {
-    if(vertical) {
-      this.classes.add('vertical');
-    } else {
-      this.classes.remove('vertical');
-    }
-  }
-}
 
 /*
  * TODO:
@@ -54,14 +35,7 @@ class ToolbarItem extends PolymerElement {
 class DockableToolbar extends PolymerElement {
   DockableToolbar.created() : super.created();
 
-  HtmlElement __content;
-  HtmlElement get _content {
-    if(__content == null) {
-      __content = shadowRoot.querySelector('content');
-      assert(__content != null);
-    }
-    return __content;
-  }
+  DivElement _content;
 
   @override
   void polymerCreated() {
@@ -72,6 +46,22 @@ class DockableToolbar extends PolymerElement {
   void enteredView() {
     super.enteredView();
     verticalChanged();
+  }
+
+  @override
+  void ready() {
+    super.ready();
+    _content = shadowRoot.querySelector('.content');
+    assert(_content != null);
+    for(HtmlElement el_t in children) {
+      if(el_t is ToolbarItem) {
+        print(el_t is ToolbarItem);
+        el_t.remove();
+        addItem(el_t);
+      } else {
+        print(el_t is ToolbarSeparater);
+      }
+    }
   }
 
   /**
@@ -87,8 +77,10 @@ class DockableToolbar extends PolymerElement {
     }
 
     //change size of all items
-    for(ToolbarItem item in this.children) {
-      item._size = size;
+    for(HtmlElement item in this.children) {
+      if(item is ToolbarItem) {
+        item._size = size;
+      }
     }
   }
 
@@ -121,7 +113,7 @@ class DockableToolbar extends PolymerElement {
     if(arg_item != null) {
       //TODO: should we find if it already belongs to another Toolbar and remove from it?
       arg_item.vertical = vertical;
-      this.children.add(arg_item);
+      _content.children.add(arg_item);
       ret = true;
     }
     return ret;
@@ -133,7 +125,7 @@ class DockableToolbar extends PolymerElement {
    * Removes a toolbar item from the toolbar.
    */
   bool removeItem(ToolbarItem arg_item) {
-    return this.children.remove(arg_item);
+    return _content.children.remove(arg_item);
   }
 
   /**

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<link rel="import" href="../icon/icon_view.html">
+<link rel="import" href="../menubar/submenu.html">
+<link rel="import" href="icon_button.html">
+
+<polymer-element name="icon-list-button" attributes="src width height open">
+  <template>
+    <style>
+      :host {
+        box-sizing: border-box;
+        display: inline-block;
+
+        width: {{width+12}}px;
+        height: {{height}}px;
+        cursor:default;
+
+        -webkit-user-select:none;
+        -moz-user-select:none;
+        -ms-user-select:none;
+      }
+      :host:hover {
+        box-sizing: border-box;
+        /*border:solid 1px #c6c6c6!important;*/
+
+        -webkit-box-shadow:0 1px 1px rgba(0,0,0,.1);
+        -moz-box-shadow:0 1px 1px rgba(0,0,0,.1);
+        box-shadow:0 1px 1px rgba(0,0,0,.1);
+        background-color:#f8f8f8;
+        background-image:-webkit-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:-moz-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:-ms-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:-o-linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+        background-image:linear-gradient(top,#f8f8f8,#f1f1f1)!important;
+
+        background:0;
+        outline:solid 1px #c6c6c6!important;
+      }
+      :host:active {
+        box-sizing: border-box;
+        /*border:solid 1px #c6c6c6!important;*/
+        -webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
+        -moz-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
+        box-shadow:inset 0 1px 2px rgba(0,0,0,.1);
+        background-color:#f6f6f6;
+        background-image:-webkit-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:-moz-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:-ms-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:-o-linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        background-image:linear-gradient(top,#f6f6f6,#f1f1f1)!important;
+        border-color:#c6c6c6;
+
+        background:0;
+        outline:solid 1px #c6c6c6!important;
+      }
+      :host(.open:host) {
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+        background-color: #eee;
+        background-image: -webkit-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: -moz-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: -ms-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: -o-linear-gradient(top,#eee,#e0e0e0)!important;
+        background-image: linear-gradient(top,#eee,#e0e0e0)!important;
+        /*border: solid 1px #ccc;*/
+
+        background: 0;
+        outline: solid 1px #ccc;
+      }
+
+      .holder {
+        display: flex;
+        flex-direction: row;
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      :host > .button-icon {
+        display: inline-block !important;
+        margin: {{(height-2) * PADDING_SIZE}}px {{(width-2) * PADDING_SIZE}}px {{(height-2) * PADDING_SIZE}}px {{(width-2) * PADDING_SIZE}}px;
+      }
+
+      :host > .main-icon {
+        /*border: solid 1px black;*/
+      }
+      :host > .drop-icon {
+        /*border: solid 1px black;*/
+        /*border-left: none;*/
+      }
+      :host:hover > .main-icon {
+        border:solid 1px #c6c6c6!important;
+      }
+      :host:hover > .drop-icon {
+        border:solid 1px #c6c6c6!important;
+      }
+    </style>
+    <div class="holder">
+      <icon-view class="main-icon" src="{{src}}" width={{width}} height={{height}}></icon-view>
+      <icon-view class="drop-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAHElEQVQIW2OqqKj4j46Z2tvbGRmQAIjPBGMg0wD8XhJiX7bC2gAAAABJRU5ErkJggg==" width=5 height=3></icon-view>
+    </div>
+
+
+  </template>
+  <script type="application/dart" src='icon_button.dart'></script>
+</polymer-element>

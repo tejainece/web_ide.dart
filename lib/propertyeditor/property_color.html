@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<link rel="import" href="../colorpicker/color_picker.html">
+<polymer-element name="property-color" attributes="value editable color" on-click={{startEditing}}>
+  <template>
+    <style>
+      :host {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: row;
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      :host > #color-disp {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+
+        box-sizing: border-box;
+        border: solid 2px black;
+      }
+
+      :host > #display {
+        width: 100%;
+        display: inline-block;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        margin-left: 3px;
+        height: 16px;
+        flex: 1;
+      }
+    </style>
+    <div id="color-disp"></div>
+    <div id="display">{{color.toString()}}</div>
+  </template>
+
+  <script type="application/dart" src="property_editor.dart"></script>
+</polymer-element>
+

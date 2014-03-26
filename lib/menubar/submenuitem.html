@@ -1,46 +1,67 @@
-<link rel="import" href="../icon/dockable_icon.html">
+<link rel="import" href="../icon/icon_view.html">
 <polymer-element name="submenu-item" attributes="icon title checkable checked" on-click="{{select}}">
   <template>
     <style>
       :host {
-          /*height: 24px;*/
-          display: flex;
-          flex-direction:row;
-          box-sizing:border-box;
-          /*align-items: center;*/
+        box-sizing:border-box;
+        height: 32px;
 
-          position: relative;
-          color: #333;
-          cursor: pointer;
-          margin: 0;
-          padding: 6px 8em 6px 30px;
-          white-space: nowrap;
+        position: relative;
+        color: #333;
+        cursor: pointer;
       }
       :host:hover {
-          background-color:#eee;
-          border-color:#eee;
-          border-style:dotted;
-          border-width:1px 0;
-          padding-top:5px;
-          padding-bottom:5px;
-      }
-      :host:active {
+
       }
 
-      :host(.checked:host) {
-          background-color: orange;
+      #holder {
+        display: flex;
+        flex-direction:row;
+        width: 100%;
+        height: 100%;
+        color: #333;
+        cursor: pointer;
+
+        margin: 0;
+        white-space: nowrap;
+
+        box-sizing:border-box;
+
+        -webkit-flex-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
       }
+      #holder:hover {
+        background-color:#eee;
+        border-color:#eee;
+        border-style:dotted;
+        border-width:1px 0;
+      }
+      #holder.checked {
+        background-color: gray;
+      }
+
+
       .icon {
-        display: inline-block;
-        padding-right: 4px;
+        margin-left: 8px;
       }
       .title {
-        display: inline-block;
+
+        margin-left: 4px;
+        margin-right: 8px;
+
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
     </style>
-
-    <dockable-icon src="{{icon}}" class="icon"></dockable-icon>
-    <div class="title">{{title}}</div>
+    <div id="holder">
+      <icon-view src="{{icon}}" width=16 height=16 class="icon"></icon-view>
+      <div class="title">{{title}}</div>
+    </div>
 
   </template>
   <script type="application/dart" src="menubar.dart"></script>

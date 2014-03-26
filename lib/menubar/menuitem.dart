@@ -1,20 +1,49 @@
 part of menubar;
 
+/*
+ * TODO:
+ * 1) Adjust icon position and size. Use flex layout
+ */
+
 @CustomTag('menu-item')
 class MenuItem extends PolymerElement {
+
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
+  @published bool hasicon = false;
   @published String icon = "";
   @published String title = "";
 
-  MenuItem _parent = null;
-
-  DockableIcon _icon;
+  void hasiconChanged() {
+    if(hasicon) {
+      _iconDiv.classes.remove("noicon");
+    } else {
+      _iconDiv.classes.add("noicon");
+    }
+  }
+  DivElement _iconDiv;
   DivElement _titleDiv;
 
   MenuItem.created() : super.created() {
     _titleDiv = this.shadowRoot.querySelector(".title");
     assert(_titleDiv != null);
-    _icon = this.shadowRoot.querySelector(".icon");
-    assert(_icon != null);
+
+    _iconDiv = this.shadowRoot.querySelector("#icon");
+    assert(_iconDiv != null);
+
+    hasicon = false;
+  }
+
+  @override
+  void ready() {
+    super.ready();
+    _submenu.triggerItems.add(this);
+    _submenu.onHide.listen((_) {
+      open = false;
+    });
   }
 
   @override
@@ -54,17 +83,23 @@ class MenuItem extends PolymerElement {
   }
 
   void select() {
-    if(_submenu.show) {
-      _submenu.show = false;
-      this.classes.remove("open");
-    } else {
-      /* make UI changes */
+    open = !open;
+  }
+
+  @published bool open = false;
+
+  void openChanged() {
+    if(open) {
       _submenu.style.left = "${this.offsetLeft}px";
       _submenu.style.top = "${this.offsetTop+this.offsetHeight}px";
-
       this.classes.add("open");
       _submenu.show = true;
       dispatchMenuSelectedEvent(this, this);
+    } else {
+      if(_submenu.show) {
+        _submenu.show = false;
+      }
+      this.classes.remove("open");
     }
   }
 

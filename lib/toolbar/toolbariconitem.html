@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <link rel="import" href="../iconbutton/icon_button.html">
+<link rel="import" href="toolbaritem.html">
 <polymer-element name="toolbar-icon-item" attributes="vertical src togglable">
   <template>
     <style>
@@ -21,11 +22,10 @@
       }
 
       :host > icon-button {
-        margin-top: 6px;
-        margin-bottom: 6px;
-        margin-left: 6px;
-        margin-right: 6px;
-        vertical-align: middle;
+        margin-top: {{ICON_MARGIN_SIZE}}px;
+        margin-bottom: {{ICON_MARGIN_SIZE}}px;
+        margin-left: {{ICON_MARGIN_SIZE}}px;
+        margin-right: {{ICON_MARGIN_SIZE}}px;
       }
     </style>
     <icon-button src="{{src}}" togglable="{{togglable}}"></icon-button>

@@ -21,6 +21,10 @@ class ListItem extends PolymerElement {
   void polymerCreated() {
     _logger.finest('polymerCreated');
     super.polymerCreated();
+
+    this.onClick.listen((_) {
+      select();
+    });
   }
 
   @override
@@ -108,4 +112,11 @@ class ListItem extends PolymerElement {
   /* Properties */
   @published
   String label = "Label";
+
+  @published
+  int height = 32;
+
+  void heightChanged() {
+
+  }
 }

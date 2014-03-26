@@ -1,5 +1,5 @@
-<link rel="import" href="../icon/dockable_icon.html">
-<polymer-element name="menu-item" attributes="icon title" on-mousedown="{{select}}">
+<link rel="import" href="../icon/icon_view.html">
+<polymer-element name="menu-item" attributes="icon title hasicon open" on-click="{{select}}">
   <template>
     <style>
       :host {
@@ -17,6 +17,8 @@
           -webkit-user-select: none;
           -o-user-select: none;
           user-select: none;
+
+          cursor: default;
 
           background-color: white;
           padding: 5px 7px;
@@ -39,17 +41,22 @@
 
         z-index:1001;
       }
-      .icon {
+      #icon {
         display: inline-block;
-        padding-right: 4px;
-        visibility: hidden;
       }
+
+      #icon.noicon {
+        display: none;
+      }
+
       .title {
         display: inline-block;
+
+        cursor: default;
       }
     </style>
 
-    <dockable-icon src="{{icon}}" class="icon"></dockable-icon>
+    <icon-view src="{{icon}}" id="icon" class="noicon"></icon-view>
     <div class="title">{{title}}</div>
 
   </template>

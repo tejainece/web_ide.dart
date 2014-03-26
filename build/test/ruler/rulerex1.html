@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Timeline example</title>
+    <style type="text/css">
+      html, body {
+        height: 100%;
+        margin-left: 10px;
+        padding: 0px;
+      }
+      
+      #ruler {
+        width: 50%;
+      }
+    </style>
+    
+    <link rel="import" href="packages/dockable/ruler/ruler.html">
+    <script type="application/dart" src="rulerex1.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </head>
+  <body>
+    <ruler-widget id="ruler" startValue=20 stopValue=50 stepValue=2 labelEvery=2>
+    </ruler-widget>
+  </body>
+</html>

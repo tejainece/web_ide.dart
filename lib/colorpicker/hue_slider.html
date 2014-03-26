@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<polymer-element name="hue-slider" class="vertical" attributes="size breadth vertical">
+  <template>
+    <style>
+      :host {
+        width: {{size}}px;
+        height: {{breadth}}px;
+      }
+
+      :host(.vertical:host) {
+        width: {{breadth}}px;
+        height: {{size}}px;
+      }
+
+      :host > .hue-canvas {
+        cursor: crosshair;
+        border: 1px solid black;
+
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+      <canvas class="hue-canvas" on-mousedown={{handleCursorStart}}></canvas>
+  </template>
+
+  <script type="application/dart" src="color_picker.dart"></script>
+</polymer-element>
+

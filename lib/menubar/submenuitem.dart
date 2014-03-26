@@ -8,6 +8,12 @@ part of menubar;
 
 @CustomTag('submenu-item')
 class SubMenuItem extends SubMenuContentItem {
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
+
   @published String icon = "";
   @published String title = "";
   @observable bool checked;
@@ -23,18 +29,25 @@ class SubMenuItem extends SubMenuContentItem {
 
   void checkedChanged() {
     if(checked == true) {
-      this.classes.add('checked');
+      _holder.classes.add('checked');
     } else if(checked == false) {
-      this.classes.remove('checked');
+      _holder.classes.remove('checked');
     } else {
       checked = false;
     }
   }
 
-  DockableIcon _iconDiv;
-  DivElement _titleDiv;
+  IconView _iconDiv;
+  DivElement _holder;
 
   SubMenuItem.created() : super.created() {
+  }
+
+  @override
+  void ready() {
+    super.ready();
+    _submenu.triggerItems.add(this);
+    _submenu._parent_submenu_item = this;
   }
 
   @override
@@ -50,8 +63,8 @@ class SubMenuItem extends SubMenuContentItem {
     }
     _iconDiv = this.shadowRoot.querySelector(".icon");
     assert(_iconDiv != null);
-    _titleDiv = this.shadowRoot.querySelector(".title");
-    assert(_titleDiv != null);
+    _holder = this.shadowRoot.querySelector("#holder");
+    assert(_holder != null);
     checkableChanged();
     checkedChanged();
   }
@@ -78,16 +91,12 @@ class SubMenuItem extends SubMenuContentItem {
     return _submenu.indexOf(arg_item);
   }
 
-  bool _isDecendantMenu(SubMenuItemBase arg_item) {
-    return _submenu._isDecendantMenu(arg_item);
-  }
-
   void select() {
     dispatchMenuSelectedEvent(this, this);
     _showSubMenu();
     if(checkable) {
       checked = !checked;
-      dispatchMenuToggledEvent(this, this);
+      _dispatchMenuChangedEvent(this, this);
     }
   }
 
@@ -103,16 +112,16 @@ class SubMenuItem extends SubMenuContentItem {
 
   //Events
   static const EventStreamProvider<CustomEvent> _SELECTED_EVENT = const EventStreamProvider<CustomEvent>('menuselected');
-  static const EventStreamProvider<CustomEvent> _TOGGLED_EVENT = const EventStreamProvider<CustomEvent>('menutoggled');
+  static const EventStreamProvider<CustomEvent> _changed_eventP = const EventStreamProvider<CustomEvent>('changed');
 
   Stream<CustomEvent> get onMenuSelected => _SELECTED_EVENT.forTarget(this);
-  Stream<CustomEvent> get onMenuChecked => _TOGGLED_EVENT.forTarget(this);
+  Stream<CustomEvent> get onMenuChecked => _changed_eventP.forTarget(this);
 
   void dispatchMenuSelectedEvent(Element element, SubMenuItem item) {
     fire('menuselected', detail: item);
   }
 
-  void dispatchMenuToggledEvent(Element element, SubMenuItem item) {
-    fire('menutoggled', detail: item);
+  void _dispatchMenuChangedEvent(Element element, SubMenuItem item) {
+    fire('changed', detail: item);
   }
 }

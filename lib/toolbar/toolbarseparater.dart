@@ -3,7 +3,7 @@ part of toolbar;
 /*
  * TODO:
  * Implementation:
- * 1) Size should always be 2px
+ * 1) Is not created properly from HTML
  */
 
 @CustomTag('toolbar-separater-item')
@@ -13,5 +13,9 @@ class ToolbarSeparater extends ToolbarItem {
   @override
   void polymerCreated() {
     super.polymerCreated();
+  }
+
+  @override
+  void set _size(int new_size) {
   }
 }

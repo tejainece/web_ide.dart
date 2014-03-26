@@ -8,7 +8,7 @@ import '../../../lib/dockable.dart';
 num count = 0; //TODO: remove
 
 DockManager dm;
-List<DockableContainer> conatiners = new List<DockableContainer>();
+List<DockContainer> conatiners = new List<DockContainer>();
 main() {
   DivElement mc = querySelector('#main-container');
   initPolymer().run(() {
@@ -19,8 +19,8 @@ main() {
   querySelector("#new_left").onClick.listen((e) {
     if(dm != null) {
       count++;
-      
-      DockableContainer nDC = new Element.tag('dockable-container');
+
+      DockContainer nDC = new Element.tag('dock-container');
       //nDC.style.backgroundColor = "green";
       if(dm.dockToLeft(nDC)) {
         print("Wow docked left!");
@@ -30,12 +30,12 @@ main() {
       }
     }
   });
-  
+
   querySelector("#new_top").onClick.listen((e) {
     if(dm != null) {
       count++;
-      
-      DockableContainer nDC = new Element.tag('dockable-container');
+
+      DockContainer nDC = new Element.tag('dock-container');
       //nDC.style.backgroundColor = "green";
       if(dm.dockToTop(nDC)) {
         print("Wow docked top!");
