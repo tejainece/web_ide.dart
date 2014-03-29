@@ -80,6 +80,10 @@ class IconListButton extends PolymerElement {
     return _submenu.indexOf(arg_item);
   }
 
+  void setTriggerItem(HtmlElement arg_triggeritem) {
+    _submenu.triggerItems.add(arg_triggeritem);
+  }
+
   //Properties
   /**
    * The URL of an image for the icon.
@@ -93,9 +97,6 @@ class IconListButton extends PolymerElement {
   @published int height = 24;
 
   @published bool open = false;
-
-  @observable num get ICON_SIZE => 0.8;
-  @observable num get PADDING_SIZE => 0.1;
 
   void openChanged() {
 

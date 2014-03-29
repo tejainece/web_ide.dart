@@ -69,7 +69,7 @@ class PropertyNumber extends PropertyBase {
 
   @published bool editable = true;
 
-  @published num min = 0;
+  @published num min = -10000;
   @published num max = 10000;
   @published num step = 1;
 

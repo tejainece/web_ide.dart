@@ -13,6 +13,7 @@ class ToolbarIconItem extends ToolbarItem {
    * Sets if the icon button is togglable
    */
   @published bool togglable = false;
+  @published bool checked = false;
 
   @override
   void polymerCreated() {
@@ -30,15 +31,12 @@ class ToolbarIconItem extends ToolbarItem {
     });
   }
 
-  num _ICON_MARGIN_SIZE = 6.0;
-  @observable num get ICON_MARGIN_SIZE => _ICON_MARGIN_SIZE;
+  int _size = 16;
+  @observable int get size => _size;
 
-  void set _size(int new_size) {
-    this.style.width = "${new_size}px";
-    _ICON_MARGIN_SIZE = ((6 * new_size)~/32);
-
-    _ic_bt.height = new_size - (2 * ICON_MARGIN_SIZE);
-    _ic_bt.height = new_size - (2 * ICON_MARGIN_SIZE);
+  void set _set_size(int new_size) {
+    _size = new_size;
+    notifyPropertyChange(#size, 0, _size);
   }
 
   IconButton _ic_bt_el;

@@ -3,6 +3,11 @@ part of colorpicker;
 @CustomTag('hsv-picker')
 class HsvPicker extends PolymerElement {
 
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   CanvasElement _hsv_canvas;
 
   HsvPicker.created(): super.created() {

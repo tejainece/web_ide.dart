@@ -6369,3 +6369,2030 @@ build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.html
 
 build.dart finished [4978 ms]
 
+---
+build.dart --machine --changed=lib/toolbar/toolbar.html
+
+build.dart finished [5593 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.html
+
+build.dart finished [3865 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3986 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [4153 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4044 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [4057 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.html
+
+build.dart finished [4029 ms]
+
+---
+build.dart --machine --changed=test/toolbar/runtime_add/toolbarex1.html
+
+build.dart finished [4108 ms]
+
+---
+build.dart --machine --changed=test/toolbar/runtime_add/toolbarex1.dart
+
+build.dart finished [3732 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [6373 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [7006 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5823 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [7892 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [9893 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [12840 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [7028 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [5460 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [6126 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [6956 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.dart
+
+build.dart finished [5303 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.dart
+
+build.dart finished [4524 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.dart
+
+build.dart finished [5127 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.dart
+
+build.dart finished [5539 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.dart
+
+build.dart finished [5172 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.dart
+
+build.dart finished [5111 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [5913 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [10654 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [10073 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [11777 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [5622 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [4663 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [4529 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [9808 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenu.dart
+
+build.dart finished [7473 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenu.dart
+
+build.dart finished [4538 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3446 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3276 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [8433 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [7972 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [13820 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.html
+
+build.dart finished [3942 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.html
+
+build.dart finished [3836 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3531 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3963 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3714 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3345 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3299 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3268 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3557 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3345 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3633 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3274 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3276 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3584 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5506 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3822 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3238 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3285 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3291 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3293 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.html
+
+build.dart finished [3556 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.html
+
+build.dart finished [3262 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3625 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3240 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [7188 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3148 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3483 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3849 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [5634 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3306 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.html
+
+build.dart finished [3295 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.html
+
+build.dart finished [3213 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [6418 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3292 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.html
+
+build.dart finished [6075 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.html
+
+build.dart finished [3616 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5591 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3697 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [5830 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3391 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3579 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3447 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbarseparater.html
+
+build.dart finished [3515 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbarseparater.html
+
+build.dart finished [3273 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.html
+
+build.dart finished [3540 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.html
+
+build.dart finished [3386 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.html
+
+build.dart finished [3412 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.html
+
+build.dart finished [6277 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.html --changed=lib/toolbar/toolbariconlist...
+
+build.dart finished [4004 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [7157 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4027 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3341 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [6057 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [5772 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3712 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3858 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3324 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3514 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3237 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3300 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3372 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [6121 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3636 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3521 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3428 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart --changed=lib/toolbar/toolbaritem.dart
+
+build.dart finished [3545 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart --changed=build/lib/toolbar/toolbaritem.dart --ch...
+
+build.dart finished [3840 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3547 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3760 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3751 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3650 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3765 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3574 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3493 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3353 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3409 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3599 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3296 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3270 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3346 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3576 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3403 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3507 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [5663 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3397 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3339 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3295 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [5534 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3460 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3665 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3281 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3654 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.html
+
+build.dart finished [5686 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.html
+
+build.dart finished [3385 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [6392 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3561 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [6007 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3681 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [7178 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3711 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [5397 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3560 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [5528 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3878 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [5649 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3202 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [3383 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3270 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [5921 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3791 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [3288 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3436 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [5699 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3451 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [5769 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3870 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [5620 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3493 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+build.dart finished [4853 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+build.dart finished [4133 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+build.dart finished [4620 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3233}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+build.dart finished [4555 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+build.dart finished [3319 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3239}}]
+[{"method":"warning","params":{"file":"lib/iconbutton/icon_list_button.html","message":"Dropped duplicate attribute on tag.","line":89,"charStart":3150,"charEnd":3251}}]
+build.dart finished [5438 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.html
+
+build.dart finished [3214 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.html
+
+build.dart finished [3241 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.dart
+
+build.dart finished [3544 ms]
+
+---
+build.dart --machine --changed=build/lib/iconbutton/icon_list_button.dart
+
+build.dart finished [3755 ms]
+
+---
+build.dart --machine --changed=lib/propertyeditor/property_number.dart
+
+build.dart finished [4999 ms]
+
+---
+build.dart --machine --changed=build/lib/propertyeditor/property_number.dart
+
+build.dart finished [5029 ms]
+
+---
+build.dart --machine --changed=lib/colorpicker/color_picker.dart
+
+build.dart finished [4931 ms]
+
+---
+build.dart --machine --changed=build/lib/colorpicker/color_picker.dart
+
+build.dart finished [3539 ms]
+
+---
+build.dart --machine --changed=lib/colorpicker/hsv_picker.dart
+
+build.dart finished [3417 ms]
+
+---
+build.dart --machine --changed=build/lib/colorpicker/hsv_picker.dart
+
+build.dart finished [3384 ms]
+
+---
+build.dart --machine --changed=lib/colorpicker/hue_slider.dart
+
+build.dart finished [3551 ms]
+
+---
+build.dart --machine --changed=build/lib/colorpicker/hue_slider.dart
+
+build.dart finished [3302 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerStatic/dockerstatic.dart
+
+build.dart finished [3453 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerStatic/dockerstatic.dart
+
+build.dart finished [3283 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerStatic/dockerstatic.dart
+
+build.dart finished [3869 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerStatic/dockerstatic.html
+
+build.dart finished [20098 ms]
+
+---
+build.dart --machine --changed=build/lib/colorpicker/color_picker.dart --changed=build/lib/colorpicker/color_pi...
+
+build.dart finished [18179 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5820 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3783 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3370 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3394 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3931 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3812 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4287 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3717 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3654 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3469 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3705 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3578 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3556 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3500 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3337 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3750 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3680 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4042 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4157 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4394 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3597 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4208 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3986 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3836 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3603 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4126 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3763 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3727 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3748 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3830 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3778 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3563 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3531 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3657 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3743 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3691 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3537 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3452 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3871 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3684 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3914 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3381 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3509 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3628 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4234 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3798 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3884 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3791 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3621 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4201 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3674 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [7758 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [4542 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4948 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3398 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [3810 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5077 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [8398 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [5896 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [4813 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5742 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3986 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [5048 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [4732 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [5278 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [5200 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [3808 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [4583 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [3988 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [4108 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [5392 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [8129 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [3660 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [3872 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3570 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbar.dart
+
+build.dart finished [4102 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbar.dart
+
+build.dart finished [3674 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [6787 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [3675 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [7063 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [8103 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3815 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3911 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.html
+
+build.dart finished [3790 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.html
+
+build.dart finished [3690 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconitem.dart
+
+build.dart finished [4167 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconitem.dart
+
+build.dart finished [3782 ms]
+
+---
+build.dart --machine --changed=test/toolbar/toolbarex/toolbarex1.dart
+
+build.dart finished [6969 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenuitem.dart
+
+build.dart finished [4655 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenuitem.dart
+
+build.dart finished [4438 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenuitem.html
+
+build.dart finished [3963 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenuitem.html
+
+build.dart finished [3879 ms]
+
+---
+build.dart --machine --changed=lib/menubar/submenuitem.html
+
+build.dart finished [3904 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/submenuitem.html
+
+build.dart finished [3642 ms]
+
+---
+build.dart --machine --changed=lib/menubar/menuitem.dart
+
+build.dart finished [4783 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/menuitem.dart
+
+build.dart finished [4051 ms]
+
+---
+build.dart --machine --changed=lib/menubar/menuitem.html
+
+build.dart finished [4197 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/menuitem.html
+
+build.dart finished [3751 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/menuitem.html --changed=lib/menubar/menuitem.html
+
+build.dart finished [3936 ms]
+
+---
+build.dart --machine --changed=test/menubar/submenuex1/submenuex1.html
+
+build.dart finished [4250 ms]
+
+---
+build.dart --machine --changed=test/menubar/menubarex1/menubarex1.html
+
+build.dart finished [4034 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3914 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [4550 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [4092 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3978 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4186 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart --changed=lib/toolbar/toolbariconlist...
+
+build.dart finished [4462 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4335 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4238 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4238 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4101 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3586 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [4273 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [6115 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3726 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbariconlistitem.dart
+
+build.dart finished [3530 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbaritem.dart
+
+build.dart finished [6434 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbaritem.dart
+
+build.dart finished [4284 ms]
+
+---
+build.dart --machine --changed=lib/toolbar/toolbaritem.dart
+
+build.dart finished [3692 ms]
+
+---
+build.dart --machine --changed=build/lib/toolbar/toolbaritem.dart
+
+build.dart finished [3538 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3655 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3238 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3696 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3237 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.dart
+
+build.dart finished [3469 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.dart
+
+build.dart finished [3359 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.dart
+
+build.dart finished [3291 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.dart
+
+build.dart finished [3352 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.dart
+
+build.dart finished [3302 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.dart
+
+build.dart finished [3422 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.dart
+
+build.dart finished [3327 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.dart
+
+build.dart finished [3298 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3476 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3410 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3441 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3262 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3275 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3418 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3310 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3471 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3598 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3374 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3346 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3499 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3336 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3306 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3557 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3521 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3815 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3720 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3726 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3535 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3679 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart --changed=lib/stage/stage.dart
+
+build.dart finished [3421 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3279 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3445 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3448 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3424 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3518 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3483 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3311 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3553 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3493 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3314 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3431 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3551 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3417 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3456 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3213 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3409 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3213 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3320 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3453 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [9036 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [5619 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [8237 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [4675 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [3832 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [3484 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.dart
+
+build.dart finished [4468 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.dart
+
+build.dart finished [5479 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [3484 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [3478 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [4145 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [3772 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [7448 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [15931 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.dart
+
+build.dart finished [3532 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.dart
+
+build.dart finished [3475 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage_element.html
+
+build.dart finished [3747 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage_element.html
+
+build.dart finished [3515 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3348 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3366 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3461 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3383 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3488 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3544 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3520 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3532 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3578 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3361 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [3440 ms]
+
+---
+build.dart --machine --changed=build/lib/stage/stage.dart
+
+build.dart finished [3375 ms]
+
+---
+build.dart --machine --changed=test/menubar/menubarex1/menubarex1.html
+
+build.dart finished [10413 ms]
+

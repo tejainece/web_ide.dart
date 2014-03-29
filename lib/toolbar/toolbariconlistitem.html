@@ -7,12 +7,8 @@
       :host {
         box-sizing: border-box;
         display: inline-block;
-        overflow: hidden;
-        height: 100%;
       }
       :host(.vertical:host) {
-        box-sizing: border-box;
-        width: 100%;
       }
 
       :host(.active:host) {
@@ -20,10 +16,6 @@
       }
 
       :host > icon-list-button {
-        margin-top: {{ICON_MARGIN_SIZE}}px;
-        margin-bottom: {{ICON_MARGIN_SIZE}}px;
-        margin-left: {{ICON_MARGIN_SIZE}}px;
-        margin-right: {{ICON_MARGIN_SIZE}}px;
       }
     </style>
     <icon-list-button src="{{src}}"></icon-list-button>

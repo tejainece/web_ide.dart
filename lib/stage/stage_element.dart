@@ -119,13 +119,6 @@ class StageElement extends PolymerElement {
     dispatchEvent(event);
   }
 
-  Stream<CustomEvent> get onSelected =>
-      _selectedEventP.forTarget(this);
-
-  Stream<CustomEvent> get onDeselected =>
-        _deselectedEventP.forTarget(this);
-
-
   /*
    * Parent stage
    */
@@ -244,5 +237,10 @@ class StageElement extends PolymerElement {
       _posChangedEventP.forTarget(this);
 
   EventStreamProvider<CustomEvent> _selectedEventP = new EventStreamProvider<CustomEvent>("selected");
+  Stream<CustomEvent> get onSelected =>
+      _selectedEventP.forTarget(this);
+
   EventStreamProvider<CustomEvent> _deselectedEventP = new EventStreamProvider<CustomEvent>("deselected");
+  Stream<CustomEvent> get onDeselected =>
+        _deselectedEventP.forTarget(this);
 }

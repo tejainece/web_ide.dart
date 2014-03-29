@@ -3,6 +3,11 @@ part of colorpicker;
 @CustomTag('hue-slider')
 class HueSlider extends PolymerElement {
 
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   CanvasElement _hue_canvas;
 
   HueSlider.created(): super.created() {

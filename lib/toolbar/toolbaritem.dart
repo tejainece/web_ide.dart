@@ -2,9 +2,14 @@ part of toolbar;
 
 @CustomTag('toolbar-item')
 class ToolbarItem extends PolymerElement {
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   ToolbarItem.created() : super.created();
 
-  void set _size(int new_size) {
+  void set _set_size(int new_size) {
   }
 
   /*

@@ -7,15 +7,16 @@ import '../../../lib/dockable.dart';
 
 main() {
   DivElement mc = querySelector('#main-container');
-  initPolymer().run(() {    
-    /*DockableIcon ic1 = new Element.tag("dockable-icon");
-    ic1.src = "../icons/windowadd32x32.png";
-    ic1.size = 32;
-    document.body.children.add(ic1);
-    
-    DockableIcon ic2 = new Element.tag("dockable-icon");
-    ic2.src = "../icons/star24x24.png";
-    ic2.size = 24;
-    document.body.children.add(ic2);*/
+  initPolymer().run(() {
+    ToolBar toolbar = querySelector(".toolbar1");
+    //toolbar.items().add(new DivElement());
+    //toolbar.items().removeAt(1);
+    ToolbarIconItem item1 = new Element.tag("toolbar-icon-item");
+    item1.src = "../../resources/icons/star/24x24.png";
+    toolbar.insertItem(1, item1);
+    item1.togglable = true;
+    item1.checked = true;
+
+    //toolbar.removeItem(toolbar.items.first);
   });
 }

@@ -130,9 +130,7 @@ class SubMenu extends PolymerElement {
         }
 
         if (hide_t) {
-          print("here");
           show = false;
-          print("here");
         }
       });
       _documentKeyboardSubscr = document.onKeyDown.listen((KeyboardEvent e) {
@@ -152,7 +150,6 @@ class SubMenu extends PolymerElement {
         _documentKeyboardSubscr = null;
       }
       //this.classes.remove('active');
-      print("here");
       _dispatchHideEvent();
       remove();
     }

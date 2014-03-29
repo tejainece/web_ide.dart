@@ -19,6 +19,11 @@ part 'hue_slider.dart';
 @CustomTag('color-picker')
 class ColorPicker extends PolymerElement {
 
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   @published int red = 255;
   @published int blue = 255;
   @published int green = 255;

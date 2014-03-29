@@ -8,7 +8,7 @@ import '../../../lib/dockable.dart';
 main() {
   DivElement mc = querySelector('#main-container');
   initPolymer().run(() {
-    DockableToolbar tb = document.querySelector('.toolbar1');
+    ToolBar tb = document.querySelector('.toolbar1');
     ToolbarIconItem ic1 = new Element.tag('toolbar-icon-item');
     ic1.src = "../../resources/icons/star/24x24.png";
     ic1.togglable = true;

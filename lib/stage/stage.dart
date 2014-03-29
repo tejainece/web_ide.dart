@@ -12,6 +12,7 @@ part 'stage_element.dart';
  * TODO:
  * Implement select and deselect events
  * Fix scaling: elements are getting wrong size when scaled
+ * implement stage resize
  */
 
 /**
@@ -41,9 +42,27 @@ class DockStage extends PolymerElement {
     super.polymerCreated();
   }
 
+  DivElement _anchornw;
+  DivElement _anchorne;
+  DivElement _anchorsw;
+  DivElement _anchorse;
+
   @override
   void ready() {
     super.ready();
+
+    _anchornw = this.shadowRoot.querySelector(".anchor-nw");
+    assert(_anchornw != null);
+
+    _anchorne = this.shadowRoot.querySelector(".anchor-ne");
+    assert(_anchorne != null);
+
+    _anchorsw = this.shadowRoot.querySelector(".anchor-sw");
+    assert(_anchorsw != null);
+
+    _anchorse = this.shadowRoot.querySelector(".anchor-se");
+    assert(_anchorse != null);
+
     for (HtmlElement child in children) {
       child.remove();
       if (child is StageElement) {
@@ -141,6 +160,7 @@ class DockStage extends PolymerElement {
     if (_elem.selectable && !_elem.isSelected) {
       _selected.add(_elem);
       _elem._selected();
+      fireElementSelectedEvent(_elem);
     }
     _showHideAnchors();
   }
@@ -149,6 +169,10 @@ class DockStage extends PolymerElement {
     if (_elem.isSelected) {
       _selected.remove(_elem);
       _elem._deselected();
+      fireElementDeselectedEvent(_elem);
+      if (_selected.length == 0) {
+        fireAllElementsDeselectedEvent();
+      }
     }
     _showHideAnchors();
   }
@@ -156,8 +180,10 @@ class DockStage extends PolymerElement {
   void deselectAllElements() {
     _selected.forEach((StageElement _elem) {
       _elem._deselected();
+      fireElementDeselectedEvent(_elem);
     });
     _selected.clear();
+    fireAllElementsDeselectedEvent();
     _showHideAnchors();
   }
 
@@ -482,43 +508,6 @@ class DockStage extends PolymerElement {
     }
   }
 
-  DivElement _divanchornw;
-  DivElement get _anchornw {
-    if (_divanchornw == null) {
-      _divanchornw = this.shadowRoot.querySelector(".anchor-nw");
-      assert(_divanchornw != null);
-    }
-    return _divanchornw;
-  }
-
-  DivElement _divanchorne;
-  DivElement get _anchorne {
-    if (_divanchorne == null) {
-      _divanchorne = this.shadowRoot.querySelector(".anchor-ne");
-      assert(_divanchorne != null);
-    }
-    return _divanchorne;
-  }
-
-  DivElement _divanchorsw;
-  DivElement get _anchorsw {
-    if (_divanchorsw == null) {
-      _divanchorsw = this.shadowRoot.querySelector(".anchor-sw");
-      assert(_divanchorsw != null);
-    }
-    return _divanchorsw;
-  }
-
-  DivElement _divanchorse;
-  DivElement get _anchorse {
-    if (_divanchorse == null) {
-      _divanchorse = this.shadowRoot.querySelector(".anchor-se");
-      assert(_divanchorse != null);
-    }
-    return _divanchorse;
-  }
-
-
   /* Element operations - addition, removal, etc */
   DivElement _divcanvas;
   DivElement get _canvas {
@@ -549,7 +538,7 @@ class DockStage extends PolymerElement {
    */
   bool removeElement(StageElement _elem) {
     bool ret = true;
-    if (_elem != null && shadowRoot.children.contains(_elem)) {
+    if (_elem != null && _canvas.children.contains(_elem)) {
       if (_elem.isSelected) {
         deselectElement(_elem);
       }
@@ -560,6 +549,14 @@ class DockStage extends PolymerElement {
       ret = false;
     }
     return ret;
+  }
+
+  void removeElements(List<StageElement> list_elem) {
+    List<StageElement> listEl = list_elem;
+
+    for (StageElement el in listEl) {
+      removeElement(el);
+    }
   }
 
   void removeAllElements() {
@@ -606,10 +603,10 @@ class DockStage extends PolymerElement {
   }*/
 
   List<StageElement> _elements = new List<StageElement>();
-  List<StageElement> get elements => _elements;
+  List<StageElement> get elements => _elements.toList(growable: false);
 
   Set<StageElement> _selected = new Set<StageElement>();
-  Set<StageElement> get selected => _selected;
+  List<StageElement> get selected => _selected.toList(growable: false);
 
   /* Properties */
   @published
@@ -655,6 +652,34 @@ class DockStage extends PolymerElement {
 
   }
 
-  EventStreamProvider<CustomEvent> _elementSelectedEventP = new EventStreamProvider<CustomEvent>("elementselected");
-  EventStreamProvider<CustomEvent> _elementDeselectedEventP = new EventStreamProvider<CustomEvent>("elementdeselected");
+  EventStreamProvider<CustomEvent> _elementSelectedEventP =
+      new EventStreamProvider<CustomEvent>("elementselected");
+  Stream<CustomEvent> get onElementSelected => _elementSelectedEventP.forTarget(
+      this);
+  void fireElementSelectedEvent(StageElement stage_el) {
+    var event = new CustomEvent("elementselected", canBubble: false, cancelable:
+        false, detail: stage_el);
+    dispatchEvent(event);
+  }
+
+
+  EventStreamProvider<CustomEvent> _elementDeselectedEventP =
+      new EventStreamProvider<CustomEvent>("elementdeselected");
+  Stream<CustomEvent> get onElementDeselected =>
+      _elementDeselectedEventP.forTarget(this);
+  void fireElementDeselectedEvent(StageElement stage_el) {
+    var event = new CustomEvent("elementdeselected", canBubble: false,
+        cancelable: false, detail: stage_el);
+    dispatchEvent(event);
+  }
+
+  EventStreamProvider<CustomEvent> _allElementsDeselectedEventP =
+      new EventStreamProvider<CustomEvent>("allelementsdeselected");
+  Stream<CustomEvent> get onAllElementDeselected =>
+      _allElementsDeselectedEventP.forTarget(this);
+  void fireAllElementsDeselectedEvent() {
+    var event = new CustomEvent("allelementsdeselected", canBubble: false,
+        cancelable: false, detail: null);
+    dispatchEvent(event);
+  }
 }

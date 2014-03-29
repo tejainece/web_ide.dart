@@ -15,7 +15,7 @@ class SubMenuItem extends SubMenuContentItem {
 
 
   @published String icon = "";
-  @published String title = "";
+  @published String heading = "";
   @observable bool checked;
 
   void checkableChanged() {

@@ -15,7 +15,7 @@ class MenuItem extends PolymerElement {
 
   @published bool hasicon = false;
   @published String icon = "";
-  @published String title = "";
+  @published String heading = "";
 
   void hasiconChanged() {
     if(hasicon) {

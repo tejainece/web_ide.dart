@@ -16,24 +16,24 @@ part 'toolbarseparater.dart';
 /*
  * TODO:
  * Development:
- * 1) Improve looks
  *
  * Testing:
  * 1) Vertical
  */
 
 /**
- * dockable-toolbar enables you to place an image centered in a button.
+ * tool-bar enables you to place an image centered in a button.
  *
  * Example:
  *
- *     <dockable-toolbar></dockable-toolbar>
+ *     <tool-bar></tool-bar>
  *
  * @class dockable-icon-button
  */
-@CustomTag('dockable-toolbar')
-class DockableToolbar extends PolymerElement {
-  DockableToolbar.created() : super.created();
+
+@CustomTag('tool-bar')
+class ToolBar extends PolymerElement {
+  ToolBar.created() : super.created();
 
   DivElement _content;
 
@@ -45,6 +45,7 @@ class DockableToolbar extends PolymerElement {
   @override
   void enteredView() {
     super.enteredView();
+    sizeChanged();
     verticalChanged();
   }
 
@@ -55,14 +56,52 @@ class DockableToolbar extends PolymerElement {
     assert(_content != null);
     for(HtmlElement el_t in children) {
       if(el_t is ToolbarItem) {
-        print(el_t is ToolbarItem);
         el_t.remove();
         addItem(el_t);
       } else {
-        print(el_t is ToolbarSeparater);
+        el_t.remove();
       }
     }
   }
+
+  /**
+   * Adds a toolbar item to the toolbar.
+   */
+  bool addItem(ToolbarItem arg_item) {
+    bool ret = false;
+    if(arg_item != null) {
+      //TODO: should we find if it already belongs to another Toolbar
+      arg_item.vertical = vertical;
+      arg_item._set_size = size - 8;
+      _content.children.add(arg_item);
+      ret = true;
+    }
+    return ret;
+  }
+
+  bool insertItem(int index, ToolbarItem arg_item) {
+    bool ret = false;
+    if(arg_item != null) {
+      arg_item.vertical = vertical;
+      arg_item._set_size = size - 8;
+      _content.children.insert(index, arg_item);
+      ret = true;
+    }
+    return ret;
+  }
+
+  /**
+   * Removes a toolbar item from the toolbar.
+   */
+  bool removeItem(ToolbarItem arg_item) {
+    return _content.children.remove(arg_item);
+  }
+
+  ToolbarItem removeItemAt(int index) {
+    return _content.children.removeAt(index);
+  }
+
+  List<ToolbarItem> get items => _content.children.toList(growable: false);
 
   /**
    * Size of toolbar.
@@ -77,9 +116,9 @@ class DockableToolbar extends PolymerElement {
     }
 
     //change size of all items
-    for(HtmlElement item in this.children) {
+    for(HtmlElement item in _content.children) {
       if(item is ToolbarItem) {
-        item._size = size;
+        item._set_size = size - 8;
       }
     }
   }
@@ -103,35 +142,5 @@ class DockableToolbar extends PolymerElement {
         _item.remove();
       }
     }
-  }
-
-  /**
-   * Adds a toolbar item to the toolbar.
-   */
-  bool addItem(ToolbarItem arg_item) {
-    bool ret = false;
-    if(arg_item != null) {
-      //TODO: should we find if it already belongs to another Toolbar and remove from it?
-      arg_item.vertical = vertical;
-      _content.children.add(arg_item);
-      ret = true;
-    }
-    return ret;
-  }
-
-  //TODO: add item before
-
-  /**
-   * Removes a toolbar item from the toolbar.
-   */
-  bool removeItem(ToolbarItem arg_item) {
-    return _content.children.remove(arg_item);
-  }
-
-  /**
-   * Returns if the toolbar contains the provided toolbar item.
-   */
-  bool containsItem(ToolbarItem arg_item) {
-     return this.children.contains(arg_item);
   }
 }

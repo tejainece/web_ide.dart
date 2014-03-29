@@ -10,7 +10,7 @@
         box-sizing: border-box;
         display: inline-block;
 
-        width: {{width+12}}px;
+        width: {{width+9}}px;
         height: {{height}}px;
         cursor:default;
 
@@ -75,26 +75,15 @@
         -ms-flex-align: center;
         -webkit-align-items: center;
         align-items: center;
+
+        justify-content: center;
+      }
+      .holder > .drop-icon {
+        margin-left: 3px;
+        margin-right: 3px;
       }
 
-      :host > .button-icon {
-        display: inline-block !important;
-        margin: {{(height-2) * PADDING_SIZE}}px {{(width-2) * PADDING_SIZE}}px {{(height-2) * PADDING_SIZE}}px {{(width-2) * PADDING_SIZE}}px;
-      }
 
-      :host > .main-icon {
-        /*border: solid 1px black;*/
-      }
-      :host > .drop-icon {
-        /*border: solid 1px black;*/
-        /*border-left: none;*/
-      }
-      :host:hover > .main-icon {
-        border:solid 1px #c6c6c6!important;
-      }
-      :host:hover > .drop-icon {
-        border:solid 1px #c6c6c6!important;
-      }
     </style>
     <div class="holder">
       <icon-view class="main-icon" src="{{src}}" width={{width}} height={{height}}></icon-view>
