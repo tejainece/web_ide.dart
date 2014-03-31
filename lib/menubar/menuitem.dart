@@ -24,7 +24,7 @@ class MenuItem extends PolymerElement {
       _iconDiv.classes.add("noicon");
     }
   }
-  DivElement _iconDiv;
+  IconView _iconDiv;
   DivElement _titleDiv;
 
   MenuItem.created() : super.created() {

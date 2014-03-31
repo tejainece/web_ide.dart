@@ -23,10 +23,7 @@ class DockManager extends PolymerElement {
 
   DockManager.created() : super.created() {
     _rootContainer = this.shadowRoot.querySelector("#container");
-    if(_rootContainer == null) {
-      print("Dockable: No root contianer found!");
-      assert(false);
-    }
+    assert(_rootContainer != null);
   }
 
   bool dockToLeft(DockContainerBase newContainer, [DockContainerBase leftOf]) {

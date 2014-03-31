@@ -8396,3 +8396,373 @@ build.dart --machine --changed=test/menubar/menubarex1/menubarex1.html
 
 build.dart finished [10413 ms]
 
+---
+build.dart --machine --changed=lib/menubar/menuitem.dart
+
+build.dart finished [6235 ms]
+
+---
+build.dart --machine --changed=build/lib/menubar/menuitem.dart
+
+build.dart finished [3458 ms]
+
+---
+build.dart --machine --changed=test/Tabs/TabManager/tab_manager_1.html
+
+build.dart finished [6782 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.html
+
+build.dart finished [3566 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3354 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3615 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5709 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [6143 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3647 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3517 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5454 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5605 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5605 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5479 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5526 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5575 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5472 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3548 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5663 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3589 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3550 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart --changed=lib/docker/dock_container.dart
+
+build.dart finished [5418 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3748 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5816 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3609 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3705 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3386 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5699 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3775 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3512 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3525 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3431 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3548 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5596 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5578 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5612 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [3507 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [6360 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5524 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5813 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3439 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3575 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3458 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [6111 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3482 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [6008 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5807 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3794 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5596 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5701 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3553 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3564 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3354 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3829 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3425 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5696 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3465 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+
+build.dart finished [3649 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_manager.dart
+
+build.dart finished [3308 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_manager.dart
+
+build.dart finished [3650 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_manager.dart
+
+build.dart finished [4881 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5879 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3843 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3578 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3694 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3649 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3560 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [4166 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3639 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [5887 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [3877 ms]
+
+---
+build.dart --machine --changed=lib/docker/dock_container.dart
+
+build.dart finished [3908 ms]
+
+---
+build.dart --machine --changed=build/lib/docker/dock_container.dart
+
+build.dart finished [5602 ms]
+
+---
+build.dart --machine --changed=test/IDE/IDE1/ide1.dart
+
+build.dart finished [5836 ms]
+

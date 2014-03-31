@@ -5,37 +5,36 @@ import 'package:polymer/polymer.dart';
 
 import '../../../lib/dockable.dart';
 
-num count = 0; //TODO: remove
-
 /// create dock area
 DockManager buildDockArea() {
   DockManager dm = new Element.tag('dock-manager');
-  DockContainer editorC = new Element.tag('dockable-container');
-  DockContainer fileC = new Element.tag('dockable-container');
-  DockContainer propertiesC = new Element.tag('dockable-container');
-  DockContainer consoleC = new Element.tag('dockable-container');
+  DockContainer editorC = new Element.tag('dock-container');
+  DockContainer fileC = new Element.tag('dock-container');
+  DockContainer propertiesC = new Element.tag('dock-container');
+  DockContainer consoleC = new Element.tag('dock-container');
 
   dm.dockToTop(editorC);
+  dm.dockToBottom(consoleC);
   dm.dockToLeft(fileC);
   dm.dockToRight(propertiesC);
-  dm.dockToBottom(consoleC);
+
 
   return dm;
 }
 
 ToolBar buildToolbar() {
-  ToolBar tb = new Element.tag('dockable-toolbar');
+  ToolBar tb = new Element.tag('tool-bar');
   tb.size = 24;
 
-  ToolbarIconItem ic1 = new Element.tag('dockable-toolbar-icon-item');
+  ToolbarIconItem ic1 = new Element.tag('toolbar-icon-item');
   ic1.src = "../../resources/icons/star/24x24.png";
   ic1.togglable = true;
   tb.addItem(ic1);
 
-  ToolbarSeparater sp1 = new Element.tag('dockable-toolbar-separater-item');
+  ToolbarSeparater sp1 = new Element.tag('toolbar-separater-item');
   tb.addItem(sp1);
 
-  ToolbarIconItem ic2 = new Element.tag('dockable-toolbar-icon-item');
+  ToolbarIconItem ic2 = new Element.tag('toolbar-icon-item');
   ic2.src = "../../resources/icons/windowadd/32x32.png";
   ic2.togglable = false;
   tb.addItem(ic2);
