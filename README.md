@@ -5,21 +5,30 @@ Web_ui.dart lets you build pofessional Google docs or pixlr like IDEs for browse
 Widgets
 =======
 1. Accordion - Yet to start
+2. Auto completer - Yet to start
+2. Color picker - Available
+3. Date picker - Yet to start
 2. Dock - Work in progress
 3. Dropdown - Yet to start
+4. Grid - Yet to start
 4. Icon - Available
 5. Icon button - Available
+6. Layout - Yet to start
 6. List - Work in progress
 7. Menubar - Work in progress
 8. Modal dialog - Work in progress
 9. Pages - Work in progress
 10. Property editor - Available
 11. Ruler - Work in progress
-12. Splitter - Work in progress
-13. Tabs - Work in progress
-14. Timeline - Work in progress
-15. Toolbar - Work in progress
-16. Tree widget - Yet to start
+12. Sidebar - Work in progress
+13. Splitter - Work in progress
+14. Stage - Yet to start
+15. Table
+14. Tabs - Work in progress
+15. Tags
+15. Timeline - Work in progress
+16. Toolbar - Work in progress
+17. Tree widget - Yet to start
 
 TODO
 ====
