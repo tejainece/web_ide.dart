@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <link rel="import" href="../colorpicker/color_picker.html">
-<polymer-element name="property-color" attributes="value editable color" on-click={{startEditing}}>
+<polymer-element name="property-color" attributes="value editable" on-click={{startEditing}}>
   <template>
     <style>
       :host {
@@ -38,7 +38,7 @@
       }
     </style>
     <div id="color-disp"></div>
-    <div id="display">{{color.toString()}}</div>
+    <div id="display">{{value.toString()}}</div>
   </template>
 
   <script type="application/dart" src="property_editor.dart"></script>

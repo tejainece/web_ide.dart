@@ -1,0 +1,20 @@
+body {
+  background-color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+}
+
+#main-container {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  padding: 2px 2px;
+}
+
+#list {
+  width: 175px;
+  height: 300px;
+}

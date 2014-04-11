@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sample app</title>
+    <style type="text/css">
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 10px;
+        padding: 0px;
+      }
+
+      #hsv-picker1 {
+        display: block;
+      }
+      #hue-slider-vertical {
+        display: block;
+      }
+
+      #hue-slider-horizontal {
+        display: block;
+      }
+    </style>
+    <link rel="import" href="packages/polymer/polymer.html">
+
+    <link rel="import" href="../../lib/colorpicker/color_picker.html">
+    <script type="application/dart" src="hue_hsv_static.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </head>
+  <body>
+    <div>
+      <hsv-picker id="hsv-picker1" width=100 height=100></hsv-picker>
+      <hue-slider id="hue-slider-vertical" breadth=16 size=100></hue-slider>
+    </div>
+    <!--<div>
+      <hue-slider id="hue-slider-horizontal" breadth=16 size=256 vertical=false></hue-slider>
+    </div>-->
+  </body>
+</html>

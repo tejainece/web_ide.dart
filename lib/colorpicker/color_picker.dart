@@ -46,9 +46,6 @@ class ColorPicker extends PolymerElement {
   @override
   void enteredView() {
     super.enteredView();
-    if(_color == null) {
-      color = new ColorVal.fromRGB(255, 0, 0);
-    }
   }
 
   @override
@@ -82,7 +79,7 @@ class ColorPicker extends PolymerElement {
 
   }
 
-  ColorVal _color;
+  ColorVal _color = new ColorVal.fromRGB(255, 255, 255);
   ColorVal get color => _color;
 
   set color(ColorVal arg_color) {

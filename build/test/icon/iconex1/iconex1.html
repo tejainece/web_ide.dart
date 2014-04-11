@@ -6,19 +6,20 @@
     <title>Sample app</title>
     <style type="text/css">
       body {
-        width: 4000px;
-        height: 4000px;
+        width: 100%;
+        height: 100%;
         margin: 0px;
         padding: 0px;
       }
     </style>
-    
-    <link rel="import" href="packages/dockable/icon/dockable_icon.html">
+    <link rel="import" href="packages/polymer/polymer.html">
+
+    <link rel="import" href="../../../lib/icon/icon_view.html">
     <script type="application/dart" src="iconex1.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </head>
   <body>
-    <dockable-icon src="../../asset/icons/star32.png" size="32"></dockable-icon>
-    <dockable-icon src="../../asset/icons/star48.png" size="48"></dockable-icon>
+    <icon-view src="../../asset/icons/star32.png" width="32" height="48"></icon-view>
+    <icon-view src="../../asset/icons/star48.png" width="64" height="48"></icon-view>
   </body>
 </html>

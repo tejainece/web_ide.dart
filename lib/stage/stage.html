@@ -9,18 +9,47 @@
         overflow: auto;
       }
 
-      :host > div.canvas {
-        display: block;
+      #canvas-parent {
         position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0px;
+        height: 0px;
+        /*width:{{stagewidth * stagescale}}px;
+        height:{{stageheight * stagescale}}px;*/
+      }
+
+      #canvas {
+        position: relative;
         background-color: white;
         /*box-sizing: border-box;*/
         border: solid 1px black;
 
-        left: 50%;
-        top: 50%;
+        background-size: cover;
+        background-position: center;
+
+        left: {{-stagewidth * stagescale/2}}px;
+        top: {{-stageheight * stagescale/2}}px;
+
+        width:{{stagewidth * stagescale}}px;
+        height:{{stageheight * stagescale}}px;
       }
 
-      :host > .anchor-nw {
+      #fake-canvas {
+        position: absolute;
+        /*box-sizing: border-box;*/
+        border: solid 1px transparent;
+
+        pointer-events:none;
+
+        left: {{-stagewidth * stagescale/2}}px;
+        top: {{-stageheight * stagescale/2}}px;
+
+        width:{{stagewidth * stagescale}}px;
+        height:{{stageheight * stagescale}}px;
+      }
+
+      #fake-canvas > .anchor-nw {
         width: 5px;
         height: 5px;
         display: none;
@@ -29,13 +58,14 @@
         cursor: nw-resize;
         background-color: blue;
         border: thin solid black;
+        pointer-events:auto;
       }
 
-      :host > .anchor-nw.show {
+      #fake-canvas > .anchor-nw.show {
         display: block;
       }
 
-      :host > .anchor-ne {
+      #fake-canvas > .anchor-ne {
         width: 5px;
         height: 5px;
         display: none;
@@ -44,13 +74,20 @@
         cursor: ne-resize;
         background-color: blue;
         border: thin solid black;
+        pointer-events:auto;
+
+        -moz-user-select: -moz-none;
+          -khtml-user-select: none;
+          -webkit-user-select: none;
+          -o-user-select: none;
+          user-select: none;
       }
 
-      :host > .anchor-ne.show {
+      #fake-canvas > .anchor-ne.show {
         display: block;
       }
 
-      :host > .anchor-sw {
+      #fake-canvas > .anchor-sw {
         width: 5px;
         height: 5px;
         display: none;
@@ -59,13 +96,14 @@
         cursor: sw-resize;
         background-color: blue;
         border: thin solid black;
+        pointer-events:auto;
       }
 
-      :host > .anchor-sw.show {
+      #fake-canvas > .anchor-sw.show {
         display: block;
       }
 
-      :host > .anchor-se {
+      #fake-canvas > .anchor-se {
         width: 5px;
         height: 5px;
         display: none;
@@ -74,19 +112,24 @@
         cursor: se-resize;
         background-color: blue;
         border: thin solid black;
+        pointer-events:auto;
       }
 
-      :host > .anchor-se.show {
+      #fake-canvas > .anchor-se.show {
         display: block;
       }
     </style>
-    <div class="canvas">
-    </div>
 
-    <div class="anchor-nw"></div>
-    <div class="anchor-ne"></div>
-    <div class="anchor-sw"></div>
-    <div class="anchor-se"></div>
+    <div id="canvas-parent">
+      <div id="canvas">
+      </div>
+      <div id="fake-canvas">
+        <div class="anchor-nw"></div>
+        <div class="anchor-ne"></div>
+        <div class="anchor-sw"></div>
+        <div class="anchor-se"></div>
+      </div>
+    </div>
   </template>
 
   <script type="application/dart" src="stage.dart"></script>

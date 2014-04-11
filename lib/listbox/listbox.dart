@@ -25,6 +25,11 @@ part 'list_item.dart';
  */
 @CustomTag('list-box')
 class ListBox extends PolymerElement {
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   ListBox.created(): super.created() {
     _logger.finest('created');
   }

@@ -92,7 +92,7 @@ class SubMenuItem extends SubMenuContentItem {
   }
 
   void select() {
-    dispatchMenuSelectedEvent(this, this);
+    _dispatchMenuSelectedEvent(this, this);
     _showSubMenu();
     if(checkable) {
       checked = !checked;
@@ -117,7 +117,7 @@ class SubMenuItem extends SubMenuContentItem {
   Stream<CustomEvent> get onMenuSelected => _SELECTED_EVENT.forTarget(this);
   Stream<CustomEvent> get onMenuChecked => _changed_eventP.forTarget(this);
 
-  void dispatchMenuSelectedEvent(Element element, SubMenuItem item) {
+  void _dispatchMenuSelectedEvent(Element element, SubMenuItem item) {
     fire('menuselected', detail: item);
   }
 

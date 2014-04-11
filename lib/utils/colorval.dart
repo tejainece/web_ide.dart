@@ -8,31 +8,38 @@ part of dockable_utils;
  * ColorVal represents RGB color values. It provides convinience methods to
  * parse and encode in different color formats.
  */
-class ColorVal extends Observable {
+class ColorVal {
   /** Red color component. Value ranges from [0..255] */
-  @observable
   int r;
 
   /** Green color component. Value ranges from [0..255] */
-  @observable
   int g;
 
   /** Blue color component. Value ranges from [0..255] */
-  @observable
   int b;
+
+  num a = 1.0;
 
   /**
    * Parses the color value with the following format:
    *    "#fff"
    *    "#ffffff"
    *    "255, 255, 255"
+   *    "rgb(255, 255, 255)"
+   *    "rgba(255, 255, 255, 1.0)"
    */
   ColorVal.from(String value) {
+    value.trim();
     if (value.startsWith("#")) {
       // Remove the #
       value = value.substring(1);
       _parseHex(value);
     } else if (value.contains(",")) {
+      if(value.startsWith("rgb(")) {
+        value = value.substring(4, value.length - 1);
+      } else if(value.startsWith("rgba(")) {
+        value = value.substring(5, value.length - 1);
+      }
       List<String> tokens = value.split(",");
       if (tokens.length < 3) {
         throw new Exception("Invalid color value format");
@@ -40,17 +47,24 @@ class ColorVal extends Observable {
       r = int.parse(tokens[0]);
       g = int.parse(tokens[1]);
       b = int.parse(tokens[2]);
+
+      if(tokens.length > 3) {
+        a = num.parse(tokens[3]);
+      }
       r = max(0, min(255, r));
       g = max(0, min(255, g));
       b = max(0, min(255, b));
+      a = max(0, min(1.0, a));
     }
   }
 
   ColorVal()
       : r = 0,
         g = 0,
-        b = 0;
+        b = 0,
+        a = 1.0;
   ColorVal.fromRGB(this.r, this.g, this.b);
+  ColorVal.fromRGBA(this.r, this.g, this.b, this.a);
   ColorVal.fromHSV(int hue, num saturation, num value) {
     setHSV(hue, saturation, value);
   }
@@ -62,6 +76,12 @@ class ColorVal extends Observable {
     this.r = r;
     this.g = g;
     this.b = b;
+  }
+  void setRGBA(int r, int g, int b, num a) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+    this.a = a;
   }
   void setHSV(int arg_hue, num saturation, num value) {
     num t_r;
@@ -145,7 +165,7 @@ class ColorVal extends Observable {
     return new ColorVal.fromRGB(r - other.r, g - other.g, b - other.b);
   }
 
-  String toString() => "rgba($r, $g, $b, 1.0)";
+  String toString() => "rgba($r, $g, $b, $a)";
   String toRgbString() => "$r, $g, $b";
 
   //y'uv

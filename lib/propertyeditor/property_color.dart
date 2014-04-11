@@ -13,7 +13,7 @@ class PropertyColor extends PropertyBase {
    */
   bool get preventDispose => true;
 
-  PropertyColor.created() : super.created() {
+  PropertyColor.created(): super.created() {
     _logger.finest('created');
   }
 
@@ -40,8 +40,8 @@ class PropertyColor extends PropertyBase {
     _inputEl.style.display = "none";
     _inputEl.style.position = "absolute";
     _inputEl.onChanged.listen((_) {
-      if(color != _inputEl.color) {
-        color = _inputEl.color;
+      if (value.toString() != _inputEl.color.toString()) {
+        value = _inputEl.color;
         _colorDispEl.style.backgroundColor = _inputEl.color.toString();
         _fire_updated_event();
       }
@@ -70,22 +70,23 @@ class PropertyColor extends PropertyBase {
 
   void startEditing() {
     _stopEditing();
-    if(editable) {
+    if (editable) {
       _onBlur = document.onMouseDown.listen((MouseEvent e) {
-        if(e.target != _inputEl) {
+        if (e.target != _inputEl) {
           _stopEditing();
         }
       });
-      _inputEl.color = color;
+      _inputEl.color = value;
       _inputEl.style.left = "${getBoundingClientRect().left}px";
-      _inputEl.style.top = "${getBoundingClientRect().top + getBoundingClientRect().height}px";
+      _inputEl.style.top =
+          "${getBoundingClientRect().top + getBoundingClientRect().height}px";
       _inputEl.style.display = "block";
       _inputEl.focus();
     }
   }
 
   void _stopEditing() {
-    if(_onBlur != null) {
+    if (_onBlur != null) {
       _onBlur.cancel();
       _onBlur = null;
     }
@@ -96,11 +97,13 @@ class PropertyColor extends PropertyBase {
   /**
    * Value of the property.
    */
-  @published String value = '';
+  @published
+  ColorVal value = new ColorVal.fromRGB(255, 255, 255);
 
-  @published bool editable = true;
+  @published
+  bool editable = true;
 
-  @published ColorVal color;
+  /*@published ColorVal color;
 
   void colorChanged() {
     if(color != null) {
@@ -108,10 +111,14 @@ class PropertyColor extends PropertyBase {
     } else {
       color = new ColorVal.fromRGB(255, 255, 255);
     }
-  }
+  }*/
 
   void valueChanged() {
-
+    if (value != null) {
+    } else {
+      //value = new ColorVal.fromRGB(255, 255, 255);
+    }
+    _fire_updated_event();
   }
 
   void editableChanged() {
@@ -119,8 +126,8 @@ class PropertyColor extends PropertyBase {
   }
 
   void _fire_updated_event() {
-    var event = new CustomEvent("updated",
-                  canBubble: false, cancelable: false, detail: null);
+    var event = new CustomEvent("updated", canBubble: false, cancelable: false,
+        detail: null);
     dispatchEvent(event);
   }
 }

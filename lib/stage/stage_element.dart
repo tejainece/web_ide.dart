@@ -146,16 +146,16 @@ class StageElement extends PolymerElement {
    * Properties
    */
   @published
-  num left = 0;
+  int left = 0;
 
   @published
-  num top = 0;
+  int top = 0;
 
   @published
-  num width = 0;
+  int width = 0;
 
   @published
-  num height = 0;
+  int height = 0;
 
   @published
   bool resizable = true;
@@ -165,6 +165,9 @@ class StageElement extends PolymerElement {
 
   @published
   bool selectable = true;
+
+  @published
+  String text = "";
 
   void leftChanged() {
     if(_stage != null) {
@@ -226,6 +229,10 @@ class StageElement extends PolymerElement {
     if (selectable == false) {
       deselect();
     }
+  }
+
+  void textChanged() {
+
   }
 
   EventStreamProvider<CustomEvent> _sizeChangedEventP = new EventStreamProvider<CustomEvent>("sizechanged");

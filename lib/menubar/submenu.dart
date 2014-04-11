@@ -3,6 +3,7 @@ part of menubar;
 /*
  * TODO:
  * 1) add item clicked event
+ * 2) Fix the show and hide
  */
 
 abstract class SubMenuItemBase extends PolymerElement {

@@ -11,6 +11,11 @@ part of list;
  */
 @CustomTag('list-item')
 class ListItem extends PolymerElement {
+  /*
+   * Set to true to prevent disposal of observable bindings
+   */
+  bool get preventDispose => true;
+
   ListItem.created() : super.created() {
     _logger.finest('created');
   }
