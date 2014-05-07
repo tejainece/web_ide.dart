@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<polymer-element name="list-item" attributes="label">
+<polymer-element name="listbox-item" attributes="label">
   <template>
     <style>
       :host {
@@ -24,13 +24,13 @@
         height: {{height}}px;
       }
       :host:hover {
-        background: rgba(0,0,0,0.02);
+        background: rgba(0,0,0,0.2);
       }
       :host:active {
         background-color: #c6c6c6;
       }
       :host(.selected) {
-        background: rgba(0,0,0,0.02);
+        background: rgba(0,0,0,0.5);
       }
 
       :host > div.content {

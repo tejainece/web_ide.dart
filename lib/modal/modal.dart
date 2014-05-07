@@ -9,8 +9,6 @@ import '../iconbutton/icon_button.dart';
 @CustomTag('modal-window')
 class ModalWindow extends PolymerElement {
 
-  DivElement _content;
-
   ModalWindow.created(): super.created() {
   }
 
@@ -23,7 +21,6 @@ class ModalWindow extends PolymerElement {
 
   void ready() {
     super.ready();
-    _content = shadowRoot.querySelector("#content");
   }
 
   //drag
@@ -73,13 +70,6 @@ class ModalWindow extends PolymerElement {
 
   void closeModal() {
     show = false;
-  }
-
-  setContent(Element arg_content) {
-    _content.children.clear();
-    if (arg_content != null) {
-      _content.children.add(arg_content);
-    }
   }
 
   //properties

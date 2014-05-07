@@ -38,7 +38,7 @@ main() {
     PropertyColor bgcol_ed = new Element.tag("property-color");
     pi2_1.setEditor(bgcol_ed);
     bgcol_ed.onUpdated.listen((_) {
-      document.body.style.backgroundColor = bgcol_ed.color.toString();
+      document.body.style.backgroundColor = bgcol_ed.value.toString();
     });
     pc2.addItem(pi2_1);
 

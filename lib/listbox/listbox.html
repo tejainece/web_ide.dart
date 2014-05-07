@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<link rel="import" href="list_item.html">
-<polymer-element name="list-box" attributes="itemheight multiselect">
+<link rel="import" href="listbox_item.html">
+<polymer-element name="list-box" attributes="itemheight multiselect selectable">
   <template>
     <style>
       :host {
@@ -9,6 +9,7 @@
         display: block;
 
         border: 1px solid rgba(0,0,0,0.2);
+        background-color: white;
       }
       :host > div.holder {
         width: 100%;

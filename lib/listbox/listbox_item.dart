@@ -9,22 +9,18 @@ part of list;
  *
  * @class dockable-icon
  */
-@CustomTag('list-item')
-class ListItem extends PolymerElement {
+@CustomTag('listbox-item')
+class ListboxItem extends PolymerElement {
   /*
    * Set to true to prevent disposal of observable bindings
    */
   bool get preventDispose => true;
 
-  ListItem.created() : super.created() {
-    _logger.finest('created');
+  ListboxItem.created() : super.created() {
   }
-
-  final _logger = new Logger('Dockable.ListItem');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
 
     this.onClick.listen((_) {

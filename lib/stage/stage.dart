@@ -76,7 +76,7 @@ class DockStage extends PolymerElement {
     _clicksub = onClick.listen(_stageClicked);
 
     onMouseWheel.listen((WheelEvent event) {
-      if (event.ctrlKey) {
+      if (event.ctrlKey && event.shiftKey) {
         if (event.wheelDeltaY < 0) {
           zoomOut();
         } else {

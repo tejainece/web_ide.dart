@@ -1,13 +1,12 @@
 library list;
 
 import 'package:polymer/polymer.dart';
-import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
 
 import 'dart:mirrors';
 
-part 'list_item.dart';
+part 'listbox_item.dart';
 
 /*
  * TODO:
@@ -31,50 +30,39 @@ class ListBox extends PolymerElement {
   bool get preventDispose => true;
 
   ListBox.created(): super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('Dockable.ListBox');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 
   @override
   void ready() {
     super.ready();
+    _holder = shadowRoot.querySelector(".holder");
+    assert(_holder != null);
+
+    //remove non ListboxItem
+    List<HtmlElement> initItems = new List<HtmlElement>();
+    for (HtmlElement child in super.children) {
+      if (child is ListboxItem) {
+        child.remove();
+        addItem(child);
+      } else {
+        child.remove();
+      }
+    }
   }
 
   @override
   void enteredView() {
     super.enteredView();
-    List<HtmlElement> initItems = new List<HtmlElement>();
-    /*for (HtmlElement child in this.children) {
-      if (true/*child is ListItem*/) { //TODO: old add if child is ListItem
-        initItems.add(child);
-      }
-    }
-
-    this.children.clear();
-
-    for (HtmlElement child in initItems) {
-      child.remove();
-      addItem(child as ListItem);
-    }*/
   }
 
-  DivElement _divholder;
-  DivElement get _holder {
-    if (_divholder == null) {
-      _divholder = shadowRoot.querySelector(".holder");
-      assert(_divholder != null);
-    }
-    return _divholder;
-  }
+  DivElement _holder;
 
-  bool addItem(ListItem item) {
+  bool addItem(ListboxItem item) {
     bool ret = false;
     if (item != null && !containsItem(item)) {
       _holder.children.add(item);
@@ -84,17 +72,17 @@ class ListBox extends PolymerElement {
     return ret;
   }
 
-  bool removeItem(ListItem item) {
+  bool removeItem(ListboxItem item) {
     bool ret = false;
     /*
      * Remove item only if
      * 1) item is not null
      * 2) item is member of this listbox
      */
-    if(item != null && item._listbox == this) {
+    if (item != null && item._listbox == this) {
       ret = _holder.children.remove(item);
     }
-    if(ret) {
+    if (ret) {
       item._deselect();
       item._removed();
     }
@@ -104,26 +92,30 @@ class ListBox extends PolymerElement {
   void removeAllItems() {
     List<Element> listEl = _holder.children.toList(growable: false);
 
-    for(ListItem el in listEl) {
+    for (ListboxItem el in listEl) {
       removeItem(el);
     }
   }
 
-  bool containsItem(ListItem item) {
+  bool containsItem(ListboxItem item) {
     return _holder.contains(item);
   }
 
   /* selection */
-  List<ListItem> _selectedItems = new List<ListItem>();
-  void select(ListItem item) {
+  List<ListboxItem> _selectedItems = new List<ListboxItem>();
+  void select(ListboxItem item) {
+    if (!selectable) {
+      return;
+    }
     /*
      * Select the item only if
      * 1) Not null
      * 2) Is member of the list
      * 3) Is not already selected
      */
-    if(item != null && _holder.contains(item) && !_selectedItems.contains(item)) {
-      if(multiselect) {
+    if (item != null && _holder.contains(item) && !_selectedItems.contains(item
+        )) {
+      if (multiselect) {
         _selectedItems.add(item);
         item._select();
       } else {
@@ -134,40 +126,49 @@ class ListBox extends PolymerElement {
     }
   }
 
-  void deselect(ListItem item) {
-    if(_selectedItems.contains(item)) {
+  void deselect(ListboxItem item) {
+    if (_selectedItems.contains(item)) {
       _selectedItems.remove(item);
       item._deselect();
     }
   }
 
   void deselectAll() {
-    for(ListItem item in _selectedItems) {
+    for (ListboxItem item in _selectedItems) {
       item._deselect();
     }
     _selectedItems.clear();
   }
 
-  List<ListItem> getSelected() => _selectedItems;
+  List<ListboxItem> getSelected() => _selectedItems;
 
   /* Properties */
+  @published
+  bool selectable = true;
+
   @published
   bool multiselect = false;
 
   @published
   int itemheight = 20;
 
+  void selectableChanged() {
+    if (_selectedItems.length > 0) {
+      deselectAll();
+    }
+  }
+
   void multiselectChanged() {
-    if(multiselect == false && _selectedItems.length > 1) {
+    if (multiselect == false && _selectedItems.length > 1) {
       /* retain the latest selected item */
-      ListItem item = _selectedItems.removeLast();
+      ListboxItem item = _selectedItems.removeLast();
       deselectAll();
       _selectedItems.add(item);
     }
   }
 
   void itemheightChanged() {
-    for(ListItem item in _holder.children) {
+    for (ListboxItem item in _holder.children) {
       item.style.height = "${itemheight}px";
     }
   }

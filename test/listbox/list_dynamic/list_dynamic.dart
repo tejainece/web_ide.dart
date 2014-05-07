@@ -11,14 +11,14 @@ main() {
     ListBox lbox = new Element.tag("list-box");
     mc.children.add(lbox);
 
-    ListItem item1 = new Element.tag("list-item");
+    ListboxItem item1 = new Element.tag("listbox-item");
     item1.label = "item1";
     /*item1.onClick.listen((_) {
       item1.select();
     });*/
     lbox.addItem(item1);
 
-    ListItem item2 = new Element.tag("list-item");
+    ListboxItem item2 = new Element.tag("listbox-item");
     item2.label = "item2";
     /*item2.onClick.listen((_) {
       item2.select();

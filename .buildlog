@@ -9446,3 +9446,889 @@ build.dart --machine --changed=lib/stage/stage_element.html
 
 build.dart finished [4025 ms]
 
+---
+build.dart --machine --changed=lib/colorpicker/color_picker.dart --changed=lib/menubar/submenu.dart --changed=l...
+
+build.dart finished [6904 ms]
+
+---
+build.dart --machine --changed=test/property_editor/dynamic/property_editor.dart
+
+build.dart finished [3716 ms]
+
+---
+build.dart --machine --changed=test/stage/stage_static/stage_static.html
+
+build.dart finished [5875 ms]
+
+---
+build.dart --machine --changed=lib/colorpicker/color_picker.dart --changed=lib/menubar/submenu.dart --changed=l...
+
+build.dart finished [7834 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.dart
+
+build.dart finished [4780 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.html
+
+build.dart finished [8305 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.html
+
+build.dart finished [8580 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.dart
+
+build.dart finished [3544 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.html
+
+build.dart finished [3428 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.dart
+
+build.dart finished [3526 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid.dart
+
+build.dart finished [4879 ms]
+
+---
+build.dart --machine --changed=pubspec.lock
+
+build.dart finished [4983 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid_view.dart --removed=lib/grid/grid.dart
+
+build.dart finished [5288 ms]
+
+---
+build.dart --machine --changed=lib/grid/grid_view.html --removed=lib/grid/grid.html
+
+build.dart finished [3475 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart --changed=lib/grid_view/grid_view.html --removed=li...
+
+build.dart finished [3392 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [6385 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [9972 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [10704 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [4176 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+
+build.dart finished [4201 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [7427 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [6959 ms]
+
+---
+build.dart --machine --changed=lib/test_widgets/grid_view/grid_view.dart --changed=lib/test_widgets/grid_view/g...
+
+build.dart finished [4110 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [3494 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [3485 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [3595 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [3868 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [3698 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [3482 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [3522 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [3473 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [3475 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [3516 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.html
+
+build.dart finished [5626 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.dart --changed=test/grid_view/display/grid_d...
+
+build.dart finished [3693 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [9085 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.dart
+
+build.dart finished [5311 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.dart
+
+build.dart finished [3705 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.html
+
+build.dart finished [3536 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.dart
+
+build.dart finished [3256 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.dart
+
+build.dart finished [3357 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.html
+
+build.dart finished [3443 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [3449 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/grid_view.dart
+
+build.dart finished [4386 ms]
+
+---
+build.dart --machine --removed=lib/grid_view/grid_view.dart --removed=lib/grid_view/grid_view.html
+
+build.dart finished [3289 ms]
+
+---
+build.dart --machine --changed=lib/grid_view/icon_view.dart --changed=lib/grid_view/icon_view.html
+
+build.dart finished [3306 ms]
+
+---
+build.dart --machine --removed=lib/grid_view/icon_view.dart --removed=lib/grid_view/icon_view.html
+
+build.dart finished [3583 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+
+build.dart finished [4334 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4802 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3520 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3733 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4110 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [6400 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3514 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5654 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6031 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4997 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.html
+
+build.dart finished [5245 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.html
+
+build.dart finished [3471 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.dart
+
+build.dart finished [5702 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3484 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.dart
+
+build.dart finished [5029 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [5175 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5027 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7331 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4468 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.dart
+
+build.dart finished [5801 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [3490 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5616 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5676 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5767 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5201 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.html
+
+build.dart finished [3747 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.dart
+
+build.dart finished [3524 ms]
+
+---
+build.dart --machine --changed=lib/listbox/list_item.dart --changed=lib/listbox/listbox.dart
+
+build.dart finished [3676 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart --changed=lib/listbox/listbox_item.dart --removed=lib/l...
+
+build.dart finished [3502 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox_item.html --removed=lib/listbox/list_item.html
+[{"method":"error","params":{"file":"lib/listbox/listbox.html","message":"couldn't find imported asset \"lib/listbox/list_item.html\" in package \"dockable\".","line":2,"charStart":16,"charEnd":57}}]
+build failed with errors: {Transform polymer (Linter) on dockable|lib/listbox/listbox.html threw error: couldn't find imported asset "lib/listbox/list_item.html" in package "dockable".}
+build.dart finished [4815 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [3587 ms]
+
+---
+build.dart --machine --changed=test/listbox/list_static/list_static.html
+
+build.dart finished [5692 ms]
+
+---
+build.dart --machine --changed=test/listbox/list_static/list_static.html
+
+build.dart finished [5952 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3447 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3344 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3577 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3555 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5235 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [5326 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox_item.html
+
+build.dart finished [6168 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox_item.dart
+
+build.dart finished [4472 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3898 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4861 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3909 ms]
+
+---
+build.dart --machine --changed=test/listbox/list_dynamic/list_dynamic.dart
+
+build.dart finished [3481 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3733 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox_item.html
+
+build.dart finished [4237 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [3310 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3284 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3337 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3488 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3571 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3422 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3406 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3337 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3251 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6299 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6066 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4020 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6770 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [8509 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4268 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3793 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6249 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7199 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6458 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7049 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7121 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7317 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [5952 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3905 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3728 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6037 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6588 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6158 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7302 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [9239 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4667 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4117 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3709 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3670 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4248 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7064 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4598 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7204 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7561 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7362 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4340 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7302 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7411 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7234 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6965 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [8265 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7024 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4348 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4216 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7236 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6983 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7763 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7785 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [7311 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [8358 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4182 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [10320 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [7481 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [4352 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [3379 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [8815 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [8213 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [4029 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.dart
+
+build.dart finished [6380 ms]
+
+---
+build.dart --machine --changed=lib/listbox/listbox.html
+
+build.dart finished [6364 ms]
+
+---
+build.dart --machine --changed=test/grid_view/display/grid_display.dart
+
+build.dart finished [3620 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.dart
+
+build.dart finished [6726 ms]
+
+---
+build.dart --machine --changed=lib/iconbutton/icon_list_button.dart
+
+build.dart finished [4725 ms]
+
+---
+build.dart --machine --changed=lib/stage/stage.dart
+
+build.dart finished [5655 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+
+build.dart finished [6887 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+
+build.dart finished [5167 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+
+build.dart finished [3963 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+
+build.dart finished [4126 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+
+build.dart finished [3727 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.dart
+
+build.dart finished [4200 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.dart
+
+build.dart finished [3544 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.html
+
+build.dart finished [9127 ms]
+
+---
+build.dart --machine --changed=lib/modal/modal.dart --changed=lib/modal/modal.html
+
+build.dart finished [30876 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart
+
+build.dart finished [12190 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart --changed=lib/modal/modal.dart --changed=lib/modal/modal.html
+
+build.dart finished [65361462 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart --changed=lib/modal/modal.dart --changed=lib/modal/modal.html
+
+build.dart finished [15285 ms]
+
+---
+build.dart --machine --changed=test/dock/DockerAddButtons/dockeraddbuttons.html
+
+build.dart finished [19499 ms]
+
+---
+build.dart --machine --changed=lib/dockable.dart --changed=lib/modal/modal.dart --changed=lib/modal/modal.html ...
+
+build.dart finished [21272 ms]
+
