@@ -22,6 +22,8 @@ class IconListButton extends PolymerElement {
    * Set to true to prevent disposal of observable bindings
    */
   bool get preventDispose => true;
+  
+  SubMenu _submenu = new Element.tag('sub-menu');
 
   IconListButton.created() : super.created();
 
@@ -31,7 +33,7 @@ class IconListButton extends PolymerElement {
     widthChanged();
     heightChanged();
 
-    onClick.listen((_) {
+    onClick.listen((MouseEvent e) {
       open = !open;
     });
   }
@@ -61,8 +63,7 @@ class IconListButton extends PolymerElement {
   void leftView() {
     _submenu.remove();
   }
-
-  SubMenu _submenu = new Element.tag('sub-menu');
+  
   bool addItem(SubMenuItemBase arg_item) {
      bool ret = _submenu.addItem(arg_item);
      return ret;
@@ -99,8 +100,8 @@ class IconListButton extends PolymerElement {
   @published bool open = false;
 
   void openChanged() {
-
     if(open) {
+      print("open");
       _submenu.style.left = "${this.offsetLeft}px";
       _submenu.style.top = "${this.offsetTop+this.offsetHeight}px";
       classes.add("open");

@@ -7,7 +7,7 @@ part of menubar;
  */
 
 abstract class SubMenuItemBase extends PolymerElement {
-  SubMenuItemBase.created(): super.created() {
+  SubMenuItemBase.created() : super.created() {
   }
 
   SubMenu _parent_submenu;
@@ -17,7 +17,12 @@ abstract class SubMenuContentItem extends SubMenuItemBase {
   @published
   bool checkable;
 
-  SubMenuContentItem.created(): super.created() {
+  /*
+     * Set to true to prevent disposal of observable bindings
+     */
+  bool get preventDispose => true;
+
+  SubMenuContentItem.created() : super.created() {
   }
 
   SubMenu _submenu = new Element.tag('sub-menu');
@@ -44,8 +49,13 @@ abstract class SubMenuContentItem extends SubMenuItemBase {
 
 @CustomTag('sub-menu')
 class SubMenu extends PolymerElement {
+  
+  /*
+       * Set to true to prevent disposal of observable bindings
+       */
+    bool get preventDispose => true;
 
-  SubMenu.created(): super.created() {
+  SubMenu.created() : super.created() {
   }
 
   void enteredView() {
@@ -116,21 +126,21 @@ class SubMenu extends PolymerElement {
 
   void showChanged() {
     if (show) {
-      _documentEndSubscr = document.onMouseDown.listen((MouseEvent e) {
+      _documentEndSubscr = document.onMouseUp.listen((MouseEvent e) {
         bool hide_t = true;
-        if(triggerItems.contains(e.target)) {
+        print(e.currentTarget);
+        if (triggerItems.contains(e.target)) {
           hide_t = false;
         } else {
           if (e.target is SubMenuContentItem) {
             SubMenuContentItem ci_t = e.target;
-            if ((ci_t.checkable || ci_t.hasSubmenu()) && ci_t._isDecendantItemOf(
-                this)) {
+            if ((ci_t.checkable || ci_t.hasSubmenu()) && ci_t._isDecendantItemOf(this)) {
               hide_t = false;
             }
           }
         }
-
         if (hide_t) {
+          print("Closed from SubMenu");
           show = false;
         }
       });
@@ -175,6 +185,8 @@ class SubMenu extends PolymerElement {
   Stream<CustomEvent> get onHide => _hide_eventp.forTarget(this);
 
   void _dispatchHideEvent() {
-    fire('hide', detail: this);
+    new Timer(new Duration(milliseconds: 100), () {
+      fire('hide', detail: this);
+    });
   }
 }
