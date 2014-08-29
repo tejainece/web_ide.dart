@@ -128,7 +128,6 @@ class SubMenu extends PolymerElement {
     if (show) {
       _documentEndSubscr = document.onMouseUp.listen((MouseEvent e) {
         bool hide_t = true;
-        print(e.currentTarget);
         if (triggerItems.contains(e.target)) {
           hide_t = false;
         } else {
@@ -140,7 +139,6 @@ class SubMenu extends PolymerElement {
           }
         }
         if (hide_t) {
-          print("Closed from SubMenu");
           show = false;
         }
       });

@@ -45,17 +45,33 @@
         -webkit-user-select: none;
         -o-user-select: none;
         user-select: none;
+        
+        font-weight: bold;
       }
       #buttons {
         margin-left: 5px;
         margin-right: 5px;
+      }
+      
+      #close-btn:active {
+        border: none;
+        outline: solid 0px transparent;
+        background-image: -webkit-linear-gradient(top,gray,#888888);
+      }
+      #close-btn:hover {
+        background-color: gray;
+        border: none;
+        outline: solid 0px transparent;
+        background-image: none;
+      }
+      #close-btn {
+        background-color: white;
       }
       #content {
         width: 100%;
         height: 100%;
         flex: 1;
         background-color: white;
-        border: 1px solid #ccc;
         overflow: hidden;
         box-sizing: border-box;
         position: relative;
@@ -69,7 +85,7 @@
     <div id="titlebar">
       <div id="title" on-mousedown={{moveStarted}}>{{heading}}</div>
       <div id="buttons">
-        <icon-button src="../asset/icons/close-32.png" width=24 height=24 on-click={{closeModal}}></icon-button>
+        <icon-button id="close-btn" src="/asset/icons/close-32.png" width=24 height=24 on-click={{closeModal}}></icon-button>
       </div>
     </div>
     <div id="content">

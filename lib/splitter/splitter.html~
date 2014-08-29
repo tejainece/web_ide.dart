@@ -13,7 +13,7 @@
         width: auto;
         height: 7px;
         background-color: #efefef;
-        background-image: url('/packages/dockable/splitter/handle_horiz.png');
+        background-image: url('/packages/dockable/splitter/handle_horiz.png') ;
         cursor: row-resize;
       }
 
