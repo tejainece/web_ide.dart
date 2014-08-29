@@ -101,9 +101,9 @@ class IconListButton extends PolymerElement {
 
   void openChanged() {
     if(open) {
-      print("open");
-      _submenu.style.left = "${this.offsetLeft}px";
-      _submenu.style.top = "${this.offsetTop+this.offsetHeight}px";
+      print(this.documentOffset.x);
+      _submenu.style.left = "${this.documentOffset.x}px";
+      _submenu.style.top = "${this.documentOffset.y+this.offsetHeight}px";
       classes.add("open");
       _submenu.show = true;
     } else {
