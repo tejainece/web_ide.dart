@@ -24,8 +24,8 @@ class HueSlider extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     verticalChanged();
   }
 
@@ -38,8 +38,8 @@ class HueSlider extends PolymerElement {
   }
 
   @override
-  void leftView() {
-    super.leftView();
+  void detached() {
+    super.detached();
     stopCursorChange();
   }
 
@@ -241,9 +241,6 @@ class HueSlider extends PolymerElement {
   @published
   int hue = 180;
 
-  @published
-  bool vertical = true;
-
   ColorVal get hueAsColor {
     return hueAngleToColorVal(hue);
   }
@@ -273,8 +270,12 @@ class HueSlider extends PolymerElement {
     updateCursor();
     _fire_onchanged_event();
   }
+  
+  @published
+  bool vertical = true;
 
   void verticalChanged() {
+    print("vertical changed");
     if (vertical) {
       classes.add("vertical");
       _hue_canvas.width = breadth;

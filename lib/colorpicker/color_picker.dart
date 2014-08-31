@@ -44,11 +44,6 @@ class ColorPicker extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
-  }
-
-  @override
   void ready() {
     super.ready();
 
@@ -76,7 +71,8 @@ class ColorPicker extends PolymerElement {
   int size = 100;
 
   void sizeChanged() {
-
+    this.style.width = "${size+5+16}px";
+    this.style.height = "${size}px";
   }
 
   ColorVal _color = new ColorVal.fromRGB(255, 255, 255);

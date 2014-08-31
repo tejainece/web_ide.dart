@@ -51,14 +51,14 @@ class PropertyColor extends PropertyBase {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     document.body.children.add(_inputEl);
   }
 
   @override
-  void leftView() {
-    super.leftView();
+  void detached() {
+    super.detached();
     document.body.children.remove(_inputEl);
   }
 
@@ -71,6 +71,7 @@ class PropertyColor extends PropertyBase {
   void startEditing() {
     _stopEditing();
     if (editable) {
+      print("here");
       _onBlur = document.onMouseDown.listen((MouseEvent e) {
         if (e.target != _inputEl) {
           _stopEditing();

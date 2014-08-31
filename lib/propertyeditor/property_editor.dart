@@ -8,12 +8,15 @@ import 'dart:async';
 import '../utils/dockable_utils.dart';
 import '../colorpicker/color_picker.dart';
 
+import '../optionbox/optionbox.dart';
+
 part 'property_category.dart';
 part 'property_item.dart';
 part 'property_text.dart';
 part 'property_number.dart';
 part 'property_integer.dart';
 part 'property_color.dart';
+part 'property_dropdown.dart';
 
 /*
  * TODO:

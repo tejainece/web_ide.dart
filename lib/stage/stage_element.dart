@@ -1,10 +1,5 @@
 part of stage;
 
-/*
- * TODO:
- * Implement select and deselect events
- */
-
 /**
  * stage-element is a stage used to create GUI interfaces like XCode Storyboard.
  *
@@ -35,11 +30,6 @@ class StageElement extends PolymerElement {
   @override
   void ready() {
     super.ready();
-  }
-
-  @override
-  void leftView() {
-    super.leftView();
   }
 
   /*

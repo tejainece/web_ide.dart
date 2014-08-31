@@ -6,4 +6,4 @@ dependencies:
   polymer_ui_elements: any
 transformers:
 - polymer:
-    entry_points: web/dockable.html
+    entry_points: [web/dockable.html, test/colorpicker/colorpicker_static.html]
