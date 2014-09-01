@@ -22,8 +22,8 @@ class Menubar extends PolymerElement {
   Menubar.created() : super.created() {
   }
 
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     sizeChanged();
     /*for(Element _el in this.children) {
       if(_el is! MenuItem) {

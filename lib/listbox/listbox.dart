@@ -56,8 +56,8 @@ class ListBox extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
   }
 
   DivElement _holder;

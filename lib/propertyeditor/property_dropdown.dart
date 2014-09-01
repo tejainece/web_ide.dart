@@ -83,7 +83,6 @@ class PropertyDropdown extends PropertyBase {
       }
       _stopSub = document.body.onMouseUp.listen((MouseEvent me) {
         Element target = me.target;
-        print(target);
         if(target != this) {
           if(target == _optionbox || _optionbox.children.contains(target)) {
             new Timer(new Duration(milliseconds: 100), _stopEditing);
@@ -105,7 +104,6 @@ class PropertyDropdown extends PropertyBase {
     if(_optionbox.selected.length > 0) {
       value = _optionbox.selected[0];
       notifyPropertyChange(#value, 0, value);
-      print("here ${value}");
     }
   }
 

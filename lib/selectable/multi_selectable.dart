@@ -51,7 +51,7 @@ class MultiSelectionManager implements MultiSelectable {
     if(_selected.isEmpty) {
       return null;
     } else {
-      _selected.first;
+      return _selected.first;
     }
   }
   List<SelectableItem> get selectedItems {

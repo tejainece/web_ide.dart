@@ -1,9 +1,7 @@
 library toolbar;
 
 import 'package:polymer/polymer.dart';
-import 'package:logging/logging.dart';
 import 'dart:html';
-import 'dart:async';
 
 import '../iconbutton/icon_button.dart';
 import "../menubar/menubar.dart";
@@ -43,8 +41,8 @@ class ToolBar extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     sizeChanged();
     verticalChanged();
   }

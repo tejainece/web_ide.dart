@@ -23,8 +23,8 @@ class HsvPicker extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     sizeChanged();
   }
 
@@ -110,7 +110,7 @@ class HsvPicker extends PolymerElement {
 
   StreamSubscription _mousemove;
   StreamSubscription _mouseup;
-  StreamSubscription _mouseleft;
+  StreamSubscription _docmouseup;
   StreamSubscription _keydown;
   ColorVal _color_before;
   void handleCursorStart(MouseEvent event) {
@@ -122,15 +122,14 @@ class HsvPicker extends PolymerElement {
       handleCursorChange(e);
       stopCursorChange();
     });
+    _docmouseup = document.body.onMouseUp.listen((_) {
+      stopCursorChange();
+    });
     _keydown = document.onKeyDown.listen((e) {
       if (e.keyCode == KeyCode.ESC) {
         stopCursorChange();
         color = _color_before;
       }
-    });
-    _mouseleft = _hsv_canvas.onMouseLeave.listen((_) {
-      stopCursorChange();
-      color = _color_before;
     });
   }
 
@@ -149,9 +148,9 @@ class HsvPicker extends PolymerElement {
       _mouseup = null;
     }
 
-    if (_mouseleft != null) {
-      _mouseleft.cancel();
-      _mouseleft = null;
+    if (_docmouseup != null) {
+      _docmouseup.cancel();
+      _docmouseup = null;
     }
 
     if (_keydown != null) {

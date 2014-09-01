@@ -6,8 +6,8 @@ class SubMenuSeparaterItem extends SubMenuItemBase {
   }
   
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     for(Element _el in this.children) {
       _el.remove();
     }

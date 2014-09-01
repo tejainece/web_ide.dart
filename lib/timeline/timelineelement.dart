@@ -47,8 +47,8 @@ class TimelineElement extends PolymerElement {
   }
   
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     performLayout();
     _mover.onMouseDown.listen((MouseEvent e) {
       print('moving');

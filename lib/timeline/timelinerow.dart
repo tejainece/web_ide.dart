@@ -24,8 +24,8 @@ class TimelineRow extends PolymerElement {
   }
   
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     //for(Element _el in this.children) {
       /*if(_el is! TimelineElement) {
       //  _el.remove();

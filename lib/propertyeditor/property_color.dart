@@ -71,7 +71,6 @@ class PropertyColor extends PropertyBase {
   void startEditing() {
     _stopEditing();
     if (editable) {
-      print("here");
       _onBlur = document.onMouseDown.listen((MouseEvent e) {
         if (e.target != _inputEl) {
           _stopEditing();

@@ -47,8 +47,8 @@ class MenuItem extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     //TODO: add all tabs in content
     for(Element _el in this.children) {
       if(!SubMenu.isSubMenuItem(_el)) {

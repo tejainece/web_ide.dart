@@ -51,8 +51,8 @@ class SubMenuItem extends SubMenuContentItem {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     for(Element _el in this.children) {
       if(!SubMenu.isSubMenuItem(_el)) {
         //_el.remove(); //TODO: implement this

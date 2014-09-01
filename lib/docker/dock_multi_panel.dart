@@ -14,8 +14,9 @@ class DockMultiPanel extends DockContainerBase {
 
   }
 
-  void enteredView() {
-    super.enteredView();
+  @override
+  void attached() {
+    super.attached();
     performLayout();
   }
 

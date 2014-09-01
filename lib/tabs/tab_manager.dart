@@ -36,9 +36,10 @@ class TabManager extends PolymerElement with SelectionManager {
 
   }
 
-  void enteredView() {
+  @override
+  void attached() {
     //TODO: add pages already present in dom
-    super.enteredView();
+    super.attached();
   }
 
   bool addItem(TabItem arg_tab) {

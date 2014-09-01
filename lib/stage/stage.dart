@@ -89,13 +89,13 @@ class DockStage extends PolymerElement {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
   }
 
   @override
-  void leftView() {
-    super.leftView();
+  void detached() {
+    super.detached();
     /*if (_clicksub != null) {
       _clicksub.cancel();
       _clicksub = null;
@@ -312,7 +312,6 @@ class DockStage extends PolymerElement {
         /* Northwest */
         _anchornw.classes.add("show");
         _nwMD = _anchornw.onMouseDown.listen((MouseEvent event) {
-          print("here");
           Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
               selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
           Point startPoint = event.page;

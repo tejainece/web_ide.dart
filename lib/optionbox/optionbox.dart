@@ -54,8 +54,8 @@ class OptionBox extends SelectorHelper {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
   }
 
   @override

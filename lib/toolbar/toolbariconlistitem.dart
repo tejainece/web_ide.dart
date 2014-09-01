@@ -20,13 +20,13 @@ class ToolbarIconListItem extends ToolbarItem {
   }
 
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
   }
 
   @override
-  void leftView() {
-    super.leftView();
+  void detached() {
+    super.detached();
   }
 
   void ready() {

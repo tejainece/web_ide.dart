@@ -45,7 +45,7 @@ class StageElement extends PolymerElement {
     });
 
     _mouseDown = onMouseDown.listen((MouseEvent event) {
-      if(_stage != null && isSelected) {
+      if(_stage != null && isSelected && event.button == 0) {
         _savedPosBeforeMove = new Point(offsetLeft, offsetTop);
         _stage._startMove(event);
       }

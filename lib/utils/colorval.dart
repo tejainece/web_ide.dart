@@ -237,7 +237,10 @@ class ColorVal {
     num cmax = max(max(i_r, i_g), i_b);
     num cmin = min(min(i_r, i_g), i_b);
 
-    if (cmax == cmin) return 0; else return (cmax - cmin) / cmax;
+    if (cmax == cmin || cmax == 0) 
+      return 0; 
+    else 
+      return (cmax - cmin) / cmax;
   }
 
   num get v {

@@ -10,7 +10,7 @@ class HueSlider extends PolymerElement {
 
   CanvasElement _hue_canvas;
 
-  HueSlider.created(): super.created() {
+  HueSlider.created() : super.created() {
     _logger.finest('created');
   }
 
@@ -45,7 +45,7 @@ class HueSlider extends PolymerElement {
 
   StreamSubscription _mousemove;
   StreamSubscription _mouseup;
-  StreamSubscription _mouseleft;
+  StreamSubscription _docmouseup;
   StreamSubscription _keydown;
   int _hue_before_mod;
   void handleCursorStart(MouseEvent event) {
@@ -53,19 +53,20 @@ class HueSlider extends PolymerElement {
     _hue_before_mod = hue;
     handleCursorChange(event);
     _mousemove = _hue_canvas.onMouseMove.listen(handleCursorChange);
+    
     _mouseup = _hue_canvas.onMouseUp.listen((e) {
       handleCursorChange(e);
       stopCursorChange();
     });
+    _docmouseup = document.body.onMouseUp.listen((e) {
+        stopCursorChange();
+    });
+    
     _keydown = document.onKeyDown.listen((e) {
       if (e.keyCode == KeyCode.ESC) {
         stopCursorChange();
         hue = _hue_before_mod;
       }
-    });
-    _mouseleft = _hue_canvas.onMouseLeave.listen((_) {
-      stopCursorChange();
-      hue = _hue_before_mod;
     });
   }
 
@@ -98,9 +99,9 @@ class HueSlider extends PolymerElement {
       _mouseup = null;
     }
 
-    if (_mouseleft != null) {
-      _mouseleft.cancel();
-      _mouseleft = null;
+    if (_docmouseup != null) {
+      _docmouseup.cancel();
+      _docmouseup = null;
     }
 
     if (_keydown != null) {
@@ -117,10 +118,7 @@ class HueSlider extends PolymerElement {
    * of hue gradient.
    */
   void _buildGradient() {
-    var hueColors = [new ColorVal.fromRGB(255, 0, 0), new ColorVal.fromRGB(255,
-        255, 0), new ColorVal.fromRGB(0, 255, 0), new ColorVal.fromRGB(0, 255, 255),
-        new ColorVal.fromRGB(0, 0, 255), new ColorVal.fromRGB(255, 0, 255),
-        new ColorVal.fromRGB(255, 0, 0)];
+    var hueColors = [new ColorVal.fromRGB(255, 0, 0), new ColorVal.fromRGB(255, 255, 0), new ColorVal.fromRGB(0, 255, 0), new ColorVal.fromRGB(0, 255, 255), new ColorVal.fromRGB(0, 0, 255), new ColorVal.fromRGB(255, 0, 255), new ColorVal.fromRGB(255, 0, 0)];
     final CanvasRenderingContext2D context = _hue_canvas.context2D;
 
     if (vertical) {
@@ -134,10 +132,10 @@ class HueSlider extends PolymerElement {
     final gradientStopDelta = 1 / (hueColors.length - 1);
     // Calculate the gradient stop delta for each color
     num gradientStop = 0;
-   for (var i = 0; i < hueColors.length - 1; i++) {
-     gradient.addColorStop(gradientStop, hueColors[i].toString());
-     gradientStop += gradientStopDelta;
-   }
+    for (var i = 0; i < hueColors.length - 1; i++) {
+      gradient.addColorStop(gradientStop, hueColors[i].toString());
+      gradientStop += gradientStopDelta;
+    }
     // Add the last one manually to avoid precision issues
     gradient.addColorStop(1.0, hueColors.last.toString());
 
@@ -166,7 +164,7 @@ class HueSlider extends PolymerElement {
       cursorColor = "white";
     }
 
-    if(vertical) {
+    if (vertical) {
       // Draw the cursor at the current hue
       final y = _hue_canvas.height * hue / (360) + 0.5;
       context.save();
@@ -246,7 +244,7 @@ class HueSlider extends PolymerElement {
   }
 
   void breadthChanged() {
-    if(vertical) {
+    if (vertical) {
       _hue_canvas.width = breadth;
     } else {
       _hue_canvas.height = breadth;
@@ -256,7 +254,7 @@ class HueSlider extends PolymerElement {
   }
 
   void sizeChanged() {
-    if(vertical) {
+    if (vertical) {
       _hue_canvas.height = size;
     } else {
       _hue_canvas.width = size;
@@ -270,12 +268,11 @@ class HueSlider extends PolymerElement {
     updateCursor();
     _fire_onchanged_event();
   }
-  
+
   @published
   bool vertical = true;
 
   void verticalChanged() {
-    print("vertical changed");
     if (vertical) {
       classes.add("vertical");
       _hue_canvas.width = breadth;
@@ -291,13 +288,11 @@ class HueSlider extends PolymerElement {
 
   void _fire_onchanged_event() {
     //TODO: send valid detail
-    var event = new CustomEvent("changed",
-          canBubble: false, cancelable: false, detail: null);
+    var event = new CustomEvent("changed", canBubble: false, cancelable: false, detail: null);
     dispatchEvent(event);
   }
 
   //events
   EventStreamProvider<CustomEvent> _changedEventP = new EventStreamProvider<CustomEvent>("changed");
-  Stream<CustomEvent> get onChanged =>
-      _changedEventP.forTarget(this);
+  Stream<CustomEvent> get onChanged => _changedEventP.forTarget(this);
 }

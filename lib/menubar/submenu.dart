@@ -58,8 +58,8 @@ class SubMenu extends PolymerElement {
   SubMenu.created() : super.created() {
   }
 
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     for (Element _el in this.children) {
       if (!isSubMenuItem(_el)) {
         //_el.remove(); //TODO: implement me

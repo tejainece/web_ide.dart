@@ -83,8 +83,8 @@ class RulerWidget extends PolymerElement {
   }
   
   @override
-  void enteredView() {
-    super.enteredView();
+  void attached() {
+    super.attached();
     _recalcSpacing();
   }
   
