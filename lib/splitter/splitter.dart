@@ -78,15 +78,17 @@ class DockableSplitter extends PolymerElement {
   /// When dragging stops, unsubscribe from monitoring dragging events except
   /// the starting one.
   void trackEnd(MouseEvent e) {
-    assert(_trackSubscr != null && _trackEndSubscr != null);
     // Do this regardless of [locked]. The only case [locked] can be true here
     // is when it's been changed externally in mid-flight. If it's already true
     // when onMouseDown is fired, these subsciptions (and this event handler!)
     // are not activated in the first place.
-    _trackSubscr.cancel();
-    _trackSubscr = null;
-    _trackEndSubscr.cancel();
-    _trackEndSubscr = null;
+    
+    if(_trackSubscr != null) {
+      _trackSubscr.cancel();
+      _trackSubscr = null;
+      _trackEndSubscr.cancel();
+      _trackEndSubscr = null;
+    }
 
     classes.remove('active');
   }
