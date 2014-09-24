@@ -55,6 +55,7 @@ class IconView extends PolymerElement {
     super.ready();
     this.widthChanged();
     this.heightChanged();
+    srcChanged();
   }
 
   void widthChanged() {

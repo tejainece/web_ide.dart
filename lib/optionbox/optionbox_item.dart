@@ -1,4 +1,4 @@
-part of list;
+part of optionbox;
 
 /**
  * listbox-item is elements that can be added to the list-box

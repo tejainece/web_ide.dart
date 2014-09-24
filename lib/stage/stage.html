@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
 <link rel="import" href="stage_element.html">
 <polymer-element name="dock-stage" attributes="stagewidth stageheight stagescale resizable">
   <template>
@@ -11,16 +14,12 @@
 
       #canvas-parent {
         position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 0px;
-        height: 0px;
-        /*width:{{stagewidth * stagescale}}px;
-        height:{{stageheight * stagescale}}px;*/
+        width: 100%;
+        height: 100%;
       }
 
       #canvas {
-        position: relative;
+        position: absolute;
         background-color: white;
         /*box-sizing: border-box;*/
         border: solid 1px black;
@@ -28,8 +27,9 @@
         background-size: cover;
         background-position: center;
 
-        left: {{-stagewidth * stagescale/2}}px;
-        top: {{-stageheight * stagescale/2}}px;
+        left: 0%;
+        top: 0%;
+        margin: 150px;
 
         width:{{stagewidth * stagescale}}px;
         height:{{stageheight * stagescale}}px;
@@ -42,8 +42,9 @@
 
         pointer-events:none;
 
-        left: {{-stagewidth * stagescale/2}}px;
-        top: {{-stageheight * stagescale/2}}px;
+        left: 0%;
+        top: 0%;
+        margin: 150px;
 
         width:{{stagewidth * stagescale}}px;
         height:{{stageheight * stagescale}}px;
@@ -118,6 +119,16 @@
       #fake-canvas > .anchor-se.show {
         display: block;
       }
+      
+      #scroll-adjuster {
+        position: absolute;
+        left: calc({{stagewidth * stagescale}}px + 150px);
+        top: calc({{stageheight * stagescale}}px + 150px);
+        width: 150px;
+        height: 150px;
+        background-color: transparent;
+        pointer-events: none;
+      }
     </style>
 
     <div id="canvas-parent">
@@ -128,6 +139,9 @@
         <div class="anchor-ne"></div>
         <div class="anchor-sw"></div>
         <div class="anchor-se"></div>
+      </div>
+      <div id="scroll-adjuster">
+        
       </div>
     </div>
   </template>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
 <polymer-element name="stage-element" attributes="left top width height movable resizable selectable text">
   <template>
     <style>
@@ -14,6 +17,14 @@
         background-position: center;
         
         overflow: hidden;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        
+        line-height: normal;
       }
 
       :host(.selected:host) {
@@ -43,11 +54,13 @@
 
         background-size: cover;
         background-position: center;
+        
+        line-height: normal;
       }
     </style>
-    <div id="inner">
+    <!--<div id="inner">-->
       {{text}}
-    </div>
+    <!--</div>-->
   </template>
 
   <script type="application/dart" src="stage.dart"></script>

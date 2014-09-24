@@ -1,6 +1,7 @@
 import 'package:polymer/builder.dart';
         
 main(args) {
-  build(entryPoints: ['examples/DockerStatic/dockerstatic.html', 'examples/DockerAddButtons/dockeraddbuttons.html'],
+  build(entryPoints: ['web/property_editor/dynamic/property_editor.html',
+                      'web/icon/dynamic/icon.html'],
         options: parseOptions(args));
 }

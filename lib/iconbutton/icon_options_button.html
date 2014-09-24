@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
 <link rel="import" href="../icon/icon_view.html">
 <link rel="import" href="../menubar/submenu.html">
 <link rel="import" href="icon_button.html">
@@ -34,5 +37,5 @@
     <icon-button id="main-button" togglable={{togglable}} checked={{checked}} src={{src}} width={{width}} height={{height}}>a</icon-button>
     <icon-button checked={{open}} on-changed={{showMenu}} id="options-button" togglable src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAADCAYAAABbNsX4AAAAHElEQVQIW2OqqKj4j46Z2tvbGRmQAIjPBGMg0wD8XhJiX7bC2gAAAABJRU5ErkJggg==" width=12 height={{height}}></icon-button>
   </template>
-  <script type="application/dart" src='icon_button.dart'></script>
+  <!--<script type="application/dart" src='icon_button.dart'></script>-->
 </polymer-element>

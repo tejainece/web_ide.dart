@@ -144,10 +144,10 @@ class TimelineManager extends PolymerElement {
     });
     
     this.onMouseWheel.listen((WheelEvent e) {
-      if(e.wheelDeltaY > 0) {
-        zoom = zoom * 2;
+      if(e.deltaX > 0) {
+        zoom = zoom / 2;
       } else {
-        zoom = zoom / 2; 
+        zoom = zoom * 2;
       }
     });
   }

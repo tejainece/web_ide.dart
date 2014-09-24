@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
 <link rel="import" href="../iconbutton/icon_button.html">
 <link rel="import" href="toolbaritem.html">
 <polymer-element name="toolbar-icon-item" attributes="vertical src togglable checked">
@@ -9,8 +11,8 @@
         box-sizing: border-box;
         display: inline-block;
         /*overflow: hidden;*/
-        width: {{size}};
-        height:{{size}};
+        width: {{size}}px;
+        height:{{size}}px;
       }
       :host(.vertical:host) {
       }
@@ -25,6 +27,6 @@
     <icon-button src="{{src}}" togglable="{{togglable}}" width={{size}} height={{size}} checked={{checked}}></icon-button>
   </template>
 
-<script type="application/dart" src='toolbar.dart'></script>
+<!--<script type="application/dart" src='toolbar.dart'></script>-->
 
 </polymer-element>

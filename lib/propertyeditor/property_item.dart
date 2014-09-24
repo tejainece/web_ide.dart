@@ -43,16 +43,12 @@ class PropertyItem extends PolymerElement {
   bool get preventDispose => true;
 
   PropertyItem.created() : super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('Dockable.PropertyItem');
 
   DivElement _editorC;
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 

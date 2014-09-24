@@ -9,17 +9,13 @@ class PropertyInteger extends PropertyBase {
   bool get preventDispose => true;
 
   PropertyInteger.created() : super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('PropertyNumber');
 
   DivElement _displayEl;
   TextInputElement _inputEl;
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 

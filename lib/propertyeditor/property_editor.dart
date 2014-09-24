@@ -1,7 +1,6 @@
 library propertyeditor;
 
 import 'package:polymer/polymer.dart';
-import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
 
@@ -12,7 +11,6 @@ import '../optionbox/optionbox.dart';
 
 part 'property_category.dart';
 part 'property_item.dart';
-part 'property_text.dart';
 part 'property_number.dart';
 part 'property_integer.dart';
 part 'property_color.dart';
@@ -43,14 +41,11 @@ class PropertyEditor extends PolymerElement {
   bool get preventDispose => true;
 
   PropertyEditor.created() : super.created() {
-    _logger.finest('created');
   }
 
-  final _logger = new Logger('Dockable.PropertyEditor');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 
@@ -87,14 +82,12 @@ class PropertyEditor extends PolymerElement {
   }
 
   //properties
-  //TODO: @published double contentWidthRatio = 0.6;
-
   @observable String get description => _description;
-  @observable String _description = "Description";
+  
+  String _description = "Description";
 
   void _setDescription(PropertyItem item) {
     String old_desc = _description;
-    _description = item.description;
-    this.notifyPropertyChange(#description, old_desc, _description);
+     _description = this.notifyPropertyChange(#description, old_desc, item.description);
   }
 }

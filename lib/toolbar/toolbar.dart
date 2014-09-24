@@ -116,7 +116,7 @@ class ToolBar extends PolymerElement {
     //change size of all items
     for(HtmlElement item in _content.children) {
       if(item is ToolbarItem) {
-        item._set_size = size - 8;
+        item._set_size = size - 10;
       }
     }
   }

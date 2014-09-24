@@ -24,14 +24,10 @@ class PropertyCategory extends PolymerElement {
   bool get preventDispose => true;
 
   PropertyCategory.created() : super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('Dockable.PropertyCategory');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 

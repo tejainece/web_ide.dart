@@ -135,10 +135,12 @@ class SelectorHelper extends PolymerElement {
     } else {
       if(_selectedItems.length == 1 && _selectedItems[0] != item) {
         this.setItemSelected(_selectedItems[0], false);
+        this._toggle(item);
+      } else if(_selectedItems.length == 0) {
+        this._toggle(item);
       } else if(_selectedItems.length > 1) {
         print("Error: more than 1 element in selectedItems");
       }
-      this._toggle(item);
     }
   }
 

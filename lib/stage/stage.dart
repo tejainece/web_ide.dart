@@ -1,10 +1,10 @@
 library stage;
 
 import 'package:polymer/polymer.dart';
-import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
 import 'dart:math';
+import 'dart:js';
 
 part 'stage_element.dart';
 
@@ -30,15 +30,11 @@ class DockStage extends PolymerElement {
    */
   bool get preventDispose => true;
 
-  DockStage.created(): super.created() {
-    _logger.finest('created');
+  DockStage.created() : super.created() {
   }
-
-  final _logger = new Logger('Dockable.Stage');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 
@@ -53,6 +49,9 @@ class DockStage extends PolymerElement {
 
     _canvas = this.shadowRoot.querySelector("#canvas");
     assert(_canvas != null);
+    
+    _parcanvas = this.shadowRoot.querySelector("#canvas-parent");
+    assert(_parcanvas != null);
 
     _anchornw = this.shadowRoot.querySelector(".anchor-nw");
     assert(_anchornw != null);
@@ -77,20 +76,38 @@ class DockStage extends PolymerElement {
 
     onMouseWheel.listen((WheelEvent event) {
       if (event.ctrlKey && event.shiftKey) {
-        if (event.wheelDeltaY < 0) {
+        if (event.deltaX > 0) {
           zoomOut();
         } else {
           zoomIn();
         }
+        scrollToCenter();
       }
     });
 
     stagebgcolorChanged();
+
+    /*onMouseDown.listen((MouseEvent ke) {
+      getScreenShot();
+    });*/
+  }
+
+  Future getScreenShot() {
+    JsFunction dartcall = context["dartcall"];
+
+    context["boom"] = callb1;
+    dartcall.apply([_canvas, "boom"]);
+  }
+
+  callb1(CanvasElement canvas) {
+    //print("here");
+    document.body.append(canvas);
   }
 
   @override
   void attached() {
     super.attached();
+    //scrollToCenter();
   }
 
   @override
@@ -288,23 +305,17 @@ class DockStage extends PolymerElement {
       StageElement selectedEl = _selected.first;
 
       //Fix anchor position
-      _anchornw.style.left =
-          "${selectedEl.offsetLeft - 5}px";
+      _anchornw.style.left = "${selectedEl.offsetLeft - 5}px";
       _anchornw.style.top = "${selectedEl.offsetTop - 5}px";
 
-      _anchorne.style.left =
-          "${selectedEl.offsetLeft + selectedEl.offsetWidth}px";
+      _anchorne.style.left = "${selectedEl.offsetLeft + selectedEl.offsetWidth}px";
       _anchorne.style.top = "${selectedEl.offsetTop - 5}px";
 
-      _anchorsw.style.left =
-          "${selectedEl.offsetLeft - 5}px";
-      _anchorsw.style.top =
-          "${selectedEl.offsetTop + selectedEl.offsetHeight}px";
+      _anchorsw.style.left = "${selectedEl.offsetLeft - 5}px";
+      _anchorsw.style.top = "${selectedEl.offsetTop + selectedEl.offsetHeight}px";
 
-      _anchorse.style.left =
-          "${selectedEl.offsetLeft + selectedEl.offsetWidth}px";
-      _anchorse.style.top =
-          "${selectedEl.offsetTop + selectedEl.offsetHeight}px";
+      _anchorse.style.left = "${selectedEl.offsetLeft + selectedEl.offsetWidth}px";
+      _anchorse.style.top = "${selectedEl.offsetTop + selectedEl.offsetHeight}px";
 
       if (!_anchorShowing) {
         _anchorShowing = true;
@@ -312,8 +323,7 @@ class DockStage extends PolymerElement {
         /* Northwest */
         _anchornw.classes.add("show");
         _nwMD = _anchornw.onMouseDown.listen((MouseEvent event) {
-          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
-              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft, selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
           Point startPoint = event.page;
           _ancMM = onMouseMove.listen((MouseEvent event) {
             _wasResizing = true;
@@ -321,8 +331,7 @@ class DockStage extends PolymerElement {
             Point diff = event.page - startPoint;
             num elW = initRect.width - diff.x;
             num elH = initRect.height - diff.y;
-            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
-                elH > 0) {
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
               selectedEl.left = (initRect.left + diff.x) ~/ stagescale;
               selectedEl.top = (initRect.top + diff.y) ~/ stagescale;
               selectedEl.width = (initRect.width - diff.x) ~/ stagescale;
@@ -351,8 +360,7 @@ class DockStage extends PolymerElement {
         /* Northeast */
         _anchorne.classes.add("show");
         _neMD = _anchorne.onMouseDown.listen((MouseEvent event) {
-          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
-              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft, selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
           Point startPoint = event.page;
           _ancMM = onMouseMove.listen((MouseEvent event) {
             _wasResizing = true;
@@ -360,8 +368,7 @@ class DockStage extends PolymerElement {
             Point diff = event.page - startPoint;
             num elW = initRect.width + diff.x;
             num elH = initRect.height - diff.y;
-            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
-                elH > 0) {
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
               //selectedEl.left = initRect.left;
               selectedEl.top = (initRect.top + diff.y) ~/ stagescale;
               selectedEl.width = (initRect.width + diff.x) ~/ stagescale;
@@ -391,8 +398,7 @@ class DockStage extends PolymerElement {
         /* Southwest */
         _anchorsw.classes.add("show");
         _swMD = _anchorsw.onMouseDown.listen((MouseEvent event) {
-          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
-              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft, selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
           Point startPoint = event.page;
           _ancMM = onMouseMove.listen((MouseEvent event) {
             _wasResizing = true;
@@ -400,8 +406,7 @@ class DockStage extends PolymerElement {
             Point diff = event.page - startPoint;
             num elW = initRect.width - diff.x;
             num elH = initRect.height + diff.y;
-            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
-                elH > 0) {
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
               selectedEl.left = (initRect.left + diff.x) ~/ stagescale;
               //selectedEl.top = initRect.top;
               selectedEl.width = (initRect.width - diff.x) ~/ stagescale;
@@ -430,24 +435,22 @@ class DockStage extends PolymerElement {
         /* Southeast */
         _anchorse.classes.add("show");
         _seMD = _anchorse.onMouseDown.listen((MouseEvent event) {
-          Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
-              selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
+          Rectangle initRect = new Rectangle(selectedEl.offsetLeft, selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
           Point startPoint = event.page;
-          _ancMM = onMouseMove.listen((MouseEvent event) {
+          _ancMM = document.body.onMouseMove.listen((MouseEvent event) {
             _wasResizing = true;
             _showHideAnchors();
             Point diff = event.page - startPoint;
             num elW = initRect.width + diff.x;
             num elH = initRect.height + diff.y;
-            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 &&
-                elH > 0) {
+            if (getBoundingClientRect().containsPoint(event.page) && elW > 0 && elH > 0) {
               //selectedEl.left = initRect.left +  diff.x;
               //selectedEl.top = initRect.top;
               selectedEl.width = (initRect.width + diff.x) ~/ stagescale;
               selectedEl.height = (initRect.height + diff.y) ~/ stagescale;
             }
           });
-          _ancMU = onMouseUp.listen(_cancelResize);
+          _ancMU = document.body.onMouseUp.listen(_cancelResize);
           _ancMO = onMouseOut.listen(_cancelResize);
           _ancEsc = document.onKeyDown.listen((KeyboardEvent event) {
             if (event.keyCode == KeyCode.ESC) {
@@ -515,6 +518,7 @@ class DockStage extends PolymerElement {
 
   /* Element operations - addition, removal, etc */
   DivElement _canvas;
+  DivElement _parcanvas;
 
   /*
    * Adds an element to the stage
@@ -571,14 +575,18 @@ class DockStage extends PolymerElement {
    * Zooms into the stage
    */
   void zoomIn() {
-    stagescale = stagescale * 1.5;
+    stagescale = stagescale * 2;
+    
+    print(stagescale);
   }
 
   /*
    * Zooms out of the stage
    */
   void zoomOut() {
-    stagescale = stagescale * 0.666;
+    stagescale = stagescale / 2;
+    
+    print(stagescale);
   }
 
   void cancelZoom() {
@@ -586,8 +594,8 @@ class DockStage extends PolymerElement {
   }
 
   //TODO: implement fit
-  /*void fit() {
-    num xDiff = offsetWidth/stagewidth;
+  void fit() {
+    /*num xDiff = offsetWidth/stagewidth;
     num yDiff = offsetHeight/stageheight;
 
     num diff = xDiff < yDiff? xDiff : yDiff;
@@ -597,14 +605,29 @@ class DockStage extends PolymerElement {
     } else if (diff < 0.666) {
       int nTimes = (log(diff) * 2.46630351).floor();
       stagescale = stagescale * pow(0.666, nTimes);
+    }*/
+    
+    int i = 0;
+    while(offsetWidth < (scaledWidth) || offsetHeight < (scaledHeight)) {
+      zoomOut();
     }
-  }*/
+    
+    scrollToCenter();
+  }
+  
+  void scrollToCenter() {
+    scrollLeft = scrollWidth ~/ 2;
+    scrollTop = scrollHeight ~/ 2;
+  }
 
   List<StageElement> _elements = new List<StageElement>();
   List<StageElement> get elements => _elements.toList(growable: false);
 
   Set<StageElement> _selected = new Set<StageElement>();
   List<StageElement> get selected => _selected.toList(growable: false);
+  
+  num get scaledWidth => stagewidth * stagescale;
+  num get scaledHeight => stageheight * stagescale;
 
   /* Properties */
   @published
@@ -626,21 +649,17 @@ class DockStage extends PolymerElement {
   bool resizable = true;
 
   void stagewidthChanged() {
-    _canvas.style.width = "${stagewidth * stagescale}px";
-    //_canvas.style.marginLeft = "-${stagewidth * stagescale/2}px";
+    _canvas.style.width = "${scaledWidth}px";
   }
 
   void stageheightChanged() {
-    _canvas.style.height = "${stageheight  * stagescale}px";
-    //_canvas.style.marginTop = "-${stagewidth * stagescale/2}px";
+    _canvas.style.height = "${scaledHeight}px";
   }
 
   void stagescaleChanged() {
-    _canvas.style.width = "${stagewidth * stagescale}px";
-    //_canvas.style.marginLeft = "-${_canvas.offsetWidth/2}px";
+    stagewidthChanged();
 
-    _canvas.style.height = "${stageheight  * stagescale}px";
-    //_canvas.style.marginTop = "-${_canvas.offsetHeight/2}px";
+    stageheightChanged();
 
     for (StageElement elem in _elements) {
       elem.widthChanged();
@@ -664,34 +683,25 @@ class DockStage extends PolymerElement {
 
   }
 
-  EventStreamProvider<CustomEvent> _elementSelectedEventP =
-      new EventStreamProvider<CustomEvent>("elementselected");
-  Stream<CustomEvent> get onElementSelected => _elementSelectedEventP.forTarget(
-      this);
+  EventStreamProvider<CustomEvent> _elementSelectedEventP = new EventStreamProvider<CustomEvent>("elementselected");
+  Stream<CustomEvent> get onElementSelected => _elementSelectedEventP.forTarget(this);
   void fireElementSelectedEvent(StageElement stage_el) {
-    var event = new CustomEvent("elementselected", canBubble: false, cancelable:
-        false, detail: stage_el);
+    var event = new CustomEvent("elementselected", canBubble: false, cancelable: false, detail: stage_el);
     dispatchEvent(event);
   }
 
 
-  EventStreamProvider<CustomEvent> _elementDeselectedEventP =
-      new EventStreamProvider<CustomEvent>("elementdeselected");
-  Stream<CustomEvent> get onElementDeselected =>
-      _elementDeselectedEventP.forTarget(this);
+  EventStreamProvider<CustomEvent> _elementDeselectedEventP = new EventStreamProvider<CustomEvent>("elementdeselected");
+  Stream<CustomEvent> get onElementDeselected => _elementDeselectedEventP.forTarget(this);
   void fireElementDeselectedEvent(StageElement stage_el) {
-    var event = new CustomEvent("elementdeselected", canBubble: false,
-        cancelable: false, detail: stage_el);
+    var event = new CustomEvent("elementdeselected", canBubble: false, cancelable: false, detail: stage_el);
     dispatchEvent(event);
   }
 
-  EventStreamProvider<CustomEvent> _allElementsDeselectedEventP =
-      new EventStreamProvider<CustomEvent>("allelementsdeselected");
-  Stream<CustomEvent> get onAllElementDeselected =>
-      _allElementsDeselectedEventP.forTarget(this);
+  EventStreamProvider<CustomEvent> _allElementsDeselectedEventP = new EventStreamProvider<CustomEvent>("allelementsdeselected");
+  Stream<CustomEvent> get onAllElementDeselected => _allElementsDeselectedEventP.forTarget(this);
   void fireAllElementsDeselectedEvent() {
-    var event = new CustomEvent("allelementsdeselected", canBubble: false,
-        cancelable: false, detail: null);
+    var event = new CustomEvent("allelementsdeselected", canBubble: false, cancelable: false, detail: null);
     dispatchEvent(event);
   }
 }

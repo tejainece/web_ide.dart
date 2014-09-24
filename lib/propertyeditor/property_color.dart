@@ -14,10 +14,7 @@ class PropertyColor extends PropertyBase {
   bool get preventDispose => true;
 
   PropertyColor.created(): super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('PropertyColor');
 
   DivElement _colorDispEl;
   DivElement _displayEl;
@@ -25,7 +22,6 @@ class PropertyColor extends PropertyBase {
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 

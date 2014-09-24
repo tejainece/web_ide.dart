@@ -1,4 +1,12 @@
-part of propertyeditor;
+library property_text;
+
+import 'package:polymer/polymer.dart';
+import 'dart:html';
+import 'dart:async';
+
+import 'property_editor.dart';
+
+import '../utils/dockable_utils.dart';
 
 @CustomTag('property-text')
 class PropertyText extends PropertyBase {
@@ -9,10 +17,8 @@ class PropertyText extends PropertyBase {
   bool get preventDispose => true;
 
   PropertyText.created() : super.created() {
-    _logger.finest('created');
   }
 
-  final _logger = new Logger('PropertyText');
 
   /**
    * Value of the property.
@@ -26,7 +32,6 @@ class PropertyText extends PropertyBase {
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 

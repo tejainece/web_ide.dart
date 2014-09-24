@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
 <polymer-element name="property-text" attributes="value editable">
   <template>
     <style>
@@ -19,11 +22,11 @@
         display: none;
         outline: none;
         border: none;
-      }
+      } 
 
       :host > #input.editing {
         display: inline-block;
-      }
+      }polymerCreated
 
       :host > #display {
         width: 100%;
@@ -44,6 +47,6 @@
     <div id="display" on-click={{startEditing}}>{{value}}</div>
   </template>
 
-  <script type="application/dart" src="property_editor.dart"></script>
+  <script type="application/dart" src="property_text.dart"></script>
 </polymer-element>
 

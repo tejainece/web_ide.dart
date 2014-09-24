@@ -16,14 +16,10 @@ class StageElement extends PolymerElement {
   bool get preventDispose => true;
 
   StageElement.created(): super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('Dockable.stageelement');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 
@@ -45,7 +41,7 @@ class StageElement extends PolymerElement {
     });
 
     _mouseDown = onMouseDown.listen((MouseEvent event) {
-      if(_stage != null && isSelected && event.button == 0) {
+      if(_stage != null && isSelected/* && event.button == 0*/) {
         _savedPosBeforeMove = new Point(offsetLeft, offsetTop);
         _stage._startMove(event);
       }
