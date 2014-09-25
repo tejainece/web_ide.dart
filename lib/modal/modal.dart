@@ -95,4 +95,7 @@ class ModalWindow extends PolymerElement {
       classes.add("hide");
     }
   }
+  
+  @PublishedProperty(reflect: true)
+  String icon = "";
 }

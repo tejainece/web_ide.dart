@@ -47,6 +47,9 @@ class IconButton extends PolymerElement {
    */
   @published
   String src = '';
+  
+  @PublishedProperty(reflect: true)
+  String icon = '';
 
   /**
    * The size of the icon button.
@@ -56,7 +59,7 @@ class IconButton extends PolymerElement {
   @published
   int height = 24;
   @observable
-  num get ICON_SIZE => 0.8;
+  num get ICON_SIZE => 0.9;
   @observable
   num get PADDING_SIZE => 0.1;
 

@@ -90,6 +90,8 @@ class IconListButton extends PolymerElement {
    * The URL of an image for the icon.
    */
   @published String src = '';
+  
+  @published String icon = '';
 
   /**
    * The size of the icon button.

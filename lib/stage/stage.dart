@@ -585,8 +585,6 @@ class DockStage extends PolymerElement {
    */
   void zoomOut() {
     stagescale = stagescale / 2;
-    
-    print(stagescale);
   }
 
   void cancelZoom() {

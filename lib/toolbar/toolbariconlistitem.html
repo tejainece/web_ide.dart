@@ -3,12 +3,15 @@
 <link href="../../../packages/polymer/polymer.html" rel="import">
 
 <link rel="import" href="../iconbutton/icon_button.html">
-<polymer-element name="toolbar-icon-list-item" attributes="vertical src">
+<polymer-element name="toolbar-icon-list-item" attributes="vertical src icon">
   <template>
     <style>
       :host {
         box-sizing: border-box;
         display: inline-block;
+        
+        margin-left: 5px;
+        margin-right: 5px;
       }
       :host(.vertical:host) {
       }
@@ -20,7 +23,7 @@
       :host > icon-list-button {
       }
     </style>
-    <icon-list-button src="{{src}}"></icon-list-button>
+    <icon-list-button src="{{src}}" icon="{{icon}}"></icon-list-button>
   </template>
 
 <!--<script type="application/dart" src='toolbar.dart'></script>-->

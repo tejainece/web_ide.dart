@@ -13,6 +13,8 @@ class ToolbarIconListItem extends ToolbarItem {
    * The URL of an image for the icon.
    */
   @published String src = '';
+  
+  @PublishedProperty(reflect: true) String icon = '';
 
   @override
   void polymerCreated() {

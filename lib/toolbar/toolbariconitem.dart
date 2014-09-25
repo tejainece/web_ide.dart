@@ -8,6 +8,8 @@ class ToolbarIconItem extends ToolbarItem {
    * The URL of an image for the icon.
    */
   @published String src = '';
+  
+  @PublishedProperty(reflect: true) String icon = '';
 
   /**
    * Sets if the icon button is togglable

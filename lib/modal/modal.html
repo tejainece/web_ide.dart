@@ -2,7 +2,9 @@
 
 <link rel="import" href="../iconbutton/icon_button.html">
 
-<polymer-element name="modal-window" attribute="heading left top width height show">
+<link rel="import" href="../../../packages/core_elements/core_icons.html">
+
+<polymer-element name="modal-window" attribute="heading icon left top width height show">
   <template>
     <style>
       :host {
@@ -47,7 +49,7 @@
         cursor: move;
 
         color: white;
-        margin-left: 5px;
+        margin-left: 10px;
 
         -moz-user-select: -moz-none;
         -khtml-user-select: none;
@@ -80,9 +82,14 @@
     </style>
 
     <div id="titlebar">
-      <div id="title" on-mousedown={{moveStarted}}>{{heading}}</div>
+      <div id="title" on-mousedown={{moveStarted}}>
+          <template if="{{icon != null && icon.isNotEmpty}}">
+            <core-icon icon="{{icon}}" width=24 height=24></core-icon>
+          </template>
+        {{heading}}
+      </div>
       <div id="buttons">
-        <icon-button id="close-btn" src="/packages/dockable/asset/icons/close-32.png" width=24 height=24 on-click={{closeModal}}></icon-button>
+        <icon-button id="close-btn" icon="close" width=24 height=24 on-click={{closeModal}}></icon-button>
       </div>
     </div>
     <div id="content">
