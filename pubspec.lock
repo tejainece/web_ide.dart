@@ -61,18 +61,10 @@ packages:
     description: polymer
     source: hosted
     version: "0.14.2+1"
-  polymer_elements:
-    description: polymer_elements
-    source: hosted
-    version: "0.2.0-pre.7"
   polymer_expressions:
     description: polymer_expressions
     source: hosted
     version: "0.12.0+1"
-  polymer_ui_elements:
-    description: polymer_ui_elements
-    source: hosted
-    version: "0.2.0-pre.7"
   pool:
     description: pool
     source: hosted
