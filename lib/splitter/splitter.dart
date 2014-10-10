@@ -14,11 +14,6 @@ class DockableSplitterSlideEvent {
 
 @CustomTag('dockable-splitter')
 class DockableSplitter extends PolymerElement {
-  /*bool _vertical = false;
-  bool get vertical => _vertical;
-  set vertical(bool _v) {
-    setAttribute('vertical', _v ? 'true' : 'false');
-  }*/
   @published bool vertical;
   @published bool locked;
 
@@ -29,19 +24,19 @@ class DockableSplitter extends PolymerElement {
   /// Constructor.
   DockableSplitter.created() : super.created() {
     onMouseDown.listen(trackStart);
-    if(vertical == null) {
+    if (vertical == null) {
       vertical = false;
     }
-    if(locked == null) {
+    if (locked == null) {
       locked = false;
     }
   }
 
   /// Triggered when [vertical] is externally changed.
   void verticalChanged() {
-    if(vertical == true) {
+    if (vertical == true) {
       classes.add('vertical');
-    } else if(vertical == false) {
+    } else if (vertical == false) {
       classes.remove('vertical');
     } else {
       vertical = false;
@@ -51,13 +46,16 @@ class DockableSplitter extends PolymerElement {
   /// When dragging starts, cache the target's size and temporarily subscribe
   /// to necessary events to track dragging.
   void trackStart(MouseEvent e) {
-    // Make active regardless of [locked], to appear responsive.
-    classes.add('active');
+    print(e.button);
+    if (e.button == 0) {
+      // Make active regardless of [locked], to appear responsive.
+      classes.add('active');
 
-    if (!locked) {
-      // To avoid sticky dragging state
-      _trackSubscr = document.onMouseMove.listen(track);
-      _trackEndSubscr = document.onMouseUp.listen(trackEnd);
+      if (!locked) {
+        // To avoid sticky dragging state
+        _trackSubscr = document.onMouseMove.listen(track);
+        _trackEndSubscr = document.onMouseUp.listen(trackEnd);
+      }
     }
   }
 
@@ -82,8 +80,8 @@ class DockableSplitter extends PolymerElement {
     // is when it's been changed externally in mid-flight. If it's already true
     // when onMouseDown is fired, these subsciptions (and this event handler!)
     // are not activated in the first place.
-    
-    if(_trackSubscr != null) {
+
+    if (_trackSubscr != null) {
       _trackSubscr.cancel();
       _trackSubscr = null;
       _trackEndSubscr.cancel();
@@ -92,22 +90,9 @@ class DockableSplitter extends PolymerElement {
 
     classes.remove('active');
   }
-  
-  /*void attributeChanged(String name, String oldValue, String newValue) {
-    /* code to set vertical correctly*/
-    if(name == 'vertical') {
-      if(newValue == 'false') {
-        _vertical = false;
-      } else if (newValue == 'true') {
-        _vertical = true;
-      }
-      verticalChanged();
-    }
-    super.attributeChanged(name, oldValue, newValue);
-  }*/
-  
+
   //events
   StreamController _slideEventController = new StreamController.broadcast();
-  
+
   Stream get onSlide => _slideEventController.stream;
 }

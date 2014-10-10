@@ -2,6 +2,8 @@ library drag_drop;
 
 import 'dart:html';
 
+typedef bool DnDDropType(instance);
+
 class DragData {
   Object _data;
   Element _element;

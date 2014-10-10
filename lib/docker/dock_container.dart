@@ -233,10 +233,10 @@ class DockContainer extends DockableContainerIF {
       for (DockContainerBase node in _nodes) {
         if (this.vertical == true) {
           node.style.width = "";
-          node.style.height = "auto";
+          node.style.height = "100%";
           node.style.flex = "${node._calcweight}";
         } else {
-          node.style.width = "auto";
+          node.style.width = "100%";
           node.style.height = "";
           node.style.flex = "${node._calcweight}";
         }

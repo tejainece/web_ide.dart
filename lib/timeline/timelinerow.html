@@ -2,18 +2,24 @@
 
 <link href="../../../packages/polymer/polymer.html" rel="import">
 
-<polymer-element name="timeline-row" attributes="title">
+<link rel="import" href="timelineelement.html">
+
+<polymer-element name="timeline-row" attributes="label leftlimit rightlimit spacing editable min">
   <template>
     <style>
       :host {
         display: block;
         width: 100%;
-        background-color: gray;
-        height: 24px;
+        /*background-color: dimgrey;*/
+        height: 32px;
         position: relative;
       }
     </style>
-    <content></content>
+    
+    <template repeat="{{el in data}}">
+      <timeline-element start="{{el.start}}" length="{{el.length}}" leftlimit="{{leftlimit}}" rightlimit="{{rightlimit}}" spacing="{{spacing}}" editable="{{editable}}" min="{{min}}" label="{{el.name}}"></timeline-element>
+    </template>
+    
   </template>
   <script type="application/dart" src='timeline.dart'></script>
 </polymer-element>

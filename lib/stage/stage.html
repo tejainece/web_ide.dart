@@ -22,7 +22,7 @@
         position: absolute;
         background-color: white;
         /*box-sizing: border-box;*/
-        border: solid 1px black;
+        /*border: solid 1px black;*/
 
         background-size: cover;
         background-position: center;
@@ -38,7 +38,7 @@
       #fake-canvas {
         position: absolute;
         /*box-sizing: border-box;*/
-        border: solid 1px transparent;
+        /*border: solid 1px transparent;*/
 
         pointer-events:none;
 
@@ -49,75 +49,73 @@
         width:{{stagewidth * stagescale}}px;
         height:{{stageheight * stagescale}}px;
       }
-
-      #fake-canvas > .anchor-nw {
-        width: 5px;
-        height: 5px;
+      
+      #fake-canvas > .anchor-resize {
+        width: 8px;
+        height: 8px;
         display: none;
         position: absolute;
-
-        cursor: nw-resize;
-        background-color: blue;
-        border: thin solid black;
+        
+        background-color: cornflowerblue;
         pointer-events:auto;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+      
+      #fake-canvas > .anchor-resize.show {
+        display: block;
       }
 
-      #fake-canvas > .anchor-nw.show {
-        display: block;
+      #fake-canvas > .anchor-nw {
+        cursor: nw-resize;
       }
 
       #fake-canvas > .anchor-ne {
-        width: 5px;
-        height: 5px;
-        display: none;
-        position: absolute;
-
         cursor: ne-resize;
-        background-color: blue;
-        border: thin solid black;
-        pointer-events:auto;
-
-        -moz-user-select: -moz-none;
-          -khtml-user-select: none;
-          -webkit-user-select: none;
-          -o-user-select: none;
-          user-select: none;
-      }
-
-      #fake-canvas > .anchor-ne.show {
-        display: block;
       }
 
       #fake-canvas > .anchor-sw {
-        width: 5px;
-        height: 5px;
-        display: none;
-        position: absolute;
-
         cursor: sw-resize;
-        background-color: blue;
-        border: thin solid black;
-        pointer-events:auto;
-      }
-
-      #fake-canvas > .anchor-sw.show {
-        display: block;
       }
 
       #fake-canvas > .anchor-se {
-        width: 5px;
-        height: 5px;
+        cursor: se-resize;
+      }
+      
+      #fake-canvas > .auto-gline {
+        background-color: red;
+      
         display: none;
         position: absolute;
-
-        cursor: se-resize;
-        background-color: blue;
-        border: thin solid black;
         pointer-events:auto;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
-
-      #fake-canvas > .anchor-se.show {
+      
+      #fake-canvas > .auto-gline.show {
         display: block;
+      }
+      
+      #fake-canvas > #ver-auto-gline {
+        width: 1px;
+        
+        top: 0px;
+        height: 100%;
+      }
+      
+      #fake-canvas > #hor-auto-gline {
+        height: 1px;
+        
+        left: 0px;
+        width: 100%;
       }
       
       #scroll-adjuster {
@@ -135,10 +133,13 @@
       <div id="canvas">
       </div>
       <div id="fake-canvas">
-        <div class="anchor-nw"></div>
-        <div class="anchor-ne"></div>
-        <div class="anchor-sw"></div>
-        <div class="anchor-se"></div>
+        <div class="anchor-resize anchor-nw"></div>
+        <div class="anchor-resize anchor-ne"></div>
+        <div class="anchor-resize anchor-sw"></div>
+        <div class="anchor-resize anchor-se"></div>
+        
+        <div id="ver-auto-gline" class="auto-gline"></div>
+        <div id="hor-auto-gline" class="auto-gline"></div>
       </div>
       <div id="scroll-adjuster">
         

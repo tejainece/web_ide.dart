@@ -2,7 +2,11 @@
 
 <link href="../../../packages/polymer/polymer.html" rel="import">
 
-<polymer-element name="timeline-element" attributes="timelinePosition timelineWidth">
+<link rel="import" href="timelinerow.html">
+
+<link rel="import" href="../../../packages/core_elements/core_tooltip.html">
+
+<polymer-element name="timeline-element" attributes="start length leftlimit rightlimit spacing label editable min">
   <template>
     <style>
       :host {
@@ -10,28 +14,47 @@
         flex-direction: row;
         height: 100%;
         position: absolute;
+        
+        box-sizing: border-box;
+        /*border-left: 1px solid black;*/
+        
+        top: 4px;
+        height: calc(100% - 8px);
+        overflow: hidden;
+        border-radius: 4px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.901961);
+        background-color: rgb(70, 130, 180);
       }
       .left-expand {
         display: inline-block;
-        background-color: red;
-        width: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 4px;
         cursor: w-resize;
       }
       .mover {
         display: inline-block;
-        background-color: blue;
-        flex-grow: 1;
+        flex: 1;
         cursor: move;
+        line-height: 21px;
+        color: rgba(0, 0, 0, 0.6);
+        text-align: center;
+        overflow: hidden;
       }
       .right-expand {
         display: inline-block;
-        background-color: red;
-        width: 5px;
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 4px;
         cursor: e-resize;
+      }
+      
+      .on /deep/ .polymer-tooltip {
+        visibility: visible !important;
       }
     </style>
     <div class="left-expand"></div>
-    <div class="mover"></div>
+    <div class="mover" title="{{label}}">
+      {{label}}
+    </div>
     <div class="right-expand"></div>
   </template>
   <script type="application/dart" src='timeline.dart'></script>

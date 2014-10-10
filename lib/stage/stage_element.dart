@@ -15,7 +15,7 @@ class StageElement extends PolymerElement {
    */
   bool get preventDispose => true;
 
-  StageElement.created(): super.created() {
+  StageElement.created() : super.created() {
   }
 
   @override
@@ -41,7 +41,7 @@ class StageElement extends PolymerElement {
     });
 
     _mouseDown = onMouseDown.listen((MouseEvent event) {
-      if(_stage != null && isSelected/* && event.button == 0*/) {
+      if (_stage != null && isSelected/* && event.button == 0*/) {
         _savedPosBeforeMove = new Point(offsetLeft, offsetTop);
         _stage._startMove(event);
       }
@@ -91,8 +91,7 @@ class StageElement extends PolymerElement {
     this.classes.add("selected");
 
     //TODO: send valid detail
-    var event = new CustomEvent("selected",
-              canBubble: false, cancelable: false, detail: null);
+    var event = new CustomEvent("selected", canBubble: false, cancelable: false, detail: null);
     dispatchEvent(event);
   }
 
@@ -100,8 +99,7 @@ class StageElement extends PolymerElement {
     this.classes.remove("selected");
 
     //TODO: send valid detail
-    var event = new CustomEvent("deselected",
-              canBubble: false, cancelable: false, detail: null);
+    var event = new CustomEvent("deselected", canBubble: false, cancelable: false, detail: null);
     dispatchEvent(event);
   }
 
@@ -155,50 +153,86 @@ class StageElement extends PolymerElement {
   @published
   String text = "";
 
-  void leftChanged() {
+  @observable
+  int get scaledleft {
     if(_stage != null) {
-      this.style.left = "${left * _stage.stagescale}px";
+      return left * _stage.stagescale;
+    } else {
+      return 0;
+    }
+  }
+
+  @observable
+  int get scaledtop  {
+    if(_stage != null) {
+      return top * _stage.stagescale;
+    } else {
+      return 0;
+    }
+  }
+
+  @observable
+  int get scaledwidth  {
+    if(_stage != null) {
+      return width * _stage.stagescale;
+    } else {
+      return 0;
+    }
+  }
+
+  @observable
+  int get scaledheight  {
+    if(_stage != null) {
+      return height * _stage.stagescale;
+    } else {
+      return 0;
+    }
+  }
+
+  void leftChanged() {
+    if (_stage != null) {
+      notifyPropertyChange(#scaledleft, 0, scaledleft);
+      this.style.left = "${scaledleft}px";
 
       _stage._showHideAnchors();
 
-      var event = new CustomEvent("poschanged",
-                  canBubble: false, cancelable: false, detail: null);
+      var event = new CustomEvent("poschanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
   }
 
   void topChanged() {
-    if(_stage != null) {
-      this.style.top = "${top * _stage.stagescale}px";
+    if (_stage != null) {
+      notifyPropertyChange(#scaledtop, 0, scaledtop);
+      this.style.top = "${scaledtop}px";
 
       _stage._showHideAnchors();
 
-      var event = new CustomEvent("poschanged",
-                  canBubble: false, cancelable: false, detail: null);
+      var event = new CustomEvent("poschanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
   }
 
   void widthChanged() {
-    if(_stage != null) {
-      this.style.width = "${width * _stage.stagescale}px";
+    if (_stage != null) {
+      notifyPropertyChange(#scaledwidth, 0, scaledwidth);
+      this.style.width = "${scaledwidth}px";
 
       _stage._showHideAnchors();
 
-      var event = new CustomEvent("sizechanged",
-                  canBubble: false, cancelable: false, detail: null);
+      var event = new CustomEvent("sizechanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
   }
 
   void heightChanged() {
-    if(_stage != null) {
-      this.style.height = "${height * _stage.stagescale}px";
+    if (_stage != null) {
+      notifyPropertyChange(#scaledheight, 0, scaledheight);
+      this.style.height = "${scaledheight}px";
 
       _stage._showHideAnchors();
 
-      var event = new CustomEvent("sizechanged",
-                  canBubble: false, cancelable: false, detail: null);
+      var event = new CustomEvent("sizechanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
   }
@@ -222,18 +256,14 @@ class StageElement extends PolymerElement {
   }
 
   EventStreamProvider<CustomEvent> _sizeChangedEventP = new EventStreamProvider<CustomEvent>("sizechanged");
-  Stream<CustomEvent> get onSizeChanged =>
-      _sizeChangedEventP.forTarget(this);
+  Stream<CustomEvent> get onSizeChanged => _sizeChangedEventP.forTarget(this);
 
   EventStreamProvider<CustomEvent> _posChangedEventP = new EventStreamProvider<CustomEvent>("poschanged");
-  Stream<CustomEvent> get onPosChanged =>
-      _posChangedEventP.forTarget(this);
+  Stream<CustomEvent> get onPosChanged => _posChangedEventP.forTarget(this);
 
   EventStreamProvider<CustomEvent> _selectedEventP = new EventStreamProvider<CustomEvent>("selected");
-  Stream<CustomEvent> get onSelected =>
-      _selectedEventP.forTarget(this);
+  Stream<CustomEvent> get onSelected => _selectedEventP.forTarget(this);
 
   EventStreamProvider<CustomEvent> _deselectedEventP = new EventStreamProvider<CustomEvent>("deselected");
-  Stream<CustomEvent> get onDeselected =>
-        _deselectedEventP.forTarget(this);
+  Stream<CustomEvent> get onDeselected => _deselectedEventP.forTarget(this);
 }

@@ -4,12 +4,15 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
 
-import '../iconbutton/icon_button.dart';
-
 @CustomTag('modal-window')
 class ModalWindow extends PolymerElement {
 
-  ModalWindow.created(): super.created() {
+  /*
+     * Set to true to prevent disposal of observable bindings
+     */
+  bool get preventDispose => true;
+
+  ModalWindow.created() : super.created() {
   }
 
   StreamSubscription<MouseEvent> mouseUpHandler;
@@ -95,7 +98,7 @@ class ModalWindow extends PolymerElement {
       classes.add("hide");
     }
   }
-  
-  @PublishedProperty(reflect: true)
+
+  @published
   String icon = "";
 }

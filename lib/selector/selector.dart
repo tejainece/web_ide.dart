@@ -61,10 +61,6 @@ class SelectorHelper extends PolymerElement {
   void ready() {
     super.ready();
     this._observer = new MutationObserver(_onMutation);
-
-    if (this.target == null) {
-      this.target = this;
-    }
   }
 
   List<Element> get items {
@@ -80,7 +76,7 @@ class SelectorHelper extends PolymerElement {
           nodes = this.target.children;
         }
       } else {
-        nodes = (this.$['items'] as ContentElement).getDistributedNodes();
+        nodes = this.children;
       }
     } else {
       nodes = [];
@@ -182,16 +178,16 @@ class SelectorHelper extends PolymerElement {
   /**
    * Finds the node in [nodes] which is the ancestor of the target
    */
-  int _findDistributedTarget(target, nodes) {
+  int _findDistributedTarget(tget, nodes) {
     // find first ancestor of target (including itself) that
     // is in nodes, if any
     int i = 0;
-    while (target != null && target != this) {
-      i = nodes.indexOf(target);
+    while (tget != null && tget != this) {
+      i = nodes.indexOf(tget);
       if (i >= 0) {
         return i;
       }
-      target = target.parentNode;
+      tget = tget.parentNode;
     }
     return -1;
   }
@@ -213,11 +209,11 @@ class SelectorHelper extends PolymerElement {
     }
   }
 
-  void _addListener(node) {
+  void _addListener(Node node) {
     node.addEventListener(this.activateEvent, activateHandler);
   }
 
-  void _removeListener(node) {
+  void _removeListener(Node node) {
     node.removeEventListener(this.activateEvent, activateHandler);
   }
 

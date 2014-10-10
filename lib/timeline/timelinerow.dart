@@ -1,5 +1,9 @@
 part of timeline;
 
+abstract class TimeLineRowInterface {
+  dynamic processDrop(instance);
+}
+
 /**
  * timeline-row is a ruler widget.
  *
@@ -11,88 +15,85 @@ part of timeline;
  */
 @CustomTag('timeline-row')
 class TimelineRow extends PolymerElement {
+
+  /*
+     * Set to true to prevent disposal of observable bindings
+     */
+  bool get preventDispose => true;
+
+  @published
+  ObservableList data = new ObservableList();
+
+  @published
+  dynamic item;
+
+  @published int leftlimit = 0;
+
+  @published int rightlimit = 0;
+
+  @published double spacing = 5.0;
+
+  @published
+  int min = 1;
+
   TimelineRow.created() : super.created() {
     _logger.finest('created');
   }
 
   final _logger = new Logger('Timeline-row');
-      
-  @override 
+
+  @override
   void polymerCreated() {
     _logger.finest('polymerCreated');
     super.polymerCreated();
   }
-  
+
+  @override
+  void ready() {
+    super.ready();
+
+    onDrop.listen(_onDrop);
+
+    onDragOver.listen((event) {
+      event.preventDefault();
+    });
+
+    onDragLeave.listen((event) {
+      event.preventDefault();
+    });
+  }
+
   @override
   void attached() {
     super.attached();
-    //for(Element _el in this.children) {
-      /*if(_el is! TimelineElement) {
-      //  _el.remove();
-      } else {*/
-        //shadowRoot.children.add(_el);
-      //}
-    //}
-    performLayout();
   }
-  
-  void performLayout() {
-    if(_manager != null) {
-      for(TimelineElement _el in this.children) {
-        _el._row = this; //TODO: move to constructor
-        _el.performLayout();
+
+  @published String label = "";
+
+  void _onDrop(MouseEvent event) {
+    if (hasDragData()) {
+      if (item != null && item is TimeLineRowInterface) {
+        Object d = item.processDrop(getDragData());
+        //consume
+        if (d != null) {
+          d.start = getTimeForLeft(event.offset.x);
+          data.add(d);
+          removeDragData();
+        }
       }
     }
+    // Stop the browser from redirecting.
+    event.stopPropagation();
   }
-  
-  TimelineManager _manager;
-  double getLeftForTime(int arg_position) {
-    if(_manager != null) {
-      return _manager.getLeftForTime(arg_position);
-    } else {
-      return 0.0;
-    }
-  }
-  
+
   int getTimeForLeft(int arg_left) {
-    if(_manager != null) {
-      return _manager.getTimeForLeft(arg_left);
+    if (spacing != 0) {
+      return (arg_left ~/ spacing) + leftlimit;
     } else {
       return 0;
     }
   }
-  
-  double getWidthForTimeInterval(int arg_interval) {
-    if(_manager != null) {
-      return _manager.getWidthForTimeInterval(arg_interval);
-    } else {
-      return 0.0;
-    }
-  }
-  
-  int getTimeIntervalForWidth(int arg_interval) {
-    if(_manager != null) {
-      return _manager.getTimeIntervalForWidth(arg_interval);
-    } else {
-      return 0;
-    }
-  }
-  
-  int getStartTime() {
-    if(_manager != null) {
-      return _manager.startTime;
-    } else {
-      return 0;
-    }
-  }
-  
-  int getStopTime() {
-    if(_manager != null) {
-      return _manager.stopTime;
-    } else {
-      return 0;
-    }
-  }
-  
-  @published String title = "";
+
+  @published
+  bool editable = true;
 }

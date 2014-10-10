@@ -5,7 +5,12 @@
 <link rel="import" href="timelinerow.html">
 <link rel="import" href="timelineelement.html">
 
-<polymer-element name="timeline-manager" attributes="startTime stopTime zoom">
+<link rel="import" href="../ordered_list/ordered_list.html">
+
+<!-- Paper elements -->
+<link rel="import" href="../../../packages/paper_elements/paper_icon_button.html">
+
+<polymer-element name="timeline-manager" attributes="start end zoom">
   <template>
     <style>
       :host {
@@ -19,6 +24,9 @@
         -webkit-user-select: none;
         -o-user-select: none;
         user-select: none;
+        
+        background-color: #555;
+        border: 1px solid #111;
       }
       
       .time-nav {
@@ -29,11 +37,13 @@
       
       .time-holder {
         bottom: 0px;
-        box-sizing:border-box;
         overflow: hidden;
-        height: 24px;
+        height: 28px;
         
         position: absolute;
+        
+        background-color: #333;
+        border-top: 3px solid #ccc;
       }
       
       .time-marker {
@@ -46,7 +56,7 @@
       .time-marker div {
         width: 1px;
         position: absolute;
-        background-color: black;
+        background-color: #ccc;
         height: 5px;
         display: inline-block;
         box-sizing:border-box;
@@ -62,6 +72,7 @@
         height: 14px;
         position: relative;
         box-sizing:border-box;
+        color: white;
       }
       
       .time-label-minor div {
@@ -71,20 +82,133 @@
         position: absolute;
         box-sizing:border-box;
         cursor: default;
+        font-size: 10px;
+        margin-top: -5px;
       }
       
       .time-label-minor div.highlight {
-        font-weight: bold;
+        font-size: 12px;
+        margin-top: 3px;
+      }
+      
+      .time-nav > * {
+        box-sizing: border-box;
+        border-bottom: 1px solid #111;
+        border-left: 1px solid #111;
+        border-right: 1px solid #111;
+      }
+      
+      #time-info {
+        width: 150px;
+        /* height: calc(100% - 28px); */
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto;
+        border-right: 1px solid black;
+        box-sizing: border-box;
+        display: inline-block;
+      }
+      
+      #time-info > .item {
+        background-color: orange;
+      }
+      
+      .time-disp {
+        height: 32px;
+        width: 100%;
+        background-color: #333;
+        box-sizing: border-box;
+        padding-bottom: 2px;
+        color: #ccc;
+        line-height: 32px;
+        padding-left: 10px;
+        border-bottom: 1px solid #111;
+      }
+      
+      .time-disp.item-selected {
+        background-color: gray;
+      }
+      
+      .bottom-bar {
+        width: 100%;
+        height: 31px;
+        bottom: 0px;
+      }
+      
+      .controls {
+        width: 150px;
+        height: 100%;
+        /* position: absolute; */
+        display: inline-block;
+        background-color: #444;
+        border-top: 1px solid black;
+        border-right: 1px solid black;
+        box-sizing: border-box;
+      }
+      
+      #main-area {
+        width: 100%;
+        height: calc(100% - 28px);
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      
+      #ab-row-hold {
+        position: relative;
+        display: inline-block;
+        width: calc(100% - 150px);
+        overflow: hidden;
+        box-sizing: border-box;
+        margin-left: -4px;
+      }
+      
+      #ab-time-hold {
+        position: relative;
+        height: 31px;
+        display: inline-block;
+        width: calc(100% - 150px);
+        overflow: hidden;
+        margin-left: -4px;
+        box-sizing: border-box;
+      }
+      
+      #main-area > * {
+        height: {{mainheight}}px;
       }
     </style>
-    <div class="time-nav">
-    </div>
-    <div class="time-holder">
-      <div class="time-marker">
+    
+    <div id="main-area">
+      <ordered-list data="{{data}}" id="time-info" selectable="true">
+      	<template>
+          <div class="time-disp">
+            {{name}}
+          </div>
+        </template>
+      </ordered-list>
+      <div id="ab-row-hold">
+        <div class="time-nav">
+          <template repeat="{{el in data}}">
+            <timeline-row label="{{el.name}}" item="{{el}}" data="{{el.partings}}" leftlimit="{{start}}" rightlimit="{{end}}" spacing="{{spacing}}" editable="{{editable}}" min="{{markevery}}"></timeline-row>
+          </template>
+        </div>
       </div>
-      <div class="time-label-minor">
+    </div>
+    
+    <div class="bottom-bar">
+      <div class="controls">
+        <paper-button class="colored" label="Delete" role="button" tabindex="0" aria-label="colored" on-click="{{deleteSelSched}}"></paper-button>
+        <paper-button class="colored" label="Edit" role="button" tabindex="0" aria-label="colored" on-click="{{editSelSched}}"></paper-button>
+      </div>
+      <div id="ab-time-hold">
+        <div class="time-holder">
+          <div class="time-marker">
+          </div>
+          <div class="time-label-minor">
+          </div>
+        </div>
       </div>
     </div>
+    
     
   </template>
   <script type="application/dart" src='timeline.dart'></script>

@@ -1,0 +1,21 @@
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
+<link rel="import" href="ordered_list_item.html">
+<polymer-element name="ordered-list" attributes="data selectable">
+  <template>
+    <style>
+      :host {
+        width: 100%;
+        height: 100%;
+        display: block;
+        
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+
+    </style>
+    <content></content>
+  </template>
+  <script type="application/dart" src="ordered_list.dart"></script>
+</polymer-element>
+

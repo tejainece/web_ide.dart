@@ -1,0 +1,55 @@
+<link href="../../../packages/polymer/polymer.html" rel="import">
+
+<polymer-element name="ordered-list-item" attributes="data fields">
+  <template>
+    <style>
+      :host {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 20px;
+        display: block;
+        
+        cursor: default;
+        /*background-color: rgba(0, 0, 0, 0.2);*/
+        border-bottom: 1px solid lightgray;
+        
+        transition: background-color 0.5s; 
+        transition: color 0.3s;
+        transition: padding-left 0.3s;  
+        box-sizing: border-box;
+      }
+      :host(:hover) {
+        /*background-color: rgba(0, 0, 0, 0.2);*/
+        padding-left: 30px;
+      }
+      :host(:active) {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: white;
+      }
+      :host(.dragover:host) {
+        border: 1px black dotted;
+      }
+      div#holder {
+        width: 100%;
+        height: 100%;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+      
+      :host(.item-selected:host) {
+        background: rgb(181, 213, 255);
+        border-top: none;
+      }
+    </style>
+    <div id="holder" draggable="true">
+      {{heading}}
+    </div>
+  </template>
+  <script type="application/dart" src="ordered_list.dart"></script>
+</polymer-element>
+
