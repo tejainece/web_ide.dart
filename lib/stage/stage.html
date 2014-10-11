@@ -10,12 +10,24 @@
         position: absolute;
         background-color: gray;
         overflow: auto;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
 
       #canvas-parent {
         position: absolute;
         width: 100%;
         height: 100%;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
 
       #canvas {
@@ -33,6 +45,12 @@
 
         width:{{stagewidth * stagescale}}px;
         height:{{stageheight * stagescale}}px;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
 
       #fake-canvas {
@@ -48,6 +66,12 @@
 
         width:{{stagewidth * stagescale}}px;
         height:{{stageheight * stagescale}}px;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
       }
       
       #fake-canvas > .anchor-resize {
@@ -69,6 +93,10 @@
       #fake-canvas > .anchor-resize.show {
         display: block;
       }
+      
+      #fake-canvas > .anchor-n {
+        cursor: n-resize;
+      }
 
       #fake-canvas > .anchor-nw {
         cursor: nw-resize;
@@ -77,6 +105,10 @@
       #fake-canvas > .anchor-ne {
         cursor: ne-resize;
       }
+      
+      #fake-canvas > .anchor-s {
+        cursor: s-resize;
+      }
 
       #fake-canvas > .anchor-sw {
         cursor: sw-resize;
@@ -84,6 +116,14 @@
 
       #fake-canvas > .anchor-se {
         cursor: se-resize;
+      }
+      
+      #fake-canvas > .anchor-e {
+        cursor: e-resize;
+      }
+      
+      #fake-canvas > .anchor-w {
+        cursor: w-resize;
       }
       
       #fake-canvas > .auto-gline {
@@ -118,6 +158,26 @@
         width: 100%;
       }
       
+      #fake-canvas > #group-selector {
+        box-sizing: border-box;
+        background-color: rgba(101, 156, 239, 0.7);
+        border: 2px solid steelblue;
+      
+        display: none;
+        position: absolute;
+        pointer-events:auto;
+        
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+      }
+      
+      #fake-canvas > #group-selector.show {
+        display: block;
+      }
+      
       #scroll-adjuster {
         position: absolute;
         left: calc({{stagewidth * stagescale}}px + 150px);
@@ -133,6 +193,11 @@
       <div id="canvas">
       </div>
       <div id="fake-canvas">
+        <div class="anchor-resize anchor-n"></div>
+        <div class="anchor-resize anchor-s"></div>
+        <div class="anchor-resize anchor-e"></div>
+        <div class="anchor-resize anchor-w"></div>
+      
         <div class="anchor-resize anchor-nw"></div>
         <div class="anchor-resize anchor-ne"></div>
         <div class="anchor-resize anchor-sw"></div>
@@ -140,6 +205,9 @@
         
         <div id="ver-auto-gline" class="auto-gline"></div>
         <div id="hor-auto-gline" class="auto-gline"></div>
+        
+        <div id="group-selector"></div>
+        <div id="group-selection-indicator"></div>
       </div>
       <div id="scroll-adjuster">
         

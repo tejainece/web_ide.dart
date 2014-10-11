@@ -18,56 +18,21 @@ class StageElement extends PolymerElement {
   StageElement.created() : super.created() {
   }
 
-  @override
-  void polymerCreated() {
-    super.polymerCreated();
-  }
-
-  @override
-  void ready() {
-    super.ready();
-  }
-
   /*
    * Should be only called from parent when the element is added to it
    */
   void _added(DockStage stage) {
     _stage = stage;
-    _click = onClick.listen((MouseEvent event) {
-      if (_stage != null) {
-        _stage._stageClicked(event);
-        event.stopPropagation();
-      }
-    });
-
-    _mouseDown = onMouseDown.listen((MouseEvent event) {
-      if (_stage != null && isSelected/* && event.button == 0*/) {
-        _savedPosBeforeMove = new Point(offsetLeft, offsetTop);
-        _stage._startMove(event);
-      }
-    });
   }
 
   /*
      * Should be only called from parent when the element is removed from it
      */
   void _removed() {
-    if (_click != null) {
-      _click.cancel();
-      _click = null;
-    }
-    if (_mouseDown != null) {
-      _mouseDown.cancel();
-      _mouseDown = null;
-    }
     if (_stage != null) {
       _stage = null;
     }
   }
-
-  /* Selection */
-  StreamSubscription _click;
-  StreamSubscription _mouseDown;
 
   /*
    * Selects the element
@@ -194,8 +159,6 @@ class StageElement extends PolymerElement {
       notifyPropertyChange(#scaledleft, 0, scaledleft);
       this.style.left = "${scaledleft}px";
 
-      _stage._showHideAnchors();
-
       var event = new CustomEvent("poschanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
@@ -205,8 +168,6 @@ class StageElement extends PolymerElement {
     if (_stage != null) {
       notifyPropertyChange(#scaledtop, 0, scaledtop);
       this.style.top = "${scaledtop}px";
-
-      _stage._showHideAnchors();
 
       var event = new CustomEvent("poschanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
@@ -218,8 +179,6 @@ class StageElement extends PolymerElement {
       notifyPropertyChange(#scaledwidth, 0, scaledwidth);
       this.style.width = "${scaledwidth}px";
 
-      _stage._showHideAnchors();
-
       var event = new CustomEvent("sizechanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
@@ -230,29 +189,15 @@ class StageElement extends PolymerElement {
       notifyPropertyChange(#scaledheight, 0, scaledheight);
       this.style.height = "${scaledheight}px";
 
-      _stage._showHideAnchors();
-
       var event = new CustomEvent("sizechanged", canBubble: false, cancelable: false, detail: null);
       dispatchEvent(event);
     }
-  }
-
-  void resizableChanged() {
-
-  }
-
-  void movableChanged() {
-
   }
 
   void selectableChanged() {
     if (selectable == false) {
       deselect();
     }
-  }
-
-  void textChanged() {
-
   }
 
   EventStreamProvider<CustomEvent> _sizeChangedEventP = new EventStreamProvider<CustomEvent>("sizechanged");
