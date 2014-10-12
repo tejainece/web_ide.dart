@@ -2,26 +2,45 @@ library drag_drop;
 
 import 'dart:html';
 
-typedef bool DnDDropType(instance);
+class CanDropType {
+  
+  CanDropType(this._instance, this._isReorder) {
+    
+  }
+  
+  Object _instance;
+  Object get instance => _instance;
+  bool _isReorder;
+  bool get isReorder => _isReorder;
+}
+
+typedef bool DnDDropType(CanDropType droptype);
 
 class DragData {
   Object _data;
   Element _element;
+  Object _source;
+  int _index;
+  
   bool _has;
 
   DragData() {
     _has = false;
   }
 
-  void set(Object data, Element element) {
+  void set(Object data, Element element, Object source, int index) {
     _data = data;
     _element = element;
+    _source = source;
+    _index = index;
+    
     _has = true;
   }
 
   void remove() {
     _data = null;
     _element = null;
+    _source = null;
     _has = false;
   }
 
@@ -36,11 +55,15 @@ class DragData {
   Element getElement() {
     return _element;
   }
+  
+  Object get source => _source;
+  
+  int get index => _index;
 }
 
 DragData _dragdata = new DragData();
-void setDragData(Object data, Element element) {
-  _dragdata.set(data, element);
+void setDragData(Object data, Element element, Object source, int index) {
+  _dragdata.set(data, element, source, index);
 }
 
 void removeDragData() {
@@ -57,4 +80,12 @@ Object getDragData() {
 
 Element getDragElement() {
   return _dragdata.getElement();
+}
+
+Element getDragSource() {
+  return _dragdata.source;
+}
+
+int getDragDataIndex() {
+  return _dragdata.index;
 }

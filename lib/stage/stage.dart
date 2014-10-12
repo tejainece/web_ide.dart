@@ -171,7 +171,7 @@ class DockStage extends PolymerElement {
     _setupResizeHandler();
   }
 
-  Future getScreenShot() {
+  /*Future getScreenShot() {
     JsFunction dartcall = context["dartcall"];
 
     context["boom"] = callb1;
@@ -180,7 +180,7 @@ class DockStage extends PolymerElement {
 
   callb1(CanvasElement canvas) {
     document.body.append(canvas);
-  }
+  }*/
 
   @override
   void attached() {
@@ -233,8 +233,11 @@ class DockStage extends PolymerElement {
     } else {
       deselectAllElements();
       if (event.button == 0) {
-        _groupSel.style.left = "${0}px";
-        _groupSel.style.top = "${0}px";
+        Point startPoint = event.offset + new Point(scrollLeft, scrollTop);
+
+        Point leftTop = startPoint - _canvas.offset.topLeft;
+        _groupSel.style.left = "${leftTop.x}px";
+        _groupSel.style.top = "${leftTop.y}px";
         _groupSel.style.width = "0px";
         _groupSel.style.height = "0px";
 
@@ -268,8 +271,6 @@ class DockStage extends PolymerElement {
             _cancelSelRegion();
           }
         });
-
-        Point startPoint = event.offset + new Point(scrollLeft, scrollTop);
 
         _selStream.activate(startPoint, event.client, selMMove, selMUp, selMOut, selKDown);
       }
@@ -315,7 +316,6 @@ class DockStage extends PolymerElement {
 
   /* Move */
   Point _moveStartPt;
-  bool _wasMoving = false;
 
   int _detectHorMiddleGL(Rectangle rect) {
     int ret;
@@ -721,17 +721,17 @@ class DockStage extends PolymerElement {
       _mouseout = onMouseLeave.listen(_stopMove);
       _moveEscape = document.onKeyDown.listen((KeyboardEvent event) {
         if (event.keyCode == KeyCode.ESC) {
-          _stopMove(null);
           for (StageElement _elem in _selected) {
             _elem.left = _elem._savedPosBeforeMove.x / stagescale;
             _elem.top = _elem._savedPosBeforeMove.y / stagescale;
           }
+          _stopMove(null);
         }
       });
       _moveStartPt = event.page;
 
       for (StageElement _elem in _selected) {
-        _elem._savedPosBeforeMove = new Point(_elem.offsetLeft, _elem.offsetTop);
+        _elem._savedPosBeforeMove = new Point(_elem.scaledleft, _elem.scaledtop);
       }
     }
   }
@@ -742,6 +742,11 @@ class DockStage extends PolymerElement {
 
     style.cursor = "move";
 
+    int lowestLeft;
+    int highestRight;
+    int lowestTop;
+    int highestBottom;
+
     if (getBoundingClientRect().containsPoint(event.page)) {
       Point diff = event.page - _moveStartPt;
       for (StageElement _elem in _selected) {
@@ -750,15 +755,28 @@ class DockStage extends PolymerElement {
 
         _elem.left = left;
         _elem.top = top;
+        
+        if (lowestLeft == null || lowestLeft > _elem.scaledleft) {
+          lowestLeft = _elem.scaledleft;
+        }
 
-        //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-        rect = new Rectangle(_elem.scaledleft, _elem.scaledtop, _elem.scaledwidth, _elem.scaledheight);
+        if (lowestTop == null || lowestTop > _elem.scaledtop) {
+          lowestTop = _elem.scaledtop;
+        }
+
+        if (highestRight == null || highestRight < _elem.scaledleft + _elem.scaledwidth) {
+          highestRight = _elem.scaledleft + _elem.scaledwidth;
+        }
+
+        if (highestBottom == null || highestBottom < _elem.scaledtop + _elem.scrollHeight) {
+          highestBottom = _elem.scaledtop + _elem.scrollHeight;
+        }
       }
     }
 
+    rect = new Rectangle.fromPoints(new Point(lowestLeft, lowestTop), new Point(highestRight, highestBottom));
     _detectMoveAutoGuidelines(rect);
 
-    _wasMoving = true;
     _hideAnchors();
   }
 
@@ -767,7 +785,6 @@ class DockStage extends PolymerElement {
 
     style.cursor = "default";
 
-    _wasMoving = false;
     _showAnchors();
 
     _moveStartPt = null;
@@ -812,7 +829,6 @@ class DockStage extends PolymerElement {
   void _nwResizeHandler(MouseEvent event) {
     print("nw resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _nwStreams.startPoint;
     num elW = _nwStreams.initRect.width - diff.x;
@@ -833,7 +849,6 @@ class DockStage extends PolymerElement {
   void _neResizeHandler(MouseEvent event) {
     print("ne resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _neStreams.startPoint;
     num elW = _neStreams.initRect.width + diff.x;
@@ -853,7 +868,6 @@ class DockStage extends PolymerElement {
   void _seResizeHandler(MouseEvent event) {
     print("se resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _seStreams.startPoint;
     num elW = _seStreams.initRect.width + diff.x;
@@ -872,7 +886,6 @@ class DockStage extends PolymerElement {
   void _swResizeHandler(MouseEvent event) {
     print("sw resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _swStreams.startPoint;
     num elW = _swStreams.initRect.width - diff.x;
@@ -892,7 +905,6 @@ class DockStage extends PolymerElement {
   void _nResizeHandler(MouseEvent event) {
     print("n resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _nStreams.startPoint;
     num elH = _nStreams.initRect.height - diff.y;
@@ -910,7 +922,6 @@ class DockStage extends PolymerElement {
   void _wResizeHandler(MouseEvent event) {
     print("w resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _wStreams.startPoint;
     num elW = _wStreams.initRect.width - diff.x;
@@ -928,7 +939,6 @@ class DockStage extends PolymerElement {
   void _sResizeHandler(MouseEvent event) {
     print("s resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _sStreams.startPoint;
     num elH = _sStreams.initRect.height + diff.y;
@@ -945,7 +955,6 @@ class DockStage extends PolymerElement {
   void _eResizeHandler(MouseEvent event) {
     print("e resizing");
     StageElement selectedEl = _selected.first;
-    _wasResizing = true;
     _hideAnchors();
     Point diff = event.page - _eStreams.startPoint;
     num elW = _eStreams.initRect.width + diff.x;
@@ -1044,7 +1053,6 @@ class DockStage extends PolymerElement {
   }
 
   bool _anchorShowing = false;
-  bool _wasResizing = false;
 
   _cancelResize(MouseEvent event) {
     print("resize cancelled");
@@ -1060,7 +1068,6 @@ class DockStage extends PolymerElement {
     _eStreams.deactivate();
     _sStreams.deactivate();
 
-    _wasResizing = false;
     _showAnchors();
     style.cursor = "default";
   }
@@ -1072,29 +1079,29 @@ class DockStage extends PolymerElement {
       StageElement selectedEl = _selected.first;
 
       //Fix anchor position
-      _anchornw.style.left = "${selectedEl.offsetLeft - 10}px";
-      _anchornw.style.top = "${selectedEl.offsetTop - 10}px";
+      _anchornw.style.left = "${selectedEl.scaledleft - 10}px";
+      _anchornw.style.top = "${selectedEl.scaledtop - 10}px";
 
-      _anchorne.style.left = "${selectedEl.offsetLeft + selectedEl.offsetWidth}px";
-      _anchorne.style.top = "${selectedEl.offsetTop - 10}px";
+      _anchorne.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth}px";
+      _anchorne.style.top = "${selectedEl.scaledtop - 10}px";
 
-      _anchorsw.style.left = "${selectedEl.offsetLeft - 10}px";
-      _anchorsw.style.top = "${selectedEl.offsetTop + selectedEl.offsetHeight}px";
+      _anchorsw.style.left = "${selectedEl.scaledleft - 10}px";
+      _anchorsw.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight}px";
 
-      _anchorse.style.left = "${selectedEl.offsetLeft + selectedEl.offsetWidth}px";
-      _anchorse.style.top = "${selectedEl.offsetTop + selectedEl.offsetHeight}px";
+      _anchorse.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth}px";
+      _anchorse.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight}px";
 
-      _anchorn.style.left = "${selectedEl.offsetLeft + (selectedEl.offsetWidth / 2) - 5}px";
-      _anchorn.style.top = "${selectedEl.offsetTop - 10}px";
+      _anchorn.style.left = "${selectedEl.scaledleft + (selectedEl.scaledwidth / 2) - 5}px";
+      _anchorn.style.top = "${selectedEl.scaledtop - 10}px";
 
-      _anchore.style.left = "${selectedEl.offsetLeft + selectedEl.offsetWidth + 1}px";
-      _anchore.style.top = "${selectedEl.offsetTop + (selectedEl.offsetHeight / 2) - 5}px";
+      _anchore.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth + 1}px";
+      _anchore.style.top = "${selectedEl.scaledtop + (selectedEl.scaledheight / 2) - 5}px";
 
-      _anchorw.style.left = "${selectedEl.offsetLeft - 10}px";
-      _anchorw.style.top = "${selectedEl.offsetTop + (selectedEl.offsetHeight / 2) - 5}px";
+      _anchorw.style.left = "${selectedEl.scaledleft - 10}px";
+      _anchorw.style.top = "${selectedEl.scaledtop + (selectedEl.scaledheight / 2) - 5}px";
 
-      _anchors.style.left = "${selectedEl.offsetLeft + (selectedEl.offsetWidth / 2) - 5}px";
-      _anchors.style.top = "${selectedEl.offsetTop + selectedEl.offsetHeight + 1}px";
+      _anchors.style.left = "${selectedEl.scaledleft + (selectedEl.scaledwidth / 2) - 5}px";
+      _anchors.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight + 1}px";
 
       _anchornw.classes.add("show");
       _anchorne.classes.add("show");
@@ -1123,7 +1130,7 @@ class DockStage extends PolymerElement {
   }
 
   /*_showHideAnchors() {
-    if (_selected.length == 1 && !_wasMoving && !_wasResizing) {
+    if (_selected.length == 1) {
       _showAnchors();
     } else if (_anchorShowing) {
       _hideAnchors();

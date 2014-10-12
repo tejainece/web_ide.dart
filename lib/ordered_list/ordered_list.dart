@@ -142,15 +142,27 @@ class OrderedList extends SelectorHelper {
   }
 
   void _onDragStart(MouseEvent event) {
-    event.dataTransfer.effectAllowed = 'move';
-    event.dataTransfer.setData('text', "");
-    //TODO: set proper drag-image
+    dynamic evtarget = event.target;
 
-    dynamic target = event.target;
-    setDragData(_getModelForItem(target), target);
+    if (data.length != 0) {
+
+      int foundIndex = _findIndexOfElement(evtarget);
+
+      if (foundIndex != null && foundIndex < data.length) {
+        event.dataTransfer.effectAllowed = 'move';
+        event.dataTransfer.setData('text', "");
+        event.dataTransfer.setDragImage(evtarget, 0, 0);
+        //TODO: set proper drag-image
+
+
+        Object draggedData = _getModelForItem(evtarget);
+        setDragData(draggedData, evtarget, this, foundIndex);
+      }
+    }
   }
 
   void _onDragEnd(MouseEvent event) {
+    removeDragData();
     Element dragTarget = event.target;
     for (Element e in this.shadowRoot.children) {
       e.classes.remove('dragover');
@@ -172,37 +184,56 @@ class OrderedList extends SelectorHelper {
     dropTarget.classes.remove('dragover');
   }
 
+  /*
+   * onDrop event handler. Reordering and insertion using drag-n-drop is
+   * handled here. It uses canDrop callback function to determine if dropping
+   * of the item is allowed.
+   */
   void _onDrop(MouseEvent event) {
-    HtmlElement target = event.target;
-    target.classes.remove('dragover');
+    HtmlElement evtarget = event.target;
+    evtarget.classes.remove('dragover');
+
     if (hasDragData() && data != null) {
-      if (canDrop == null || canDrop(getDragData())) {
-        Object d = getDragData();
-        int index;
-        var td;
-        if (target == this) {
+      Object droppedItem = getDragData();
+      bool isReorder = getDragSource() == this;
+
+      CanDropType cand = new CanDropType(droppedItem, isReorder);
+      // if canDrop is null, accept drop
+      if (canDrop == null || canDrop(cand)) {
+        // find the new position to insert
+        int newPosition;
+        Object dropReceiverItem;
+        if (evtarget == this) {
           if (data.length != 0) {
-            if (!data.contains(d)) {
-              index = data.length;
+            if (!isReorder || !data.contains(droppedItem)) {
+              // if the dropped item is not already in the list
+              newPosition = data.length;
             } else {
-              index = data.length - 1;
+              newPosition = data.length - 1;
             }
-            td = data.last;
+            dropReceiverItem = data.last;
           } else {
-            index = 0;
-            td = null;
+            newPosition = 0;
+            dropReceiverItem = null;
           }
         } else {
-          td = _getModelForItem(target);
-          index = data.indexOf(td);
+          dropReceiverItem = _getModelForItem(evtarget);
+          newPosition = _findIndexOfElement(evtarget);
+          ;
         }
+
+        int dragIndex = getDragDataIndex();
         //consume
-        if (d != td) {
-          if (data.contains(d)) {
-            data.remove(d);
-          }
-          if (index >= 0) {
-            data.insert(index, d);
+        if (!isReorder || droppedItem != dropReceiverItem || newPosition != dragIndex) {
+
+          if (newPosition != null && newPosition >= 0) {
+            // if it is reorder operation and the droppedItem is picked up from
+            // this list, remove the existing item and put it in new place
+            if (isReorder && dragIndex < data.length && data[dragIndex] == droppedItem) {
+              data.removeAt(dragIndex);
+            }
+
+            data.insert(newPosition, droppedItem);
             removeDragData();
           }
         } else {
@@ -220,14 +251,37 @@ class OrderedList extends SelectorHelper {
 
   dynamic _getModelForItem(item) {
     dynamic ret = nodeBind(item).templateInstance.model;
-    
+
     InstanceMirror im = reflect(ret);
-    
-    if(im.type.simpleName.toString() == 'Symbol("_GlobalsScope")') {
+
+    if (im.type.simpleName.toString() == 'Symbol("_GlobalsScope")') {
       ret = ret.model;
     }
-    
+
     return ret;
+  }
+
+  int _findIndexOfElement(HtmlElement searched) {
+    int indexCnt = -1,
+        foundIndex;
+    Object indData = data[0];
+    for (HtmlElement el in children) {
+      Object d = _getModelForItem(el);
+      if (d == indData) {
+        indexCnt++;
+        if (el == searched) {
+          foundIndex = indexCnt;
+          break;
+        }
+        if (indexCnt + 1 < data.length) {
+          indData = data[indexCnt + 1];
+        } else {
+          break;
+        }
+      }
+    }
+
+    return foundIndex;
   }
 
   void _fireOnItemDoubleClicked(HtmlElement item) {
