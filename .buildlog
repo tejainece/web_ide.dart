@@ -4951,3 +4951,8 @@ build.dart --machine --changed=lib/ordered_list/ordered_list.dart
 [{"method":"info","params":{"message":"Took 1.4s (1.1s awaiting secondary inputs)."}}]
 build.dart finished [2466 ms]
 
+---
+build.dart --machine --changed=pubspec.yaml
+
+build.dart finished [2007 ms]
+
