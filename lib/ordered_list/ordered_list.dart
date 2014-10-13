@@ -162,11 +162,11 @@ class OrderedList extends SelectorHelper {
   }
 
   void _onDragEnd(MouseEvent event) {
-    removeDragData();
     Element dragTarget = event.target;
     for (Element e in this.shadowRoot.children) {
       e.classes.remove('dragover');
     }
+    removeDragData();
   }
 
   void _onDragEnter(MouseEvent event) {

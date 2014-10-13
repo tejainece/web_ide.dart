@@ -9,7 +9,7 @@
       :host {
           width: 150px;
           height: auto;
-          display: flex;
+          display: none;
           flex-direction: column;
           box-sizing:border-box;
           position:absolute;
@@ -44,10 +44,13 @@
           overflow-x: hidden;
           overflow-y: auto; 
       }
+      
+      :host(.show:host) {
+        display: flex;
+      }
     </style>
     <content>
     </content>
   </template>
-  <!--<script type="application/dart" src="menubar.dart"></script>-->
 </polymer-element>
 

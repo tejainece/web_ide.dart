@@ -35,27 +35,7 @@ class ToolbarIconListItem extends ToolbarItem {
     super.ready();
     _ic_bt = shadowRoot.querySelector("icon-list-button");
     assert(_ic_bt != null);
-
-    _ic_bt.setTriggerItem(this);
-
-    //remove non-SubMenuItemBase elements
-    for(HtmlElement el_t in children) {
-      if(el_t is SubMenuItemBase) {
-        el_t.remove();
-        addItem(el_t);
-      } else {
-        el_t.remove();
-      }
-    }
   }
-
-  bool addItem(SubMenuItemBase arg_item) {
-    return _ic_bt.addItem(arg_item);
-  }
-
-  //TODO: implement insertAt, remove, removeAt
-
-  //TODO: List<SubMenuItemBase> get items => _ic_bt.items;
 
   void set _set_size(int new_size) {
     this.style.width = "${new_size+9}px";

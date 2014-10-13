@@ -1,5 +1,13 @@
 part of timeline;
 
+class TimelineElementData {
+  String name;
+  
+  int start;
+  
+  int length;
+}
+
 /**
  * timeline-element is a ruler widget.
  *
@@ -65,6 +73,8 @@ class TimelineElement extends PolymerElement {
   void spacingChanged() {
     performLayout();
   }
+  
+  SubMenu _submenu;
 
   TimelineElement.created() : super.created() {
   }
@@ -72,6 +82,19 @@ class TimelineElement extends PolymerElement {
   @override
   void polymerCreated() {
     super.polymerCreated();
+  }
+  
+  @override
+  void ready() {
+    super.ready();
+    
+    _submenu = shadowRoot.querySelector("#context-menu");
+    
+    /*onContextMenu.listen((MouseEvent me) {
+      //print(me);
+      //_submenu.show = true;
+      
+    });*/
   }
 
   @override

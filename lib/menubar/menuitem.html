@@ -1,7 +1,9 @@
 <link href="../../../packages/polymer/polymer.html" rel="import">
 
 <link rel="import" href="../icon/icon_view.html">
-<polymer-element name="menu-item" attributes="icon heading hasicon open" on-click="{{select}}">
+<link rel="import" href="submenu.html">
+
+<polymer-element name="menu-item" attributes="lable open">
   <template>
     <style>
       :host {
@@ -53,8 +55,11 @@
       }
     </style>
 
-    <icon-view src="{{icon}}" id="icon" class="noicon"></icon-view>
-    <div class="title">{{heading}}</div>
+    <div class="title">{{label}}</div>
+    <sub-menu id="submenu">
+      <content>
+      </content>
+    </sub-menu>
 
   </template>
   <!--<script type="application/dart" src="menubar.dart"></script>-->

@@ -5,6 +5,7 @@ import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
 import '../drag_drop/drag_drop.dart';
+import '../menubar/menubar.dart';
 
 import 'package:dockable/ordered_list/ordered_list.dart';
 
@@ -127,6 +128,26 @@ class TimelineManager extends PolymerElement {
 
     _rowHold = shadowRoot.querySelector("#ab-row-hold");
 
+    _timeHolder.onMouseDown.listen((MouseEvent e) {
+      if (e.button == 0) {
+        int temp1 = e.page.x;
+        int temp2 = _timeHolder.offsetLeft;
+        _trackSubscr = this.onMouseMove.listen((MouseEvent e1) {
+          _scrollLeft = temp2 + (e1.page.x - temp1);
+        });
+        _trackEndSubscr = document.onMouseUp.listen((MouseEvent e2) {
+          if (_trackSubscr != null) {
+            _trackSubscr.cancel();
+            _trackSubscr = null;
+          }
+          if (_trackEndSubscr != null) {
+            _trackEndSubscr.cancel();
+            _trackEndSubscr = null;
+          }
+        });
+      }
+    });
+
     this.onMouseWheel.listen((WheelEvent e) {
       if (e.ctrlKey && e.shiftKey) {
         if (e.deltaX > 0) {
@@ -153,26 +174,6 @@ class TimelineManager extends PolymerElement {
   @override
   void attached() {
     super.attached();
-
-    _timeHolder.onMouseDown.listen((MouseEvent e) {
-      if (e.button == 0) {
-        int temp1 = e.page.x;
-        int temp2 = _timeHolder.offsetLeft;
-        _trackSubscr = this.onMouseMove.listen((MouseEvent e1) {
-          _scrollLeft = temp2 + (e1.page.x - temp1);
-        });
-        _trackEndSubscr = document.onMouseUp.listen((MouseEvent e2) {
-          if (_trackSubscr != null) {
-            _trackSubscr.cancel();
-            _trackSubscr = null;
-          }
-          if (_trackEndSubscr != null) {
-            _trackEndSubscr.cancel();
-            _trackEndSubscr = null;
-          }
-        });
-      }
-    });
 
     zoomChanged();
 

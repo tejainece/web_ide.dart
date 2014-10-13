@@ -7,7 +7,7 @@ part of menubar;
  */
 
 @CustomTag('submenu-item')
-class SubMenuItem extends SubMenuContentItem {
+class SubMenuItem extends PolymerElement {
   /*
    * Set to true to prevent disposal of observable bindings
    */
@@ -15,30 +15,12 @@ class SubMenuItem extends SubMenuContentItem {
 
 
   @published String icon = "";
-  @published String heading = "";
-  @observable bool checked;
-
-  void checkableChanged() {
-    if(checkable == true) {
-    } else if(checkable == false) {
-      checked = false;
-    } else {
-      checkable = false;
-    }
-  }
-
-  void checkedChanged() {
-    if(checked == true) {
-      _holder.classes.add('checked');
-    } else if(checked == false) {
-      _holder.classes.remove('checked');
-    } else {
-      checked = false;
-    }
-  }
+  @published String label = "";
 
   IconView _iconDiv;
   DivElement _holder;
+
+  SubMenu _submenu;
 
   SubMenuItem.created() : super.created() {
   }
@@ -46,69 +28,44 @@ class SubMenuItem extends SubMenuContentItem {
   @override
   void ready() {
     super.ready();
-    _submenu.triggerItems.add(this);
-    _submenu._parent_submenu_item = this;
+
+    _submenu = shadowRoot.querySelector("#submenu");
+
+    _iconDiv = this.shadowRoot.querySelector(".icon");
+    assert(_iconDiv != null);
+    _holder = this.shadowRoot.querySelector("#holder");
+    assert(_holder != null);
+
+    onMouseDown.listen((MouseEvent me) {
+      _dispatchMenuSelectedEvent(this);
+    });
+
+    onMouseOver.listen((MouseEvent me) {
+      if (children.length != null) {
+        //TODO: implement submenu
+      }
+    });
   }
 
   @override
   void attached() {
     super.attached();
-    for(Element _el in this.children) {
-      if(!SubMenu.isSubMenuItem(_el)) {
-        //_el.remove(); //TODO: implement this
-      } else {
-        _el.remove();
-        addItem(_el);
-      }
-    }
-    _iconDiv = this.shadowRoot.querySelector(".icon");
-    assert(_iconDiv != null);
-    _holder = this.shadowRoot.querySelector("#holder");
-    assert(_holder != null);
-    checkableChanged();
-    checkedChanged();
   }
 
-  @override
-  void leftView() {
-    _submenu.remove();
-  }
-
-  SubMenu _submenu = new Element.tag('sub-menu');
-  bool addItem(SubMenuItemBase arg_item) {
-    return _submenu.addItem(arg_item);
-  }
-
-  bool addItemBefore(SubMenuItemBase before, SubMenuItemBase arg_item) {
-    return _submenu.addItemBefore(before, arg_item);
-  }
-
-  bool removeItem(SubMenuItemBase arg_item) {
-    return _submenu.removeItem(arg_item);
-  }
-
-  num indexOf(SubMenuItemBase arg_item) {
-    return _submenu.indexOf(arg_item);
-  }
-
-  void select() {
-    _dispatchMenuSelectedEvent(this, this);
-    _showSubMenu();
-    if(checkable) {
-      checked = !checked;
-      _dispatchMenuChangedEvent(this, this);
-    }
-  }
-
-  void _showSubMenu() {
-    if(_submenu.children.length != 0 && _submenu.show == false && _parent_submenu != null) {
-      _submenu.style.left = "${_parent_submenu.offsetLeft+_parent_submenu.offsetWidth}px";
+  @published bool open = false;
+  void openChanged() {
+    if(open) {
+      _submenu.style.left = "${this.parent.offsetLeft + this.parent.offsetWidth}px";
       _submenu.style.top = "${this.parent.offsetTop + this.offsetTop}px";
+      this.classes.add("open");
       _submenu.show = true;
+    } else {
+      if(_submenu.show) {
+        _submenu.show = false;
+      }
+      this.classes.remove("open");
     }
   }
-
-
 
   //Events
   static const EventStreamProvider<CustomEvent> _SELECTED_EVENT = const EventStreamProvider<CustomEvent>('menuselected');
@@ -117,7 +74,7 @@ class SubMenuItem extends SubMenuContentItem {
   Stream<CustomEvent> get onMenuSelected => _SELECTED_EVENT.forTarget(this);
   Stream<CustomEvent> get onMenuChecked => _changed_eventP.forTarget(this);
 
-  void _dispatchMenuSelectedEvent(Element element, SubMenuItem item) {
+  void _dispatchMenuSelectedEvent(SubMenuItem item) {
     fire('menuselected', detail: item);
   }
 

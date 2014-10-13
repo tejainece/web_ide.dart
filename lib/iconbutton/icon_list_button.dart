@@ -22,8 +22,8 @@ class IconListButton extends PolymerElement {
    * Set to true to prevent disposal of observable bindings
    */
   bool get preventDispose => true;
-  
-  SubMenu _submenu = new Element.tag('sub-menu');
+
+  SubMenu _submenu;
 
   IconListButton.created() : super.created();
 
@@ -36,53 +36,16 @@ class IconListButton extends PolymerElement {
     onClick.listen((MouseEvent e) {
       open = !open;
     });
+
+    onMouseLeave.listen((MouseEvent e) {
+      open = false;
+    });
   }
 
   @override
   void ready() {
     super.ready();
-
-    _submenu.triggerItems.add(this);
-
-    _submenu.onHide.listen((_) {
-      open = false;
-    });
-
-    //remove non-SubMenuItemBase elements
-    for(HtmlElement el_t in children) {
-      if(el_t is SubMenuItemBase) {
-        el_t.remove();
-        addItem(el_t);
-      } else {
-        el_t.remove();
-      }
-    }
-  }
-
-  @override
-  void leftView() {
-    _submenu.remove();
-  }
-  
-  bool addItem(SubMenuItemBase arg_item) {
-     bool ret = _submenu.addItem(arg_item);
-     return ret;
-  }
-
-  bool addItemBefore(SubMenuItemBase before, SubMenuItemBase arg_item) {
-    return _submenu.addItemBefore(before, arg_item);
-  }
-
-  bool removeItem(SubMenuItemBase arg_item) {
-    return _submenu.removeItem(arg_item);
-  }
-
-  num indexOf(SubMenuItemBase arg_item) {
-    return _submenu.indexOf(arg_item);
-  }
-
-  void setTriggerItem(HtmlElement arg_triggeritem) {
-    _submenu.triggerItems.add(arg_triggeritem);
+    _submenu = shadowRoot.querySelector("#submenu");
   }
 
   //Properties
@@ -90,7 +53,7 @@ class IconListButton extends PolymerElement {
    * The URL of an image for the icon.
    */
   @published String src = '';
-  
+
   @published String icon = '';
 
   /**
@@ -102,14 +65,14 @@ class IconListButton extends PolymerElement {
   @published bool open = false;
 
   void openChanged() {
-    if(open) {
+    if (open) {
       _submenu.style.left = "${this.documentOffset.x}px";
       _submenu.style.top = "${this.documentOffset.y+this.offsetHeight}px";
       classes.add("open");
       _submenu.show = true;
     } else {
       classes.remove("open");
-      if(_submenu.show) {
+      if (_submenu.show) {
         _submenu.show = false;
       }
     }

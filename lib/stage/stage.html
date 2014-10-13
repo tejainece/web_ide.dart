@@ -29,20 +29,14 @@
         -o-user-select: none;
         user-select: none;
       }
-
-      #canvas {
+      
+      .canvas {
         position: absolute;
-        background-color: white;
-        /*box-sizing: border-box;*/
-        /*border: solid 1px black;*/
-
-        background-size: cover;
-        background-position: center;
-
         left: 0%;
         top: 0%;
-        margin: 150px;
-
+        margin-left: 150px;
+        margin-top: 150px;
+        
         width:{{stagewidth * stagescale}}px;
         height:{{stageheight * stagescale}}px;
         
@@ -52,26 +46,24 @@
         -o-user-select: none;
         user-select: none;
       }
+      
+      .canvas.adjust-width {
+        margin-left: calc(50% - {{(stagewidth * stagescale)/2}}px);
+      }
+      
+      .canvas.adjust-height {
+        margin-top: calc(50% - {{(stageheight * stagescale)/2}}px);
+      }
+
+      #real-canvas {
+        background-color: white;
+
+        background-size: cover;
+        background-position: center;
+      }
 
       #fake-canvas {
-        position: absolute;
-        /*box-sizing: border-box;*/
-        /*border: solid 1px transparent;*/
-
         pointer-events:none;
-
-        left: 0%;
-        top: 0%;
-        margin: 150px;
-
-        width:{{stagewidth * stagescale}}px;
-        height:{{stageheight * stagescale}}px;
-        
-        -moz-user-select: -moz-none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -o-user-select: none;
-        user-select: none;
       }
       
       #fake-canvas > .anchor-resize {
@@ -190,9 +182,9 @@
     </style>
 
     <div id="canvas-parent">
-      <div id="canvas">
+      <div id="real-canvas" class="canvas">
       </div>
-      <div id="fake-canvas">
+      <div id="fake-canvas" class="canvas">
         <div class="anchor-resize anchor-n"></div>
         <div class="anchor-resize anchor-s"></div>
         <div class="anchor-resize anchor-e"></div>

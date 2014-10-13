@@ -1,7 +1,8 @@
 <link href="../../../packages/polymer/polymer.html" rel="import">
 
 <link rel="import" href="../icon/icon_view.html">
-<polymer-element name="submenu-item" attributes="icon heading checkable checked" on-mousedown="{{select}}">
+<link rel="import" href="submenu.html">
+<polymer-element name="submenu-item" attributes="icon label">
   <template>
     <style>
       :host {
@@ -36,9 +37,6 @@
       }
       #holder:hover {
         background-color:#eee;
-        border-color:#eee;
-        border-style:dotted;
-        border-width:1px 0;
       }
       #holder.checked {
         background-color: gray;
@@ -65,8 +63,13 @@
     </style>
     <div id="holder">
       <icon-view src="{{icon}}" width=16 height=16 class="icon"></icon-view>
-      <div class="title">{{heading}}</div>
+      <div class="title">{{label}}</div>
     </div>
+    
+    <sub-menu id="submenu">
+      <content>
+      </content>
+    </sub-menu>
 
   </template>
   <!--<script type="application/dart" src="menubar.dart"></script>-->

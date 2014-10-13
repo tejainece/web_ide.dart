@@ -16,6 +16,8 @@ class IconOptionsButton extends PolymerElement {
    * Set to true to prevent disposal of observable bindings
    */
   bool get preventDispose => true;
+  
+  SubMenu _submenu;
 
   IconOptionsButton.created() : super.created();
 
@@ -29,18 +31,8 @@ class IconOptionsButton extends PolymerElement {
   @override
   void ready() {
     super.ready();
-
-    _submenu.triggerItems.add(this);
-
-    //remove non-SubMenuItemBase elements
-    for(HtmlElement el_t in children) {
-      if(el_t is SubMenuItemBase) {
-        el_t.remove();
-        addItem(el_t);
-      } else {
-        el_t.remove();
-      }
-    }
+    
+    _submenu = shadowRoot.querySelector("#submenu");
   }
 
   @override
@@ -49,7 +41,7 @@ class IconOptionsButton extends PolymerElement {
   }
 
   void showMenu(CustomEvent event) {
-    /*_submenu.style.left = "${this.offsetLeft}px";
+    _submenu.style.left = "${this.offsetLeft}px";
     _submenu.style.top = "${this.offsetTop+this.offsetHeight}px";
     if(event.detail) {
       //this.classes.add("open");
@@ -59,28 +51,7 @@ class IconOptionsButton extends PolymerElement {
       });
     } else {
       open = false;
-    }*/
-  }
-
-  SubMenu _submenu = new Element.tag('sub-menu');
-  bool addItem(SubMenuItemBase arg_item) {
-     bool ret = _submenu.addItem(arg_item);
-     if(ret) {
-       //_submenu.onClick
-     }
-     return ret;
-  }
-
-  bool addItemBefore(SubMenuItemBase before, SubMenuItemBase arg_item) {
-    return _submenu.addItemBefore(before, arg_item);
-  }
-
-  bool removeItem(SubMenuItemBase arg_item) {
-    return _submenu.removeItem(arg_item);
-  }
-
-  num indexOf(SubMenuItemBase arg_item) {
-    return _submenu.indexOf(arg_item);
+    }
   }
 
   //Properties

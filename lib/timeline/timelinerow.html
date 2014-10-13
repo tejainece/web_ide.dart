@@ -17,8 +17,16 @@
     </style>
     
     <template repeat="{{el in data}}">
-      <timeline-element start="{{el.start}}" length="{{el.length}}" leftlimit="{{leftlimit}}" rightlimit="{{rightlimit}}" spacing="{{spacing}}" editable="{{editable}}" min="{{min}}" label="{{el.name}}"></timeline-element>
+      <timeline-element start="{{el.start}}" length="{{el.length}}" leftlimit="{{leftlimit}}" rightlimit="{{rightlimit}}" spacing="{{spacing}}" editable="{{editable}}" min="{{min}}" label="{{el.name}}" on-click="{{dummyHandler}}" on-mouse-down="{{elementContextMenu}}"></timeline-element>
     </template>
+    
+    <sub-menu id="context-menu">
+      <template if="{{item.contextmenu != null}}">
+        <template repeat="{{menu in item.contextmenu}}">
+          <submenu-item label="{{menu.label}}"></submenu-item>
+        </template>
+      </template>
+    </sub-menu>
     
   </template>
   <script type="application/dart" src='timeline.dart'></script>

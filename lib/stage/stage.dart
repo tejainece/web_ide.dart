@@ -132,7 +132,7 @@ class DockStage extends PolymerElement {
   void ready() {
     super.ready();
 
-    _canvas = shadowRoot.querySelector("#canvas");
+    _canvas = shadowRoot.querySelector("#real-canvas");
     _parcanvas = shadowRoot.querySelector("#canvas-parent");
 
     _anchornw = shadowRoot.querySelector(".anchor-nw");
