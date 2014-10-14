@@ -2,7 +2,7 @@ part of menubar;
 
 class MenuAction extends ChangeNotifier {
   
-  MenuAction(String lab, this.action) {
+  MenuAction(String lab, this.action, this.icon) {
     label = lab;
   }
   
@@ -13,4 +13,6 @@ class MenuAction extends ChangeNotifier {
   }
   
   Function action;
+  
+  String icon;
 }

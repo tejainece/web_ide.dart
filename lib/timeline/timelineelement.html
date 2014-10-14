@@ -7,7 +7,7 @@
 
 <link rel="import" href="../../../packages/core_elements/core_tooltip.html">
 
-<polymer-element name="timeline-element" attributes="start length leftlimit rightlimit spacing label editable min">
+<polymer-element name="timeline-element" attributes="data start length leftlimit rightlimit spacing label editable min">
   <template>
     <style>
       :host {
@@ -53,11 +53,6 @@
         visibility: visible !important;
       }
     </style>
-    
-    <sub-menu id="context-menu" show="false">
-      <submenu-item heading="First"></submenu-item>
-      <submenu-item heading="Second"></submenu-item>
-    </sub-menu>
     
     <div class="left-expand"></div>
     <div class="mover" title="{{label}}">

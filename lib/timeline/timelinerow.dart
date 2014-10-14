@@ -2,8 +2,6 @@ part of timeline;
 
 abstract class TimeLineRowInterface {
   dynamic processDrop(instance);
-  
-  ObservableList<MenuAction> contextmenu;
 }
 
 /**
@@ -37,8 +35,8 @@ class TimelineRow extends PolymerElement {
 
   @published
   int min = 1;
-  
-  SubMenuItem _contextMenu;
+
+  SubMenu _contextMenu;
 
   TimelineRow.created() : super.created() {
     _logger.finest('created');
@@ -55,7 +53,7 @@ class TimelineRow extends PolymerElement {
   @override
   void ready() {
     super.ready();
-    
+
     _contextMenu = shadowRoot.querySelector("#context-menu");
 
     onDrop.listen(_onDrop);
@@ -66,6 +64,10 @@ class TimelineRow extends PolymerElement {
 
     onDragLeave.listen((event) {
       event.preventDefault();
+    });
+
+    document.onClick.listen((MouseEvent) {
+      _contextMenu.show = false;
     });
   }
 
@@ -100,15 +102,16 @@ class TimelineRow extends PolymerElement {
     }
   }
   
-  void dummyhandler() {
-    print("dummy");
-  }
-  
-  void elementContextMenu(MouseEvent event, detail, target) {
-    print(event.button);
-    print(target);
-    _contextMenu.open = true;
+  Object _curItem;
+
+  void elementContextMenu(CustomEvent event, detail, target) {
+    _contextMenu.show = true;
+    _curItem = detail;
     event.preventDefault();
+  }
+
+  void deleteItem(CustomEvent event, detail, target) {
+    item.remove(detail);
   }
 
   @published

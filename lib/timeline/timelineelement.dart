@@ -2,9 +2,9 @@ part of timeline;
 
 class TimelineElementData {
   String name;
-  
+
   int start;
-  
+
   int length;
 }
 
@@ -25,6 +25,8 @@ class TimelineElement extends PolymerElement {
      */
   bool get preventDispose => true;
 
+  @published
+  Object data;
 
   @published int start = 5;
 
@@ -73,8 +75,6 @@ class TimelineElement extends PolymerElement {
   void spacingChanged() {
     performLayout();
   }
-  
-  SubMenu _submenu;
 
   TimelineElement.created() : super.created() {
   }
@@ -83,18 +83,10 @@ class TimelineElement extends PolymerElement {
   void polymerCreated() {
     super.polymerCreated();
   }
-  
+
   @override
   void ready() {
     super.ready();
-    
-    _submenu = shadowRoot.querySelector("#context-menu");
-    
-    /*onContextMenu.listen((MouseEvent me) {
-      //print(me);
-      //_submenu.show = true;
-      
-    });*/
   }
 
   @override
@@ -198,7 +190,7 @@ class TimelineElement extends PolymerElement {
       }
     });
   }
-  
+
   @override
   void detached() {
     super.detached();
