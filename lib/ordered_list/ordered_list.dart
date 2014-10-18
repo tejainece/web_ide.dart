@@ -6,6 +6,7 @@ import 'dart:async';
 import '../drag_drop/drag_drop.dart';
 import 'package:smoke/smoke.dart' as smoke;
 import 'dart:mirrors';
+import 'package:dockable/utils/dockable_utils.dart';
 import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope;
 
 import 'package:dockable/dockable.dart';
@@ -142,7 +143,7 @@ class OrderedList extends SelectorHelper {
   }
 
   void _onDragStart(MouseEvent event) {
-    dynamic evtarget = event.target;
+    HtmlElement evtarget = _getElement(event.target);
 
     if (data.length != 0) {
 
@@ -155,14 +156,14 @@ class OrderedList extends SelectorHelper {
         //TODO: set proper drag-image
 
 
-        Object draggedData = _getModelForItem(evtarget);
+        Object draggedData = getModelForItem(evtarget);
         setDragData(draggedData, evtarget, this, foundIndex);
       }
     }
   }
 
   void _onDragEnd(MouseEvent event) {
-    Element dragTarget = event.target;
+    HtmlElement evtarget = _getElement(event.target);
     for (Element e in this.shadowRoot.children) {
       e.classes.remove('dragover');
     }
@@ -170,8 +171,8 @@ class OrderedList extends SelectorHelper {
   }
 
   void _onDragEnter(MouseEvent event) {
-    Element dropTarget = event.target;
-    dropTarget.classes.add("dragover");
+    HtmlElement evtarget = _getElement(event.target);
+    evtarget.classes.add("dragover");
   }
 
   void _onDragOver(MouseEvent event) {
@@ -180,8 +181,8 @@ class OrderedList extends SelectorHelper {
   }
 
   void _onDragLeave(MouseEvent event) {
-    Element dropTarget = event.target;
-    dropTarget.classes.remove('dragover');
+    HtmlElement evtarget = _getElement(event.target);
+    evtarget.classes.remove('dragover');
   }
 
   /*
@@ -190,7 +191,7 @@ class OrderedList extends SelectorHelper {
    * of the item is allowed.
    */
   void _onDrop(MouseEvent event) {
-    HtmlElement evtarget = event.target;
+    HtmlElement evtarget = _getElement(event.target);
     evtarget.classes.remove('dragover');
 
     if (hasDragData() && data != null) {
@@ -217,9 +218,8 @@ class OrderedList extends SelectorHelper {
             dropReceiverItem = null;
           }
         } else {
-          dropReceiverItem = _getModelForItem(evtarget);
+          dropReceiverItem = getModelForItem(evtarget);
           newPosition = _findIndexOfElement(evtarget);
-          ;
         }
 
         int dragIndex = getDragDataIndex();
@@ -244,29 +244,36 @@ class OrderedList extends SelectorHelper {
     // Stop the browser from redirecting.
     event.stopPropagation();
   }
+  
+  HtmlElement _getElement(HtmlElement el) {
+    HtmlElement ret;
+    if(el == this) {
+      ret = el;
+    } else if(this.children.contains(el)) {
+      ret = el;
+    } else {
+      HtmlElement tEL = el;
+      while(tEL != null && !this.children.contains(tEL)) {
+        tEL = tEL.parent;
+      }
+      if(tEL != null) {
+        ret = tEL;
+      }
+    }
+    
+    return ret;
+  }
 
   //events
   EventStreamProvider<CustomEvent> _itemDblClickedEventP = new EventStreamProvider<CustomEvent>("item-double-click");
   Stream<CustomEvent> get onItemDoubleClicked => _itemDblClickedEventP.forTarget(this);
-
-  dynamic _getModelForItem(item) {
-    dynamic ret = nodeBind(item).templateInstance.model;
-
-    InstanceMirror im = reflect(ret);
-
-    if (im.type.simpleName.toString() == 'Symbol("_GlobalsScope")') {
-      ret = ret.model;
-    }
-
-    return ret;
-  }
 
   int _findIndexOfElement(HtmlElement searched) {
     int indexCnt = -1,
         foundIndex;
     Object indData = data[0];
     for (HtmlElement el in children) {
-      Object d = _getModelForItem(el);
+      Object d = getModelForItem(el);
       if (d == indData) {
         indexCnt++;
         if (el == searched) {
@@ -285,7 +292,7 @@ class OrderedList extends SelectorHelper {
   }
 
   void _fireOnItemDoubleClicked(HtmlElement item) {
-    var event = new CustomEvent("item-double-click", canBubble: false, cancelable: false, detail: _getModelForItem(item));
+    var event = new CustomEvent("item-double-click", canBubble: false, cancelable: false, detail: getModelForItem(item));
     dispatchEvent(event);
   }
 }

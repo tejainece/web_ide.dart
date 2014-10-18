@@ -30,11 +30,11 @@ class SelectorHelper extends PolymerElement {
     if (arg_selected is String) {
       try {
         arg_selected = JSON.decode(arg_selected);
-      } catch(e) {
+      } catch (e) {
         try {
           int nin = int.parse(arg_selected);
           arg_selected = [nin];
-        } catch(e) {
+        } catch (e) {
         }
       }
     }
@@ -50,13 +50,13 @@ class SelectorHelper extends PolymerElement {
   }
   List<int> get selected {
     List<int> newInts = new List<int>();
-    for(Element item in selectedItems) {
+    for (Element item in selectedItems) {
       newInts.add(items.indexOf(item));
     }
     return newInts;
   }
 
-  SelectorHelper.created(): super.created();
+  SelectorHelper.created() : super.created();
 
   void ready() {
     super.ready();
@@ -65,19 +65,19 @@ class SelectorHelper extends PolymerElement {
 
   List<Element> get items {
     List nodes;
-    if(this.target != null) {
-      if (this.target != this) {
-        if (this.itemsSelector != null && this.itemsSelector.isNotEmpty) {
-          //TODO: consider about getDistributedNodes when target is ContentElement
-          nodes = this.target.querySelectorAll(this.itemsSelector);
-        } else if(this.target is ContentElement) {
-          nodes = (this.target as ContentElement).getDistributedNodes();
-        } else {
-          nodes = this.target.children;
-        }
+    if (this._target != null) {
+      //if (this.target != this) {
+      if (this.itemsSelector != null && this.itemsSelector.isNotEmpty) {
+        //TODO: consider about getDistributedNodes when target is ContentElement
+        nodes = this._target.querySelectorAll(this.itemsSelector);
+      } else if (this._target is ContentElement) {
+        nodes = (this._target as ContentElement).getDistributedNodes();
       } else {
-        nodes = this.children;
+        nodes = this._target.children;
       }
+      /*} else {
+        nodes = this.children;
+      }*/
     } else {
       nodes = [];
     }
@@ -129,12 +129,12 @@ class SelectorHelper extends PolymerElement {
     if (this.multi) {
       this._toggle(item);
     } else {
-      if(_selectedItems.length == 1 && _selectedItems[0] != item) {
+      if (_selectedItems.length == 1 && _selectedItems[0] != item) {
         this.setItemSelected(_selectedItems[0], false);
         this._toggle(item);
-      } else if(_selectedItems.length == 0) {
+      } else if (_selectedItems.length == 0) {
         this._toggle(item);
-      } else if(_selectedItems.length > 1) {
+      } else if (_selectedItems.length > 1) {
         print("Error: more than 1 element in selectedItems");
       }
     }
@@ -192,18 +192,19 @@ class SelectorHelper extends PolymerElement {
     return -1;
   }
 
-  @published
-  Element target = null;
+  Element _target = null;
 
-  void targetChanged(old) {
+  set target(Element new_target) {
+    dynamic old = _target;
     if (old != null) {
       this._removeListener(old);
       this._observer.disconnect();
     }
-    if (this.target != null) {
-      this._addListener(this.target);
-      this._observer.observe(this.target, childList: true);
-      if(old == null) {
+    _target = new_target;
+    if (this._target != null) {
+      this._addListener(this._target);
+      this._observer.observe(this._target, childList: true);
+      if (old == null) {
         selected = this.attributes["selected"];
       }
     }
@@ -224,7 +225,7 @@ class SelectorHelper extends PolymerElement {
     if (multi == false) {
       List<Element> selItems_l = _selectedItems.toList();
       selItems_l.forEach((item) {
-        if(selectedItems.length != 1) {
+        if (selectedItems.length != 1) {
           setItemSelected(item, false);
         }
       });
@@ -251,6 +252,5 @@ class SelectorHelper extends PolymerElement {
 
   //events
   EventStreamProvider<CustomEvent> _changedEventP = new EventStreamProvider<CustomEvent>("selected");
-  Stream<CustomEvent> get onSelected =>
-   _changedEventP.forTarget(this);
+  Stream<CustomEvent> get onSelected => _changedEventP.forTarget(this);
 }

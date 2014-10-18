@@ -7,6 +7,7 @@ import 'dart:async';
 import '../drag_drop/drag_drop.dart';
 import '../menubar/menubar.dart';
 
+import 'package:dockable/utils/dockable_utils.dart';
 import 'package:dockable/ordered_list/ordered_list.dart';
 
 part 'timelineelement.dart';
@@ -25,8 +26,8 @@ part 'timelinerow.dart';
 class TimelineManager extends PolymerElement {
 
   /*
-     * Set to true to prevent disposal of observable bindings
-     */
+   * Set to true to prevent disposal of observable bindings
+   */
   bool get preventDispose => true;
 
   OrderedList _list;

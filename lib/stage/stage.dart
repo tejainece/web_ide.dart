@@ -161,6 +161,11 @@ class DockStage extends PolymerElement {
         scrollToCenter();
       }
     });
+    
+    /*TODO: implement delete 
+    onKeyDown.listen((KeyboardEvent ke) {
+      
+    });*/
 
     stagebgcolorChanged();
 

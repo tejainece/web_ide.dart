@@ -7,25 +7,24 @@
   <template>
     <style>
       :host {
-          width: auto;
-          height: auto;
-          box-sizing:border-box;
+        width: auto;
+        height: 100%;
+        box-sizing:border-box;
 
-          display: flex;
-          flex-direction:row;
+        display: flex;
+        flex-direction:row;
+        align-items: center;
 
-          /*align-items: center;*/
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+        user-select: none;
 
-          -moz-user-select: -moz-none;
-          -khtml-user-select: none;
-          -webkit-user-select: none;
-          -o-user-select: none;
-          user-select: none;
-
-          cursor: default;
-          padding: 5px 7px;
-          border: 1px solid transparent;
-          outline: none;
+        cursor: default;
+        padding: 5px 7px;
+        border: 1px solid transparent;
+        outline: none;
       }
       :host(:hover) {
           border-color: rgba(0, 0, 0, 0.2);

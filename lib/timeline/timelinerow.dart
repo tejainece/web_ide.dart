@@ -106,12 +106,12 @@ class TimelineRow extends PolymerElement {
 
   void elementContextMenu(CustomEvent event, detail, target) {
     _contextMenu.show = true;
-    _curItem = detail;
+    _curItem = (target as TimelineElement).data;
     event.preventDefault();
   }
 
   void deleteItem(CustomEvent event, detail, target) {
-    item.remove(detail);
+    item.remove(_curItem);
   }
 
   @published
