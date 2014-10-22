@@ -1,5 +1,5 @@
 name: dockable
-version: 0.1.4
+version: 0.1.5
 description: IDE framework for dart web apps using PolymerDart.
 dependencies:
   core_elements: any

@@ -13095,3 +13095,32 @@ build.dart --machine --changed=pubspec.yaml
 [{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
 build.dart finished [1847 ms]
 
+---
+build.dart --machine --changed=lib/ordered_list/ordered_list_item.html
+[{"method":"info","params":{"message":"Took 1.0s (0.9s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+build.dart finished [1841 ms]
+
+---
+build.dart --machine --changed=pubspec.yaml
+[{"method":"info","params":{"message":"Took 0.3s (0.1s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.4s (0.1s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.4s (0.2s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.4s (0.2s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.4s (0.2s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.4s (0.2s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.6s (0.4s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.6s (0.4s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 0.6s (0.4s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.9s awaiting secondary inputs)."}}]
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+build.dart finished [1879 ms]
+
