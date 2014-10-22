@@ -13090,3 +13090,8 @@ build.dart --machine --changed=lib/stage/stage_element.html
 [{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
 build.dart finished [1914 ms]
 
+---
+build.dart --machine --changed=pubspec.yaml
+[{"method":"info","params":{"message":"Took 1.0s (0.8s awaiting secondary inputs)."}}]
+build.dart finished [1847 ms]
+
