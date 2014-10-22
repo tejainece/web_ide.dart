@@ -11,6 +11,7 @@ import '../optionbox/optionbox.dart';
 
 part 'property_category.dart';
 part 'property_item.dart';
+part 'property_text.dart';
 part 'property_number.dart';
 part 'property_integer.dart';
 part 'property_color.dart';

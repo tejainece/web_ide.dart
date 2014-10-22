@@ -21,8 +21,20 @@ class DragStreams {
   StreamSubscription dragLeave;
   StreamSubscription drop;
 
+  StreamSubscription contextmenu;
   StreamSubscription click;
   StreamSubscription doubleClick;
+
+  void cancel() {
+    dragStart.cancel();
+    dragEnd.cancel();
+    dragEnter.cancel();
+    dragOver.cancel();
+    dragLeave.cancel();
+    drop.cancel();
+    click.cancel();
+    doubleClick.cancel();
+  }
 }
 
 /**
@@ -117,9 +129,12 @@ class OrderedList extends SelectorHelper {
       newStreams.drop = ch.onDrop.listen(_onDrop);
 
       newStreams.click = ch.onClick.listen((_) {
-        //TODO: onClicked _fireOnItemDoubleClicked(ch);
+        _fireOnItemClicked(ch);
       });
       newStreams.doubleClick = ch.onDoubleClick.listen((MouseEvent me) {
+        _fireOnItemDoubleClicked(me.target);
+      });
+      newStreams.contextmenu = ch.onContextMenu.listen((MouseEvent me) {
         _fireOnItemDoubleClicked(me.target);
       });
 
@@ -131,14 +146,7 @@ class OrderedList extends SelectorHelper {
     ch.draggable = false;
     DragStreams newStreams = _dragStreams.remove(ch);
     if (newStreams != null) {
-      newStreams.dragStart.cancel();
-      newStreams.dragEnd.cancel();
-      newStreams.dragEnter.cancel();
-      newStreams.dragOver.cancel();
-      newStreams.dragLeave.cancel();
-      newStreams.drop.cancel();
-      newStreams.click.cancel();
-      newStreams.doubleClick.cancel();
+      newStreams.cancel();
     }
   }
 
@@ -244,29 +252,35 @@ class OrderedList extends SelectorHelper {
     // Stop the browser from redirecting.
     event.stopPropagation();
   }
-  
+
   HtmlElement _getElement(HtmlElement el) {
     HtmlElement ret;
-    if(el == this) {
+    if (el == this) {
       ret = el;
-    } else if(this.children.contains(el)) {
+    } else if (this.children.contains(el)) {
       ret = el;
     } else {
       HtmlElement tEL = el;
-      while(tEL != null && !this.children.contains(tEL)) {
+      while (tEL != null && !this.children.contains(tEL)) {
         tEL = tEL.parent;
       }
-      if(tEL != null) {
+      if (tEL != null) {
         ret = tEL;
       }
     }
-    
+
     return ret;
   }
 
   //events
   EventStreamProvider<CustomEvent> _itemDblClickedEventP = new EventStreamProvider<CustomEvent>("item-double-click");
   Stream<CustomEvent> get onItemDoubleClicked => _itemDblClickedEventP.forTarget(this);
+
+  EventStreamProvider<CustomEvent> _itemClickedEventP = new EventStreamProvider<CustomEvent>("item-click");
+  Stream<CustomEvent> get onItemClicked => _itemClickedEventP.forTarget(this);
+
+  EventStreamProvider<CustomEvent> _itemContextMenuEventP = new EventStreamProvider<CustomEvent>("item-contextmenu");
+  Stream<CustomEvent> get onItemContextMenu => _itemContextMenuEventP.forTarget(this);
 
   int _findIndexOfElement(HtmlElement searched) {
     int indexCnt = -1,
@@ -289,6 +303,16 @@ class OrderedList extends SelectorHelper {
     }
 
     return foundIndex;
+  }
+
+  void _fireOnItemContextMenu(HtmlElement item) {
+    var event = new CustomEvent("item-contextmenu", canBubble: false, cancelable: false, detail: getModelForItem(item));
+    dispatchEvent(event);
+  }
+
+  void _fireOnItemClicked(HtmlElement item) {
+    var event = new CustomEvent("item-click", canBubble: false, cancelable: false, detail: getModelForItem(item));
+    dispatchEvent(event);
   }
 
   void _fireOnItemDoubleClicked(HtmlElement item) {

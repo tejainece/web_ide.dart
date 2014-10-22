@@ -15,12 +15,6 @@ export 'modal/modal.dart';
 
 export 'pages/page_manager.dart';
 export 'propertyeditor/property_editor.dart';
-export 'propertyeditor/property_text.dart';
-/*export 'propertyeditor/property_editor.dart';
-export 'propertyeditor/property_editor.dart';
-export 'propertyeditor/property_editor.dart';
-export 'propertyeditor/property_editor.dart';
-export 'propertyeditor/property_editor.dart';*/
 
 export 'ruler/ruler.dart';
 

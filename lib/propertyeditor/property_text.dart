@@ -1,12 +1,4 @@
-library property_text;
-
-import 'package:polymer/polymer.dart';
-import 'dart:html';
-import 'dart:async';
-
-import 'property_editor.dart';
-
-import '../utils/dockable_utils.dart';
+part of propertyeditor;
 
 @CustomTag('property-text')
 class PropertyText extends PropertyBase {
