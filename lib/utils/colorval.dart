@@ -1,24 +1,79 @@
 part of dockable_utils;
 
-/*
- * TODO: add alpha channel support
- */
+num inRange(num value, num min, num max) {
+  num up_r = value == null ? min : value;
+  if (up_r < min) {
+    up_r = min;
+  } else if (up_r > max) {
+    up_r = max;
+  }
+
+  return up_r;
+}
+
 
 /*
  * ColorVal represents RGB color values. It provides convinience methods to
  * parse and encode in different color formats.
  */
-class ColorVal {
+@observable
+class ColorVal extends ChangeNotifier {
   /** Red color component. Value ranges from [0..255] */
-  int r;
+  num _r = 255;
+
+  @observable
+  num get r => _r;
+  set r(num new_r) {
+    num up_r = inRange(new_r, 0, 255);
+    _r = notifyPropertyChange(#r, _r, up_r);
+
+    notifyPropertyChange(#h, null, h);
+    notifyPropertyChange(#s, null, s);
+    notifyPropertyChange(#v, null, v);
+
+    notifyPropertyChange(#rgbaString, "", rgbaString);
+  }
 
   /** Green color component. Value ranges from [0..255] */
-  int g;
+  num _g = 255;
+  @observable
+  num get g => _g;
+  set g(num new_g) {
+    num up_g = inRange(new_g, 0, 255);
+    _g = notifyPropertyChange(#g, _g, up_g);
+
+    notifyPropertyChange(#h, -1, h);
+    notifyPropertyChange(#s, -1, s);
+    notifyPropertyChange(#v, -1, v);
+
+    notifyPropertyChange(#rgbaString, "", rgbaString);
+  }
 
   /** Blue color component. Value ranges from [0..255] */
-  int b;
+  num _b = 255;
+  @observable
+  num get b => _b;
+  set b(num new_b) {
+    num up_b = inRange(new_b, 0, 255);
+    _b = notifyPropertyChange(#b, _b, up_b);
 
-  num a = 1.0;
+    notifyPropertyChange(#h, null, h);
+    notifyPropertyChange(#s, null, s);
+    notifyPropertyChange(#v, null, v);
+
+    notifyPropertyChange(#rgbaString, "", rgbaString);
+  }
+
+  /** Alpha color component. Value ranges from [0..100] */
+  int _a = 100;
+  @observable
+  int get a => _a;
+  set a(int new_a) {
+    int up_a = inRange(new_a, 0, 100);
+    _a = notifyPropertyChange(#a, _a, up_a);
+
+    notifyPropertyChange(#rgbaString, "", rgbaString);
+  }
 
   /**
    * Parses the color value with the following format:
@@ -35,9 +90,9 @@ class ColorVal {
       value = value.substring(1);
       _parseHex(value);
     } else if (value.contains(",")) {
-      if(value.startsWith("rgb(")) {
+      if (value.startsWith("rgb(")) {
         value = value.substring(4, value.length - 1);
-      } else if(value.startsWith("rgba(")) {
+      } else if (value.startsWith("rgba(")) {
         value = value.substring(5, value.length - 1);
       }
       List<String> tokens = value.split(",");
@@ -48,86 +103,114 @@ class ColorVal {
       g = int.parse(tokens[1]);
       b = int.parse(tokens[2]);
 
-      if(tokens.length > 3) {
-        a = num.parse(tokens[3]);
+      if (tokens.length > 3) {
+        a = num.parse(tokens[3]) * 100;
+      } else {
+        a = 100;
       }
-      r = max(0, min(255, r));
-      g = max(0, min(255, g));
-      b = max(0, min(255, b));
-      a = max(0, min(1.0, a));
     }
   }
 
-  ColorVal()
-      : r = 0,
-        g = 0,
-        b = 0,
-        a = 1.0;
-  ColorVal.fromRGB(this.r, this.g, this.b);
-  ColorVal.fromRGBA(this.r, this.g, this.b, this.a);
-  ColorVal.fromHSV(int hue, num saturation, num value) {
+  ColorVal() {
+    r = g = b = 255;
+    a = 100;
+  }
+
+  ColorVal.fromRGB(num new_red, num new_green, num new_blue) {
+    r = new_red;
+    g = new_green;
+    b = new_blue;
+  }
+
+  ColorVal.fromRGBA(num new_red, num new_green, num new_blue, num new_alpha) {
+    r = new_red;
+    g = new_green;
+    b = new_blue;
+    a = new_alpha;
+  }
+
+  ColorVal.fromHSV(num hue, num saturation, num value) {
     setHSV(hue, saturation, value);
   }
+
   ColorVal.copy(ColorVal other) {
     clone(other);
   }
 
-  void setRGB(int r, int g, int b) {
+  void clone(ColorVal other) {
+    this.r = other.r;
+    this.g = other.g;
+    this.b = other.b;
+    this.a = other.a;
+  }
+
+  void setRGB(num r, num g, num b) {
     this.r = r;
     this.g = g;
     this.b = b;
   }
-  void setRGBA(int r, int g, int b, num a) {
+  void setRGBA(num r, num g, num b, num a) {
     this.r = r;
     this.g = g;
     this.b = b;
     this.a = a;
   }
-  void setHSV(int arg_hue, num saturation, num value) {
+
+  void setHSV(num arg_hue, num saturation, num value) {
     num t_r;
     num t_g;
     num t_b;
 
     arg_hue = arg_hue % (360);
-    if(arg_hue < 0) {
+    if (arg_hue < 0) {
       arg_hue = 360 - arg_hue;
     }
 
     num t_hue = arg_hue / 60;
     int i_i = t_hue.floor();
     num i_f = t_hue - i_i;
-    num i_l = value * (1 - saturation);
-    num i_m = value * (1 - (saturation * i_f));
-    num i_n = value * (1 - ((1 - i_f) * saturation));
+
+    num i_l = (value * ((255 - saturation))) / 255;
+    num i_m = (value * (255 - (saturation * i_f))) / 255;
+    num i_n = (value * (255 - ((1 - i_f) * saturation))) / 255;
+
+    num val = value;
 
     switch (i_i) {
       case 0:
-        t_r = value; t_g= i_n; t_b = i_l;
+        t_r = val;
+        t_g = i_n;
+        t_b = i_l;
         break;
       case 1:
-        t_r = i_m; t_g = value; t_b = i_l;
+        t_r = i_m;
+        t_g = val;
+        t_b = i_l;
         break;
       case 2:
-        t_r = i_l; t_g = value; t_b = i_n;
+        t_r = i_l;
+        t_g = val;
+        t_b = i_n;
         break;
       case 3:
-        t_r = i_l; t_g = i_m; t_b = value;
+        t_r = i_l;
+        t_g = i_m;
+        t_b = val;
         break;
       case 4:
-        t_r = i_n; t_g = i_l; t_b = value;
+        t_r = i_n;
+        t_g = i_l;
+        t_b = val;
         break;
       case 5:
-        t_r = value; t_g = i_l; t_b = i_m;
+        t_r = val;
+        t_g = i_l;
+        t_b = i_m;
         break;
     }
-    r = (t_r * 255).toInt();
-    g = (t_g * 255).toInt();
-    b = (t_b * 255).toInt();
-  }
-  void clone(ColorVal other) {
-    this.r = other.r;
-    this.g = other.g;
-    this.b = other.b;
+    r = t_r;
+    g = t_g;
+    b = t_b;
   }
 
   /**
@@ -154,113 +237,94 @@ class ColorVal {
   }
 
   ColorVal operator *(num value) {
-    return new ColorVal.fromRGB((r * value).toInt(), (g * value).toInt(), (b *
-        value).toInt());
+    return new ColorVal.fromRGB(r * value, g * value, b * value);
   }
   ColorVal operator +(ColorVal other) {
     return new ColorVal.fromRGB(r + other.r, g + other.g, b + other.b);
   }
 
   ColorVal operator -(ColorVal other) {
-    return new ColorVal.fromRGB(r - other.r, g - other.g, b - other.b);
+    return new ColorVal.fromRGB((r - other.r).abs(), (g - other.g).abs(), (b - other.b).abs());
   }
 
-  String toString() => "rgba($r, $g, $b, $a)";
+  String toString() => rgbaString;
   String toRgbString() => "$r, $g, $b";
+
+  String get rgbaString => "rgba(${r.toInt()}, ${g.toInt()}, ${b.toInt()}, ${a / 100.0})";
 
   //y'uv
   num get luma {
     return (0.3 * r + 0.59 * g + 0.11 * b) / 255;
   }
 
-  num get cb {
-
+  /*num get cb {
+    //TODO:
   }
 
   num get cr {
-
-  }
+    //TODO:
+  }*/
 
   //hsv
-  int get h {
-    int ret;
-    final num i_r = r / 255;
-    final num i_g = g / 255;
-    final num i_b = b / 255;
+  num get h {
+    num ret;
 
-    // Calculate the hue (H) component in the HSV color space
-    /*final num alpha = (2 * i_r - i_g - i_b) / 2;
-    final num beta = sqrt(3) / 2 * (i_g - i_b);
-    num hue = atan2(beta, alpha);
-    if (hue < 0) {
-      hue += PI * 2;
-    }
-    return hue;*/
+    final maxV = max(max(r, g), b);
+    final minV = min(min(r, g), b);
+    final range = maxV - minV;
 
-    num cmax = max(max(i_r, i_g), i_b);
-    num cmin = min(min(i_r, i_g), i_b);
-
-    if (cmax == cmin)
+    if (maxV == minV) {
       ret = 0;
-    else if (i_r == cmax)
-      ret = (((i_g - i_b) / (cmax - cmin)) * 60).toInt();
-    else if (i_g == cmax)
-      ret = ((2 + (i_b - i_r) / (cmax - cmin)) * 60).toInt();
-    else if (i_b == cmax)
-      ret = ((4 + (i_r - i_g) / (cmax - cmin)) * 60).toInt();
+    } else if (r == maxV) {
+      ret = (((g - b) / range) * 60);
+    } else if (g == maxV) {
+      ret = ((2 + (b - r) / range) * 60);
+    } else if (b == maxV) {
+      ret = ((4 + (r - g) / range) * 60);
+    }
 
     ret = ret % 360;
-    if(ret < 0) {
+    if (ret < 0) {
       ret = 360 + ret;
     }
-
-    //ret = (ret / 180) * PI;
 
     return ret;
   }
 
+  set h(num new_h) {
+    num saturation = s;
+    num value = v;
+
+    setHSV(new_h, saturation, value);
+  }
+
   num get s {
-    final num i_r = r / 255;
-    final num i_g = g / 255;
-    final num i_b = b / 255;
+    final maxV = max(max(r, g), b);
+    final minV = min(min(r, g), b);
+    final range = maxV - minV;
 
-    /*final alpha = (2 * i_r - i_g - i_b) / 2;
-    final beta = sqrt(3) / 2 * (i_g - i_b);
+    if (maxV == 0) {
+      return 0;
+    } else {
+      return (range * 255) ~/ maxV;
+    }
+  }
 
-    num chroma = sqrt(alpha * alpha + beta * beta);
+  set s(num new_s) {
+    num hue = h;
+    num value = v;
 
-    // Get the saturation (S) component
-    return (chroma == 0) ? 0 : chroma / v;*/
-
-
-
-    num cmax = max(max(i_r, i_g), i_b);
-    num cmin = min(min(i_r, i_g), i_b);
-
-    if (cmax == cmin || cmax == 0) 
-      return 0; 
-    else 
-      return (cmax - cmin) / cmax;
+    setHSV(hue, new_s, value);
   }
 
   num get v {
-    return (max(max(r, g), b)) / 255;
+    return max(max(r, g), b);
   }
-}
 
-/* Some helper functions for @ColorVal */
-ColorVal hueAngleToColorVal(int angle) {
-  var slots = [new ColorVal.fromRGB(255, 0, 0), new ColorVal.fromRGB(255, 255, 0
-      ), new ColorVal.fromRGB(0, 255, 0), new ColorVal.fromRGB(0, 255, 255),
-      new ColorVal.fromRGB(0, 0, 255), new ColorVal.fromRGB(255, 0, 255)];
+  set v(num new_v) {
+    num hue = h;
+    num saturation = s;
 
-  // Each slot is 60 degrees.  Find out which slot this angle lies in
-  // http://en.wikipedia.org/wiki/Hue
-  int degrees = angle % 360;
-  final slotPosition = degrees / 60;
-  final slotIndex = slotPosition.toInt();
-  final slotDelta = slotPosition - slotIndex;
-  final startColor = slots[slotIndex];
-  final endColor = slots[(slotIndex + 1) % slots.length];
-  return startColor + (endColor - startColor) * slotDelta;
+    setHSV(hue, saturation, new_v);
+  }
 }

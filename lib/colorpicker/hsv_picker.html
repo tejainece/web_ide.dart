@@ -9,17 +9,47 @@
         width: {{size}}px;
         height: {{size}}px;
       }
+      
+      #holder {
+        position: relative;
+        
+        width: 100%;
+        height: 100%;
+      }
 
-      :host > .hsv-canvas {
+      #hsv-canvas {
         cursor: crosshair;
         border: 1px solid black;
 
         width: 100%;
         height: 100%;
+        
+        background-image: url(../../../packages/dockable/assets/images/saturation.png);
+        background-repeat: no-repeat;
+        background-position: 0px 0px;
+        background-size: cover;
+      }
+      
+      #cursor {
+        position: absolute;
+        
+        width: 4px;
+        height: 4px;
+        
+        margin-left: -2px;
+        margin-top: -2px;
+        
+        box-sizing: border-box;
+        border: 1px solid black;
+        outline: 1px solid white;
+        
+        pointer-events: none;
       }
     </style>
-      <canvas class="hsv-canvas">
-      </canvas>
+      <div id="holder">
+        <div id="hsv-canvas" style='background-color: {{hueAsColor.toString()}};'></div>
+        <div id="cursor" style="left: {{cursorX}}px; top:{{cursorY}}px;"></div>
+      </div>
   </template>
 </polymer-element>
 

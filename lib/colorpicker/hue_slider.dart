@@ -10,15 +10,10 @@ class HueSlider extends PolymerElement {
 
   CanvasElement _hue_canvas;
 
-  HueSlider.created() : super.created() {
-    _logger.finest('created');
-  }
-
-  final _logger = new Logger('Dockable.HsvPicker');
+  HueSlider.created() : super.created() {}
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
 
   }
@@ -237,10 +232,10 @@ class HueSlider extends PolymerElement {
    * Hue angle in  radian.
    */
   @published
-  int hue = 180;
+  num hue = 0;
 
   ColorVal get hueAsColor {
-    return hueAngleToColorVal(hue);
+    return new ColorVal.fromHSV(hue, 100, 100);
   }
 
   void breadthChanged() {
