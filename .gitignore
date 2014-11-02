@@ -2,6 +2,7 @@
 packages
 .project
 pubspec.lock
+.buildlog
 
 .pub/
 build/

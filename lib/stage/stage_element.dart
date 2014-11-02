@@ -72,6 +72,7 @@ class StageElement extends PolymerElement {
    * Parent stage
    */
   DockStage _stage;
+  DockStage get stage => _stage;
 
   /*
    * Is the element selected?
