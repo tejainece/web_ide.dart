@@ -170,9 +170,9 @@ class ColorVal extends ChangeNotifier {
     int i_i = t_hue.floor();
     num i_f = t_hue - i_i;
 
-    num i_l = (value * ((255 - saturation))) / 255;
-    num i_m = (value * (255 - (saturation * i_f))) / 255;
-    num i_n = (value * (255 - ((1 - i_f) * saturation))) / 255;
+    num i_l = (value * ((100 - saturation))) / 100;
+    num i_m = (value * (100 - (saturation * i_f))) / 100;
+    num i_n = (value * (100 - ((1 - i_f) * saturation))) / 100;
 
     num val = value;
 
@@ -208,9 +208,9 @@ class ColorVal extends ChangeNotifier {
         t_b = i_m;
         break;
     }
-    r = t_r;
-    g = t_g;
-    b = t_b;
+    r = t_r * 100 / 255;
+    g = t_g * 100 / 255;
+    b = t_b * 100 / 255;
   }
 
   /**
@@ -306,7 +306,7 @@ class ColorVal extends ChangeNotifier {
     if (maxV == 0) {
       return 0;
     } else {
-      return (range * 255) ~/ maxV;
+      return (range * 100) ~/ maxV;
     }
   }
 
@@ -318,7 +318,7 @@ class ColorVal extends ChangeNotifier {
   }
 
   num get v {
-    return max(max(r, g), b);
+    return max(max(r, g), b) * 100 / 255;
   }
 
   set v(num new_v) {

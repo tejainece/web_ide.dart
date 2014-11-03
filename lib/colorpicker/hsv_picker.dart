@@ -7,6 +7,8 @@ class HsvPicker extends PolymerElement {
 
   DivElement _hsv_canvas;
 
+  StreamMouseTrack _sstreams = new StreamMouseTrack();
+
   HsvPicker.created() : super.created() {}
 
   @override
@@ -28,94 +30,67 @@ class HsvPicker extends PolymerElement {
     _hsv_canvas.onMouseDown.listen(handleCursorStart);
   }
 
-  StreamSubscription _mousemove;
-  StreamSubscription _mouseup;
-  StreamSubscription _docmouseup;
-  StreamSubscription _keydown;
   ColorVal _color_before;
+  Point _startPoint, _diffPoint;
+
   void handleCursorStart(MouseEvent event) {
-    stopCursorChange();
-    _color_before = color;
-    handleCursorChange(event);
-    _mousemove = _hsv_canvas.onMouseMove.listen(handleCursorChange);
-    _mouseup = _hsv_canvas.onMouseUp.listen((e) {
-      handleCursorChange(e);
-      stopCursorChange();
-    });
-    _docmouseup = document.body.onMouseUp.listen((_) {
-      stopCursorChange();
-    });
-    _keydown = document.onKeyDown.listen((e) {
-      if (e.keyCode == KeyCode.ESC) {
-        stopCursorChange();
-        hue = _color_before.h;
-        saturation = _color_before.s;
-        value = _color_before.v;
-      }
-    });
+    _sstreams.cancel();
+
+    if (event.button == 0) {
+      _startPoint = event.offset;
+      _diffPoint = event.page;
+      
+      _color_before = color;
+
+      handleCursorChange(event);
+
+      StreamSubscription mousemove = document.onMouseMove.listen(handleCursorChange);
+      StreamSubscription mouseleave = document.onMouseLeave.listen((e) {
+        handleCursorChange(e);
+        _sstreams.cancel();
+      });
+      StreamSubscription docmouseup = document.body.onMouseUp.listen((_) {
+        _sstreams.cancel();
+      });
+      StreamSubscription keydown = document.onKeyDown.listen((e) {
+        if (e.keyCode == KeyCode.ESC) {
+          _sstreams.cancel();
+          hue = _color_before.h;
+        }
+      });
+
+      _sstreams.reset(mousemove, mouseleave, docmouseup, keydown);
+    }
   }
 
   void handleCursorChange(MouseEvent event) {
-    if (size != 0) {
-      saturation = ((event.offset.x / size) * 255).round();
-      value = ((1 - (event.offset.y / size)) * 255).round();
-      //print("sat val ${hue} ${saturation} ${value}");
+    if(_hsv_canvas.offsetParent != null) {
+      num tmp_sat = ((_startPoint.x + event.page.x - _diffPoint.x)/_hsv_canvas.offsetWidth) * 100;
+      num tmp_val = 100 - (((_startPoint.y + event.page.y - _diffPoint.y) / _hsv_canvas.offsetHeight) * 100);
+      
+      tmp_sat = min(100, max(0, tmp_sat));
+      tmp_val = min(100, max(0, tmp_val));
+      
+      
+      saturation = tmp_sat;
+      value = tmp_val;
     } else {
-      saturation = 255;
-      value = 255;
+      saturation = 100;
+      value = 100;
     }
-  }
-
-  void stopCursorChange() {
-    if (_mousemove != null) {
-      _mousemove.cancel();
-      _mousemove = null;
-    }
-
-    if (_mouseup != null) {
-      _mouseup.cancel();
-      _mouseup = null;
-    }
-
-    if (_docmouseup != null) {
-      _docmouseup.cancel();
-      _docmouseup = null;
-    }
-
-    if (_keydown != null) {
-      _keydown.cancel();
-      _keydown = null;
-    }
-  }
-
-  @PublishedProperty(reflect: true)
-  int size = 100;
-
-  void sizeChanged() {
-    notifyPropertyChange(#cursorX, null, cursorX);
-    notifyPropertyChange(#cursorY, null, cursorY);
   }
 
   @PublishedProperty(reflect: true)
   num saturation = 100;
 
-  @observable
-  int get cursorX => ((saturation/255) * size).round();
-
   void saturationChanged() {
-    notifyPropertyChange(#cursorX, null, cursorX);
-
     _fire_onchanged_event();
   }
 
   @PublishedProperty(reflect: true)
   num value = 100;
 
-  @observable
-  int get cursorY => ((1 - (value/255)) * size).round();
-
   void valueChanged() {
-    notifyPropertyChange(#cursorY, null, cursorY);
 
     _fire_onchanged_event();
   }
@@ -135,7 +110,7 @@ class HsvPicker extends PolymerElement {
 
   @observable
   ColorVal get hueAsColor {
-    return new ColorVal.fromHSV(hue, 255, 255);
+    return new ColorVal.fromHSV(hue, 100, 100);
   }
 
   ColorVal get color => new ColorVal.fromHSV(hue, saturation, value);

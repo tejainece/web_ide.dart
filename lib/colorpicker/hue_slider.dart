@@ -2,287 +2,159 @@ part of colorpicker;
 
 @CustomTag('hue-slider')
 class HueSlider extends PolymerElement {
-
-  /*
-   * Set to true to prevent disposal of observable bindings
-   */
   bool get preventDispose => true;
 
-  CanvasElement _hue_canvas;
+  DivElement _holder;
+  DivElement _canvas;
+  DivElement _transCanvas;
+  DivElement _cursor;
+
+  StreamMouseTrack _sstreams = new StreamMouseTrack();
 
   HueSlider.created() : super.created() {}
 
   @override
   void polymerCreated() {
     super.polymerCreated();
-
   }
 
   @override
   void attached() {
     super.attached();
-    verticalChanged();
   }
 
   @override
   void ready() {
     super.ready();
 
-    _hue_canvas = shadowRoot.querySelector(".hue-canvas");
-    assert(_hue_canvas != null);
+    _holder = shadowRoot.querySelector("#holder");
+    _canvas = shadowRoot.querySelector("#canvas");
+    _transCanvas = shadowRoot.querySelector("#transparent");
+    _cursor = shadowRoot.querySelector("#cursor");
+
+    _canvas.onMouseDown.listen(_handleCanvasClick);
+
+    //_cursor.onMouseDown.listen(_handleCursorStart);
+
+    verticalChanged();
   }
 
-  @override
-  void detached() {
-    super.detached();
-    stopCursorChange();
+  ColorVal _color_before;
+  Point _startPoint, _diffPoint;
+
+  void _handleCanvasClick(MouseEvent event) {
+    if (event.button == 0) {
+      print("here");
+      _color_before = color;
+
+      _startPoint = event.offset;
+      _diffPoint = event.page;
+      
+      handleCursorChange(event);
+      
+
+      StreamSubscription mousemove = document.onMouseMove.listen(handleCursorChange);
+      StreamSubscription mouseleave = document.onMouseLeave.listen((e) {
+        handleCursorChange(e);
+        _sstreams.cancel();
+      });
+      StreamSubscription docmouseup = document.body.onMouseUp.listen((_) {
+        _sstreams.cancel();
+      });
+      StreamSubscription keydown = document.onKeyDown.listen((e) {
+        if (e.keyCode == KeyCode.ESC) {
+          _sstreams.cancel();
+          hue = _color_before.h;
+        }
+      });
+
+      _sstreams.reset(mousemove, mouseleave, docmouseup, keydown);
+    }
   }
 
-  StreamSubscription _mousemove;
-  StreamSubscription _mouseup;
-  StreamSubscription _docmouseup;
-  StreamSubscription _keydown;
-  int _hue_before_mod;
-  void handleCursorStart(MouseEvent event) {
-    stopCursorChange();
-    _hue_before_mod = hue;
-    handleCursorChange(event);
-    _mousemove = _hue_canvas.onMouseMove.listen(handleCursorChange);
-    
-    _mouseup = _hue_canvas.onMouseUp.listen((e) {
-      handleCursorChange(e);
-      stopCursorChange();
-    });
-    _docmouseup = document.body.onMouseUp.listen((e) {
-        stopCursorChange();
-    });
-    
-    _keydown = document.onKeyDown.listen((e) {
-      if (e.keyCode == KeyCode.ESC) {
-        stopCursorChange();
-        hue = _hue_before_mod;
-      }
-    });
+  void _handleCursorStart(MouseEvent event) {
+    _sstreams.cancel();
+
+    if (event.button == 0) {
+      _color_before = color;
+
+      _startPoint = event.offset + _cursor.parent.offset.topLeft;
+      _diffPoint = event.page;
+      
+      print("here2 ${_startPoint}");
+
+      handleCursorChange(event);
+
+      StreamSubscription mousemove = document.onMouseMove.listen(handleCursorChange);
+      StreamSubscription mouseleave = document.onMouseLeave.listen((e) {
+        handleCursorChange(e);
+        _sstreams.cancel();
+      });
+      StreamSubscription docmouseup = document.body.onMouseUp.listen((_) {
+        _sstreams.cancel();
+      });
+      StreamSubscription keydown = document.onKeyDown.listen((e) {
+        if (e.keyCode == KeyCode.ESC) {
+          _sstreams.cancel();
+          hue = _color_before.h;
+        }
+      });
+
+      _sstreams.reset(mousemove, mouseleave, docmouseup, keydown);
+    }
   }
 
   void handleCursorChange(MouseEvent event) {
-    int pos;
-    num ratio;
-    if (vertical) {
-      pos = event.offset.y;
-      pos %= _hue_canvas.offsetHeight;
-      ratio = pos / _hue_canvas.offsetHeight;
+    if (_canvas.offsetParent != null) {
+      int tmp_alpha = 100;
+      if (vertical) {
+        tmp_alpha = ((((_startPoint.y + event.page.y - _diffPoint.y)) / _canvas.offsetHeight) * 360).round();
+      } else {
+        tmp_alpha = ((((_startPoint.x + event.page.x - _diffPoint.x)) / _canvas.offsetWidth) * 360).round();
+      }
+
+      if (tmp_alpha < 0) {
+        tmp_alpha = 0;
+      } else if (tmp_alpha > 360) {
+        tmp_alpha = 360;
+      }
+      hue = tmp_alpha;
     } else {
-      pos = event.offset.x;
-      pos %= _hue_canvas.offsetWidth;
-      ratio = pos / _hue_canvas.offsetWidth;
-    }
-
-    hue = (360 * ratio).toInt();
-
-    _fire_onchanged_event();
-  }
-
-  void stopCursorChange() {
-    if (_mousemove != null) {
-      _mousemove.cancel();
-      _mousemove = null;
-    }
-
-    if (_mouseup != null) {
-      _mouseup.cancel();
-      _mouseup = null;
-    }
-
-    if (_docmouseup != null) {
-      _docmouseup.cancel();
-      _docmouseup = null;
-    }
-
-    if (_keydown != null) {
-      _keydown.cancel();
-      _keydown = null;
-    }
-  }
-
-  /** The cached gradient object that represents the hue colors */
-  CanvasGradient gradient;
-
-  /*
-   * This is called everytime height is changed to build a cached version
-   * of hue gradient.
-   */
-  void _buildGradient() {
-    var hueColors = [new ColorVal.fromRGB(255, 0, 0), new ColorVal.fromRGB(255, 255, 0), new ColorVal.fromRGB(0, 255, 0), new ColorVal.fromRGB(0, 255, 255), new ColorVal.fromRGB(0, 0, 255), new ColorVal.fromRGB(255, 0, 255), new ColorVal.fromRGB(255, 0, 0)];
-    final CanvasRenderingContext2D context = _hue_canvas.context2D;
-
-    if (vertical) {
-      // Create a hue color gradient object to draw in the canvas
-      gradient = context.createLinearGradient(0, 0, 0, _hue_canvas.height);
-    } else {
-      // Create a hue color gradient object to draw in the canvas
-      gradient = context.createLinearGradient(0, 0, _hue_canvas.width, 0);
-    }
-
-    final gradientStopDelta = 1 / (hueColors.length - 1);
-    // Calculate the gradient stop delta for each color
-    num gradientStop = 0;
-    for (var i = 0; i < hueColors.length - 1; i++) {
-      gradient.addColorStop(gradientStop, hueColors[i].toString());
-      gradientStop += gradientStopDelta;
-    }
-    // Add the last one manually to avoid precision issues
-    gradient.addColorStop(1.0, hueColors.last.toString());
-
-    updateCursor();
-  }
-
-  /*
-   * Redraw the canvas everytime width, height or selected color
-   * changes.
-   */
-  void updateCursor() {
-    final CanvasRenderingContext2D context = _hue_canvas.context2D;
-    context.fillStyle = gradient;
-    context.fillRect(0, 0, _hue_canvas.width, _hue_canvas.height);
-
-    // Find the appropriate color for the cursor
-    String cursorColor = "black";
-
-    // Find the hue color
-    ColorVal hueColor = hueAsColor;
-
-    // get luma of of the hue color
-    final num hueLuma = hueColor.luma;
-    if (hueLuma < 0.5) {
-      // Color is too dark in this region.  Choose a bright cursor color
-      cursorColor = "white";
-    }
-
-    if (vertical) {
-      // Draw the cursor at the current hue
-      final y = _hue_canvas.height * hue / (360) + 0.5;
-      context.save();
-      context.strokeStyle = cursorColor;
-      context.lineWidth = 2;
-      context.beginPath();
-      context.moveTo(0, y);
-      context.lineTo(_hue_canvas.width, y);
-      context.closePath();
-      context.stroke();
-
-      // Draw rectangles on the side
-      final triangleSize = 4;
-      context.fillStyle = cursorColor;
-      // Draw the left triangle
-      context.beginPath();
-      context.moveTo(0, y - triangleSize);
-      context.lineTo(triangleSize, y);
-      context.lineTo(0, y + triangleSize);
-      context.closePath();
-      context.fill();
-
-      // Draw the right triangle
-      context.beginPath();
-      context.moveTo(_hue_canvas.width, y - triangleSize);
-      context.lineTo(_hue_canvas.width - triangleSize, y);
-      context.lineTo(_hue_canvas.width, y + triangleSize);
-      context.closePath();
-      context.fill();
-      context.restore();
-    } else {
-      // Draw the cursor at the current hue
-      final x = _hue_canvas.width * hue / (360) + 0.5;
-      context.save();
-      context.strokeStyle = cursorColor;
-      context.lineWidth = 2;
-      context.beginPath();
-      context.moveTo(x, 0);
-      context.lineTo(x, _hue_canvas.height);
-      context.closePath();
-      context.stroke();
-
-      // Draw rectangles on the side
-      final triangleSize = 4;
-      context.fillStyle = cursorColor;
-      // Draw the left triangle
-      context.beginPath();
-      context.moveTo(x - triangleSize, 0);
-      context.lineTo(x, triangleSize);
-      context.lineTo(x + triangleSize, 0);
-      context.closePath();
-      context.fill();
-
-      // Draw the right triangle
-      context.beginPath();
-      context.moveTo(x - triangleSize, _hue_canvas.height);
-      context.lineTo(x, _hue_canvas.height - triangleSize);
-      context.lineTo(x + triangleSize, _hue_canvas.height);
-      context.closePath();
-      context.fill();
-      context.restore();
+      hue = 360;
     }
   }
 
   @published
-  int breadth = 16;
-  @published
-  int size = 100;
-  /*
-   * Hue angle in  radian.
-   */
-  @PublishedProperty(reflect: true)
-  num hue = 0;
-
-  ColorVal get hueAsColor {
-    return new ColorVal.fromHSV(hue, 100, 100);
-  }
-
-  void breadthChanged() {
-    if (vertical) {
-      _hue_canvas.width = breadth;
-    } else {
-      _hue_canvas.height = breadth;
-    }
-    //rebuild cache everytime width changes
-    _buildGradient();
-  }
-
-  void sizeChanged() {
-    if (vertical) {
-      _hue_canvas.height = size;
-    } else {
-      _hue_canvas.width = size;
-    }
-    //rebuild cache everytime height changes
-    _buildGradient();
-  }
-
-  void hueChanged() {
-    //update the cursor position
-    updateCursor();
-    _fire_onchanged_event();
-  }
-
-  @published
-  bool vertical = true;
+  bool vertical = false;
 
   void verticalChanged() {
-    if (vertical) {
-      classes.add("vertical");
-      _hue_canvas.width = breadth;
-      _hue_canvas.height = size;
-    } else {
-      classes.remove("vertical");
-      _hue_canvas.width = size;
-      _hue_canvas.height = breadth;
-    }
 
-    _buildGradient();
+    if (vertical) {
+      _holder.classes.add("vertical");
+
+      _canvas.style.background = "-webkit-linear-gradient(top, hsla(0, 100%, 50%, 1),hsla(10, 100%, 50%, 1),hsla(20, 100%, 50%, 1),hsla(30, 100%, 50%, 1),hsla(40, 100%, 50%, 1),hsla(50, 100%, 50%, 1),hsla(60, 100%, 50%, 1),hsla(70, 100%, 50%, 1),hsla(80, 100%, 50%, 1),hsla(90, 100%, 50%, 1),hsla(100, 100%, 50%, 1),hsla(110, 100%, 50%, 1),hsla(120, 100%, 50%, 1),hsla(130, 100%, 50%, 1),hsla(140, 100%, 50%, 1),hsla(150, 100%, 50%, 1),hsla(160, 100%, 50%, 1),hsla(170, 100%, 50%, 1),hsla(180, 100%, 50%, 1),hsla(190, 100%, 50%, 1),hsla(200, 100%, 50%, 1),hsla(210, 100%, 50%, 1),hsla(220, 100%, 50%, 1),hsla(230, 100%, 50%, 1),hsla(240, 100%, 50%, 1),hsla(250, 100%, 50%, 1),hsla(260, 100%, 50%, 1),hsla(270, 100%, 50%, 1),hsla(280, 100%, 50%, 1),hsla(290, 100%, 50%, 1),hsla(300, 100%, 50%, 1),hsla(310, 100%, 50%, 1),hsla(320, 100%, 50%, 1),hsla(330, 100%, 50%, 1),hsla(340, 100%, 50%, 1),hsla(350, 100%, 50%, 1),hsla(360, 100%, 50%, 1))";
+    } else {
+      _holder.classes.remove("vertical");
+
+      _canvas.style.background = "-webkit-linear-gradient(left, hsla(0, 100%, 50%, 1),hsla(10, 100%, 50%, 1),hsla(20, 100%, 50%, 1),hsla(30, 100%, 50%, 1),hsla(40, 100%, 50%, 1),hsla(50, 100%, 50%, 1),hsla(60, 100%, 50%, 1),hsla(70, 100%, 50%, 1),hsla(80, 100%, 50%, 1),hsla(90, 100%, 50%, 1),hsla(100, 100%, 50%, 1),hsla(110, 100%, 50%, 1),hsla(120, 100%, 50%, 1),hsla(130, 100%, 50%, 1),hsla(140, 100%, 50%, 1),hsla(150, 100%, 50%, 1),hsla(160, 100%, 50%, 1),hsla(170, 100%, 50%, 1),hsla(180, 100%, 50%, 1),hsla(190, 100%, 50%, 1),hsla(200, 100%, 50%, 1),hsla(210, 100%, 50%, 1),hsla(220, 100%, 50%, 1),hsla(230, 100%, 50%, 1),hsla(240, 100%, 50%, 1),hsla(250, 100%, 50%, 1),hsla(260, 100%, 50%, 1),hsla(270, 100%, 50%, 1),hsla(280, 100%, 50%, 1),hsla(290, 100%, 50%, 1),hsla(300, 100%, 50%, 1),hsla(310, 100%, 50%, 1),hsla(320, 100%, 50%, 1),hsla(330, 100%, 50%, 1),hsla(340, 100%, 50%, 1),hsla(350, 100%, 50%, 1),hsla(360, 100%, 50%, 1))";
+    }
   }
 
+  @PublishedProperty(reflect: true)
+  num hue = 100;
+
+  void hueChanged() {
+    if (vertical) {
+      _cursor.style.top = "${hue * 100 / 360}%";
+    } else {
+      _cursor.style.left = "${hue * 100 / 360}%";
+    }
+  }
+
+  @PublishedProperty(reflect: true)
+  ColorVal color = new ColorVal();
+
   void _fire_onchanged_event() {
-    //TODO: send valid detail
     var event = new CustomEvent("changed", canBubble: false, cancelable: false, detail: null);
     dispatchEvent(event);
   }

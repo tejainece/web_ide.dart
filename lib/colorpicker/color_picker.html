@@ -13,7 +13,7 @@
     <style>
       :host {
         padding: 5px 5px 5px 5px;
-        background-color: white;
+        background-color: #2a2a2a;
 
         -webkit-border-radius: 0;
         -moz-border-radius: 0;
@@ -25,7 +25,6 @@
         -moz-transition: opacity 0.218s;
         -o-transition: opacity 0.218s;
         transition: opacity 0.218s;
-        background: #fff;
         border: 1px solid #ccc;
         border: 1px solid rgba(0,0,0,.2);
 
@@ -40,22 +39,25 @@
       }
 
       .hsv-picker {
-
+        width: 104px;
+        height: 104px;
       }
 
       .hue-slider {
         margin-left: 5px;
+        height: 100%;
+        width: 20px;
       }
       
       #alpha-slider {
         margin-top: 10px;
         width: 100%;
         height: 20px;
-        background-color: gray;
       }
       
       #editor {
         width: 125px;
+        height: 100px;
         display: inline-block;
       }
       
@@ -68,7 +70,7 @@
       
         <div id="hsv-holder">
           <hsv-picker class="hsv-picker" size={{size}} hue="{{color.h}}" saturation="{{color.s}}" value="{{color.v}}"></hsv-picker>
-          <hue-slider class="hue-slider" breadth=16 size={{size}} vertical hue="{{color.h}}"></hue-slider>
+          <hue-slider class="hue-slider" vertical hue="{{color.h}}"></hue-slider>
         </div>
       
         <alpha-slider id="alpha-slider" alpha="{{color.a}}"></alpha-slider>

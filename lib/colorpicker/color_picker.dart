@@ -4,6 +4,7 @@ import 'package:polymer/polymer.dart';
 import 'package:logging/logging.dart';
 import 'dart:html';
 import 'dart:async';
+import 'dart:math';
 
 import '../utils/dockable_utils.dart';
 
@@ -32,14 +33,10 @@ class ColorPicker extends PolymerElement {
   PaperSlider _alphaSlider;*/
 
   ColorPicker.created() : super.created() {
-    _logger.finest('created');
   }
-
-  final _logger = new Logger('Dockable.ColorPicker');
 
   @override
   void polymerCreated() {
-    _logger.finest('polymerCreated');
     super.polymerCreated();
   }
 
@@ -53,6 +50,10 @@ class ColorPicker extends PolymerElement {
 
     _alphaSlider = shadowRoot.querySelector("#alpha-slider");*/
     //sizeChanged();
+    
+    this.onContextMenu.listen((ev) {
+      ev.preventDefault();
+    });
   }
 
   @PublishedProperty(reflect: true)

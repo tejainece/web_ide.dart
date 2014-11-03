@@ -53,6 +53,7 @@ class StreamMouseTrack {
 class AlphaSlider extends PolymerElement {
   bool get preventDispose => true;
 
+  DivElement _holder;
   DivElement _canvas;
   DivElement _transCanvas;
   DivElement _cursor;
@@ -75,6 +76,7 @@ class AlphaSlider extends PolymerElement {
   void ready() {
     super.ready();
 
+    _holder = shadowRoot.querySelector("#holder");
     _canvas = shadowRoot.querySelector("#canvas");
     _transCanvas = shadowRoot.querySelector("#transparent");
     _cursor = shadowRoot.querySelector("#cursor");
@@ -82,48 +84,52 @@ class AlphaSlider extends PolymerElement {
     _canvas.onMouseDown.listen(handleCanvasClick);
 
     _cursor.onMouseDown.listen(handleCursorStart);
-
-    sizeChanged();
+    
+    verticalChanged();
   }
 
   ColorVal _color_before;
 
   void handleCanvasClick(MouseEvent event) {
-    handleCursorChange(event);
+    if (event.button == 0) {
+      handleCursorChange(event);
+    }
   }
 
   void handleCursorStart(MouseEvent event) {
     _sstreams.cancel();
 
-    _color_before = color;
+    if (event.button == 0) {
+      _color_before = color;
 
-    handleCursorChange(event);
+      handleCursorChange(event);
 
-    StreamSubscription mousemove = document.onMouseMove.listen(handleCursorChange);
-    StreamSubscription mouseleave = document.onMouseLeave.listen((e) {
-      handleCursorChange(e);
-      _sstreams.cancel();
-    });
-    StreamSubscription docmouseup = document.body.onMouseUp.listen((_) {
-      _sstreams.cancel();
-    });
-    StreamSubscription keydown = document.onKeyDown.listen((e) {
-      if (e.keyCode == KeyCode.ESC) {
+      StreamSubscription mousemove = document.onMouseMove.listen(handleCursorChange);
+      StreamSubscription mouseleave = document.onMouseLeave.listen((e) {
+        handleCursorChange(e);
         _sstreams.cancel();
-        alpha = _color_before.a;
-      }
-    });
+      });
+      StreamSubscription docmouseup = document.body.onMouseUp.listen((_) {
+        _sstreams.cancel();
+      });
+      StreamSubscription keydown = document.onKeyDown.listen((e) {
+        if (e.keyCode == KeyCode.ESC) {
+          _sstreams.cancel();
+          alpha = _color_before.a;
+        }
+      });
 
-    _sstreams.reset(mousemove, mouseleave, docmouseup, keydown);
+      _sstreams.reset(mousemove, mouseleave, docmouseup, keydown);
+    }
   }
 
   void handleCursorChange(MouseEvent event) {
-    if (size != 0) {
+    if (_canvas.offsetParent != null) {
       int tmp_alpha = 100;
       if (vertical) {
-        tmp_alpha = (((event.offset.y - (size / 2)) / _canvas.offsetHeight) * 100).round();
+        tmp_alpha = (((event.offset.y - 10) / _canvas.offsetHeight) * 100).round();
       } else {
-        tmp_alpha = (((event.offset.x - (size / 2)) / _canvas.offsetWidth) * 100).round();
+        tmp_alpha = (((event.offset.x - 10) / _canvas.offsetWidth) * 100).round();
       }
 
       if (tmp_alpha < 0) {
@@ -141,39 +147,15 @@ class AlphaSlider extends PolymerElement {
   bool vertical = false;
 
   void verticalChanged() {
-    //TODO: set background image
-
     if (vertical) {
-      _canvas.style.width = "${size}px";
+      _holder.classes.add("vertical");
 
-
-      _cursor.style.left = "0px";
-      
       _canvas.style.background = "linear-gradient(top, rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 1))";
     } else {
-      _canvas.style.width = "calc(100%)";
-      _canvas.style.height = "${size}px";
+      _holder.classes.remove("vertical");
 
-      _transCanvas.style.width = "calc(100%)";
-      _transCanvas.style.height = "${size}px";
-
-      this.style.paddingLeft = "${size/2}px";
-      this.style.paddingRight = "${size/2}px";
-
-      _cursor.style.top = "0px";
-      
-      _canvas.style.background = "-webkit-linear-gradient(left, rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 1))";
+      _canvas.style.background = "linear-gradient(left, rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 1))";
     }
-  }
-
-  @published
-  int size = 20;
-
-  void sizeChanged() {
-    verticalChanged();
-
-    _cursor.style.width = "${size}px";
-    _cursor.style.height = "${size}px";
   }
 
   @PublishedProperty(reflect: true)
@@ -182,14 +164,9 @@ class AlphaSlider extends PolymerElement {
   void alphaChanged() {
     if (vertical) {
       _cursor.style.top = "${alpha}%";
-
-      _cursor.style.marginTop = "${-size/2}px";
     } else {
       _cursor.style.left = "${alpha}%";
-
-      _cursor.style.marginLeft = "${-size/2}px";
     }
-    _cursor.text = alpha.toString();
   }
 
   @PublishedProperty(reflect: true)

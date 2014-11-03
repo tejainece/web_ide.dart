@@ -14,7 +14,6 @@ main() {
       preview = querySelector("#preview");
 
       cp.onChanged.listen((_) {
-        print("here ${cp.color.toRgbString()}");
         preview.style.backgroundColor = cp.color.toRgbString();
       });
 
