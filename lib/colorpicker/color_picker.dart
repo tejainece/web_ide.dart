@@ -11,6 +11,7 @@ import "package:paper_elements/paper_slider.dart";
 
 part 'hsv_picker.dart';
 part 'hue_slider.dart';
+part 'alpha_slider.dart';
 
 /*
  * TODO:
@@ -25,10 +26,10 @@ class ColorPicker extends PolymerElement {
    */
   bool get preventDispose => true;
 
-  HsvPicker _hsv_gradient;
+  /*HsvPicker _hsv_gradient;
   HueSlider _hue_slider;
 
-  PaperSlider _alphaSlider;
+  PaperSlider _alphaSlider;*/
 
   ColorPicker.created() : super.created() {
     _logger.finest('created');
@@ -46,15 +47,15 @@ class ColorPicker extends PolymerElement {
   void ready() {
     super.ready();
 
-    _hsv_gradient = shadowRoot.querySelector(".hsv-picker");
+    /*_hsv_gradient = shadowRoot.querySelector(".hsv-picker");
 
     _hue_slider = shadowRoot.querySelector(".hue-slider");
 
-    _alphaSlider = shadowRoot.querySelector("#alpha-slider");
+    _alphaSlider = shadowRoot.querySelector("#alpha-slider");*/
     //sizeChanged();
   }
 
-  @published
+  @PublishedProperty(reflect: true)
   int size = 100;
 
   void sizeChanged() {
@@ -62,7 +63,7 @@ class ColorPicker extends PolymerElement {
     this.style.height = "${size}px";
   }
 
-  @published
+  @PublishedProperty(reflect: true)
   ColorVal color = new ColorVal();
 
   void colorChanged() {

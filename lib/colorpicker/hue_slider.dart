@@ -231,7 +231,7 @@ class HueSlider extends PolymerElement {
   /*
    * Hue angle in  radian.
    */
-  @published
+  @PublishedProperty(reflect: true)
   num hue = 0;
 
   ColorVal get hueAsColor {

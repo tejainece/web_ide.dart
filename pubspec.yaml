@@ -1,5 +1,5 @@
 name: dockable
-version: 0.1.8
+version: 0.1.10
 description: IDE framework for dart web apps using PolymerDart.
 dependencies:
   core_elements: any
@@ -8,5 +8,4 @@ dependencies:
 transformers:
 - polymer:
     entry_points:
-    - web/property_editor/dynamic/property_editor.html
-    - web/icon/dynamic/icon.html
+    - examples/color_picker/color_picker.html

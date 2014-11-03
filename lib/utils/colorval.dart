@@ -65,11 +65,11 @@ class ColorVal extends ChangeNotifier {
   }
 
   /** Alpha color component. Value ranges from [0..100] */
-  int _a = 100;
+  num _a = 100;
   @observable
-  int get a => _a;
-  set a(int new_a) {
-    int up_a = inRange(new_a, 0, 100);
+  num get a => _a;
+  set a(num new_a) {
+    num up_a = inRange(new_a, 0, 100);
     _a = notifyPropertyChange(#a, _a, up_a);
 
     notifyPropertyChange(#rgbaString, "", rgbaString);

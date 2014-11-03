@@ -88,7 +88,7 @@ class HsvPicker extends PolymerElement {
     }
   }
 
-  @published
+  @PublishedProperty(reflect: true)
   int size = 100;
 
   void sizeChanged() {
@@ -96,7 +96,7 @@ class HsvPicker extends PolymerElement {
     notifyPropertyChange(#cursorY, null, cursorY);
   }
 
-  @published
+  @PublishedProperty(reflect: true)
   num saturation = 100;
 
   @observable
@@ -108,7 +108,7 @@ class HsvPicker extends PolymerElement {
     _fire_onchanged_event();
   }
 
-  @published
+  @PublishedProperty(reflect: true)
   num value = 100;
 
   @observable
@@ -120,7 +120,7 @@ class HsvPicker extends PolymerElement {
     _fire_onchanged_event();
   }
 
-  @published
+  @PublishedProperty(reflect: true)
   num hue = 0;
 
   void hueChanged() {
