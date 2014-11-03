@@ -51,7 +51,6 @@ class ColorPicker extends PolymerElement {
     _hue_slider = shadowRoot.querySelector(".hue-slider");
 
     _alphaSlider = shadowRoot.querySelector("#alpha-slider");
-
     //sizeChanged();
   }
 

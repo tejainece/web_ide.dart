@@ -5,13 +5,10 @@ import 'dart:html';
 import 'dart:async';
 import '../drag_drop/drag_drop.dart';
 import 'package:smoke/smoke.dart' as smoke;
-import 'dart:mirrors';
 import 'package:dockable/utils/dockable_utils.dart';
 import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope;
 
 import 'package:dockable/dockable.dart';
-
-part "ordered_list_item.dart";
 
 class DragStreams {
   StreamSubscription dragStart;
@@ -135,7 +132,7 @@ class OrderedList extends SelectorHelper {
         _fireOnItemDoubleClicked(me.target);
       });
       newStreams.contextmenu = ch.onContextMenu.listen((MouseEvent me) {
-        _fireOnItemDoubleClicked(me.target);
+        _fireOnItemContextMenu(me.target);
       });
 
       _dragStreams[ch] = newStreams;
