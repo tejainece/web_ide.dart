@@ -86,9 +86,10 @@ class AlphaSlider extends PolymerElement {
     _cursor.onMouseDown.listen(handleCursorStart);
     
     verticalChanged();
+    alphaChanged();
   }
 
-  ColorVal _color_before;
+  num _alpha_before;
 
   void handleCanvasClick(MouseEvent event) {
     if (event.button == 0) {
@@ -100,7 +101,7 @@ class AlphaSlider extends PolymerElement {
     _sstreams.cancel();
 
     if (event.button == 0) {
-      _color_before = color;
+      _alpha_before = alpha;
 
       handleCursorChange(event);
 
@@ -115,7 +116,7 @@ class AlphaSlider extends PolymerElement {
       StreamSubscription keydown = document.onKeyDown.listen((e) {
         if (e.keyCode == KeyCode.ESC) {
           _sstreams.cancel();
-          alpha = _color_before.a;
+          alpha = _alpha_before;
         }
       });
 
@@ -167,6 +168,8 @@ class AlphaSlider extends PolymerElement {
     } else {
       _cursor.style.left = "${alpha}%";
     }
+    
+    _fire_onchanged_event();
   }
 
   @PublishedProperty(reflect: true)

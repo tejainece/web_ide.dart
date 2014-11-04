@@ -208,9 +208,11 @@ class ColorVal extends ChangeNotifier {
         t_b = i_m;
         break;
     }
-    r = t_r * 100 / 255;
-    g = t_g * 100 / 255;
-    b = t_b * 100 / 255;
+    r = t_r * 255/ 100;
+    g = t_g * 255/100;
+    b = t_b * 255/100;
+    
+    //print("${arg_hue} ${saturation} ${value}");
   }
 
   /**
@@ -306,7 +308,7 @@ class ColorVal extends ChangeNotifier {
     if (maxV == 0) {
       return 0;
     } else {
-      return (range * 100) ~/ maxV;
+      return (range * 100) / maxV;
     }
   }
 
@@ -318,7 +320,7 @@ class ColorVal extends ChangeNotifier {
   }
 
   num get v {
-    return max(max(r, g), b) * 100 / 255;
+    return (max(max(r, g), b) * 100) / 255;
   }
 
   set v(num new_v) {

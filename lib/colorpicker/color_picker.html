@@ -6,9 +6,7 @@
 <link rel="import" href="alpha_slider.html">
 <link rel="import" href="hue_slider.html">
 
-<link rel="import" href="../../../packages/paper_elements/paper_slider.html">
-
-<polymer-element name="color-picker" attributes="size color">
+<polymer-element name="color-picker" attributes="color">
   <template>
     <style>
       :host {
@@ -120,7 +118,7 @@
           <hue-slider class="hue-slider" vertical hue="{{color.h}}"></hue-slider>
         </div>
       
-        <alpha-slider id="alpha-slider" alpha="{{color.a}}"></alpha-slider>
+        <alpha-slider id="alpha-slider" alpha="{{color.a}}" color="{{color}}"></alpha-slider>
         <!--<paper-slider id="alpha-slider" value="{{color.a}}" pin="" tabindex="0" min="0" max="100"></paper-slider>-->
       
       </div>

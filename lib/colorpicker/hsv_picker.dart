@@ -71,7 +71,6 @@ class HsvPicker extends PolymerElement {
       tmp_sat = min(100, max(0, tmp_sat));
       tmp_val = min(100, max(0, tmp_val));
       
-      
       saturation = tmp_sat;
       value = tmp_val;
     } else {
@@ -81,17 +80,18 @@ class HsvPicker extends PolymerElement {
   }
 
   @PublishedProperty(reflect: true)
-  num saturation = 100;
+  num saturation = 100.0;
 
   void saturationChanged() {
     _fire_onchanged_event();
   }
 
   @PublishedProperty(reflect: true)
-  num value = 100;
+  num value = 100.0;
 
   void valueChanged() {
-
+    //print("${color.rgbaString} ${hue} ${saturation} ${value}");
+    
     _fire_onchanged_event();
   }
 
@@ -110,7 +110,7 @@ class HsvPicker extends PolymerElement {
 
   @observable
   ColorVal get hueAsColor {
-    return new ColorVal.fromHSV(hue, 100, 100);
+    return new ColorVal.fromHSV(hue, 100.0, 100.0);
   }
 
   ColorVal get color => new ColorVal.fromHSV(hue, saturation, value);

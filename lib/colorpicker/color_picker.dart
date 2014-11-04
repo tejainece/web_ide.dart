@@ -14,10 +14,6 @@ part 'hsv_picker.dart';
 part 'hue_slider.dart';
 part 'alpha_slider.dart';
 
-/*
- * TODO:
- * 1) test size change
- */
 
 @CustomTag('color-picker')
 class ColorPicker extends PolymerElement {
@@ -57,14 +53,6 @@ class ColorPicker extends PolymerElement {
   }
 
   @PublishedProperty(reflect: true)
-  int size = 100;
-
-  void sizeChanged() {
-    this.style.width = "${size+5+16}px";
-    this.style.height = "${size}px";
-  }
-
-  @PublishedProperty(reflect: true)
   ColorVal color = new ColorVal();
 
   void colorChanged() {
@@ -75,16 +63,46 @@ class ColorPicker extends PolymerElement {
 
     if (color != null) {
       _colChgStream = color.changes.listen((_) {
+        print("hue from ch ${color.h}");
         _fire_onchanged_event();
       });
     } else {
 
     }
 
+    print("hue from chan ${color.h}");
     _fire_onchanged_event();
   }
 
   StreamSubscription _colChgStream;
+  
+  /*@observable
+  num hue = 0;
+  
+  void hueChanged() {
+    
+  }
+  
+  @observable
+  num saturation = 100;
+  
+  void saturationChanged() {
+    
+  }
+  
+  @observable
+  num value = 100;
+  
+  void valueChanged() {
+    
+  }
+  
+  @observable
+  num alpha = 100;
+  
+  void alphaChanged() {
+    
+  }*/
 
   void _fire_onchanged_event() {
     //TODO: send valid detail

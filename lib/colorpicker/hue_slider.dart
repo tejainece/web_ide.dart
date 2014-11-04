@@ -39,13 +39,12 @@ class HueSlider extends PolymerElement {
     verticalChanged();
   }
 
-  ColorVal _color_before;
+  num _hue_before;
   Point _startPoint, _diffPoint;
 
   void _handleCanvasClick(MouseEvent event) {
     if (event.button == 0) {
-      print("here");
-      _color_before = color;
+      _hue_before = hue;
 
       _startPoint = event.offset;
       _diffPoint = event.page;
@@ -64,7 +63,7 @@ class HueSlider extends PolymerElement {
       StreamSubscription keydown = document.onKeyDown.listen((e) {
         if (e.keyCode == KeyCode.ESC) {
           _sstreams.cancel();
-          hue = _color_before.h;
+          hue = _hue_before;
         }
       });
 
@@ -76,12 +75,10 @@ class HueSlider extends PolymerElement {
     _sstreams.cancel();
 
     if (event.button == 0) {
-      _color_before = color;
+      _hue_before = hue;
 
       _startPoint = event.offset + _cursor.parent.offset.topLeft;
       _diffPoint = event.page;
-      
-      print("here2 ${_startPoint}");
 
       handleCursorChange(event);
 
@@ -96,7 +93,7 @@ class HueSlider extends PolymerElement {
       StreamSubscription keydown = document.onKeyDown.listen((e) {
         if (e.keyCode == KeyCode.ESC) {
           _sstreams.cancel();
-          hue = _color_before.h;
+          hue =_hue_before;
         }
       });
 
@@ -149,10 +146,8 @@ class HueSlider extends PolymerElement {
     } else {
       _cursor.style.left = "${hue * 100 / 360}%";
     }
+    //print("hue ${hue}");
   }
-
-  @PublishedProperty(reflect: true)
-  ColorVal color = new ColorVal();
 
   void _fire_onchanged_event() {
     var event = new CustomEvent("changed", canBubble: false, cancelable: false, detail: null);

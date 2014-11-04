@@ -10,11 +10,12 @@ DivElement preview;
 main() {
   initPolymer().run(() {
     Polymer.onReady.then((_) {
-      cp = querySelector("#cp");
+      cp = new Element.tag("color-picker");
+      document.body.children.add(cp);
       preview = querySelector("#preview");
 
       cp.onChanged.listen((_) {
-        preview.style.backgroundColor = cp.color.toRgbString();
+        preview.style.backgroundColor = cp.color.rgbaString;
       });
 
     });
