@@ -19,8 +19,8 @@
 
         display: inline-block;
         
-        width: 230px;
-        height: 145px;
+        width: 300px;
+        height: 132px;
         
         position: relative;
       }
@@ -46,7 +46,7 @@
       #alpha-slider {
         margin-top: 10px;
         width: 125px;
-        height: 28px;
+        height: 20px;
       }
       
       #editor {
@@ -78,15 +78,20 @@
       }
       
       .info-value {
-        margin-left: 8px;
+        margin: 0px 0px 0px 8px;
         padding: 2px 5px;
-        border-radius: 5px;
         box-shadow: rgba(255,255,255,0.1) 0 1px 0,rgba(0,0,0,0.8) 0 1px 7px 0px inset;
         color: #999;
+        
+        outline: none;
+        border: none;
+        background-color: transparent;
+        width: 40px;
+        text-align: right;
       }
       
       .info-preview {
-        width: 100%;
+        width: 155px;
         height: 20px;
         display: flex;
       }
@@ -94,7 +99,7 @@
       .info-preview-previous {
         cursor: pointer;
         
-        width: 40px;
+        width: 50%;
         height: 100%;
         display: inline-block;
         
@@ -104,11 +109,20 @@
       .info-preview-current {
         cursor: pointer;
         
-        width: 40px;
+        width: 50%;
         height: 100%;
         display: inline-block;
         
         background-color: blue;
+      }
+      
+      #info-rgbhsv-holder {
+        display: flex;
+        width: 155px;
+      }
+      
+      #info-hsv-holder {
+        margin-left: 10px;
       }
     </style>
       <div id="editor">
@@ -129,34 +143,43 @@
           <div class="info-preview-previous"></div>
           <div class="info-preview-current"></div>
         </div>
-        <div class="info-row">
-          <span class="info-name">R</span>
-          <span class="info-value">{{color.r}}</span>
-        </div>
-        <div class="info-row">
-          <span class="info-name">G</span>
-          <span class="info-value">{{color.g}}</span>
-        </div>
-        <div class="info-row">
-          <span class="info-name">B</span>
-          <span class="info-value">{{color.b}}</span>
-        </div>
-        <div class="info-row" style="margin-top: 6px;">
-          <span class="info-name">H</span>
-          <span class="info-value">{{color.h}}</span>
-        </div>
-        <div class="info-row">
-          <span class="info-name">S</span>
-          <span class="info-value">{{color.s}}</span>
-        </div>
-        <div class="info-row">
-          <span class="info-name">V</span>
-          <span class="info-value">{{color.v}}</span>
+        
+        <div id="info-rgbhsv-holder">
+          <div id="info-rgb-holder">
+            <div class="info-row">
+              <span class="info-name">R</span>
+              <input class="info-value" value="{{color.r | numberFormat}}">
+            </div>
+            <div class="info-row">
+              <span class="info-name">G</span>
+              <input class="info-value" value="{{color.g | numberFormat}}">
+            </div>
+            <div class="info-row">
+              <span class="info-name">B</span>
+              <input class="info-value" value="{{color.b | numberFormat}}">
+            </div>
+          </div>
+          
+          <div id="info-hsv-holder">
+            <div class="info-row">
+              <span class="info-name">H</span>
+              <input class="info-value" value="{{color.h | numberFormat}}">
+            </div>
+            <div class="info-row">
+              <span class="info-name">S</span>
+              <input class="info-value" value="{{color.s | numberFormat}}">
+            </div>
+            <div class="info-row">
+              <span class="info-name">V</span>
+              <input class="info-value" value="{{color.v | numberFormat}}">
+            </div>
+          </div>
         </div>
         
+
         <div class="info-row">
           <span class="info-name">A</span>
-          <span class="info-value">{{color.a / 100}}</span>
+          <span class="info-value">{{(color.a / 100) | numberFormat}}</span>
         </div>
       </div>
   </template>

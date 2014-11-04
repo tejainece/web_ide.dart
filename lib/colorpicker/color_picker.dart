@@ -1,7 +1,7 @@
 library colorpicker;
 
 import 'package:polymer/polymer.dart';
-import 'package:logging/logging.dart';
+import 'package:sprintf/sprintf.dart';
 import 'dart:html';
 import 'dart:async';
 import 'dart:math';
@@ -103,6 +103,16 @@ class ColorPicker extends PolymerElement {
   void alphaChanged() {
     
   }*/
+  
+  String numberFormat(num number) {
+    if(number is int) {
+      return number.toString();
+    } else if(number is num) {
+      return sprintf("%.2f", [number]);
+    } else {
+      return number.toString();
+    }
+  }
 
   void _fire_onchanged_event() {
     //TODO: send valid detail
