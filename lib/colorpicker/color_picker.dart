@@ -52,7 +52,7 @@ class ColorPicker extends PolymerElement {
     //sizeChanged();
     
     this.onContextMenu.listen((ev) {
-      ev.preventDefault();
+      //TODO: ev.preventDefault();
     });
   }
 

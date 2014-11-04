@@ -29,6 +29,7 @@
         padding: 4px;
         
         box-shadow: rgba(0,0,0,0.3) 0 1px inset,rgba(255,255,255,0.1) 0 1px;
+        box-sizing: border-box;
       }
       
       .bar {
@@ -39,13 +40,13 @@
       
       #holder:not(.vertical) .bar {
         width: calc(100% - 28px);
-        height: 20px;
+        height: calc(100% - 8px);
         
         left: 14px;
       }
       
       #holder.vertical .bar {
-        width: 20px;
+        width: calc(100% - 8px);
         height: calc(100% - 28px);
         
         top: 14px;
@@ -74,7 +75,7 @@
         position: absolute;
         
         width: 20px;
-        height: 20px;
+        height: 100%;
         
         box-sizing: border-box;
         
@@ -93,6 +94,9 @@
       #holder.vertical #cursor-holder #cursor {
         margin-left: 0px;
         margin-top: -10px;
+        
+        width: 100%;
+        height: 20px%;
       }
     </style>
       <div id="holder">
