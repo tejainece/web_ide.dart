@@ -99,9 +99,9 @@ class AlphaSlider extends PolymerElement {
 
     if (event.button == 0) {
       _alpha_before = alpha;
-      
+
       _startPoint = event.offset;
-            _diffPoint = event.page;
+      _diffPoint = event.page;
 
       handleCursorChange(event);
 
@@ -129,9 +129,9 @@ class AlphaSlider extends PolymerElement {
 
     if (event.button == 0) {
       _alpha_before = alpha;
-      
-      _startPoint = event.offset + _cursor.parent.offset.topLeft;
-            _diffPoint = event.page;
+
+      _startPoint = event.offset + _cursor.offset.topLeft;
+      _diffPoint = event.page;
 
       handleCursorChange(event);
 
