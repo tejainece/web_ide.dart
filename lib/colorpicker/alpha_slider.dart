@@ -84,16 +84,43 @@ class AlphaSlider extends PolymerElement {
     _canvas.onMouseDown.listen(handleCanvasClick);
 
     _cursor.onMouseDown.listen(handleCursorStart);
-    
+
     verticalChanged();
     alphaChanged();
+
+    colorChanged();
   }
 
   num _alpha_before;
+  Point _startPoint, _diffPoint;
 
   void handleCanvasClick(MouseEvent event) {
+    _sstreams.cancel();
+
     if (event.button == 0) {
+      _alpha_before = alpha;
+      
+      _startPoint = event.offset;
+            _diffPoint = event.page;
+
       handleCursorChange(event);
+
+      StreamSubscription mousemove = document.onMouseMove.listen(handleCursorChange);
+      StreamSubscription mouseleave = document.onMouseLeave.listen((e) {
+        handleCursorChange(e);
+        _sstreams.cancel();
+      });
+      StreamSubscription docmouseup = document.body.onMouseUp.listen((_) {
+        _sstreams.cancel();
+      });
+      StreamSubscription keydown = document.onKeyDown.listen((e) {
+        if (e.keyCode == KeyCode.ESC) {
+          _sstreams.cancel();
+          alpha = _alpha_before;
+        }
+      });
+
+      _sstreams.reset(mousemove, mouseleave, docmouseup, keydown);
     }
   }
 
@@ -102,6 +129,9 @@ class AlphaSlider extends PolymerElement {
 
     if (event.button == 0) {
       _alpha_before = alpha;
+      
+      _startPoint = event.offset + _cursor.parent.offset.topLeft;
+            _diffPoint = event.page;
 
       handleCursorChange(event);
 
@@ -127,10 +157,21 @@ class AlphaSlider extends PolymerElement {
   void handleCursorChange(MouseEvent event) {
     if (_canvas.offsetParent != null) {
       int tmp_alpha = 100;
+      int off = 0;
       if (vertical) {
-        tmp_alpha = (((event.offset.y - 10) / _canvas.offsetHeight) * 100).round();
+        if (event.target == _cursor) {
+          off = (_startPoint.y + event.page.y - _diffPoint.y);
+        } else {
+          off = (_startPoint.y + event.page.y - _diffPoint.y);
+        }
+        tmp_alpha = ((off / _canvas.offsetHeight) * 100).round();
       } else {
-        tmp_alpha = (((event.offset.x - 10) / _canvas.offsetWidth) * 100).round();
+        if (event.target == _cursor) {
+          off = (_startPoint.x + event.page.x - _diffPoint.x);
+        } else {
+          off = (_startPoint.x + event.page.x - _diffPoint.x);
+        }
+        tmp_alpha = ((off / _canvas.offsetWidth) * 100).round();
       }
 
       if (tmp_alpha < 0) {
@@ -144,19 +185,28 @@ class AlphaSlider extends PolymerElement {
     }
   }
 
+  void _updateGradient() {
+
+    if (vertical) {
+      _canvas.style.background = '''-webkit-linear-gradient(top, rgba(${color.r.toInt()}, ${color.g.toInt()}, ${color.b.toInt()}, 0), 
+                                  rgba(${color.r.toInt()}, ${color.g.toInt()}, ${color.b.toInt()}, 1))''';
+    } else {
+      _canvas.style.background = '''-webkit-linear-gradient(left, rgba(${color.r.toInt()}, ${color.g.toInt()}, ${color.b.toInt()}, 0), 
+                                  rgba(${color.r.toInt()}, ${color.g.toInt()}, ${color.b.toInt()}, 1))''';
+    }
+  }
+
   @published
   bool vertical = false;
 
   void verticalChanged() {
     if (vertical) {
       _holder.classes.add("vertical");
-
-      _canvas.style.background = "linear-gradient(top, rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 1))";
     } else {
       _holder.classes.remove("vertical");
-
-      _canvas.style.background = "linear-gradient(left, rgba(${color.r}, ${color.g}, ${color.b}, 0), rgba(${color.r}, ${color.g}, ${color.b}, 1))";
     }
+
+    _updateGradient();
   }
 
   @PublishedProperty(reflect: true)
@@ -168,12 +218,35 @@ class AlphaSlider extends PolymerElement {
     } else {
       _cursor.style.left = "${alpha}%";
     }
-    
+
     _fire_onchanged_event();
   }
 
   @PublishedProperty(reflect: true)
   ColorVal color = new ColorVal();
+
+  void colorChanged() {
+    if (_colChgStream != null) {
+      _colChgStream.cancel();
+      _colChgStream = null;
+    }
+
+    if (color != null) {
+      _colChgStream = color.changes.listen((_) {
+        print("shere");
+        //print("hue from ch ${color.h}");
+        _updateGradient();
+        _fire_onchanged_event();
+      });
+    } else {
+      color = new ColorVal();
+    }
+
+    _updateGradient();
+    _fire_onchanged_event();
+  }
+
+  StreamSubscription _colChgStream;
 
   void _fire_onchanged_event() {
     var event = new CustomEvent("changed", canBubble: false, cancelable: false, detail: null);

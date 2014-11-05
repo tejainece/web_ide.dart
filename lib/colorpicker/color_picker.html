@@ -102,8 +102,6 @@
         width: 50%;
         height: 100%;
         display: inline-block;
-        
-        background-color: orange;
       }
       
       .info-preview-current {
@@ -112,8 +110,6 @@
         width: 50%;
         height: 100%;
         display: inline-block;
-        
-        background-color: blue;
       }
       
       #info-rgbhsv-holder {
@@ -141,7 +137,7 @@
       <div id="info-box">
         <div class="info-preview info-row">
           <div class="info-preview-previous"></div>
-          <div class="info-preview-current"></div>
+          <div class="info-preview-current" style="background-color: {{color.rgbaString}}"></div>
         </div>
         
         <div id="info-rgbhsv-holder">

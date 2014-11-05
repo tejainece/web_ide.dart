@@ -63,14 +63,13 @@ class ColorPicker extends PolymerElement {
 
     if (color != null) {
       _colChgStream = color.changes.listen((_) {
-        print("hue from ch ${color.h}");
+        //print("hue from ch ${color.h}");
         _fire_onchanged_event();
       });
     } else {
-
+      color = new ColorVal();
     }
 
-    print("hue from chan ${color.h}");
     _fire_onchanged_event();
   }
 
