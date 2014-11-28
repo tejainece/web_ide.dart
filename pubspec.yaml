@@ -2,10 +2,10 @@ name: dockable
 version: 0.1.14
 description: IDE framework for dart web apps using PolymerDart.
 dependencies:
-  core_elements: '0.4.0'
+  core_elements: 0.3.2
   paper_elements: any
   polymer: '>0.13.0'
-  sprintf: ">=1.0.7"
+  sprintf: '>=1.0.7'
 transformers:
 - polymer:
     entry_points:

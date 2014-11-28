@@ -28,7 +28,7 @@ packages:
   core_elements:
     description: core_elements
     source: hosted
-    version: "0.4.0"
+    version: "0.3.2"
   csslib:
     description: csslib
     source: hosted
