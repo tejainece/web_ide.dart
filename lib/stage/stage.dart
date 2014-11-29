@@ -1272,10 +1272,7 @@ class DockStage extends PolymerElement {
     stageheightChanged();
 
     for (StageElement elem in _elements) {
-      elem.widthChanged();
-      elem.heightChanged();
-      elem.leftChanged();
-      elem.topChanged();
+      elem.scale_updated();
     }
 
     _showAnchors();

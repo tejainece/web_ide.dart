@@ -116,12 +116,15 @@ class StageElement extends PolymerElement {
   @published
   bool selectable = true;
 
+  /*@published
+  String text = "";*/
+
   @published
-  String text = "";
+  int fontsize = 16;
 
   @observable
   int get scaledleft {
-    if(_stage != null) {
+    if (_stage != null) {
       return left * _stage.stagescale;
     } else {
       return 0;
@@ -129,8 +132,8 @@ class StageElement extends PolymerElement {
   }
 
   @observable
-  int get scaledtop  {
-    if(_stage != null) {
+  int get scaledtop {
+    if (_stage != null) {
       return top * _stage.stagescale;
     } else {
       return 0;
@@ -138,8 +141,8 @@ class StageElement extends PolymerElement {
   }
 
   @observable
-  int get scaledwidth  {
-    if(_stage != null) {
+  int get scaledwidth {
+    if (_stage != null) {
       return width * _stage.stagescale;
     } else {
       return 0;
@@ -147,9 +150,18 @@ class StageElement extends PolymerElement {
   }
 
   @observable
-  int get scaledheight  {
-    if(_stage != null) {
+  int get scaledheight {
+    if (_stage != null) {
       return height * _stage.stagescale;
+    } else {
+      return 0;
+    }
+  }
+  
+  @observable
+  int get scaledfontsize {
+    if (_stage != null) {
+      return fontsize * _stage.stagescale;
     } else {
       return 0;
     }
@@ -195,10 +207,27 @@ class StageElement extends PolymerElement {
     }
   }
 
+  void fontsizechanged() {
+    if (_stage != null) {
+      notifyPropertyChange(#scaledfontsize, 0, scaledfontsize);
+      this.style.fontSize = "${scaledfontsize}px";
+    }
+  }
+
   void selectableChanged() {
     if (selectable == false) {
       deselect();
     }
+  }
+
+  void scale_updated() {
+    widthChanged();
+    heightChanged();
+    leftChanged();
+    topChanged();
+
+    fontsizechanged();
+    //TODO: scale padding
   }
 
   EventStreamProvider<CustomEvent> _sizeChangedEventP = new EventStreamProvider<CustomEvent>("sizechanged");
