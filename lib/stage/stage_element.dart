@@ -116,8 +116,8 @@ class StageElement extends PolymerElement {
   @published
   bool selectable = true;
 
-  /*@published
-  String text = "";*/
+  @published
+  String text = "";
 
   @published
   int fontsize = 16;
