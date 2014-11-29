@@ -125,7 +125,7 @@ class StageElement extends PolymerElement {
   @observable
   int get scaledleft {
     if (_stage != null) {
-      return left * _stage.stagescale;
+      return (left * _stage.stagescale).toInt();
     } else {
       return 0;
     }
@@ -134,7 +134,7 @@ class StageElement extends PolymerElement {
   @observable
   int get scaledtop {
     if (_stage != null) {
-      return top * _stage.stagescale;
+      return (top * _stage.stagescale).toInt();
     } else {
       return 0;
     }
@@ -143,7 +143,7 @@ class StageElement extends PolymerElement {
   @observable
   int get scaledwidth {
     if (_stage != null) {
-      return width * _stage.stagescale;
+      return (width * _stage.stagescale).toInt();
     } else {
       return 0;
     }
@@ -152,7 +152,7 @@ class StageElement extends PolymerElement {
   @observable
   int get scaledheight {
     if (_stage != null) {
-      return height * _stage.stagescale;
+      return (height * _stage.stagescale).toInt();
     } else {
       return 0;
     }
@@ -161,7 +161,7 @@ class StageElement extends PolymerElement {
   @observable
   int get scaledfontsize {
     if (_stage != null) {
-      return fontsize * _stage.stagescale;
+      return (fontsize * _stage.stagescale).toInt();
     } else {
       return 0;
     }
@@ -198,6 +198,7 @@ class StageElement extends PolymerElement {
   }
 
   void heightChanged() {
+    print("height changed");
     if (_stage != null) {
       notifyPropertyChange(#scaledheight, 0, scaledheight);
       this.style.height = "${scaledheight}px";
@@ -207,9 +208,11 @@ class StageElement extends PolymerElement {
     }
   }
 
-  void fontsizechanged() {
+  void fontsizeChanged() {
+    print("here");
     if (_stage != null) {
       notifyPropertyChange(#scaledfontsize, 0, scaledfontsize);
+      print(scaledfontsize);
       this.style.fontSize = "${scaledfontsize}px";
     }
   }
@@ -226,7 +229,7 @@ class StageElement extends PolymerElement {
     leftChanged();
     topChanged();
 
-    fontsizechanged();
+    fontsizeChanged();
     //TODO: scale padding
   }
 

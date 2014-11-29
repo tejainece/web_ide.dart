@@ -755,8 +755,8 @@ class DockStage extends PolymerElement {
     if (getBoundingClientRect().containsPoint(event.page)) {
       Point diff = event.page - _moveStartPt;
       for (StageElement _elem in _selected) {
-        int left = (_elem._savedPosBeforeMove.x + diff.x) / stagescale;
-        int top = (_elem._savedPosBeforeMove.y + diff.y) / stagescale;
+        int left = (_elem._savedPosBeforeMove.x + diff.x) ~/ stagescale;
+        int top = (_elem._savedPosBeforeMove.y + diff.y) ~/ stagescale;
 
         _elem.left = left;
         _elem.top = top;

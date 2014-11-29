@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <script src="packages/web_components/platform.js"></script>
+    
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color_picker</title>
+    
+    <link rel="import" href="../../packages/dockable/stage/stage.html">
+    
+    
+    <style type="text/css">
+      dock-stage {
+        width: 500px;
+        height: 500px;
+      }
+    </style>
+  </head>
+ 
+  <body unresolved>
+    
+    <button id="red-fontsize">Change red's fontsize</button>
+    <script type="application/dart" src="stage.dart"></script>
+    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
