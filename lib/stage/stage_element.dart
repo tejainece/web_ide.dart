@@ -198,7 +198,6 @@ class StageElement extends PolymerElement {
   }
 
   void heightChanged() {
-    print("height changed");
     if (_stage != null) {
       notifyPropertyChange(#scaledheight, 0, scaledheight);
       this.style.height = "${scaledheight}px";
@@ -209,10 +208,8 @@ class StageElement extends PolymerElement {
   }
 
   void fontsizeChanged() {
-    print("here");
     if (_stage != null) {
       notifyPropertyChange(#scaledfontsize, 0, scaledfontsize);
-      print(scaledfontsize);
       this.style.fontSize = "${scaledfontsize}px";
     }
   }

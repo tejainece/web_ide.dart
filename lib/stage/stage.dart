@@ -1006,7 +1006,7 @@ class DockStage extends PolymerElement {
       if (curTget != null) {
         StageElement selectedEl = _selected.first;
 
-        print("${curTget.cursor} begin");
+        //print("${curTget.cursor} begin");
         Rectangle initRect = new Rectangle(selectedEl.offsetLeft, selectedEl.offsetTop, selectedEl.offsetWidth, selectedEl.offsetHeight);
         Point startPoint = event.page;
         style.cursor = curTget.cursor;
