@@ -16,7 +16,6 @@ num inRange(num value, num min, num max) {
  * ColorVal represents RGB color values. It provides convinience methods to
  * parse and encode in different color formats.
  */
-@observable
 class ColorVal extends ChangeNotifier {
   /** Red color component. Value ranges from [0..255] */
   num _r = 255;
