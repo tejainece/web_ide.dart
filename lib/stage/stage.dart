@@ -1099,14 +1099,14 @@ class DockStage extends PolymerElement {
       _anchorn.style.left = "${selectedEl.scaledleft + (selectedEl.scaledwidth / 2) - 5}px";
       _anchorn.style.top = "${selectedEl.scaledtop - 10}px";
 
-      _anchore.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth + 1}px";
+      _anchore.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth}px";
       _anchore.style.top = "${selectedEl.scaledtop + (selectedEl.scaledheight / 2) - 5}px";
 
       _anchorw.style.left = "${selectedEl.scaledleft - 10}px";
       _anchorw.style.top = "${selectedEl.scaledtop + (selectedEl.scaledheight / 2) - 5}px";
 
       _anchors.style.left = "${selectedEl.scaledleft + (selectedEl.scaledwidth / 2) - 5}px";
-      _anchors.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight + 1}px";
+      _anchors.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight}px";
 
       _anchornw.classes.add("show");
       _anchorne.classes.add("show");

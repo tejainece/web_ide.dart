@@ -88,7 +88,7 @@ class SelectorHelper extends PolymerElement {
     }).toList();
   }
 
-  bool isSelected(Element item) {
+  bool isSelected(Node item) {
     return this._selectedItems.indexOf(item) >= 0;
   }
 
@@ -125,7 +125,7 @@ class SelectorHelper extends PolymerElement {
    * and 'isSelected' set to [isSelected]. set to the new selection state for
    * the [item].
    */
-  void select(Element item) {
+  void select(Node item) {
     if (this.multi) {
       this._toggle(item);
     } else {
@@ -135,19 +135,19 @@ class SelectorHelper extends PolymerElement {
       } else if (_selectedItems.length == 0) {
         this._toggle(item);
       } else if (_selectedItems.length > 1) {
-        print("Error: more than 1 element in selectedItems");
+        print("Error: more than 1 node in selectedItems");
       }
     }
   }
 
   void clear() {
-    List<Element> selItems_l = selectedItems.toList();
+    List<Node> selItems_l = selectedItems.toList();
     selItems_l.forEach((item) {
       setItemSelected(item, false);
     });
   }
 
-  void _toggle(Element item) {
+  void _toggle(Node item) {
     this.setItemSelected(item, !this.isSelected(item));
   }
 
