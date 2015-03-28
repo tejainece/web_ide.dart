@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordered list</title>
+    
+    <link rel="import" href="../../packages/dockable/spinner/spinner.html">
+    
+    
+    <style type="text/css">
+      body {
+        background-color: #1abc9c;
+      }
+    
+      #cp {
+        width: 300px;
+        height: 300px;
+      }
+    
+      #preview {
+        width: 50px;
+        height: 50px;
+      }
+    </style>
+  </head>
+ 
+  <body unresolved>   
+    <spinner-elm id="ordered-list1">
+    </spinner-elm>
+    
+    <input id="toggle" type="button" value="Toggle">
+    
+    <script type="application/dart" src="spinner.dart"></script>
+    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>

@@ -34,6 +34,21 @@ class DragStreams {
   }
 }
 
+class ListModel extends Observable {
+  @observable 
+  int index;
+  
+  @observable 
+  bool selected;
+  
+  @observable 
+  var item;
+  
+  ListModel(this.index, this.item, this.selected) {
+    
+  }
+}
+
 /**
  * A Polymer click counter element.
  */
@@ -64,12 +79,30 @@ class OrderedList extends SelectorHelper {
       target = null;
     }
   }
+  
+  @observable
+  ObservableList<ListModel> models = new ObservableList<ListModel>();
+  
+  @observable
+  ListModel model = new ListModel(0, "something", false);
 
   void dataChanged() {
     TemplateElement templ = this.querySelector("template");
     if (templ != null) {
       templ.attributes["repeat"] = '';
-      templateBind(templ)..model = data;
+      
+      models.clear();
+      
+      int index = 0;
+      for(var datael in data) {
+        ListModel el = new ListModel(index++, datael, false);
+        
+        print(datael);
+        
+        models.add(el);
+      }
+      
+      templateBind(templ).model = models;
     }
   }
 
@@ -81,7 +114,7 @@ class OrderedList extends SelectorHelper {
   void ready() {
     super.ready();
 
-    _template = querySelector("template");
+    //_template = querySelector("template");
 
     _thisObserver = new MutationObserver(_onThisMutation);
     _thisObserver.observe(this, childList: true);
@@ -96,10 +129,23 @@ class OrderedList extends SelectorHelper {
       event.preventDefault();
     });
   }
+  
+  @override
+  attached() {
+    _template = querySelector("template");
+    // Make sure they supplied a template in the content.
+    if (_template == null) {
+      throw '\n\nIt looks like you are missing the <template> '
+          'tag in your <core-list-dart> content.';
+    }
+    if (templateBind(_template).bindingDelegate == null) {
+      templateBind(_template).bindingDelegate = element.syntax;
+    }
+  }
 
   MutationObserver _thisObserver;
   void _onThisMutation(records, observer) {
-    dataChanged();
+    //dataChanged();
     for (MutationRecord record in records) {
       for (Node node in record.addedNodes) {
         if (node is HtmlElement) {
@@ -150,6 +196,8 @@ class OrderedList extends SelectorHelper {
   void _onDragStart(MouseEvent event) {
     HtmlElement evtarget = _getElement(event.target);
 
+    print(evtarget.outerHtml);
+    
     if (data.length != 0) {
 
       int foundIndex = _findIndexOfElement(evtarget);
