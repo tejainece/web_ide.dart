@@ -1,3 +1,4 @@
+@HtmlImport('spinner.html')
 library spinner_elm;
 
 import 'package:polymer/polymer.dart';

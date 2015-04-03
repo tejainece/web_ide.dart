@@ -1,3 +1,4 @@
+@HtmlImport('button_text.html')
 library icon;
 
 import 'package:polymer/polymer.dart';

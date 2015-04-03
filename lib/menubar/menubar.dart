@@ -1,3 +1,9 @@
+@HtmlImport('menubar.html')
+@HtmlImport('menuitem.html')
+@HtmlImport('submenu.html')
+@HtmlImport('submenuactionitem.html')
+@HtmlImport('submenuitem.html')
+@HtmlImport('submenuseparater.html')
 library menubar;
 
 import 'package:polymer/polymer.dart';

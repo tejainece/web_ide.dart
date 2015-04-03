@@ -1,3 +1,4 @@
+@HtmlImport('splitter.html')
 library splitter;
 
 import 'package:polymer/polymer.dart';

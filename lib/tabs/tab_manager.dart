@@ -1,3 +1,6 @@
+@HtmlImport('tab_manager.html')
+@HtmlImport('tab_title.html')
+@HtmlImport('tab_item.html')
 library tabs;
 
 import 'package:polymer/polymer.dart';
@@ -6,6 +9,8 @@ import 'dart:async';
 
 import '../pages/page_manager.dart';
 import '../selectable/selectable.dart';
+
+import "../pages/page_manager.dart";
 
 part 'tab_item.dart';
 part 'tab_title.dart';

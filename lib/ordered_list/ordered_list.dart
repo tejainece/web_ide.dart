@@ -1,3 +1,4 @@
+@HtmlImport('ordered_list.html')
 library ordered_list;
 
 import 'package:polymer/polymer.dart';

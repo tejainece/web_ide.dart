@@ -1,3 +1,7 @@
+@HtmlImport('alpha_slider.html')
+@HtmlImport('color_picker.html')
+@HtmlImport('hsv_picker.html')
+@HtmlImport('hue_slider.html')
 library colorpicker;
 
 import 'package:polymer/polymer.dart';

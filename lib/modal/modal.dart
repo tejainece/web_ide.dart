@@ -1,8 +1,15 @@
+@HtmlImport('model.html')
 library modal;
 
 import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
+
+
+import "../iconbutton/icon_button.dart";
+
+import "package:core_elements/core_icons.dart";
+
 
 @CustomTag('modal-window')
 class ModalWindow extends PolymerElement {

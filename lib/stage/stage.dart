@@ -1,3 +1,5 @@
+@HtmlImport('stage.html')
+@HtmlImport("stage_element.html")
 library stage;
 
 import 'package:polymer/polymer.dart';

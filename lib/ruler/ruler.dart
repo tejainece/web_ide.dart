@@ -1,3 +1,4 @@
+@HtmlImport('ruler.html')
 library ruler;
 
 import 'package:polymer/polymer.dart';

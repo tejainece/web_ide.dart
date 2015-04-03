@@ -1,3 +1,4 @@
+@HtmlImport('icon_view.html')
 library icon;
 
 import 'package:polymer/polymer.dart';

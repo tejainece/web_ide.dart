@@ -1,3 +1,11 @@
+@HtmlImport("property_editor.html")
+@HtmlImport("property_category.html")
+@HtmlImport("property_item.html")
+@HtmlImport("property_text.html")
+@HtmlImport("property_number.html")
+@HtmlImport("property_integer.html")
+@HtmlImport("property_color.html")
+@HtmlImport("property_dropdown.html")
 library propertyeditor;
 
 import 'package:polymer/polymer.dart';
@@ -8,6 +16,8 @@ import '../utils/dockable_utils.dart';
 import '../colorpicker/color_picker.dart';
 
 import '../optionbox/optionbox.dart';
+
+import "../iconbutton/icon_button.dart";
 
 part 'property_category.dart';
 part 'property_item.dart';

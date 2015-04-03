@@ -1,3 +1,6 @@
+@HtmlImport('optionbox.html')
+@HtmlImport('optionbox_item.html')
+@HtmlImport('optionbox_item_plain1.html')
 library optionbox;
 
 import 'package:polymer/polymer.dart';

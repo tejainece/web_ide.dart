@@ -1,3 +1,6 @@
+@HtmlImport('icon_button.html')
+@HtmlImport('icon_list_button.html')
+@HtmlImport('icon_options_button.html')
 library iconbutton;
 
 import 'package:polymer/polymer.dart';
@@ -6,6 +9,8 @@ import 'dart:html';
 import 'dart:async';
 
 import "../menubar/menubar.dart";
+
+import "package:core_elements/core_icons.dart";
 
 part 'icon_list_button.dart';
 part 'icon_options_button.dart';

@@ -1,3 +1,8 @@
+@HtmlImport("toolbar.html")
+@HtmlImport("toolbaritem.html")
+@HtmlImport("toolbariconitem.html")
+@HtmlImport("toolbarseparater.html")
+@HtmlImport("toolbariconlistitem.html")
 library toolbar;
 
 import 'package:polymer/polymer.dart';

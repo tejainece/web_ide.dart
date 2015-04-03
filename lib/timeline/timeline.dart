@@ -1,3 +1,6 @@
+@HtmlImport('timeline.html')
+@HtmlImport("timelineelement.html")
+@HtmlImport("timelinerow.html")
 library timeline;
 
 import 'package:polymer/polymer.dart';
@@ -9,6 +12,9 @@ import '../menubar/menubar.dart';
 
 import 'package:dockable/utils/dockable_utils.dart';
 import 'package:dockable/ordered_list/ordered_list.dart';
+
+import "package:core_elements/core_tooltip.dart";
+import "package:paper_elements/paper_icon_button.dart";
 
 part 'timelineelement.dart';
 part 'timelinerow.dart';

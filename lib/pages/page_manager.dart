@@ -1,3 +1,5 @@
+@HtmlImport('page_manager.html')
+@HtmlImport('page_item.html')
 library page;
 
 import 'package:polymer/polymer.dart';
