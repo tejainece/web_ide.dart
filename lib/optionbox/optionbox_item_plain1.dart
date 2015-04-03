@@ -4,8 +4,6 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
 
-import 'dart:mirrors';
-
 /**
  * listbox-item is elements that can be added to the list-box
  *

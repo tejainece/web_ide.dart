@@ -7,8 +7,6 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
 
-import 'dart:mirrors';
-
 import 'package:dockable/dockable.dart';
 
 part 'optionbox_item.dart';
