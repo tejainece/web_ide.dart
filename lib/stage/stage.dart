@@ -929,7 +929,8 @@ class DockStage extends PolymerElement {
 
         StreamSubscription _nwMouseMove = onMouseMove.listen(mouseMoveHandler);
         StreamSubscription _nwMouseUp = onMouseUp.listen(_cancelResize);
-        StreamSubscription _nwMouseOver = onMouseOut.listen(_cancelResize);
+        //StreamSubscription _nwMouseOver = onMouseOut.listen(_cancelResize);
+        StreamSubscription _nwMouseOver = onMouseOut.listen((_) {});
         StreamSubscription _nwKeyDown = document.onKeyDown.listen((KeyboardEvent ke) => _resizeEscapeHandler(ke, curTget));
 
         curTget.activate(initRect, startPoint, _nwMouseMove, _nwMouseUp, _nwMouseOver, _nwKeyDown);
