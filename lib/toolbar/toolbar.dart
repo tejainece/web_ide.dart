@@ -109,7 +109,7 @@ class ToolBar extends PolymerElement {
   /**
    * Size of toolbar.
    */
-  @published int size = 24;
+  @published int size = 32;
 
   void sizeChanged() {
     if(vertical) {

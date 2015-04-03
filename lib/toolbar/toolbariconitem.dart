@@ -33,7 +33,7 @@ class ToolbarIconItem extends ToolbarItem {
     });
   }
 
-  int _size = 16;
+  int _size = 28;
   @observable int get size => _size;
 
   void set _set_size(int new_size) {
