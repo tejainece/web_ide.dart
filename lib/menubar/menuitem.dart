@@ -20,7 +20,7 @@ class MenuItem extends PolymerElement {
   SubMenu _submenu;
 
   MenuItem.created() : super.created() {
-    _titleDiv = this.shadowRoot.querySelector(".title");
+    _titleDiv = shadowRoot.querySelector(".title");
     assert(_titleDiv != null);
   }
 
