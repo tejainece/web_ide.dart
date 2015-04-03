@@ -98,7 +98,7 @@ class OrderedList extends SelectorHelper {
       for(var datael in data) {
         ListModel el = new ListModel(index++, datael, false);
         
-        print(datael);
+        //print(datael);
         
         models.add(el);
       }
