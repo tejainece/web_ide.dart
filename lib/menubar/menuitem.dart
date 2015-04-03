@@ -20,14 +20,15 @@ class MenuItem extends PolymerElement {
   SubMenu _submenu;
 
   MenuItem.created() : super.created() {
-    _titleDiv = shadowRoot.querySelector(".title");
-    assert(_titleDiv != null);
   }
 
   @override
   void ready() {
     super.ready();
     _submenu = shadowRoot.querySelector("#submenu");
+    
+    _titleDiv = shadowRoot.querySelector(".title");
+    assert(_titleDiv != null);
     
     onMouseOver.listen((MouseEvent me) {
       open = true;
