@@ -3,7 +3,7 @@ part of tabs;
 @CustomTag('tab-title-item')
 class TabTitleItem extends PolymerElement with SelectableItemImpl {
   @published String icon = "";
-  @published String title = "";
+  @published String heading = "";
   @published bool hasCloseBtn = true;
   
   TabTitle _parent = null;
