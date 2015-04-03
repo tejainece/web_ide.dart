@@ -1,4 +1,4 @@
-@HtmlImport('model.html')
+@HtmlImport('modal.html')
 library modal;
 
 import 'package:polymer/polymer.dart';

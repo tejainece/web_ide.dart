@@ -1,4 +1,4 @@
-@HtmlImport('dock_conatiner.html')
+@HtmlImport('dock_container.html')
 @HtmlImport('dock_manager.html')
 @HtmlImport('dock_multi_panel.html')
 @HtmlImport('dock_panel.html')
