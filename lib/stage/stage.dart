@@ -1,13 +1,13 @@
 @HtmlImport('stage.html')
 @HtmlImport("stage_element.html")
-library stage;
+library dockable.stage;
 
 import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
 import 'dart:math';
-import 'dart:js';
 
+part 'anchor_stream.dart';
 part 'stage_element.dart';
 
 /*
@@ -17,81 +17,6 @@ part 'stage_element.dart';
  * Implement anchor guidelines for Gap, Width, Height
  * Implement element rotation
  */
-
-class AnchorStream {
-  StreamSubscription _mouseMove, _mouseUp, _mouseOver, _keyDown;
-
-  String _cursor;
-  String get cursor => _cursor;
-
-  dynamic _initRect;
-  dynamic get initRect => _initRect;
-  Point _startPoint;
-  Point get startPoint => _startPoint;
-
-  AnchorStream(this._cursor) {
-    if (_cursor == null) {
-      _cursor = "default";
-    }
-  }
-
-  bool _activated = false;
-  bool get activated => _activated;
-
-  bool activate(dynamic arg_initRect, Point arg_startPoint, StreamSubscription arg_mouseMove, StreamSubscription arg_mouseUp, StreamSubscription arg_mouseOver, StreamSubscription arg_keyDown) {
-    bool ret = false;
-
-    //print("activation called");
-
-    deactivate();
-
-    if (arg_initRect != null && arg_startPoint != null) {
-      ret = true;
-      _initRect = arg_initRect;
-      _startPoint = arg_startPoint;
-
-      _activated = true;
-
-      _mouseMove = arg_mouseMove;
-      _mouseUp = arg_mouseUp;
-      _mouseOver = arg_mouseOver;
-      _keyDown = arg_keyDown;
-
-      //print("activating");
-    }
-
-    return ret;
-  }
-
-  void deactivate() {
-    //print("deactivating");
-
-    _initRect = null;
-    _startPoint = null;
-
-    _activated = false;
-
-    if (_mouseMove != null) {
-      _mouseMove.cancel();
-      _mouseMove = null;
-    }
-
-    if (_mouseUp != null) {
-      _mouseUp.cancel();
-      _mouseUp = null;
-    }
-
-    if (_mouseOver != null) {
-      _mouseOver.cancel();
-      _mouseOver = null;
-    }
-
-    if (_keyDown != null) {
-      _keyDown.cancel();
-      _keyDown = null;
-    }
-  }
-}
 
 /**
  * dock-stage is a stage used to create GUI interfaces like XCode Storyboard.
@@ -133,6 +58,9 @@ class DockStage extends PolymerElement {
   @override
   void ready() {
     super.ready();
+    
+    _thisObserver = new MutationObserver(_onThisMutation);
+    _thisObserver.observe(this, childList: true);
 
     _canvas = shadowRoot.querySelector("#real-canvas");
     _parcanvas = shadowRoot.querySelector("#canvas-parent");
@@ -171,23 +99,8 @@ class DockStage extends PolymerElement {
 
     stagebgcolorChanged();
 
-    /*onMouseDown.listen((MouseEvent ke) {
-      getScreenShot();
-    });*/
-
     _setupResizeHandler();
   }
-
-  /*Future getScreenShot() {
-    JsFunction dartcall = context["dartcall"];
-
-    context["boom"] = callb1;
-    dartcall.apply([_canvas, "boom"]);
-  }
-
-  callb1(CanvasElement canvas) {
-    document.body.append(canvas);
-  }*/
 
   @override
   void attached() {
@@ -217,10 +130,10 @@ class DockStage extends PolymerElement {
     }
 
     bool multi = event.shiftKey;
-    if (_elements.contains(realTarget)) {
+    if (realTarget != null) {
       StageElement target = realTarget;
       if (multi) {
-        if (target.isSelected) {
+        if (_selected.contains(target)) {
           deselectElement(target);
         } else {
           if (target.selectable) {
@@ -231,7 +144,6 @@ class DockStage extends PolymerElement {
         if (!_selected.contains(target)) {
           deselectAllElements();
         }
-
         selectElement(target);
       }
       if (_selected.length != 0) {
@@ -251,6 +163,7 @@ class DockStage extends PolymerElement {
         _groupSel.classes.add("show");
 
         StreamSubscription selMMove = onMouseMove.listen((MouseEvent event) {
+          //print("here");
           Point selStartPt = _selStream.initRect - _canvas.offset.topLeft;
           Point selEndPt = event.offset + new Point(scrollLeft, scrollTop) - _canvas.offset.topLeft;
 
@@ -272,7 +185,8 @@ class DockStage extends PolymerElement {
           }
           _cancelSelRegion();
         });
-        StreamSubscription selMOut = onMouseOut.listen((MouseEvent mpe) => _cancelSelRegion());
+        //StreamSubscription selMOut = onMouseOut.listen((MouseEvent mpe) => _cancelSelRegion());
+        StreamSubscription selMOut = onMouseOut.listen((MouseEvent mpe) {});
         StreamSubscription selKDown = onKeyDown.listen((KeyboardEvent kbe) {
           if (kbe.keyCode == KeyCode.ESC) {
             _cancelSelRegion();
@@ -291,7 +205,7 @@ class DockStage extends PolymerElement {
   }
 
   void selectElement(StageElement _elem) {
-    if (_elem.selectable && !_elem.isSelected) {
+    if (_elem.selectable && !_selected.contains(_elem)) {
       _selected.add(_elem);
       _elem._selected();
       fireElementSelectedEvent(_elem);
@@ -300,7 +214,7 @@ class DockStage extends PolymerElement {
   }
 
   void deselectElement(StageElement _elem) {
-    if (_elem.isSelected) {
+    if (_selected.contains(_elem)) {
       _selected.remove(_elem);
       _elem._deselected();
       fireElementDeselectedEvent(_elem);
@@ -1059,8 +973,6 @@ class DockStage extends PolymerElement {
     _anchore.onMouseDown.listen(_resizeMDHandler);
   }
 
-  bool _anchorShowing = false;
-
   _cancelResize(MouseEvent event) {
     print("resize cancelled");
 
@@ -1078,62 +990,43 @@ class DockStage extends PolymerElement {
     _showAnchors();
     style.cursor = "default";
   }
+  
+  @observable
+  num selLeft = 0;
+  @observable
+  num selTop = 0;
+  @observable
+  num selWidth = 0;
+  @observable
+  num selHeight = 0;
+  @observable
+  num selHorCenter = 0;
+  @observable
+  num selVerCenter = 0;
+  
+  @observable
+  bool showAnchors = false;
 
   void _showAnchors() {
     if (_selected.length == 1) {
-      _anchorShowing = true;
-
       StageElement selectedEl = _selected.first;
-
-      //Fix anchor position
-      _anchornw.style.left = "${selectedEl.scaledleft - 10}px";
-      _anchornw.style.top = "${selectedEl.scaledtop - 10}px";
-
-      _anchorne.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth}px";
-      _anchorne.style.top = "${selectedEl.scaledtop - 10}px";
-
-      _anchorsw.style.left = "${selectedEl.scaledleft - 10}px";
-      _anchorsw.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight}px";
-
-      _anchorse.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth}px";
-      _anchorse.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight}px";
-
-      _anchorn.style.left = "${selectedEl.scaledleft + (selectedEl.scaledwidth / 2) - 5}px";
-      _anchorn.style.top = "${selectedEl.scaledtop - 10}px";
-
-      _anchore.style.left = "${selectedEl.scaledleft + selectedEl.scaledwidth}px";
-      _anchore.style.top = "${selectedEl.scaledtop + (selectedEl.scaledheight / 2) - 5}px";
-
-      _anchorw.style.left = "${selectedEl.scaledleft - 10}px";
-      _anchorw.style.top = "${selectedEl.scaledtop + (selectedEl.scaledheight / 2) - 5}px";
-
-      _anchors.style.left = "${selectedEl.scaledleft + (selectedEl.scaledwidth / 2) - 5}px";
-      _anchors.style.top = "${selectedEl.scaledtop + selectedEl.scaledheight}px";
-
-      _anchornw.classes.add("show");
-      _anchorne.classes.add("show");
-      _anchorsw.classes.add("show");
-      _anchorse.classes.add("show");
-      _anchorn.classes.add("show");
-      _anchors.classes.add("show");
-      _anchore.classes.add("show");
-      _anchorw.classes.add("show");
+      
+      selLeft = selectedEl.scaledleft;
+      selTop = selectedEl.scaledtop;
+      selWidth = selectedEl.scaledleft + selectedEl.scaledwidth;
+      selHeight = selectedEl.scaledtop + selectedEl.scaledheight;
+      
+      selHorCenter = selectedEl.scaledleft + (selectedEl.scaledwidth / 2);
+      selVerCenter = selectedEl.scaledtop + (selectedEl.scaledheight / 2);
+      
+      showAnchors = true;
     } else {
       _hideAnchors();
     }
   }
 
   void _hideAnchors() {
-    _anchornw.classes.remove("show");
-    _anchorne.classes.remove("show");
-    _anchorsw.classes.remove("show");
-    _anchorse.classes.remove("show");
-    _anchorn.classes.remove("show");
-    _anchore.classes.remove("show");
-    _anchorw.classes.remove("show");
-    _anchors.classes.remove("show");
-
-    _anchorShowing = false;
+    showAnchors = false;
   }
 
   /*_showHideAnchors() {
@@ -1147,53 +1040,23 @@ class DockStage extends PolymerElement {
   /* Element operations - addition, removal, etc */
   DivElement _canvas;
   DivElement _parcanvas;
-
-  /*
-   * Adds an element to the stage
-   */
-  bool addElement(StageElement _elem) {
-    bool ret = true;
-    if (_elem != null) {
-      _canvas.children.add(_elem);
-      _elements.add(_elem);
-      _elem._added(this);
-    } else {
-      ret = false;
-    }
-    return ret;
-  }
-
-  /*
-   * Removes an element from the stage
-   */
-  bool removeElement(StageElement _elem) {
-    bool ret = true;
-    if (_elem != null && _canvas.children.contains(_elem)) {
-      if (_elem.isSelected) {
-        deselectElement(_elem);
+  
+  MutationObserver _thisObserver;
+  void _onThisMutation(records, observer) {
+    //dataChanged();
+    for (MutationRecord record in records) {
+      for (Node node in record.addedNodes) {
+        if (node is StageElement) {
+          _elements.add(node);
+          node._added(this);
+        }
       }
-      _canvas.children.remove(_elem);
-      _elements.remove(_elem);
-      _elem._removed();
-    } else {
-      ret = false;
-    }
-    return ret;
-  }
-
-  void removeElements(List<StageElement> list_elem) {
-    List<StageElement> listEl = list_elem;
-
-    for (StageElement el in listEl) {
-      removeElement(el);
-    }
-  }
-
-  void removeAllElements() {
-    List<StageElement> listEl = _elements;
-
-    for (StageElement el in listEl) {
-      removeElement(el);
+      for (Node node in record.removedNodes) {
+        if (node is HtmlElement) {
+          _elements.remove(node);
+          //TODO: if this element is selected, deselect it
+        }
+      }
     }
   }
 

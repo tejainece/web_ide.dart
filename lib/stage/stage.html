@@ -195,17 +195,18 @@
     </div>
     <div id="canvas-parent">
       <div id="real-canvas" class="canvas">
+        <content></content>
       </div>
       <div id="fake-canvas" class="canvas">
-        <div class="anchor-resize anchor-n"></div>
-        <div class="anchor-resize anchor-s"></div>
-        <div class="anchor-resize anchor-e"></div>
-        <div class="anchor-resize anchor-w"></div>
+        <div class="anchor-resize anchor-n {{ {show: showAnchors} }}" style="left: {{selHorCenter - 5}}px; top: {{selTop - 10}}px;"></div>
+        <div class="anchor-resize anchor-s {{ {show: showAnchors} }}" style="left: {{selHorCenter - 5}}px; top: {{selHeight}}px;"></div>
+        <div class="anchor-resize anchor-e {{ {show: showAnchors} }}" style="left: {{selWidth}}px; top: {{selVerCenter - 5}}px;"></div>
+        <div class="anchor-resize anchor-w {{ {show: showAnchors} }}" style="left: {{selLeft - 10}}px; top: {{selVerCenter - 5}}px;"></div>
       
-        <div class="anchor-resize anchor-nw"></div>
-        <div class="anchor-resize anchor-ne"></div>
-        <div class="anchor-resize anchor-sw"></div>
-        <div class="anchor-resize anchor-se"></div>
+        <div class="anchor-resize anchor-nw {{ {show: showAnchors} }}" style="left: {{selLeft - 10}}px; top: {{selTop - 10}}px;"></div>
+        <div class="anchor-resize anchor-ne {{ {show: showAnchors} }}" style="left: {{selWidth}}px; top: {{selTop - 10}}px;"></div>
+        <div class="anchor-resize anchor-sw {{ {show: showAnchors} }}" style="left: {{selLeft - 10}}px; top: {{selHeight}}px;"></div>
+        <div class="anchor-resize anchor-se {{ {show: showAnchors} }}" style="left: {{selWidth}}px; top: {{selHeight}}px;"></div>
         
         <div id="ver-auto-gline" class="auto-gline"></div>
         <div id="hor-auto-gline" class="auto-gline"></div>

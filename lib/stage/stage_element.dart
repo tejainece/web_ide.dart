@@ -1,4 +1,4 @@
-part of stage;
+part of dockable.stage;
 
 /**
  * stage-element is a stage used to create GUI interfaces like XCode Storyboard.
@@ -23,6 +23,7 @@ class StageElement extends PolymerElement {
    */
   void _added(DockStage stage) {
     _stage = stage;
+    _updateProperties();
   }
 
   /*
@@ -74,22 +75,18 @@ class StageElement extends PolymerElement {
   DockStage _stage;
   DockStage get stage => _stage;
 
-  /*
-   * Is the element selected?
-   */
-  bool get isSelected {
-    if (_stage != null) {
-      return _stage._selected.contains(this);
-    } else {
-      return false;
-    }
-  }
-
   /* Move */
   Point _savedPosBeforeMove;
 
   void _moved() {
 
+  }
+  
+  void _updateProperties() {
+    leftChanged();
+    topChanged();
+    widthChanged();
+    heightChanged();
   }
 
   /*
