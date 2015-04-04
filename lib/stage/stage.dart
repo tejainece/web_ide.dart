@@ -115,6 +115,9 @@ class DockStage extends PolymerElement {
   @published
   String bgcolor = "rgba(255, 255, 255, 1)";
   
+  @published
+  String bgimage = "";
+  
 
   StreamSubscription _clicksub;
   StreamSubscription _mouseout, _mousemove, _mouseup;
