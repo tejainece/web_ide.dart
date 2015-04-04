@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<polymer-element name="dock-stage" attributes="stagewidth stageheight stagescale resizable">
+<polymer-element name="dock-stage" attributes="stagewidth stageheight stagescale resizable bgcolor">
   <template>
     <style>
       :host {
@@ -195,7 +195,7 @@
       </div>
     </div>
     <div id="canvas-parent">
-      <div id="real-canvas" class="canvas">
+      <div id="real-canvas" class="canvas" style="background-color: {{bgcolor}};">
         <content></content>
       </div>
       <div id="fake-canvas" class="canvas">

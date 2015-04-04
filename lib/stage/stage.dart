@@ -111,6 +111,10 @@ class DockStage extends PolymerElement {
   void detached() {
     super.detached();
   }
+  
+  @published
+  String bgcolor = "rgba(255, 255, 255, 1)";
+  
 
   StreamSubscription _clicksub;
   StreamSubscription _mouseout, _mousemove, _mouseup;
@@ -1053,15 +1057,6 @@ class DockStage extends PolymerElement {
     showAnchors = false;
   }
 
-  /*_showHideAnchors() {
-    if (_selected.length == 1) {
-      _showAnchors();
-    } else if (_anchorShowing) {
-      _hideAnchors();
-    }
-  }*/
-
-  /* Element operations - addition, removal, etc */
   DivElement _canvas;
   DivElement _parcanvas;
 
@@ -1184,26 +1179,4 @@ class DockStage extends PolymerElement {
         canBubble: false, cancelable: false);
     dispatchEvent(event);
   }
-
-  /*EventStreamProvider<CustomEvent> _elementSelectedEventP = new EventStreamProvider<CustomEvent>("elementselected");
-  Stream<CustomEvent> get onElementSelected => _elementSelectedEventP.forTarget(this);
-  void fireElementSelectedEvent(StageElement stage_el) {
-    var event = new CustomEvent("elementselected", canBubble: false, cancelable: false, detail: stage_el);
-    dispatchEvent(event);
-  }
-
-
-  EventStreamProvider<CustomEvent> _elementDeselectedEventP = new EventStreamProvider<CustomEvent>("elementdeselected");
-  Stream<CustomEvent> get onElementDeselected => _elementDeselectedEventP.forTarget(this);
-  void fireElementDeselectedEvent(StageElement stage_el) {
-    var event = new CustomEvent("elementdeselected", canBubble: false, cancelable: false, detail: stage_el);
-    dispatchEvent(event);
-  }
-
-  EventStreamProvider<CustomEvent> _allElementsDeselectedEventP = new EventStreamProvider<CustomEvent>("allelementsdeselected");
-  Stream<CustomEvent> get onAllElementDeselected => _allElementsDeselectedEventP.forTarget(this);
-  void fireAllElementsDeselectedEvent() {
-    var event = new CustomEvent("allelementsdeselected", canBubble: false, cancelable: false, detail: null);
-    dispatchEvent(event);
-  }*/
 }

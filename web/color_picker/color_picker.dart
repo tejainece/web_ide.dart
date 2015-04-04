@@ -7,17 +7,14 @@ import 'package:polymer/polymer.dart';
 ColorPicker cp;
 DivElement preview;
 
-main() {
-  initPolymer().run(() {
-    Polymer.onReady.then((_) {
-      cp = new Element.tag("color-picker");
-      document.body.children.add(cp);
-      preview = querySelector("#preview");
+main() async {
+  await initPolymer();
+  await Polymer.onReady;
+  cp = new Element.tag("color-picker");
+  document.body.children.add(cp);
+  preview = querySelector("#preview");
 
-      cp.onChanged.listen((_) {
-        preview.style.backgroundColor = cp.color.rgbaString;
-      });
-
-    });
+  cp.onChanged.listen((_) {
+    preview.style.backgroundColor = cp.color.rgbaString;
   });
 }
