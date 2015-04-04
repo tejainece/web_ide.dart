@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<polymer-element name="stage-element" attributes="left top width height movable resizable selectable text fontsize">
+<polymer-element name="stage-element" attributes="left top width height scale movable resizable selectable text fontsize">
   <template>
     <style>
       :host {
@@ -29,15 +29,6 @@
       :host(.selected:host) {
         /*outline: dashed 1px blue !important;*/
       }
-      
-      :host(.disp-message) {
-        background-color: lightgray;
-        text-align: center;
-        font-size: 30px;
-        background-image: "";
-        
-        color: #666;
-      }
 
       :host > #inner {
         width: 100%;
@@ -55,9 +46,9 @@
         line-height: normal;
       }
     </style>
-    <!--<div id="inner">-->
-      {{text}}
-    <!--</div>-->
+      
+    {{text}}
+    
   </template>
 </polymer-element>
 

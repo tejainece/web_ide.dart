@@ -9,6 +9,8 @@ import 'dart:math';
 
 part 'anchor_stream.dart';
 part 'stage_element.dart';
+part 'stageel_info.dart';
+part 'guideline_helpers.dart';
 
 /*
  * TODO:
@@ -96,8 +98,6 @@ class DockStage extends PolymerElement {
       
     });*/
 
-    stagebgcolorChanged();
-
     _setupResizeHandler();
   }
 
@@ -111,13 +111,12 @@ class DockStage extends PolymerElement {
   void detached() {
     super.detached();
   }
-  
+
   @published
   String bgcolor = "rgba(255, 255, 255, 1)";
-  
+
   @published
   String bgimage = "";
-  
 
   StreamSubscription _clicksub;
   StreamSubscription _mouseout, _mousemove, _mouseup;
@@ -218,7 +217,6 @@ class DockStage extends PolymerElement {
   void selectElement(StageElement _elem) {
     if (_elem.selectable && !_selected.contains(_elem)) {
       _selected.add(_elem);
-      _elem._selected();
       _fireSelectionChangedEvent();
     }
     _showAnchors();
@@ -227,186 +225,31 @@ class DockStage extends PolymerElement {
   void deselectElement(StageElement _elem) {
     if (_selected.contains(_elem)) {
       _selected.remove(_elem);
-      _elem._deselected();
       _fireSelectionChangedEvent();
     }
     _showAnchors();
   }
 
   void deselectAllElements() {
-    _selected.forEach((StageElement _elem) {
-      _elem._deselected();
-    });
     _selected.clear();
     _hideAnchors();
     _fireSelectionChangedEvent();
   }
 
-  /* Move */
-  Point _moveStartPt;
-
-  int _detectHorMiddleGL(Rectangle rect) {
-    int ret;
-
-    int lmiddle = rect.left + (rect.width ~/ 2);
-    if (lmiddle == scaledWidth ~/ 2) {
-      ret = lmiddle;
-    }
-    for (StageElement _elem in _elements) {
-      if (!_selected.contains(_elem)) {
-        int elmid = _elem.offset.left + (_elem.offsetWidth ~/ 2);
-        if (lmiddle == elmid) {
-          ret = lmiddle;
-        }
-      }
-    }
-
-    return ret;
-  }
-
-  int _detectLeftGL(Rectangle rect) {
-    int ret;
-
-    if (rect.left == 0) {
-      ret = rect.left;
-    } else if (rect.left == scaledWidth) {
-      ret = rect.left;
-    }
-    for (StageElement _elem in _elements) {
-      if (!_selected.contains(_elem)) {
-        if (rect.left == _elem.offsetLeft) {
-          ret = rect.left;
-        } else if (rect.left == _elem.offset.right) {
-          ret = rect.left;
-        }
-      }
-    }
-
-    return ret;
-  }
-
-  int _detectRightGL(Rectangle rect) {
-    int ret;
-
-    if (rect.right == 0) {
-      ret = rect.right;
-    } else if (rect.right == scaledWidth) {
-      ret = rect.right;
-    }
-    for (StageElement _elem in _elements) {
-      if (!_selected.contains(_elem)) {
-        if (rect.right == _elem.offset.right) {
-          ret = rect.right;
-        } else if (rect.right == _elem.offset.left) {
-          ret = rect.right;
-        }
-      }
-    }
-
-    return ret;
-  }
-
-  int _detectVerMiddleGL(Rectangle rect) {
-    int ret;
-
-    int tmiddle = rect.top + (rect.height ~/ 2);
-    if (tmiddle == scaledHeight ~/ 2) {
-      ret = tmiddle;
-    }
-    for (StageElement _elem in _elements) {
-      if (!_selected.contains(_elem)) {
-        int elmid = _elem.offset.top + (_elem.offsetHeight ~/ 2);
-        if (tmiddle == elmid) {
-          ret = tmiddle;
-        }
-      }
-    }
-
-    return ret;
-  }
-
-  int _detectTopGL(Rectangle rect) {
-    int ret;
-
-    if (rect.top == 0) {
-      ret = rect.top;
-    } else if (rect.top == scaledHeight) {
-      ret = rect.top;
-    }
-    for (StageElement _elem in _elements) {
-      if (!_selected.contains(_elem)) {
-        if (rect.top == _elem.offsetTop) {
-          ret = rect.top;
-        } else if (rect.top == _elem.offset.bottom) {
-          ret = rect.top;
-        }
-      }
-    }
-
-    return ret;
-  }
-
-  int _detectBottomGL(Rectangle rect) {
-    int ret;
-
-    if (rect.bottom == 0) {
-      ret = rect.bottom;
-    } else if (rect.bottom == scaledHeight) {
-      ret = rect.bottom;
-    }
-    for (StageElement _elem in _elements) {
-      if (!_selected.contains(_elem)) {
-        if (rect.bottom == _elem.offset.bottom) {
-          ret = rect.bottom;
-        } else if (rect.bottom == _elem.offset.top) {
-          ret = rect.bottom;
-        }
-      }
-    }
-
-    return ret;
-  }
-
-  Point _detectMoveAutoGuidelines(Rectangle rect) {
-    int vertAnchor;
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    vertAnchor = _detectHorMiddleGL(rect);
-
-    if (vertAnchor == null) {
-      vertAnchor = _detectLeftGL(rect);
-    }
-
-    if (vertAnchor == null) {
-      vertAnchor = _detectRightGL(rect);
-    }
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectTopGL(rect);
-    }
-
-    if (horAnchor == null) {
-      horAnchor = _detectBottomGL(rect);
-    }
-
-    if (vertAnchor != null) {
+  void showAutoGuidelines(Point a_glines) {
+    if (a_glines.x != null) {
       _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${vertAnchor}px";
+      _verAutoGL.style.left = "${a_glines.x}px";
     } else {
       _verAutoGL.classes.remove("show");
     }
 
-    if (horAnchor != null) {
+    if (a_glines.y != null) {
       _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
+      _horAutoGL.style.top = "${a_glines.y}px";
     } else {
       _horAutoGL.classes.remove("show");
     }
-
-    return new Point(vertAnchor, horAnchor);
   }
 
   void hideAutoGuidelines() {
@@ -414,230 +257,7 @@ class DockStage extends PolymerElement {
     _horAutoGL.classes.remove("show");
   }
 
-  Point _detectResizeNWAutoGuidelines(Rectangle rect) {
-    int verAnchor;
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    verAnchor = _detectHorMiddleGL(rect);
-
-    if (verAnchor == null) {
-      verAnchor = _detectLeftGL(rect);
-    }
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectTopGL(rect);
-    }
-
-    if (verAnchor != null) {
-      _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${verAnchor}px";
-    } else {
-      _verAutoGL.classes.remove("show");
-    }
-
-    if (horAnchor != null) {
-      _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
-    } else {
-      _horAutoGL.classes.remove("show");
-    }
-
-    return new Point(verAnchor, horAnchor);
-  }
-
-  Point _detectResizeNEAutoGuidelines(Rectangle rect) {
-    int verAnchor;
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    verAnchor = _detectHorMiddleGL(rect);
-
-    if (verAnchor == null) {
-      verAnchor = _detectRightGL(rect);
-    }
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectTopGL(rect);
-    }
-
-    if (verAnchor != null) {
-      _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${verAnchor}px";
-    } else {
-      _verAutoGL.classes.remove("show");
-    }
-
-    if (horAnchor != null) {
-      _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
-    } else {
-      _horAutoGL.classes.remove("show");
-    }
-
-    return new Point(verAnchor, horAnchor);
-  }
-
-  Point _detectResizeSEAutoGuidelines(Rectangle rect) {
-    int verAnchor;
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    verAnchor = _detectHorMiddleGL(rect);
-
-    if (verAnchor == null) {
-      verAnchor = _detectRightGL(rect);
-    }
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectBottomGL(rect);
-    }
-
-    if (verAnchor != null) {
-      _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${verAnchor}px";
-    } else {
-      _verAutoGL.classes.remove("show");
-    }
-
-    if (horAnchor != null) {
-      _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
-    } else {
-      _horAutoGL.classes.remove("show");
-    }
-
-    return new Point(verAnchor, horAnchor);
-  }
-
-  Point _detectResizeSWAutoGuidelines(Rectangle rect) {
-    int verAnchor;
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    verAnchor = _detectHorMiddleGL(rect);
-
-    if (verAnchor == null) {
-      verAnchor = _detectLeftGL(rect);
-    }
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectBottomGL(rect);
-    }
-
-    if (verAnchor != null) {
-      _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${verAnchor}px";
-    } else {
-      _verAutoGL.classes.remove("show");
-    }
-
-    if (horAnchor != null) {
-      _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
-    } else {
-      _horAutoGL.classes.remove("show");
-    }
-
-    return new Point(verAnchor, horAnchor);
-  }
-
-  int _detectResizeNAutoGuidelines(Rectangle rect) {
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectTopGL(rect);
-    }
-
-    _verAutoGL.classes.remove("show");
-
-    if (horAnchor != null) {
-      _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
-    } else {
-      _horAutoGL.classes.remove("show");
-    }
-
-    return horAnchor;
-  }
-
-  int _detectResizeSAutoGuidelines(Rectangle rect) {
-    int horAnchor;
-    //TODO: also find equal gaps
-
-    horAnchor = _detectVerMiddleGL(rect);
-
-    if (horAnchor == null) {
-      horAnchor = _detectBottomGL(rect);
-    }
-
-    _verAutoGL.classes.remove("show");
-
-    if (horAnchor != null) {
-      _horAutoGL.classes.add("show");
-      _horAutoGL.style.top = "${horAnchor}px";
-    } else {
-      _horAutoGL.classes.remove("show");
-    }
-
-    return horAnchor;
-  }
-
-  int _detectResizeEAutoGuidelines(Rectangle rect) {
-    int verAnchor;
-    //TODO: also find equal gaps
-
-    verAnchor = _detectHorMiddleGL(rect);
-
-    if (verAnchor == null) {
-      verAnchor = _detectRightGL(rect);
-    }
-
-    if (verAnchor != null) {
-      _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${verAnchor}px";
-    } else {
-      _verAutoGL.classes.remove("show");
-    }
-
-    _horAutoGL.classes.remove("show");
-
-    return verAnchor;
-  }
-
-  int _detectResizeWAutoGuidelines(Rectangle rect) {
-    int verAnchor;
-    //TODO: also find equal gaps
-
-    verAnchor = _detectHorMiddleGL(rect);
-
-    if (verAnchor == null) {
-      verAnchor = _detectLeftGL(rect);
-    }
-
-    if (verAnchor != null) {
-      _verAutoGL.classes.add("show");
-      _verAutoGL.style.left = "${verAnchor}px";
-    } else {
-      _verAutoGL.classes.remove("show");
-    }
-
-    _horAutoGL.classes.remove("show");
-
-    return verAnchor;
-  }
-
+  Point _moveStartPt;
   /*
    * Called by the [StageElement] when the user starts to move
    */
@@ -649,8 +269,10 @@ class DockStage extends PolymerElement {
       _moveEscape = document.onKeyDown.listen((KeyboardEvent event) {
         if (event.keyCode == KeyCode.ESC) {
           for (StageElement _elem in _selected) {
-            _elem.left = _elem._savedPosBeforeMove.x / stagescale;
-            _elem.top = _elem._savedPosBeforeMove.y / stagescale;
+            StageElInfo b_elinfo = _infoMap[_elem];
+
+            _elem.left = b_elinfo.posBeforeMove.x / stagescale;
+            _elem.top = b_elinfo.posBeforeMove.y / stagescale;
           }
           _stopMove(null);
         }
@@ -658,8 +280,9 @@ class DockStage extends PolymerElement {
       _moveStartPt = event.page;
 
       for (StageElement _elem in _selected) {
-        _elem._savedPosBeforeMove =
-            new Point(_elem.scaledleft, _elem.scaledtop);
+        StageElInfo b_elinfo = _infoMap[_elem];
+        b_elinfo.posBeforeMove =
+            new Point(getScaledValue(_elem.left), getScaledValue(_elem.top));
       }
     }
   }
@@ -677,35 +300,41 @@ class DockStage extends PolymerElement {
     if (getBoundingClientRect().containsPoint(event.page)) {
       Point diff = event.page - _moveStartPt;
       for (StageElement _elem in _selected) {
-        int left = (_elem._savedPosBeforeMove.x + diff.x) ~/ stagescale;
-        int top = (_elem._savedPosBeforeMove.y + diff.y) ~/ stagescale;
+        StageElInfo b_elinfo = _infoMap[_elem];
+        int left = (b_elinfo.posBeforeMove.x + diff.x) ~/ stagescale;
+        int top = (b_elinfo.posBeforeMove.y + diff.y) ~/ stagescale;
 
         _elem.left = left;
         _elem.top = top;
 
-        if (lowestLeft == null || lowestLeft > _elem.scaledleft) {
-          lowestLeft = _elem.scaledleft;
+        if (lowestLeft == null || lowestLeft > getScaledValue(_elem.left)) {
+          lowestLeft = getScaledValue(_elem.left);
         }
 
-        if (lowestTop == null || lowestTop > _elem.scaledtop) {
-          lowestTop = _elem.scaledtop;
+        if (lowestTop == null || lowestTop > getScaledValue(_elem.top)) {
+          lowestTop = getScaledValue(_elem.top);
         }
 
         if (highestRight == null ||
-            highestRight < _elem.scaledleft + _elem.scaledwidth) {
-          highestRight = _elem.scaledleft + _elem.scaledwidth;
+            highestRight <
+                getScaledValue(_elem.left) + getScaledValue(_elem.width)) {
+          highestRight =
+              getScaledValue(_elem.left) + getScaledValue(_elem.width);
         }
 
         if (highestBottom == null ||
-            highestBottom < _elem.scaledtop + _elem.scrollHeight) {
-          highestBottom = _elem.scaledtop + _elem.scrollHeight;
+            highestBottom < getScaledValue(_elem.top) + _elem.scrollHeight) {
+          highestBottom = getScaledValue(_elem.top) + _elem.scrollHeight;
         }
       }
     }
 
     rect = new Rectangle.fromPoints(new Point(lowestLeft, lowestTop),
         new Point(highestRight, highestBottom));
-    _detectMoveAutoGuidelines(rect);
+    Point l_glines = detectMoveAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+
+    showAutoGuidelines(l_glines);
 
     _hideAnchors();
   }
@@ -774,10 +403,14 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeNWAutoGuidelines(rect);
+    Point l_glines = detectResizeNWAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+
+    showAutoGuidelines(l_glines);
   }
 
   void _neResizeHandler(MouseEvent event) {
@@ -796,10 +429,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeNEAutoGuidelines(rect);
+    Point l_glines = detectResizeNEAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _seResizeHandler(MouseEvent event) {
@@ -817,10 +453,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeSEAutoGuidelines(rect);
+    Point l_glines = detectResizeSEAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _swResizeHandler(MouseEvent event) {
@@ -839,10 +478,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeSWAutoGuidelines(rect);
+    Point l_glines = detectResizeSWAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _nResizeHandler(MouseEvent event) {
@@ -857,10 +499,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeNAutoGuidelines(rect);
+    Point l_glines = detectResizeNAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _wResizeHandler(MouseEvent event) {
@@ -875,10 +520,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeWAutoGuidelines(rect);
+    Point l_glines = detectResizeWAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _sResizeHandler(MouseEvent event) {
@@ -892,10 +540,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeSAutoGuidelines(rect);
+    Point l_glines = detectResizeSAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _eResizeHandler(MouseEvent event) {
@@ -909,10 +560,13 @@ class DockStage extends PolymerElement {
     }
 
     //TODO: for detectAnchorPoints find bounding rectangle of all selected elements
-    Rectangle rect = new Rectangle(selectedEl.scaledleft, selectedEl.scaledtop,
-        selectedEl.scaledwidth, selectedEl.scaledheight);
+    Rectangle rect = new Rectangle(getScaledValue(selectedEl.left),
+        getScaledValue(selectedEl.top), getScaledValue(selectedEl.width),
+        getScaledValue(selectedEl.height));
 
-    _detectResizeEAutoGuidelines(rect);
+    Point l_glines = detectResizeEAutoGuidelines(
+        rect, new Point(scaledWidth, scaledHeight), _elements, _selected);
+    showAutoGuidelines(l_glines);
   }
 
   void _resizeMDHandler(MouseEvent event) {
@@ -1042,13 +696,17 @@ class DockStage extends PolymerElement {
     if (_selected.length == 1) {
       StageElement selectedEl = _selected.first;
 
-      selLeft = selectedEl.scaledleft;
-      selTop = selectedEl.scaledtop;
-      selWidth = selectedEl.scaledleft + selectedEl.scaledwidth;
-      selHeight = selectedEl.scaledtop + selectedEl.scaledheight;
+      selLeft = getScaledValue(selectedEl.left);
+      selTop = getScaledValue(selectedEl.top);
+      selWidth =
+          getScaledValue(selectedEl.left) + getScaledValue(selectedEl.width);
+      selHeight =
+          getScaledValue(selectedEl.top) + getScaledValue(selectedEl.height);
 
-      selHorCenter = selectedEl.scaledleft + (selectedEl.scaledwidth / 2);
-      selVerCenter = selectedEl.scaledtop + (selectedEl.scaledheight / 2);
+      selHorCenter = getScaledValue(selectedEl.left) +
+          (getScaledValue(selectedEl.width) / 2);
+      selVerCenter = getScaledValue(selectedEl.top) +
+          (getScaledValue(selectedEl.height) / 2);
 
       showAnchors = true;
     } else {
@@ -1069,14 +727,30 @@ class DockStage extends PolymerElement {
     for (MutationRecord record in records) {
       for (Node node in record.addedNodes) {
         if (node is StageElement) {
+          StageElement b_stg_el = node;
           _elements.add(node);
-          node._added(this);
+          _updateElementPos(node);
+
+          StageElInfo b_elinfo = new StageElInfo();
+          b_elinfo.element = b_stg_el;
+
+          b_elinfo.movedStream = b_stg_el.onMoved.listen((_) {
+            _updateElementPos(b_stg_el);
+          });
+          b_elinfo.resizedStream = b_stg_el.onResized.listen((_) {
+            _updateElementPos(b_stg_el);
+          });
+
+          _infoMap[b_stg_el] = b_elinfo;
         }
       }
       for (Node node in record.removedNodes) {
-        if (node is HtmlElement) {
+        if (node is StageElement) {
+          deselectElement(node);
           _elements.remove(node);
-          //TODO: if this element is selected, deselect it
+          StageElInfo b_elinfo = _infoMap.remove(node);
+          b_elinfo.movedStream.cancel();
+          b_elinfo.resizedStream.cancel();
         }
       }
     }
@@ -1118,6 +792,9 @@ class DockStage extends PolymerElement {
   List<StageElement> _elements = new List<StageElement>();
   List<StageElement> get elements => _elements.toList(growable: false);
 
+  Map<StageElement, StageElInfo> _infoMap =
+      new Map<StageElement, StageElInfo>();
+
   Set<StageElement> _selected = new Set<StageElement>();
   List<StageElement> get selected => _selected.toList(growable: false);
 
@@ -1133,12 +810,6 @@ class DockStage extends PolymerElement {
 
   @published
   num stagescale = 1.0;
-
-  @published
-  String stagebgcolor = "rgb(255, 255, 255)";
-
-  @published
-  String stagebgimage = "url()";
 
   @published
   bool resizable = true;
@@ -1157,21 +828,24 @@ class DockStage extends PolymerElement {
     stageheightChanged();
 
     for (StageElement elem in _elements) {
-      elem.scale_updated();
+      _updateElementPos(elem);
     }
 
     _showAnchors();
   }
 
-  void stagebgcolorChanged() {
-    _canvas.style.backgroundColor = stagebgcolor;
-  }
-
-  void stagebgimageChanged() {
-    _canvas.style.backgroundImage = stagebgimage;
-  }
-
   void resizableChanged() {}
+
+  int getScaledValue(num a_inp) {
+    return (a_inp * stagescale).toInt();
+  }
+
+  void _updateElementPos(StageElement a_elem) {
+    a_elem.style.width = "${getScaledValue(a_elem.width)}px";
+    a_elem.style.height = "${getScaledValue(a_elem.height)}px";
+    a_elem.style.left = "${getScaledValue(a_elem.left)}px";
+    a_elem.style.top = "${getScaledValue(a_elem.top)}px";
+  }
 
   EventStreamProvider<CustomEvent> _selChangedEventP =
       new EventStreamProvider<CustomEvent>("selection-changed");

@@ -19,77 +19,6 @@ class StageElement extends PolymerElement {
   }
 
   /*
-   * Should be only called from parent when the element is added to it
-   */
-  void _added(DockStage stage) {
-    _stage = stage;
-    _updateProperties();
-  }
-
-  /*
-     * Should be only called from parent when the element is removed from it
-     */
-  void _removed() {
-    if (_stage != null) {
-      _stage = null;
-    }
-  }
-
-  /*
-   * Selects the element
-   */
-  select(bool multi) {
-    if (_stage != null) {
-      _stage.selectElement(this);
-    }
-  }
-
-  /*
-   * Deselects the element
-   */
-  deselect() {
-    if (_stage != null) {
-      _stage.deselectElement(this);
-    }
-  }
-
-  void _selected() {
-    this.classes.add("selected");
-
-    //TODO: send valid detail
-    var event = new CustomEvent("selected", canBubble: false, cancelable: false, detail: null);
-    dispatchEvent(event);
-  }
-
-  void _deselected() {
-    this.classes.remove("selected");
-
-    //TODO: send valid detail
-    var event = new CustomEvent("deselected", canBubble: false, cancelable: false, detail: null);
-    dispatchEvent(event);
-  }
-
-  /*
-   * Parent stage
-   */
-  DockStage _stage;
-  DockStage get stage => _stage;
-
-  /* Move */
-  Point _savedPosBeforeMove;
-
-  void _moved() {
-
-  }
-  
-  void _updateProperties() {
-    leftChanged();
-    topChanged();
-    widthChanged();
-    heightChanged();
-  }
-
-  /*
    * Properties
    */
   @published
@@ -103,6 +32,9 @@ class StageElement extends PolymerElement {
 
   @published
   int height = 0;
+  
+  @published
+  num scale = 1;
 
   @published
   bool resizable = true;
@@ -119,119 +51,33 @@ class StageElement extends PolymerElement {
   @published
   int fontsize = 16;
 
-  @observable
-  int get scaledleft {
-    if (_stage != null) {
-      return (left * _stage.stagescale).toInt();
-    } else {
-      return 0;
-    }
-  }
-
-  @observable
-  int get scaledtop {
-    if (_stage != null) {
-      return (top * _stage.stagescale).toInt();
-    } else {
-      return 0;
-    }
-  }
-
-  @observable
-  int get scaledwidth {
-    if (_stage != null) {
-      return (width * _stage.stagescale).toInt();
-    } else {
-      return 0;
-    }
-  }
-
-  @observable
-  int get scaledheight {
-    if (_stage != null) {
-      return (height * _stage.stagescale).toInt();
-    } else {
-      return 0;
+  void selectableChanged() {
+    if (selectable == false) {
+      //TODO: deselect();
     }
   }
   
-  @observable
-  int get scaledfontsize {
-    if (_stage != null) {
-      return (fontsize * _stage.stagescale).toInt();
-    } else {
-      return 0;
-    }
-  }
-
   void leftChanged() {
-    if (_stage != null) {
-      notifyPropertyChange(#scaledleft, 0, scaledleft);
-      this.style.left = "${scaledleft}px";
-
-      var event = new CustomEvent("poschanged", canBubble: false, cancelable: false, detail: null);
-      dispatchEvent(event);
-    }
+    this.fire("moved", detail: {"left": left, "top": top,});
   }
-
+  
   void topChanged() {
-    if (_stage != null) {
-      notifyPropertyChange(#scaledtop, 0, scaledtop);
-      this.style.top = "${scaledtop}px";
-
-      var event = new CustomEvent("poschanged", canBubble: false, cancelable: false, detail: null);
-      dispatchEvent(event);
-    }
+    this.fire("moved", detail: {"left": left, "top": top,});
   }
-
+  
   void widthChanged() {
-    if (_stage != null) {
-      notifyPropertyChange(#scaledwidth, 0, scaledwidth);
-      this.style.width = "${scaledwidth}px";
-
-      var event = new CustomEvent("sizechanged", canBubble: false, cancelable: false, detail: null);
-      dispatchEvent(event);
-    }
+    this.fire("resized", detail: {"width": width, "height": height,});
   }
-
+  
   void heightChanged() {
-    if (_stage != null) {
-      notifyPropertyChange(#scaledheight, 0, scaledheight);
-      this.style.height = "${scaledheight}px";
-
-      var event = new CustomEvent("sizechanged", canBubble: false, cancelable: false, detail: null);
-      dispatchEvent(event);
-    }
+    this.fire("resized", detail: {"width": width, "height": height,});
   }
-
-  void fontsizeChanged() {
-    if (_stage != null) {
-      notifyPropertyChange(#scaledfontsize, 0, scaledfontsize);
-      this.style.fontSize = "${scaledfontsize}px";
-    }
-  }
-
-  void selectableChanged() {
-    if (selectable == false) {
-      deselect();
-    }
-  }
-
-  void scale_updated() {
-    widthChanged();
-    heightChanged();
-    leftChanged();
-    topChanged();
-
-    fontsizeChanged();
-    //TODO: scale padding
-  }
-
-  EventStreamProvider<CustomEvent> _sizeChangedEventP = new EventStreamProvider<CustomEvent>("sizechanged");
-  Stream<CustomEvent> get onSizeChanged => _sizeChangedEventP.forTarget(this);
-
-  EventStreamProvider<CustomEvent> _posChangedEventP = new EventStreamProvider<CustomEvent>("poschanged");
-  Stream<CustomEvent> get onPosChanged => _posChangedEventP.forTarget(this);
+  
+  EventStreamProvider<CustomEvent> _movedEventP = new EventStreamProvider<CustomEvent>("moved");
+  Stream<CustomEvent> get onMoved => _movedEventP.forTarget(this);
+  
+  EventStreamProvider<CustomEvent> _resizedEventP = new EventStreamProvider<CustomEvent>("resized");
+  Stream<CustomEvent> get onResized => _resizedEventP.forTarget(this);
 
   EventStreamProvider<CustomEvent> _selectedEventP = new EventStreamProvider<CustomEvent>("selected");
   Stream<CustomEvent> get onSelected => _selectedEventP.forTarget(this);
