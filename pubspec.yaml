@@ -13,3 +13,4 @@ transformers:
     - web/stage/stage.html
     - web/ordered_list/ordered_list.html
     - web/spinner/spinner.html
+    - web/listbox/listbox.html

@@ -6,13 +6,12 @@ import 'package:polymer/polymer.dart';
 
 DivElement preview;
 
-main() {
-  initPolymer().run(() {
-    Polymer.onReady.then((_) {
-      SpinnerElm spinner = querySelector("spinner-elm"); 
-      querySelector("#toggle").onClick.listen((_) {
-        spinner.loading = !spinner.loading;
-      });
-    });
+main() async {
+  await initPolymer();
+  await Polymer.onReady;
+  
+  SpinnerElm spinner = querySelector("spinner-elm");
+  querySelector("#toggle").onClick.listen((_) {
+    spinner.loading = !spinner.loading;
   });
 }

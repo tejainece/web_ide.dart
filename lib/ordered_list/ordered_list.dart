@@ -5,7 +5,6 @@ import 'package:polymer/polymer.dart';
 import 'dart:html';
 import 'dart:async';
 import '../drag_drop/drag_drop.dart';
-import 'package:smoke/smoke.dart' as smoke;
 import 'package:dockable/utils/dockable_utils.dart';
 import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope;
 

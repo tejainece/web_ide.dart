@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listbox</title>
+    
+    
+    <style type="text/css">
+      body, html {
+        background-color: #1abc9c;
+        width: 100%;
+        height: 100%;
+      }
+    
+      #holder {
+        width: 200px;
+        height: 300px;
+      }
+      
+      #list1 {
+        background-color: white;
+        padding: 5px;
+        box-sizing:border-box;
+        
+        overflow: hidden auto;
+      }
+      
+      .item-box {
+        width: 100%;
+        height: 50px;
+        background-color: #ccc;
+        color: black;
+        margin-bottom: 5px;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      
+      .item-box.selected {
+        background-color: #ccf;
+      }
+    </style>
+  </head>
+ 
+  <body unresolved layout vertical center-center>
+    <template id="auto-bind" is="auto-binding-dart">
+      <div id="holder">
+        <list-box id="list1" data="{{data}}" selectedIndex="{{selIndex}}">
+          <template>
+            <div class="item-box {{ {selected: selected} }} " on-click="{{select}}">
+              <div>{{item.title}}</div>
+              <div>{{item.subtitle}}</div>
+            </div>
+          </template>
+        </list-box>
+      </div>
+      <div>
+        <button on-click="{{add}}">Add</button>
+      </div>
+      <div>
+        {{selItem.title}}
+      </div>
+      
+      <input type="number" value="{{selIndex | asInteger}}">
+    </template>
+    
+    <script type="application/dart" src="listbox.dart"></script>
+    <!-- for this next line to work, your pubspec.yaml file must have a dependency on 'browser' -->
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>
