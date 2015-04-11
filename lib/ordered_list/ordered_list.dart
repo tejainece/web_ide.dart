@@ -46,9 +46,11 @@ class OrderedListModel extends Object with Observable {
 OrderedListModel orderedlistGetModelForElement(Element a_element) {
   TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
   if(l_tempinst != null) {
+    print(l_tempinst.model);
     if(l_tempinst.model is OrderedListModel) {
       return l_tempinst.model;
     } else {
+      print(l_tempinst.model.model);
       return l_tempinst.model.model;
     }
   } else {
