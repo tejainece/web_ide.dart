@@ -7,8 +7,7 @@ import 'dart:async';
 
 import 'package:dockable/dockable.dart';
 
-import "package:template_binding/template_binding.dart"
-    show nodeBind, templateBind, Scope;
+import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope, TemplateInstance;
 
 class ListBoxModel extends Observable {
   @observable
@@ -51,6 +50,17 @@ class ListBoxModel extends Observable {
     if (listbox != null) {
       listbox.toggleModel(this);
     }
+  }
+}
+
+dynamic listboxGetItemForElement(Element a_element) {
+  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+  if(l_tempinst != null) {
+    print(l_tempinst.model);
+    print(l_tempinst.model.model);
+    return l_tempinst.model.model;
+  } else {
+    return null;
   }
 }
 

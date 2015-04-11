@@ -6,7 +6,7 @@ import 'dart:html';
 import 'dart:async';
 import '../drag_drop/drag_drop.dart';
 import 'package:dockable/utils/dockable_utils.dart';
-import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope;
+import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope, TemplateInstance;
 
 import 'package:dockable/dockable.dart';
 
@@ -34,7 +34,7 @@ class DragStreams {
   }
 }
 
-class ListModel extends Observable {
+class OrderedListModel extends Object with Observable {
   @observable 
   int index;
   
@@ -44,8 +44,19 @@ class ListModel extends Observable {
   @observable 
   var item;
   
-  ListModel(this.index, this.item, this.selected) {
+  OrderedListModel(this.index, this.item, this.selected) {
     
+  }
+}
+
+dynamic orderedlistGetItemForElement(Element a_element) {
+  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+  if(l_tempinst != null) {
+    print(l_tempinst.model);
+    print(l_tempinst.model.model);
+    return l_tempinst.model.model;
+  } else {
+    return null;
   }
 }
 
@@ -65,26 +76,12 @@ class OrderedList extends SelectorHelper {
   @published ObservableList data;
 
   DnDDropType canDrop;
-
-  @published
-  bool multi = false;
-
-  @published
-  bool selectable = false;
-
-  void selectableChanged() {
-    if (selectable) {
-      target = this;
-    } else {
-      target = null;
-    }
-  }
   
   @observable
-  ObservableList<ListModel> models = new ObservableList<ListModel>();
+  ObservableList<OrderedListModel> models = new ObservableList<OrderedListModel>();
   
   @observable
-  ListModel model = new ListModel(0, "something", false);
+  OrderedListModel model = new OrderedListModel(0, "something", false);
 
   void dataChanged() {
     TemplateElement templ = this.querySelector("template");
@@ -96,7 +93,7 @@ class OrderedList extends SelectorHelper {
       int index = 0;
       if(data != null) {
         for(var datael in data) {
-          ListModel el = new ListModel(index++, datael, false);
+          OrderedListModel el = new OrderedListModel(index++, datael, false);
           
           //print(datael);
           
@@ -197,8 +194,6 @@ class OrderedList extends SelectorHelper {
 
   void _onDragStart(MouseEvent event) {
     HtmlElement evtarget = _getElement(event.target);
-
-    print(evtarget.outerHtml);
     
     if (data.length != 0) {
 
@@ -210,7 +205,8 @@ class OrderedList extends SelectorHelper {
         event.dataTransfer.setDragImage(evtarget, 0, 0);
         //TODO: set proper drag-image
 
-
+        print(evtarget.outerHtml);
+        
         Object draggedData = getModelForItem(evtarget);
         setDragData(draggedData, evtarget, this, foundIndex);
       }
@@ -334,8 +330,8 @@ class OrderedList extends SelectorHelper {
         foundIndex;
     Object indData = data[0];
     for (HtmlElement el in children) {
-      Object d = getModelForItem(el);
-      if (d == indData) {
+      Object b_mod = _getModelForElement(el);
+      if (b_mod != null && b_mod == indData) {
         indexCnt++;
         if (el == searched) {
           foundIndex = indexCnt;
@@ -350,6 +346,15 @@ class OrderedList extends SelectorHelper {
     }
 
     return foundIndex;
+  }
+  
+  Object _getModelForElement(HtmlElement a_element) {
+    TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+    if(l_tempinst != null && l_tempinst.model != null) {
+      return l_tempinst.model.item;
+    } else {
+      return null;
+    }
   }
 
   void _fireOnItemContextMenu(HtmlElement item) {

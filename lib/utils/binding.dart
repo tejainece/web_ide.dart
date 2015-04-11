@@ -1,7 +1,10 @@
 part of dockable_utils;
 
 dynamic getModelForItem(item) {
-  dynamic ret = nodeBind(item).templateInstance.model.model;
-
-  return ret;
+  TemplateInstance l_tempinst = nodeBind(item).templateInstance;
+  if(l_tempinst != null) {
+    return l_tempinst.model.model;
+  } else {
+    return null;
+  }
 }
