@@ -94,12 +94,14 @@ class OrderedList extends SelectorHelper {
       models.clear();
       
       int index = 0;
-      for(var datael in data) {
-        ListModel el = new ListModel(index++, datael, false);
-        
-        //print(datael);
-        
-        models.add(el);
+      if(data != null) {
+        for(var datael in data) {
+          ListModel el = new ListModel(index++, datael, false);
+          
+          //print(datael);
+          
+          models.add(el);
+        }
       }
       
       templateBind(templ).model = models;
