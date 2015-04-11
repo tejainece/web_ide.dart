@@ -798,8 +798,20 @@ class DockStage extends PolymerElement {
   Set<StageElement> _selected = new Set<StageElement>();
   List<StageElement> get selected => _selected.toList(growable: false);
 
-  num get scaledWidth => stagewidth * stagescale;
-  num get scaledHeight => stageheight * stagescale;
+  num get scaledWidth {
+    if(stagewidth != null && stagescale != null) {
+      return stagewidth * stagescale;
+    } else {
+      return 0;
+    }
+  } 
+  num get scaledHeight {
+    if(stageheight != null && stagescale != null) {
+      return stageheight * stagescale;
+    }else {
+      return 0;
+    }
+  }
 
   /* Properties */
   @published
