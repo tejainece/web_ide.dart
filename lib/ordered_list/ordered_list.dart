@@ -18,10 +18,6 @@ class DragStreams {
   StreamSubscription dragLeave;
   StreamSubscription drop;
 
-  StreamSubscription contextmenu;
-  StreamSubscription click;
-  StreamSubscription doubleClick;
-
   void cancel() {
     dragStart.cancel();
     dragEnd.cancel();
@@ -29,8 +25,6 @@ class DragStreams {
     dragOver.cancel();
     dragLeave.cancel();
     drop.cancel();
-    click.cancel();
-    doubleClick.cancel();
   }
 }
 
@@ -52,11 +46,9 @@ class OrderedListModel extends Object with Observable {
 OrderedListModel orderedlistGetModelForElement(Element a_element) {
   TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
   if(l_tempinst != null) {
-    print(l_tempinst.model);
     if(l_tempinst.model is OrderedListModel) {
       return l_tempinst.model;
     } else {
-      print(l_tempinst.model.model);
       return l_tempinst.model.model;
     }
   } else {
@@ -67,11 +59,9 @@ OrderedListModel orderedlistGetModelForElement(Element a_element) {
 dynamic orderedlistGetItemForElement(Element a_element) {
   TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
   if(l_tempinst != null) {
-    print(l_tempinst.model);
     if(l_tempinst.model is OrderedListModel) {
       return l_tempinst.model.item;
     } else {
-      print(l_tempinst.model.model);
       return l_tempinst.model.model.item;
     }
   } else {
@@ -98,9 +88,6 @@ class OrderedList extends SelectorHelper {
   
   @observable
   ObservableList<OrderedListModel> models = new ObservableList<OrderedListModel>();
-  
-  @observable
-  OrderedListModel model = new OrderedListModel(0, "something", false);
 
   void dataChanged() {
     TemplateElement templ = this.querySelector("template");
@@ -113,8 +100,6 @@ class OrderedList extends SelectorHelper {
       if(data != null) {
         for(var datael in data) {
           OrderedListModel el = new OrderedListModel(index++, datael, false);
-          
-          //print(datael);
           
           models.add(el);
         }
@@ -189,16 +174,6 @@ class OrderedList extends SelectorHelper {
       newStreams.dragLeave = ch.onDragLeave.listen(_onDragLeave);
       newStreams.drop = ch.onDrop.listen(_onDrop);
 
-      newStreams.click = ch.onClick.listen((_) {
-        _fireOnItemClicked(ch);
-      });
-      newStreams.doubleClick = ch.onDoubleClick.listen((MouseEvent me) {
-        _fireOnItemDoubleClicked(me.target);
-      });
-      newStreams.contextmenu = ch.onContextMenu.listen((MouseEvent me) {
-        _fireOnItemContextMenu(me.target);
-      });
-
       _dragStreams[ch] = newStreams;
     }
   }
@@ -223,10 +198,8 @@ class OrderedList extends SelectorHelper {
         event.dataTransfer.setData('text', "");
         event.dataTransfer.setDragImage(evtarget, 0, 0);
         //TODO: set proper drag-image
-
-        print(evtarget.outerHtml);
         
-        Object draggedData = getModelForItem(evtarget);
+        Object draggedData = orderedlistGetItemForElement(evtarget);
         setDragData(draggedData, evtarget, this, foundIndex);
       }
     }
@@ -288,7 +261,7 @@ class OrderedList extends SelectorHelper {
             dropReceiverItem = null;
           }
         } else {
-          dropReceiverItem = getModelForItem(evtarget);
+          dropReceiverItem = orderedlistGetItemForElement(evtarget);
           newPosition = _findIndexOfElement(evtarget);
         }
 
@@ -365,20 +338,5 @@ class OrderedList extends SelectorHelper {
     }
 
     return foundIndex;
-  }
-
-  void _fireOnItemContextMenu(HtmlElement item) {
-    var event = new CustomEvent("item-contextmenu", canBubble: false, cancelable: false, detail: getModelForItem(item));
-    dispatchEvent(event);
-  }
-
-  void _fireOnItemClicked(HtmlElement item) {
-    var event = new CustomEvent("item-click", canBubble: false, cancelable: false, detail: getModelForItem(item));
-    dispatchEvent(event);
-  }
-
-  void _fireOnItemDoubleClicked(HtmlElement item) {
-    var event = new CustomEvent("item-double-click", canBubble: false, cancelable: false, detail: getModelForItem(item));
-    dispatchEvent(event);
   }
 }
