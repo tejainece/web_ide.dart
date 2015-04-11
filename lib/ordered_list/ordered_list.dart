@@ -6,7 +6,8 @@ import 'dart:html';
 import 'dart:async';
 import '../drag_drop/drag_drop.dart';
 import 'package:dockable/utils/dockable_utils.dart';
-import "package:template_binding/template_binding.dart" show nodeBind, templateBind, Scope, TemplateInstance;
+import "package:template_binding/template_binding.dart"
+    show nodeBind, templateBind, Scope, TemplateInstance;
 
 import 'package:dockable/dockable.dart';
 
@@ -29,25 +30,23 @@ class DragStreams {
 }
 
 class OrderedListModel extends Object with Observable {
-  @observable 
+  @observable
   int index;
-  
-  @observable 
+
+  @observable
   bool selected;
-  
-  @observable 
+
+  @observable
   var item;
-  
-  OrderedListModel(this.index, this.item, this.selected) {
-    
-  }
+
+  OrderedListModel(this.index, this.item, this.selected) {}
 }
 
 OrderedListModel orderedlistGetModelForElement(Element a_element) {
   TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-  if(l_tempinst != null) {
+  if (l_tempinst != null) {
     print(l_tempinst.model);
-    if(l_tempinst.model is OrderedListModel) {
+    if (l_tempinst.model is OrderedListModel) {
       return l_tempinst.model;
     } else {
       print(l_tempinst.model.model);
@@ -60,10 +59,12 @@ OrderedListModel orderedlistGetModelForElement(Element a_element) {
 
 dynamic orderedlistGetItemForElement(Element a_element) {
   TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-  if(l_tempinst != null) {
-    if(l_tempinst.model is OrderedListModel) {
+  if (l_tempinst != null) {
+    print(l_tempinst.model);
+    if (l_tempinst.model is OrderedListModel) {
       return l_tempinst.model.item;
     } else {
+      print(l_tempinst.model.model);
       return l_tempinst.model.model.item;
     }
   } else {
@@ -87,34 +88,35 @@ class OrderedList extends SelectorHelper {
   @published ObservableList data;
 
   DnDDropType canDrop;
-  
+
   @observable
-  ObservableList<OrderedListModel> models = new ObservableList<OrderedListModel>();
+  ObservableList<OrderedListModel> models =
+      new ObservableList<OrderedListModel>();
 
   void dataChanged() {
     TemplateElement templ = this.querySelector("template");
     if (templ != null) {
       templ.attributes["repeat"] = '';
-      
+
       models.clear();
-      
+
       int index = 0;
-      if(data != null) {
-        for(var datael in data) {
+      if (data != null) {
+        for (var datael in data) {
           OrderedListModel el = new OrderedListModel(index++, datael, false);
-          
+
           models.add(el);
         }
       }
-      
+
       templateBind(templ).model = models;
     }
   }
 
-  Map<HtmlElement, DragStreams> _dragStreams = new Map<HtmlElement, DragStreams>();
+  Map<HtmlElement, DragStreams> _dragStreams =
+      new Map<HtmlElement, DragStreams>();
 
-  OrderedList.created() : super.created() {
-  }
+  OrderedList.created() : super.created() {}
 
   void ready() {
     super.ready();
@@ -134,7 +136,7 @@ class OrderedList extends SelectorHelper {
       event.preventDefault();
     });
   }
-  
+
   @override
   attached() {
     _template = querySelector("template");
@@ -190,9 +192,8 @@ class OrderedList extends SelectorHelper {
 
   void _onDragStart(MouseEvent event) {
     HtmlElement evtarget = _getElement(event.target);
-    
-    if (data.length != 0) {
 
+    if (data.length != 0) {
       int foundIndex = _findIndexOfElement(evtarget);
 
       if (foundIndex != null && foundIndex < data.length) {
@@ -200,7 +201,7 @@ class OrderedList extends SelectorHelper {
         event.dataTransfer.setData('text', "");
         event.dataTransfer.setDragImage(evtarget, 0, 0);
         //TODO: set proper drag-image
-        
+
         Object draggedData = orderedlistGetItemForElement(evtarget);
         setDragData(draggedData, evtarget, this, foundIndex);
       }
@@ -269,12 +270,15 @@ class OrderedList extends SelectorHelper {
 
         int dragIndex = getDragDataIndex();
         //consume
-        if (!isReorder || droppedItem != dropReceiverItem || newPosition != dragIndex) {
-
+        if (!isReorder ||
+            droppedItem != dropReceiverItem ||
+            newPosition != dragIndex) {
           if (newPosition != null && newPosition >= 0) {
             // if it is reorder operation and the droppedItem is picked up from
             // this list, remove the existing item and put it in new place
-            if (isReorder && dragIndex < data.length && data[dragIndex] == droppedItem) {
+            if (isReorder &&
+                dragIndex < data.length &&
+                data[dragIndex] == droppedItem) {
               data.removeAt(dragIndex);
             }
 
@@ -310,31 +314,38 @@ class OrderedList extends SelectorHelper {
   }
 
   //events
-  EventStreamProvider<CustomEvent> _itemDblClickedEventP = new EventStreamProvider<CustomEvent>("item-double-click");
-  Stream<CustomEvent> get onItemDoubleClicked => _itemDblClickedEventP.forTarget(this);
+  EventStreamProvider<CustomEvent> _itemDblClickedEventP =
+      new EventStreamProvider<CustomEvent>("item-double-click");
+  Stream<CustomEvent> get onItemDoubleClicked =>
+      _itemDblClickedEventP.forTarget(this);
 
-  EventStreamProvider<CustomEvent> _itemClickedEventP = new EventStreamProvider<CustomEvent>("item-click");
+  EventStreamProvider<CustomEvent> _itemClickedEventP =
+      new EventStreamProvider<CustomEvent>("item-click");
   Stream<CustomEvent> get onItemClicked => _itemClickedEventP.forTarget(this);
 
-  EventStreamProvider<CustomEvent> _itemContextMenuEventP = new EventStreamProvider<CustomEvent>("item-contextmenu");
-  Stream<CustomEvent> get onItemContextMenu => _itemContextMenuEventP.forTarget(this);
+  EventStreamProvider<CustomEvent> _itemContextMenuEventP =
+      new EventStreamProvider<CustomEvent>("item-contextmenu");
+  Stream<CustomEvent> get onItemContextMenu =>
+      _itemContextMenuEventP.forTarget(this);
 
   int _findIndexOfElement(HtmlElement searched) {
     int indexCnt = -1,
         foundIndex;
     Object indData = data[0];
     for (HtmlElement el in children) {
-      Object b_mod = orderedlistGetItemForElement(el);
-      if (b_mod != null && b_mod == indData) {
-        indexCnt++;
-        if (el == searched) {
-          foundIndex = indexCnt;
-          break;
-        }
-        if (indexCnt + 1 < data.length) {
-          indData = data[indexCnt + 1];
-        } else {
-          break;
+      if (el is! TemplateElement) {
+        Object b_mod = orderedlistGetItemForElement(el);
+        if (b_mod != null && b_mod == indData) {
+          indexCnt++;
+          if (el == searched) {
+            foundIndex = indexCnt;
+            break;
+          }
+          if (indexCnt + 1 < data.length) {
+            indData = data[indexCnt + 1];
+          } else {
+            break;
+          }
         }
       }
     }
