@@ -70,36 +70,36 @@ class ListBox extends PolymerElement {
 
   @published
   dynamic get selectedItem {
-    if(selectedModel != null) {
+    if (selectedModel != null) {
       return selectedModel.item;
     } else {
       return null;
     }
   }
-  
+
   set selectedItem(dynamic a_item) {
     select(a_item);
   }
-  
+
   @published
   ListBoxModel selectedModel;
-  
+
   void selectedModelChanged() {
     notifyPropertyChange(#selectedItem, null, selectedItem);
     notifyPropertyChange(#selectedIndex, -1, selectedIndex);
   }
-  
+
   @published
   int get selectedIndex {
-    if(selectedModel != null) {
+    if (selectedModel != null) {
       return selectedModel.index;
     } else {
       return -1;
     }
   }
-  
+
   set selectedIndex(int a_selind) {
-    if(a_selind >= 0 && a_selind < models.length) {
+    if (a_selind >= 0 && a_selind < models.length) {
       selectModel(models[a_selind]);
     }
   }
@@ -122,18 +122,20 @@ class ListBox extends PolymerElement {
       _modelsMap.clear();
 
       int index = 0;
-      for (var datael in data) {
-        ListBoxModel el = l_temp_modelsmap[datael];
-        if (el == null) {
-          el = new ListBoxModel._(this, index++, datael);
-        } else {
-          el.index = index++;
-          if (l_temp_selmod == null && selectedModel == el) {
-            l_temp_selmod = selectedModel;
+      if (data != null) {
+        for (var datael in data) {
+          ListBoxModel el = l_temp_modelsmap[datael];
+          if (el == null) {
+            el = new ListBoxModel._(this, index++, datael);
+          } else {
+            el.index = index++;
+            if (l_temp_selmod == null && selectedModel == el) {
+              l_temp_selmod = selectedModel;
+            }
           }
+          models.add(el);
+          _modelsMap[datael] = el;
         }
-        models.add(el);
-        _modelsMap[datael] = el;
       }
 
       selectedModel = l_temp_selmod;
@@ -175,12 +177,12 @@ class ListBox extends PolymerElement {
         _modelsMap[a_modsel.item] != a_modsel) {
       return;
     }
-    
+
     ListBoxModel l_old = selectedModel;
 
     selectedModel = a_modsel;
-    
-    if(l_old != null) {
+
+    if (l_old != null) {
       l_old.notifySelected(true);
     }
     selectedModel.notifySelected(false);
