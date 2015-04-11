@@ -49,12 +49,31 @@ class OrderedListModel extends Object with Observable {
   }
 }
 
+OrderedListModel orderedlistGetModelForElement(Element a_element) {
+  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+  if(l_tempinst != null) {
+    print(l_tempinst.model);
+    if(l_tempinst.model is OrderedListModel) {
+      return l_tempinst.model;
+    } else {
+      print(l_tempinst.model.model);
+      return l_tempinst.model.model;
+    }
+  } else {
+    return null;
+  }
+}
+
 dynamic orderedlistGetItemForElement(Element a_element) {
   TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
   if(l_tempinst != null) {
     print(l_tempinst.model);
-    print(l_tempinst.model.model);
-    return l_tempinst.model.model;
+    if(l_tempinst.model is OrderedListModel) {
+      return l_tempinst.model.item;
+    } else {
+      print(l_tempinst.model.model);
+      return l_tempinst.model.model.item;
+    }
   } else {
     return null;
   }
@@ -330,7 +349,7 @@ class OrderedList extends SelectorHelper {
         foundIndex;
     Object indData = data[0];
     for (HtmlElement el in children) {
-      Object b_mod = _getModelForElement(el);
+      Object b_mod = orderedlistGetItemForElement(el);
       if (b_mod != null && b_mod == indData) {
         indexCnt++;
         if (el == searched) {
@@ -346,15 +365,6 @@ class OrderedList extends SelectorHelper {
     }
 
     return foundIndex;
-  }
-  
-  Object _getModelForElement(HtmlElement a_element) {
-    TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-    if(l_tempinst != null && l_tempinst.model != null) {
-      return l_tempinst.model.item;
-    } else {
-      return null;
-    }
   }
 
   void _fireOnItemContextMenu(HtmlElement item) {
