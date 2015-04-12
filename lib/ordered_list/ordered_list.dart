@@ -40,35 +40,35 @@ class OrderedListModel extends Object with Observable {
   var item;
 
   OrderedListModel(this.index, this.item, this.selected) {}
-}
-
-OrderedListModel orderedlistGetModelForElement(Element a_element) {
-  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-  if (l_tempinst != null) {
-    print(l_tempinst.model);
-    if (l_tempinst.model is OrderedListModel) {
-      return l_tempinst.model;
+  
+  static OrderedListModel OrderedlistGetModelForElement(Element a_element) {
+    TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+    if (l_tempinst != null) {
+      print(l_tempinst.model);
+      if (l_tempinst.model is OrderedListModel) {
+        return l_tempinst.model;
+      } else {
+        print(l_tempinst.model.model);
+        return l_tempinst.model.model;
+      }
     } else {
-      print(l_tempinst.model.model);
-      return l_tempinst.model.model;
+      return null;
     }
-  } else {
-    return null;
   }
-}
 
-dynamic orderedlistGetItemForElement(Element a_element) {
-  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-  if (l_tempinst != null) {
-    print(l_tempinst.model);
-    if (l_tempinst.model is OrderedListModel) {
-      return l_tempinst.model.item;
+  static dynamic OrderedlistGetItemForElement(Element a_element) {
+    TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+    if (l_tempinst != null) {
+      print(l_tempinst.model);
+      if (l_tempinst.model is OrderedListModel) {
+        return l_tempinst.model.item;
+      } else {
+        print(l_tempinst.model.model);
+        return l_tempinst.model.model.item;
+      }
     } else {
-      print(l_tempinst.model.model);
-      return l_tempinst.model.model.item;
+      return null;
     }
-  } else {
-    return null;
   }
 }
 
@@ -202,7 +202,7 @@ class OrderedList extends SelectorHelper {
         event.dataTransfer.setDragImage(evtarget, 0, 0);
         //TODO: set proper drag-image
 
-        Object draggedData = orderedlistGetItemForElement(evtarget);
+        Object draggedData = OrderedListModel.OrderedlistGetItemForElement(evtarget);
         setDragData(draggedData, evtarget, this, foundIndex);
       }
     }
@@ -264,7 +264,7 @@ class OrderedList extends SelectorHelper {
             dropReceiverItem = null;
           }
         } else {
-          dropReceiverItem = orderedlistGetItemForElement(evtarget);
+          dropReceiverItem = OrderedListModel.OrderedlistGetItemForElement(evtarget);
           newPosition = _findIndexOfElement(evtarget);
         }
 
@@ -334,7 +334,7 @@ class OrderedList extends SelectorHelper {
     Object indData = data[0];
     for (HtmlElement el in children) {
       if (el is! TemplateElement) {
-        Object b_mod = orderedlistGetItemForElement(el);
+        Object b_mod = OrderedListModel.OrderedlistGetItemForElement(el);
         if (b_mod != null && b_mod == indData) {
           indexCnt++;
           if (el == searched) {

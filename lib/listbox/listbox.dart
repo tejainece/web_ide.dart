@@ -51,35 +51,35 @@ class ListBoxModel extends Observable {
       listbox.toggleModel(this);
     }
   }
-}
-
-ListBoxModel listboxGetModelForElement(Element a_element) {
-  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-  if(l_tempinst != null) {
-    print(l_tempinst.model);
-    if(l_tempinst.model is ListBoxModel) {
-      return l_tempinst.model;
+  
+  static ListBoxModel ListboxGetModelForElement(Element a_element) {
+    TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+    if(l_tempinst != null) {
+      print(l_tempinst.model);
+      if(l_tempinst.model is ListBoxModel) {
+        return l_tempinst.model;
+      } else {
+        print(l_tempinst.model.model);
+        return l_tempinst.model.model;
+      }
     } else {
-      print(l_tempinst.model.model);
-      return l_tempinst.model.model;
+      return null;
     }
-  } else {
-    return null;
   }
-}
 
-dynamic listboxGetItemForElement(Element a_element) {
-  TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
-  if(l_tempinst != null) {
-    print(l_tempinst.model);
-    if(l_tempinst.model is ListBoxModel) {
-      return l_tempinst.model.item;
+  static dynamic ListboxGetItemForElement(Element a_element) {
+    TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
+    if(l_tempinst != null) {
+      print(l_tempinst.model);
+      if(l_tempinst.model is ListBoxModel) {
+        return l_tempinst.model.item;
+      } else {
+        print(l_tempinst.model.model);
+        return l_tempinst.model.model.item;
+      }
     } else {
-      print(l_tempinst.model.model);
-      return l_tempinst.model.model.item;
+      return null;
     }
-  } else {
-    return null;
   }
 }
 
