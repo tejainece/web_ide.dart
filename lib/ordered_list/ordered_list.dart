@@ -44,11 +44,9 @@ class OrderedListModel extends Object with Observable {
   static OrderedListModel OrderedlistGetModelForElement(Element a_element) {
     TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
     if (l_tempinst != null) {
-      print(l_tempinst.model);
       if (l_tempinst.model is OrderedListModel) {
         return l_tempinst.model;
       } else {
-        print(l_tempinst.model.model);
         return l_tempinst.model.model;
       }
     } else {
@@ -59,11 +57,9 @@ class OrderedListModel extends Object with Observable {
   static dynamic OrderedlistGetItemForElement(Element a_element) {
     TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
     if (l_tempinst != null) {
-      print(l_tempinst.model);
       if (l_tempinst.model is OrderedListModel) {
         return l_tempinst.model.item;
       } else {
-        print(l_tempinst.model.model);
         return l_tempinst.model.model.item;
       }
     } else {

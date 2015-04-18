@@ -55,11 +55,9 @@ class ListBoxModel extends Observable {
   static ListBoxModel ListboxGetModelForElement(Element a_element) {
     TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
     if(l_tempinst != null) {
-      print(l_tempinst.model);
       if(l_tempinst.model is ListBoxModel) {
         return l_tempinst.model;
       } else {
-        print(l_tempinst.model.model);
         return l_tempinst.model.model;
       }
     } else {
@@ -70,11 +68,9 @@ class ListBoxModel extends Observable {
   static dynamic ListboxGetItemForElement(Element a_element) {
     TemplateInstance l_tempinst = nodeBind(a_element).templateInstance;
     if(l_tempinst != null) {
-      print(l_tempinst.model);
       if(l_tempinst.model is ListBoxModel) {
         return l_tempinst.model.item;
       } else {
-        print(l_tempinst.model.model);
         return l_tempinst.model.model.item;
       }
     } else {
