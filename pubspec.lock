@@ -32,7 +32,7 @@ packages:
   core_elements:
     description: core_elements
     source: hosted
-    version: "0.7.0"
+    version: "0.6.1+2"
   csslib:
     description: csslib
     source: hosted
