@@ -39,6 +39,7 @@ main() async {
   newel2.width = 50;
   newel2.height = 20;
   newel2.style.backgroundColor = "blue";
+  newel2.movable = false;
   cp.children.add(newel2);
 
   /*for(int i = 0; i <= 2; i++) {

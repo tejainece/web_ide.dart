@@ -262,7 +262,14 @@ class DockStage extends PolymerElement {
    * Called by the [StageElement] when the user starts to move
    */
   void _startMove(MouseEvent event) {
-    if (event.button == 0) {
+    bool l_movable = true;
+    for (StageElement _elem in _selected) {
+      if(!_elem.movable) {
+        l_movable = false;
+        break;
+      }
+    }
+    if (event.button == 0 && l_movable) {
       _mousemove = onMouseMove.listen(_processMove);
       _mouseup = onMouseUp.listen(_stopMove);
       _mouseout = onMouseLeave.listen(_stopMove);
