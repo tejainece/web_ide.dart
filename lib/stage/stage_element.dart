@@ -47,9 +47,6 @@ class StageElement extends PolymerElement {
 
   @published
   String text = "";
-
-  @published
-  ColorVal color = new ColorVal.fromRGBA(255, 255, 255, 100);
   
   @published
   int fontsize = 16;
