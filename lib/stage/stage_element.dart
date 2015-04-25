@@ -80,6 +80,10 @@ class StageElement extends PolymerElement {
     notifyPropertyChange(#scaledFontsize, null, scaledFontsize);
   }
   
+  void fontsizeChanged() {
+    notifyPropertyChange(#scaledFontsize, null, scaledFontsize);
+  }
+  
   EventStreamProvider<CustomEvent> _movedEventP = new EventStreamProvider<CustomEvent>("moved");
   Stream<CustomEvent> get onMoved => _movedEventP.forTarget(this);
   
