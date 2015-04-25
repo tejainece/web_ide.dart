@@ -50,6 +50,9 @@ class StageElement extends PolymerElement {
 
   @published
   int fontsize = 16;
+  
+  @observable
+  int get scaledFontsize => fontsize * scale;
 
   void selectableChanged() {
     if (selectable == false) {
@@ -71,6 +74,10 @@ class StageElement extends PolymerElement {
   
   void heightChanged() {
     this.fire("resized", detail: {"width": width, "height": height,});
+  }
+  
+  void scaleChanged() {
+    notifyPropertyChange(#scaledFontsize, null, scaledFontsize);
   }
   
   EventStreamProvider<CustomEvent> _movedEventP = new EventStreamProvider<CustomEvent>("moved");

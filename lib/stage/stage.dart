@@ -168,7 +168,6 @@ class DockStage extends PolymerElement {
         _groupSel.classes.add("show");
 
         StreamSubscription selMMove = onMouseMove.listen((MouseEvent event) {
-          //print("here");
           Point selStartPt = _selStream.initRect - _canvas.offset.topLeft;
           Point selEndPt = event.offset +
               new Point(scrollLeft, scrollTop) -
@@ -394,7 +393,6 @@ class DockStage extends PolymerElement {
   }
 
   void _nwResizeHandler(MouseEvent event) {
-    print("nw resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _nwStreams.startPoint;
@@ -421,7 +419,6 @@ class DockStage extends PolymerElement {
   }
 
   void _neResizeHandler(MouseEvent event) {
-    print("ne resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _neStreams.startPoint;
@@ -446,7 +443,6 @@ class DockStage extends PolymerElement {
   }
 
   void _seResizeHandler(MouseEvent event) {
-    print("se resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _seStreams.startPoint;
@@ -470,7 +466,6 @@ class DockStage extends PolymerElement {
   }
 
   void _swResizeHandler(MouseEvent event) {
-    print("sw resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _swStreams.startPoint;
@@ -495,7 +490,6 @@ class DockStage extends PolymerElement {
   }
 
   void _nResizeHandler(MouseEvent event) {
-    print("n resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _nStreams.startPoint;
@@ -516,7 +510,6 @@ class DockStage extends PolymerElement {
   }
 
   void _wResizeHandler(MouseEvent event) {
-    print("w resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _wStreams.startPoint;
@@ -537,7 +530,6 @@ class DockStage extends PolymerElement {
   }
 
   void _sResizeHandler(MouseEvent event) {
-    print("s resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _sStreams.startPoint;
@@ -557,7 +549,6 @@ class DockStage extends PolymerElement {
   }
 
   void _eResizeHandler(MouseEvent event) {
-    print("e resizing");
     StageElement selectedEl = _selected.first;
     _hideAnchors();
     Point diff = event.page - _eStreams.startPoint;
@@ -609,7 +600,6 @@ class DockStage extends PolymerElement {
       if (curTget != null) {
         StageElement selectedEl = _selected.first;
 
-        //print("${curTget.cursor} begin");
         Rectangle initRect = new Rectangle(selectedEl.offsetLeft,
             selectedEl.offsetTop, selectedEl.offsetWidth,
             selectedEl.offsetHeight);
@@ -666,7 +656,6 @@ class DockStage extends PolymerElement {
   }
 
   _cancelResize(MouseEvent event) {
-    print("resize cancelled");
 
     hideAutoGuidelines();
 
