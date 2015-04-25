@@ -7,6 +7,8 @@ import 'dart:html';
 import 'dart:async';
 import 'dart:math';
 
+import 'package:dockable/utils/dockable_utils.dart';
+
 part 'anchor_stream.dart';
 part 'stage_element.dart';
 part 'stageel_info.dart';
