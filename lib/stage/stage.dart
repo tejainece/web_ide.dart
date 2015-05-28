@@ -727,16 +727,18 @@ class DockStage extends PolymerElement {
         if (node is StageElement) {
           StageElement b_stg_el = node;
           _elements.add(node);
-          _updateElementPos(node);
+          _updateElementScale(node);
 
           StageElInfo b_elinfo = new StageElInfo();
           b_elinfo.element = b_stg_el;
 
           b_elinfo.movedStream = b_stg_el.onMoved.listen((_) {
-            _updateElementPos(b_stg_el);
+            _updateElementScale(b_stg_el);
+            _showAnchors();
           });
           b_elinfo.resizedStream = b_stg_el.onResized.listen((_) {
-            _updateElementPos(b_stg_el);
+            _updateElementScale(b_stg_el);
+            _showAnchors();
           });
 
           _infoMap[b_stg_el] = b_elinfo;
@@ -837,8 +839,8 @@ class DockStage extends PolymerElement {
 
     stageheightChanged();
 
-    for (StageElement elem in _elements) {
-      _updateElementPos(elem);
+    for (StageElement c_elem in _elements) {
+      _updateElementScale(c_elem);
     }
 
     _showAnchors();
@@ -850,7 +852,9 @@ class DockStage extends PolymerElement {
     return (a_inp * stagescale).toInt();
   }
 
-  void _updateElementPos(StageElement a_elem) {
+  void _updateElementScale(StageElement a_elem) {
+    a_elem.scaleChanged();
+    
     a_elem.style.width = "${getScaledValue(a_elem.width)}px";
     a_elem.style.height = "${getScaledValue(a_elem.height)}px";
     a_elem.style.left = "${getScaledValue(a_elem.left)}px";
