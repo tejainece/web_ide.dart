@@ -853,6 +853,7 @@ class DockStage extends PolymerElement {
   }
 
   void _updateElementScale(StageElement a_elem) {
+    a_elem.scale = stagescale;
     a_elem.scaleChanged();
     
     a_elem.style.width = "${getScaledValue(a_elem.width)}px";

@@ -24,8 +24,6 @@
         user-select: none;
         
         line-height: normal;
-        
-        font-size: {{scaledFontsize}}px;
       }
 
       :host(.selected:host) {
@@ -49,9 +47,15 @@
         
         
       }
+      
+      .content {
+        
+      }
     </style>
     
-    {{text}}
+    <div class="content" style="font-size: {{scaledFontsize}}px;">
+      {{text}}
+    </div>
     
   </template>
 </polymer-element>

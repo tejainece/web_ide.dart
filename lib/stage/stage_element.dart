@@ -52,7 +52,7 @@ class StageElement extends PolymerElement {
   int fontsize = 16;
   
   @observable
-  int get scaledFontsize => fontsize * scale;
+  int get scaledFontsize => (fontsize * scale).toInt();
 
   void selectableChanged() {
     if (selectable == false) {
@@ -78,6 +78,7 @@ class StageElement extends PolymerElement {
   
   void scaleChanged() {
     notifyPropertyChange(#scaledFontsize, null, scaledFontsize);
+    print(scaledFontsize);
   }
   
   void fontsizeChanged() {

@@ -13,11 +13,12 @@ main() async {
   await initPolymer();
   await Polymer.onReady;
   
-  cp = new Element.tag("dock-stage");
+  //cp = new Element.tag("dock-stage");
+  cp = querySelector("dock-stage");
   cp.stagewidth = 200;
   cp.stageheight = 200;
   
-  document.body.children.add(cp);
+  //document.body.children.add(cp);
 
   StageElement newel0 = new Element.tag("stage-element");
   newel0.left = 0;
