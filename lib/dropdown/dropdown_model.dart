@@ -4,6 +4,7 @@ class DropdownModel extends Observable {
   @observable
   int index;
 
+  @observable
   bool get selected {
     if (_listbox != null) {
       return _listbox.selectedModel == this;
