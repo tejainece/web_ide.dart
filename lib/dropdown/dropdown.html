@@ -1,0 +1,68 @@
+<polymer-element name="drop-down" attributes="items selectedItem selectedModel selectedIndex atleastone">
+  <template>
+    <style>
+      :host {
+        width: 150px;
+        height: 30px;
+        display: block;
+        
+        cursor: pointer;
+        
+        position: relative;
+      }
+      
+      .display {
+        width: 100%;
+        height: 100%;
+        
+        overflow: hidden;
+      }
+      
+      .dropdown {
+        position: absolute;
+        width: 100%;
+        height: 150px;
+        top: 100%;
+        transition: opacity 0.5s, top 0.5s;
+        overflow: hidden;
+        
+        opacity: 1;
+        padding: 5px;
+        box-sizing: border-box;
+      }
+      
+      .dd-holder {
+        width: 100%;
+        height: 100%;
+        
+        overflow-x: hidden;
+        overflow-y: auto; 
+      }
+      
+      .dropdown > .dd-holder > content[select="[dropdownitem]"]::content > * {
+      }
+      
+      .dropdown.hide {
+        opacity: 0;
+        pointer-events: none;
+        top: 150%;
+      }
+      
+      .dropdown.hide > .dd-holder > content[select="[dropdownitem]"]::content > * {
+        
+      }
+    </style>
+    
+    <div class="display" on-click="{{toggle}}">
+      <content select="[display]"></content>
+    </div>
+    
+    <div class="dropdown {{ {hide: !open} }}">
+      <div class="dd-holder">
+        <content select="[dropdownitem]"></content>
+      </div>
+    </div>
+    
+  </template>
+  <script type="application/dart" src="dropdown.dart"></script>
+</polymer-element>
